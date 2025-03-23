@@ -1,18 +1,33 @@
 # Servicio de filtrado de peticiones - Broker (SFPB)
 
+Este servicio está conectado a un componente de hardware externo (arduino), 
+esto para filtrar si las peticiones que está recibiendo son correctas o son 
+fraudulentas. Funcionapara saber si el equipo o usuario está autorizado para 
+realizar una transacción.
+
 ## Arquitectura de microservicios
 
 Arquitectura implementada para el servicio **SFPB**
 
-<img src="./d_arquitectura.png" style="border-radius: 15px;" />
+<img src="assets/d_arquitectura.png" style="border-radius: 15px;" />
 
 ### Micro Servicios
 
-- **Gateway**: La puerta de entrada para los cliente que utilizan o requieren de este servicio
-- **Validación**: de Peticiones**: Gestiona y valida si las peticiones con correctas
-- **Sesiones**: Gestiona las sesiones necesarios así como las restricciones que conlleva cada una
-- **Logs**: Guarda los registro de cada cliente (petición)
-- **Conecto**: Es el servicio encargado de redirigir pa peticiones a sus destinos
-- **Eureka**: microservicio encargado de que el gateway rendiría sus peticiones a los microservicios internos
-- **Config**: Gestiona las configuraciones de los microservicios (todos)
-- **Harwat**: Encargado de notificar a la parte física si hay peticiones fraudulentas
+| MicroServicio | Descripción                                                                                   | PUERTO    |
+|---------------|-----------------------------------------------------------------------------------------------|-----------|
+| GATEWAY       | La puerta de entrada para los cliente que utilizán o requieren de este servicio               | **3761**  |
+| EUREKA        | Es el servicio encargado de redirigir las peticiones a su destino                             | 8761      |
+| CONFIG        | Microservicio encargado de gestionar las configuración de todos los microservicios utilizadas | 8888      |
+| EXAMPLE       | Un microservicio _**muetra**_ que ejemplifica; como se conecta con toda la arquitectura       | 8090      |
+
+## Iniciar Proyecto
+
+Para iniciar el proyecto (realizar pruebas - testeo), primero se tiene que inicializar los
+siguientes módulos de la siguiente manera (ordenada):
+
+1. CONFIG
+2. EUREKA
+3. GATEWAY
+4. EXAMPLE (Otro servicion)
+
+Ya iniciado los servicios, podemos empezar a utilizar el broker: http://localhost:3761/

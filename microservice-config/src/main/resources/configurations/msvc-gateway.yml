@@ -1,0 +1,20 @@
+server:
+  port: 3761
+
+spring:
+  application:
+    name: msvc-gateway
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+      routes:
+        - id: example
+          uri: 'http://localhost:8090'
+          predicates:
+            - Path=/api/**
+
+eureka:
+  client:
+    register-with-eureka: false

@@ -28,6 +28,6 @@ siguientes módulos de la siguiente manera (ordenada):
 1. CONFIG
 2. EUREKA
 3. GATEWAY
-4. EXAMPLE (Otro servicion)
+4. EXAMPLE (Otros servicios)
 
 Ya iniciado los servicios, podemos empezar a utilizar el broker: http://localhost:3761/

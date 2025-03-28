@@ -24,6 +24,7 @@
         <module>microservice-config</module>
 
         <module>microservice-example</module>
+        <module>microservice-identity</module>
     </modules>
 
     <properties>

@@ -1,15 +1,15 @@
-package gt.edu.umes.broker.example;
+package gt.edu.umes.broker.broker;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 
-@EnableDiscoveryClient
 @SpringBootApplication
-public class MicroserviceExampleApplication {
+@EnableDiscoveryClient
+public class IdentityServiceApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(MicroserviceExampleApplication.class, args);
+		SpringApplication.run(IdentityServiceApplication.class, args);
 	}
 
 }

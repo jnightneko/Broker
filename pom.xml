@@ -19,11 +19,13 @@
     <packaging>pom</packaging>
 
     <modules>
+        <!-- Microservicios que conforma la arquitectura SFPB. -->
         <module>microservice-gateway</module>
         <module>microservice-eureka</module>
         <module>microservice-config</module>
-
+        <module>microservice-connector</module>
         <module>microservice-example</module>
+
     </modules>
 
     <properties>
@@ -39,7 +41,6 @@
             <version>1.18.36</version>
         </dependency>
     </dependencies>
-
     <build>
         <pluginManagement>
             <plugins>

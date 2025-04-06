@@ -5,11 +5,11 @@
 package gt.edu.umes.broker.connector.controller;
 
 import gt.edu.umes.broker.connector.http.WebObject;
-import gt.edu.umes.broker.connector.client.TallerPinturaClient;
-import static gt.edu.umes.broker.connector.client.TallerPinturaClient.*;
+import static gt.edu.umes.broker.connector.client.PinturaClient.*;
 
 import org.springframework.beans.factory.annotation.*;
 import org.springframework.web.bind.annotation.*;
+import gt.edu.umes.broker.connector.client.PinturaClient;
 /**
  * Clase encargado de gestionar el redireccionamiento de las peticiones a las direcciones correctas.
  * @author wil
@@ -18,9 +18,9 @@ import org.springframework.web.bind.annotation.*;
  */
 @RestController
 @RequestMapping("/broker/__connection__/")
-public class TallerPinturaController {
+public class PinturaController {
     @Autowired
-    private TallerPinturaClient client;
+    private PinturaClient client;
     /**
      * Obtener todos los servicios disponibles
      * @return objeto json

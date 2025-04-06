@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.*;
  * @since 1.0.0
  */
 @FeignClient(value = "MCSV-TallerPinturaClient", url = "http://localhost:8000/")
-public interface TallerPinturaClient {
+public interface PinturaClient {
     
     /**
      * Obtener todos los servicios disponibles

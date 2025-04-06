@@ -9,11 +9,23 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.openfeign.EnableFeignClients;
 
+/**
+ * Clase principal del microservicios <strong>connector</strong> encargado del
+ * redireccionamiento de peticiones a los diferentes servicios (destinos).
+ * 
+ * @author wil
+ * @version 1.0.0
+ * @since 1..0.0
+ */
 @EnableFeignClients
 @EnableDiscoveryClient
 @SpringBootApplication
 public class MicroserviceConnectorApplication {
 
+    /**
+     * Método principla donde se inicializar el microservicios
+     * @param args argumento de la linea de comandos.
+     */
     public static void main(String[] args) {
         SpringApplication.run(MicroserviceConnectorApplication.class, args);
     }

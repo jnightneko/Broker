@@ -1,5 +1,9 @@
 # Servicio de filtrado de peticiones - Broker (SFPB)
 
+> [!NOTE]  
+> Tenga en cuenta que este servicio está en desarrollo y puede experimentar 
+> errores durante la ejecución.
+
 Este servicio está conectado a un componente de hardware externo (arduino), 
 esto para filtrar si las peticiones que está recibiendo son correctas o son 
 fraudulentas. Funciona para saber si el equipo o usuario está autorizado para 
@@ -23,7 +27,11 @@ Arquitectura implementada para el servicio **SFPB**
 ## Iniciar Proyecto
 
 Para iniciar el proyecto (realizar pruebas - testeo), primero se tiene que inicializar los
-siguientes módulos de la siguiente manera (ordenada):
+siguientes módulos de la siguiente manera:
+
+> [!WARNING]  
+> Si no inicia los microservicios de manera ordenada, no podrá inicializar los servicios **SFPB**, 
+> así que tenga cuidado.
 
 1. CONFIG
 2. EUREKA

@@ -2,23 +2,23 @@
 
 Este servicio está conectado a un componente de hardware externo (arduino), 
 esto para filtrar si las peticiones que está recibiendo son correctas o son 
-fraudulentas. Funcionapara saber si el equipo o usuario está autorizado para 
+fraudulentas. Funciona para saber si el equipo o usuario está autorizado para 
 realizar una transacción.
 
 ## Arquitectura de microservicios
 
 Arquitectura implementada para el servicio **SFPB**
 
-<img src="assets/d_arquitectura.png" style="border-radius: 15px;" />
+<img src="assets/SFPN.png" style="border-radius: 15px;" />
 
 ### Micro Servicios
 
-| MicroServicio | Descripción                                                                                   | PUERTO    |
-|---------------|-----------------------------------------------------------------------------------------------|-----------|
-| GATEWAY       | La puerta de entrada para los cliente que utilizán o requieren de este servicio               | **3761**  |
-| EUREKA        | Es el servicio encargado de redirigir las peticiones a su destino                             | 8761      |
-| CONFIG        | Microservicio encargado de gestionar las configuración de todos los microservicios utilizadas | 8888      |
-| EXAMPLE       | Un microservicio _**muetra**_ que ejemplifica; como se conecta con toda la arquitectura       | 8090      |
+| MicroServicio | Descripción                                                                                           | PUERTO    |
+|---------------|-------------------------------------------------------------------------------------------------------|-----------|
+| GATEWAY       | La puerta de entrada para los cliente que utilizán o requieren de este servicio                       | **3761**  |
+| EUREKA        | Es el servicio encargado de redirigir las peticiones a su destino                                     | 8761      |
+| CONFIG        | Microservicio encargado de gestionar las configuración de todos los microservicios utilizadas         | 8888      |
+| EXAMPLE       | Un microservicio _**muestra**_ que ejemplifica; como se conecta con todos los microservicios internos | 8090      |
 
 ## Iniciar Proyecto
 

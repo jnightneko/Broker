@@ -16,8 +16,4 @@ public class IdentityServiceApplication {
 		SpringApplication.run(IdentityServiceApplication.class, args);
 	}
 
-	/*@Bean
-	public RestTemplate restTemplate() {
-		return new RestTemplate();
-	}*/
 }

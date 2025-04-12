@@ -45,4 +45,10 @@ public class JwtService {
         return Keys.hmacShaKeyFor(keyBytes);
     }
 
+    public String extractUsername(String token) {
+        Claims claims = validateToken(token).getPayload();
+
+        return claims.getSubject();
+    }
+
 }

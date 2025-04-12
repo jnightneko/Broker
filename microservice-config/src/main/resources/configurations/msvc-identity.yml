@@ -4,11 +4,17 @@ server:
 spring:
   application:
     name: identity-service
+
+  autoconfigure:
+    exclude: org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration
+
   datasource:
-    url: jdbc:mysql://localhost:3306/microserviceidentity
+    url: jdbc:mysql://localhost:3306/webpf
     username: root
     password:
     driver-class-name: com.mysql.cj.jdbc.Driver
+
+
   jpa:
     hibernate:
       ddl-auto: update
@@ -17,7 +23,7 @@ spring:
 
 eureka:
   instance:
-    instance-id: ${spring.cloud.client.ip-adress}:${server.port}
+    instance-id: ${spring.cloud.client.ip-address}:${server.port}
     appname: identity-service
     prefer-ip-address: true
   client:

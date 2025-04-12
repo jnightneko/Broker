@@ -8,12 +8,12 @@ import java.util.Collection;
 import java.util.List;
 
 public class CustomUserDetails implements UserDetails {
-    private String username;
-    private String password;
+    private String correo;
+    private String contraseña;
 
     public CustomUserDetails(UserCredential userCredential) {
-        this.username = userCredential.getEmail();
-        this.password = userCredential.getPassword();
+        this.correo = userCredential.getCorreo();
+        this.contraseña = userCredential.getContraseña();
     }
 
     @Override
@@ -23,12 +23,12 @@ public class CustomUserDetails implements UserDetails {
 
     @Override
     public String getPassword() {
-        return password;
+        return contraseña;
     }
 
     @Override
     public String getUsername() {
-        return username;
+        return correo;
     }
 
     @Override

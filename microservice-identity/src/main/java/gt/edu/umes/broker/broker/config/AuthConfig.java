@@ -51,7 +51,7 @@ public class AuthConfig {
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers(
                                 "/broker/auth/register",
-                                "/broker/auth/token",
+                                "/broker/POST/autenticacion",
                                 "/broker/auth/validate",
                                 "/broker/auth/admin",
                                 "/broker/auth/userinfo"

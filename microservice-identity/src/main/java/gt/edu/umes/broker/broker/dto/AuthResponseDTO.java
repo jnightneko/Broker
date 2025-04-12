@@ -3,26 +3,26 @@ package gt.edu.umes.broker.broker.dto;
 import java.util.List;
 
 public class AuthResponseDTO {
-    private String token;
+    private String broker_session_token;
     private Long userId;
     private String nombre;
     private String email;
     private List<String> roles;
 
-    public AuthResponseDTO(String token, Long userId, String nombre, String email, List<String> roles) {
-        this.token = token;
+    public AuthResponseDTO(String broker_session_token, Long userId, String nombre, String email, List<String> roles) {
+        this.broker_session_token = broker_session_token;
         this.userId = userId;
         this.nombre = nombre;
         this.email = email;
         this.roles = roles;
     }
 
-    public String getToken() {
-        return token;
+    public String getBroker_session_token() {
+        return broker_session_token;
     }
 
-    public void setToken(String token) {
-        this.token = token;
+    public void setBroker_session_token(String broker_session_token) {
+        this.broker_session_token = broker_session_token;
     }
 
     public Long getUserId() {

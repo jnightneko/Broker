@@ -39,7 +39,7 @@ public class AuthController {
         return ResponseEntity.ok(resultado);
     }
 
-    @PostMapping("/auth/token") /*probado*/
+    @PostMapping("/POST/autenticacion") /*probado*/
     public ResponseEntity<AuthResponseDTO> getToken(@RequestBody AuthRequest authRequest) {
         EmpleadoResponseDTO empleado = administracionCliente.validarEmpleado(authRequest);
 

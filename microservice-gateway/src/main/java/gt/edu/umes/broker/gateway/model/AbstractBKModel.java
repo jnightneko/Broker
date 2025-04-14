@@ -52,10 +52,18 @@ public abstract class AbstractBKModel<T> {
         this.metaData = metaData;
     }
 
+    /**
+     * Establece el cuerpo de la respueta.
+     * @param body el cuerpo
+     */
     public void setBody(T body) {
         this.body = body;
     }
 
+    /**
+     * Devuelve el cuerpo de la respuetas
+     * @return el cuerpo
+     */
     public T getBody() {
         return body;
     }

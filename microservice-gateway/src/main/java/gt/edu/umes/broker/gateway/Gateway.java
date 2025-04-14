@@ -9,19 +9,34 @@ import gt.edu.umes.broker.gateway.model.BKErrorResponseModel;
 import gt.edu.umes.broker.gateway.model.MetaData;
 
 /**
- *
+ * Clase encargado de proptocionar método utilizada para el redireccionamento de las peticiones
+ * solicitada la broker.
+ * s
  * @author wil
+ * @version 1.0.0
+ * @since 1.0.0
  */
 public final class Gateway {
     
-    public static String bkBuildHostService(MetaData data) {
-        StringBuilder buff = new StringBuilder();
-        buff.append(Configuration.MSVC_CONNECTOR_HOST.get())
-            .append(Configuration.MSVC_CONNECTOT_PATH.get());
-        return String.valueOf(buff);
-    }
-    
+    /**
+     * Genera un mensaje (JSON) de error por incumplimiento de formato al solicitar un redireccionamiento
+     * al broker.
+     * 
+     * @param msg mensaje de error
+     * @param code estado del error
+     * @return JSON
+     */
     public static BKErrorResponseModel bkNewError(String msg, int code) { return bkNewError(null, msg, code); }
+    
+    /**
+     * Genera un mensaje (JSON) de error por incumplimiento de formato al solicitar un redireccionamiento
+     * al broker.
+     * 
+     * @param metaData metadatos
+     * @param msg mensaje de error
+     * @param code estado del error
+     * @return JSON
+     */
     public static BKErrorResponseModel bkNewError(MetaData metaData, String msg, int code) {
         assert msg != null || code < 0;
         BKErrorResponseModel error = new BKErrorResponseModel(msg, code);
@@ -29,6 +44,12 @@ public final class Gateway {
         return error;
     }
     
+    /**
+     * Verifica si el objeto recibido por parte del cliente es correcta.
+     * 
+     * @param model objeto web
+     * @return estado|boolean
+     */
     public static boolean bkCheckRequest(AbstractBKModel<Object> model) {
         if (model == null) {
             return false;

@@ -4,245 +4,163 @@
  */
 package gt.edu.umes.broker.connector.controller;
 
-import gt.edu.umes.broker.connector.http.WebObject;
-import static gt.edu.umes.broker.connector.client.GasClient.*;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
 import gt.edu.umes.broker.connector.client.GasClient;
+import static gt.edu.umes.broker.connector.client.GasClient.*;
 
 /**
- * Clase encargado de gestionar el redireccionamiento de las peticiones a las direcciones correctas.
+ * Clase encargado de gestionar el redireccionamiento de las peticiones a las 
+ * direcciones correctas.
+ * 
  * @author wil
  * @version 1.0.0
  * @since 1.0.0
  */
 @RestController
 @RequestMapping("/broker/__connection__/")
-public class GasController {
+public final class GasController {
     @Autowired
     private GasClient client;
-    /*
-        Obtener todas las gasolinas 
-    */
+    /* (non-Javadoc) */
     @PostMapping(HTTP_BOMB_LIST)
-    public WebObject getBomBList() {
+    public Object getBomBList() {
         return client.nBomBList();
     }
-    
-    /*
-        Obtener solo las bombas que se encuentran en estado activo
-    */
+    /* (non-Javadoc) */
     @PostMapping(HTTP_BOMB_LIST_ACTIVE)
-    public WebObject getBomBListActive() {
+    public Object getBomBListActive() {
         return client.nBomBListActive();
     }
-    
-    /*
-        Obtener solo las bombas que se encuentran en estado inactivo
-    */
+    /* (non-Javadoc) */
     @PostMapping(HTTP_BOMB_LIST_INACTIVE)
-    public WebObject getBombListInactive() {
+    public Object getBombListInactive() {
         return client.nBombListInactive();
     }
-    
-    /*
-        Obtener solo las bombas que se encuentran en estado de mantenimiento
-    */
+    /* (non-Javadoc) */
     @PostMapping(HTTP_BOMB_LIST_MAINTEANCE)
-    public WebObject getBombListMainteance() {
+    public Object getBombListMainteance() {
         return client.nBombListMainteance();
     }
-    
-    /*
-        Devuelve una bomba en específico en base al id
-    */
+    /* (non-Javadoc) */
     @PostMapping(HTTP_BOMB_LIST_BOMBID)
-    public WebObject getBombListBombId(@PathVariable("bombId") Long id) {
-        return client.nBombListBombId(id);
+    public Object getBombListBombId(@PathVariable("bombId") Long bombId) {
+        return client.nBombListBombId(bombId);
     }
-    
-    /*
-        Crear una bomba de servicio de gasolina
-    */
+    /* (non-Javadoc) */
     @PostMapping(HTTP_BOMB_CREATE)
-    public WebObject getBombCreate(@RequestBody WebObject o) {
+    public Object getBombCreate(@RequestBody Object o) {
         return client.nBombCreate(o);
     }
-    
-    /*
-        Actualizar una bomba de gasolina
-    */
+    /* (non-Javadoc) */
     @PostMapping(HTTP_BOMB_UPDATE)
-    public WebObject getBombUpdate(@PathVariable("bombId") Long id,@RequestBody WebObject o) {
-        return client.nBombUpdate(id, o);
+    public Object getBombUpdate(@PathVariable("bombId") Long bombId,@RequestBody Object o) {
+        return client.nBombUpdate(bombId, o);
     }
-    
-    /*
-        Eliminar una bomba de gasolina
-    */
+    /* (non-Javadoc) */
     @PostMapping(HTTP_BOMB_DELETE)
-    public WebObject getBombDelete(@PathVariable("bombId") Long id) {
-        return client.nBombDelete(id);
+    public Object getBombDelete(@PathVariable("bombId") Long bombId) {
+        return client.nBombDelete(bombId);
     }
-    
-    /*
-        Obtener todos los tipos de gasolina
-    */
+    /* (non-Javadoc) */
     @PostMapping(HTTP_FUEL_TYPE_LIST)
-    public WebObject getFuelTypeList() {
+    public Object getFuelTypeList() {
         return client.nFuelTypeList();
     }
-    
-    /*
-        Devuelve un tipo de gasolina específico
-    */
+    /* (non-Javadoc) */
     @PostMapping(HTTP_FUEL_TYPE_LIST_ID)
-    public WebObject getFuelTypeListId(@PathVariable("fuelId") Long id) {
-        return client.nFuelTypeListId(id);
+    public Object getFuelTypeListId(@PathVariable("fuelId") Long fuelId) {
+        return client.nFuelTypeListId(fuelId);
     }
-    
-    /*
-        Crear un tipo de gasolina
-    */
+    /* (non-Javadoc) */
     @PostMapping(HTTP_FUEL_TYPE_CREATE)
-    public WebObject getFuelTypeCreate(@RequestBody WebObject o) {
+    public Object getFuelTypeCreate(@RequestBody Object o) {
         return client.nFuelTypeCreate(o);
     }
-    
-    /*
-        Actualizar un tipo de gasolina
-    */
+    /* (non-Javadoc) */
     @PostMapping(HTTP_FUEL_TYPE_UPDATE)
-    public WebObject getFuelTypeUpdate(@PathVariable("fuelId") Long id, @RequestBody WebObject o) {
-        return client.nFuelTypeUpdate(id, o);
+    public Object getFuelTypeUpdate(@PathVariable("fuelId") Long fuelId, @RequestBody Object o) {
+        return client.nFuelTypeUpdate(fuelId, o);
     }
-    
-    /*
-        Eliminar un tipo de gasolina
-    */
+    /* (non-Javadoc) */
     @PostMapping(HTTP_FUEL_TYPE_DELETE)
-    public WebObject getFuelTypeDelete(@PathVariable("fuelId") Long id) {
-        return client.nFuelTypeDelete(id);
+    public Object getFuelTypeDelete(@PathVariable("fuelId") Long fuelId) {
+        return client.nFuelTypeDelete(fuelId);
     }
-    
-    /*
-        Lista todas las ventas de combustible
-    */
+    /* (non-Javadoc) */
     @PostMapping(HTTP_SALE_LIST)
-    public WebObject getSaleList() {
+    public Object getSaleList() {
         return client.nSaleList();
     }
-    
-    /*
-        Devuelve una venta de combustible específica
-    */
+    /* (non-Javadoc) */
     @PostMapping(HTTP_SALE_LIST_FUEL_SALE_ID)
-    public WebObject getSaleListFuelSaleId(@PathVariable("fuelSaleId") Long id) {
-        return client.nSaleListFuelSaleId(id);
+    public Object getSaleListFuelSaleId(@PathVariable("fuelSaleId") Long fuelSaleId) {
+        return client.nSaleListFuelSaleId(fuelSaleId);
     }
-    
-    /*
-        Realiza una venta de combustible
-    */
+    /* (non-Javadoc) */
     @PostMapping(HTTP_SALE_CREATE)
-    public WebObject getSaleCreate(@RequestBody WebObject o) {
+    public Object getSaleCreate(@RequestBody Object o) {
         return client.nSaleCreate(o);
     }
-    
-    /*
-        Edita una venta de combustible
-    */
+    /* (non-Javadoc) */
     @PostMapping(HTTP_SALE_UPDATE)
-    public WebObject getSaleUpdate(@PathVariable("fuelSaleId") Long id, @RequestBody WebObject o) {
-        return client.nSaleUpdate(id, o);
+    public Object getSaleUpdate(@PathVariable("fuelSaleId") Long fuelSaleId, @RequestBody Object o) {
+        return client.nSaleUpdate(fuelSaleId, o);
     }
-    
-    /*
-        Borra lógicamente una venta de combustible
-    */
+    /* (non-Javadoc) */
     @PostMapping(HTTP_SALE_DELETE)
-    public WebObject getSaleDelerte(@PathVariable("fuelSaleId") Long id) {
-        return client.nSaleDelerte(id);
+    public Object getSaleDelerte(@PathVariable("fuelSaleId") Long fuelSaleId) {
+        return client.nSaleDelerte(fuelSaleId);
     }
-    
-    /*
-        Lista todos los depósitos generales de combustible.
-    */
+    /* (non-Javadoc) */
     @PostMapping(HTTP_GENERAL_DEPOSIT_LIST)
-    public WebObject getGeneralDepositList() {
+    public Object getGeneralDepositList() {
         return client.nGeneralDepositList();
     }
-    
-    /*
-        Obtener un depósito general de combustible específico.
-    */
+    /* (non-Javadoc) */
     @PostMapping(HTTP_GENERAL_DEPOSIT_LIST_ID)
-    public WebObject getGenaralDepositListId(@PathVariable("generalDepositId") Long id) {
-        return client.nGenaralDepositListId(id);
+    public Object getGenaralDepositListId(@PathVariable("generalDepositId") Long generalDepositId) {
+        return client.nGenaralDepositListId(generalDepositId);
     }
-    
-    /*
-        Guarda un nuevo depósito general de combustible.
-    */
+    /* (non-Javadoc) */
     @PostMapping(HTTP_GENERAL_DEPOSIT_CREATE)
-    public WebObject getGeneralDepositCreate(@RequestBody WebObject o) {
+    public Object getGeneralDepositCreate(@RequestBody Object o) {
         return client.nGeneralDepositCreate(o);
     }
-    
-    /*
-        Edita un depósito general de combustible.
-    */
+    /* (non-Javadoc) */
     @PostMapping(HTTP_GENERAL_DEPOSIT_UPDATE)
-    public WebObject getGeneralDepositUpdate(@PathVariable("generalDepositId") Long id, @RequestBody WebObject o) {
-        return client.nGeneralDepositUpdate(id, o);
+    public Object getGeneralDepositUpdate(@PathVariable("generalDepositId") Long generalDepositId, @RequestBody Object o) {
+        return client.nGeneralDepositUpdate(generalDepositId, o);
     }
-    
-    /*
-        Borra lógicamente un depósito general de combustible.
-    */
+    /* (non-Javadoc) */
     @PostMapping(HTTP_GENERAL_DEPOSIT_DELETE)
-    public WebObject getGeneralDepositDelete(@PathVariable("generalDepositId") Long id) {
-        return client.nGeneralDepositDelete(id);
+    public Object getGeneralDepositDelete(@PathVariable("generalDepositId") Long generalDepositId) {
+        return client.nGeneralDepositDelete(generalDepositId);
     }
-    
-    /*
-        Lista todas las alertas generadas por el microservicio.
-    */
+    /* (non-Javadoc) */
     @PostMapping(HTTP_ALERT_LIST)
-    public WebObject getAlertList() {
+    public Object getAlertList() {
         return client.nAlertList();
     }
-    
-    /*
-        Obtener una alerta específica.
-    */
+    /* (non-Javadoc) */
     @PostMapping(HTTP_ALERT_LIST_ID)
-    public WebObject getAlertListId(@PathVariable("alertId") Long id) {
-        return client.nAlertListId(id);
+    public Object getAlertListId(@PathVariable("alertId") Long alertId) {
+        return client.nAlertListId(alertId);
     }
-    
-    /*
-        Guarda una nueva alerta.
-    */
+    /* (non-Javadoc) */
     @PostMapping(HTTP_ALERT_CREATE)
-    public WebObject getAlertCreate(@RequestBody WebObject o) {
+    public Object getAlertCreate(@RequestBody Object o) {
         return client.nAlertCreate(o);
     }
-    
-    /*
-        Edita una alerta
-    */
+    /* (non-Javadoc) */
     @PostMapping(HTTP_ALERT_UPDATE)
-    public WebObject getAlretUpdate(@PathVariable("alertId") Long id) {
-        return client.nAlretUpdate(id);
+    public Object getAlretUpdate(@PathVariable("alertId") Long alertId) {
+        return client.nAlretUpdate(alertId);
     }
-    
-    /*
-        Borra lógicamente una alerta.
-    */
+    /* (non-Javadoc) */
     @PostMapping(HTTP_ALERT_DELETE)
-    public WebObject getAlertDelete(@PathVariable("alertId") Long id) {
-        return client.nAlertDelete(id);
+    public Object getAlertDelete(@PathVariable("alertId") Long alertId) {
+        return client.nAlertDelete(alertId);
     }
 }

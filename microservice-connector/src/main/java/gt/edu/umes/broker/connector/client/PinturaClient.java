@@ -4,7 +4,6 @@
  */
 package gt.edu.umes.broker.connector.client;
 
-import gt.edu.umes.broker.connector.http.WebObject;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.*;
 
@@ -18,15 +17,46 @@ import org.springframework.web.bind.annotation.*;
  */
 @FeignClient(value = "MCSV-TallerPinturaClient", url = "http://localhost:8000/")
 public interface PinturaClient {
-    
+    //******************************************************************************************************************
+    //**    RUTA DE ELNLACES
+    public static final String PINTURA_SERVICIO_GET             = "pintura/GET/servicios";
+    public static final String PINTURA_SERVICIO_POST            = "pintura/POST/servicios";
+    public static final String PINTURA_SERVICIO_PUT             = "pintura/PUT/servicios/{idServicio}";
+    public static final String PINTURA_TIPOSERVICIO_GET         = "pintura/GET/tiposervicios";
+    public static final String PINTURA_TIPOSERVICIO_PUT         = "pintura/PUT/tiposervicios/{idTipoServicio}";
+    public static final String PINTURA_TIPOSERVICIO_POST        = "pintura/POST/tiposervicios";
+    public static final String PINTURA_TIPOVEHICULO_GET         = "pintura/GET/tiposvehiculos";
+    public static final String PINTURA_TIPOVEHICULO_POST        = "pintura/POST/tipovehiculos";
+    public static final String PINTURA_TIPOVEHICULO_PUT         = "pintura/PUT/tiposvehiculos/{idTipoVehiculo}";
+    public static final String PINTURA_TIPOPINTURA_GET          = "pintura/GET/tipospinturas";
+    public static final String PINTURA_TIPOPINTURA_POST         = "pintura/POST/tipopinturas";
+    public static final String PINTURA_TIPOPINTURA_PUT          = "pintura/PUT/tipopinturas/{idTipoPintura}";
+    public static final String PINTURA_INVENTARIO_GET           = "pintura/GET/inventarios";
+    public static final String PINTURA_INVENTARIO_POST          = "pintura/POST/inventarios";
+    public static final String PINTURA_INVENTARIO_PUT           = "pintura/PUT/inventarios/{idInventario}";
+    public static final String PINTURA_MOVIMIENTO_GET           = "pintura/GET/movimientos";
+    public static final String PINTURA_MOVIMIENTO_POST          = "pintura/POST/movimientos";
+    public static final String PINTURA_MOVIMINEOT_PUT           = "pintura/PUT/movimientos";
+    public static final String PINTURA_VENTAS_POST              = "pintura/POST/ventas";
+    public static final String PINTURA_VENTAS_GET               = "pintura/GET/ventas";
+    public static final String PINTURA_VENTAS_PUT               = "pintura/PUT/ventas/{idVenta}";
+    public static final String PINTURA_DETALLE_VENTA_GET        = "pintura/GET/detalleventas/{idVenta}";
+    public static final String PINTURA_DETALLE_VENTA_POST       = "pintura/POST/detalleventas";
+    public static final String PINTURA_DETALLE_VENTA_PUT        = "pintura/PUT/detalleventas/{idDetalleVenta}";
+    public static final String PINTURA_DEVOLUCION_GET           = "pintura/GET/devolucion";
+    public static final String PINTURA_DEVOLUCION_POST          = "pintura/POST/devolucion";
+    public static final String PINTURA_VEHICULO_INVENTARIO_GET  = "pintura/GET/vehiculoinventarios";
+    public static final String PINTURA_VEHICULO_INVENTARIO_POST = "pintura/POST/vehiculoinventarios";
+    public static final String PINTURA_VEHICULO_INVENTARIO_PUT  = "pintura/PUT/vehiculoinventarios";
+    public static final String PINTURA_PRECIOS_GET              = "pintura/GET/precioservicio";
+    public static final String PINTURA_PRECIOS_POST             = "pintura/POST/precioservicio";
+    public static final String PINTURA_PRECIOS_PUT              = "pintura/PUT/precioservicio/{id}";
     /**
      * Obtener todos los servicios disponibles
      * @return objeto json
      */
     @GetMapping(PINTURA_SERVICIO_GET)
-    public WebObject nPServicio();
-    public static final String PINTURA_SERVICIO_GET             = "pintura/GET/servicios";
-    
+    public Object nPServicio();
     /**
      * Crear un nuevo servicio
      * @param value object
@@ -34,9 +64,7 @@ public interface PinturaClient {
      * @return objeto json
      */
     @PostMapping(PINTURA_SERVICIO_POST)
-    public WebObject nPServicio(@RequestBody WebObject value);
-    public static final String PINTURA_SERVICIO_POST            = "pintura/POST/servicios";
-    
+    public Object nPServicio(@RequestBody Object value);
     /**
      * Acutalizar un servicio
      * 
@@ -46,17 +74,13 @@ public interface PinturaClient {
      * @return objeto json
      */
     @PutMapping(PINTURA_SERVICIO_PUT)
-    public WebObject nPServicio(@PathVariable("idServicio") Long id, @RequestBody WebObject value);
-    public static final String PINTURA_SERVICIO_PUT             = "pintura/PUT/servicios/{idServicio}";
-    
+    public Object nPServicio(@PathVariable("idServicio") Long id, @RequestBody Object value);    
     /**
      * Obtener todos los tipos de servicio
      * @return objeto json
      */
     @GetMapping(PINTURA_TIPOSERVICIO_GET)
-    public WebObject nPTipoServicio();
-    public static final String PINTURA_TIPOSERVICIO_GET         = "pintura/GET/tiposervicios";
-    
+    public Object nPTipoServicio();    
     /**
      * Actualizar un tipo de servicio
      * 
@@ -66,9 +90,7 @@ public interface PinturaClient {
      * @return objeto json
      */
     @PutMapping(PINTURA_TIPOSERVICIO_PUT)
-    public WebObject nPTipoServicio(@PathVariable("idTipoServicio") Long id, @RequestBody WebObject value);
-    public static final String PINTURA_TIPOSERVICIO_PUT        = "pintura/PUT/tiposervicios/{idTipoServicio}";
-    
+    public Object nPTipoServicio(@PathVariable("idTipoServicio") Long id, @RequestBody Object value);
     /**
      * Crear un nuevo tipo de servicio
      * @param value object
@@ -76,17 +98,13 @@ public interface PinturaClient {
      * @return objeto json
      */
     @PostMapping(PINTURA_TIPOSERVICIO_POST)
-    public WebObject nPTipoServicio(@RequestBody WebObject value);
-    public static final String PINTURA_TIPOSERVICIO_POST        = "pintura/POST/tiposervicios";
-    
+    public Object nPTipoServicio(@RequestBody Object value);
     /**
      * Obtener todos los tipos de vehículo
      * @return objeto json
      */
     @GetMapping(PINTURA_TIPOVEHICULO_GET)
-    public WebObject nPTipoVehiculo();
-    public static final String PINTURA_TIPOVEHICULO_GET         = "pintura/GET/tiposvehiculos";
-    
+    public Object nPTipoVehiculo();    
     /**
      * Crear un nuevo tipo de vehículo
      * @param value object
@@ -94,9 +112,7 @@ public interface PinturaClient {
      * @return objeto json
      */
     @PostMapping(PINTURA_TIPOVEHICULO_POST)
-    public WebObject nPTipoVehiculo(@RequestBody WebObject value);
-    public static final String PINTURA_TIPOVEHICULO_POST        = "pintura/POST/tipovehiculos";
-    
+    public Object nPTipoVehiculo(@RequestBody Object value);
     /**
      * Actualizar un tipo de vehículo específico
      * 
@@ -106,147 +122,166 @@ public interface PinturaClient {
      * @return objeto json
      */
     @PutMapping(PINTURA_TIPOVEHICULO_PUT)
-    public WebObject nPTipoVehiculo(@PathVariable("idTipoVehiculo") Long id, @RequestBody WebObject value);
-    public static final String PINTURA_TIPOVEHICULO_PUT         = "pintura/PUT/tiposvehiculos/{idTipoVehiculo}";
-    
+    public Object nPTipoVehiculo(@PathVariable("idTipoVehiculo") Long id, @RequestBody Object value);
     /**
      * Obtener todos los tipos de pintura disponibles
      * @return objeto json
      */
     @GetMapping(PINTURA_TIPOPINTURA_GET)
-    public WebObject nPTipoPintura();
-    public static final String PINTURA_TIPOPINTURA_GET          = "pintura/GET/tipospinturas";
-    
-    /*
-        Crear un nuevo tipo de pintura
-    */
+    public Object nPTipoPintura();
+    /**
+     * Crear un nuevo tipo de pintura
+     * @param value objeto web
+     * @return objeto web
+     */
     @PostMapping(PINTURA_TIPOPINTURA_POST)
-    public WebObject nPTipoPintura(@RequestBody WebObject value);
-    public static final String PINTURA_TIPOPINTURA_POST         = "pintura/POST/tipopinturas";
-    
-    /*
-        Actualizar un tipo de pintura
-    */
+    public Object nPTipoPintura(@RequestBody Object value);
+    /**
+     * Actualizar un tipo de pintura
+     * @param id id:long
+     * @param value objeto web
+     * @return objeto web
+     */
     @PutMapping(PINTURA_TIPOPINTURA_PUT)
-    public WebObject nPTipoPintura(@PathVariable("idTipoPintura") Long id, @RequestBody WebObject value);
-    public static final String PINTURA_TIPOPINTURA_PUT          = "pintura/PUT/tipopinturas/{idTipoPintura}";
-    
-    /*
-        Obtener todos los inventarios
-    */
+    public Object nPTipoPintura(@PathVariable("idTipoPintura") Long id, @RequestBody Object value);
+    /**
+     * Obtener todos los inventarios
+     * @return objeto web
+     */
     @GetMapping(PINTURA_INVENTARIO_GET)
-    public WebObject nPInvetario();
-    public static final String PINTURA_INVENTARIO_GET           = "pintura/GET/inventarios";
-    
-    /*
-        Crear un nuevo inventario
-    */
+    public Object nPInvetario();
+    /**
+     * Crear un nuevo inventario
+     * @param value objeto web
+     * @return objeto web
+     */
     @PostMapping(PINTURA_INVENTARIO_POST)
-    public WebObject nPInventario(@RequestBody WebObject value);
-    public static final String PINTURA_INVENTARIO_POST          = "pintura/POST/inventarios";
-    
-    /*
-        Actualizar un tipo de inventario
-    */
+    public Object nPInventario(@RequestBody Object value);
+    /**
+     * Actualizar un tipo de inventario
+     * @param id id|long
+     * @param value objeto web
+     * @return objeto web
+     */
     @PutMapping(PINTURA_INVENTARIO_PUT)
-    public WebObject nPInventario(@PathVariable("idInventario") Long id, @RequestBody WebObject value);
-    public static final String PINTURA_INVENTARIO_PUT           = "pintura/PUT/inventarios/{idInventario}";
-    
-    /*
-        Obtener todos los movimientos de inventario
-    */
+    public Object nPInventario(@PathVariable("idInventario") Long id, @RequestBody Object value);
+    /**
+     * Obtener todos los movimientos de inventario
+     * @return objeto web
+     */
     @GetMapping(PINTURA_MOVIMIENTO_GET)
-    public WebObject nPMovimiento();
-    public static final String PINTURA_MOVIMIENTO_GET           = "pintura/GET/movimientos";
-    
-    /*
-        Crear un nuevo movimiento de inventarios
-    */
+    public Object nPMovimiento();
+    /**
+     * Crear un nuevo movimiento de inventarios
+     * @param o objeto web
+     * @return objeto web
+     */
     @PostMapping(PINTURA_MOVIMIENTO_POST)
-    public WebObject nPMovimiento(@RequestBody WebObject o);
-    public static final String PINTURA_MOVIMIENTO_POST          = "pintura/POST/movimientos";
-    
-    /*
-        Actualizar un movimiento de inventario
-    */
+    public Object nPMovimiento(@RequestBody Object o);
+    /**
+     * Actualizar un movimiento de inventario
+     * @param o objeto web
+     * @return objeto web
+     */
     @PutMapping(PINTURA_MOVIMINEOT_PUT)
-    public WebObject nPMovimientoPut(@RequestBody WebObject o);
-    public static final String PINTURA_MOVIMINEOT_PUT           = "pintura/PUT/movimientos";
-    
-    /*
-        Crear una nueva venta
-    */
+    public Object nPMovimientoPut(@RequestBody Object o);
+    /**
+     * Crear una nueva venta
+     * @param o objeto web
+     * @return objeto web
+     */
     @PostMapping(PINTURA_VENTAS_POST)
-    public WebObject nPVentas(@RequestBody WebObject o);
-    public static final String PINTURA_VENTAS_POST               = "pintura/POST/ventas";
-    
-    /*
-        Obtener todas las ventas
-    */
+    public Object nPVentas(@RequestBody Object o);
+    /**
+     * Obtener todas las ventas
+     * @return objeto web
+     */
     @GetMapping(PINTURA_VENTAS_GET)
-    public WebObject nPVentas();
-    public static final String PINTURA_VENTAS_GET                = "pintura/GET/ventas";
-    
-    /*
-        Actualizar una venta
-    */
+    public Object nPVentas();
+    /**
+     * Actualizar una venta
+     * @param id id|long
+     * @param o objeto web
+     * @return objeto web
+     */
     @PutMapping(PINTURA_VENTAS_PUT)
-    public WebObject nPVentas(@PathVariable("idVenta") Long id, @RequestBody WebObject o);
-    public static final String PINTURA_VENTAS_PUT                = "pintura/PUT/ventas/{idVenta}";
-    
-    /*
-        Obtener el detalle de una venta específica
-    */
+    public Object nPVentas(@PathVariable("idVenta") Long id, @RequestBody Object o);
+    /**
+     * Obtener el detalle de una venta específica
+     * @param id id|long
+     * @return objeto web
+     */
     @GetMapping(PINTURA_DETALLE_VENTA_GET)
-    public WebObject nPDetallVenta(@PathVariable("idVenta") Long id);
-    public static final String PINTURA_DETALLE_VENTA_GET         = "pintura/GET/detalleventas/{idVenta}";
-    
-    /*
-        rear un nuevo detalle de venta
-    */
+    public Object nPDetallVenta(@PathVariable("idVenta") Long id);
+    /**
+     * Crear un nuevo detalle de venta
+     * @param o objeto web
+     * @return objeto web
+     */
     @PostMapping(PINTURA_DETALLE_VENTA_POST)
-    public WebObject nPDetalleVenta(@RequestBody WebObject o);
-    public static final String PINTURA_DETALLE_VENTA_POST       = "pintura/POST/detalleventas";
-    
-    /*
-        Actualizar un detalle de venta
-    */
+    public Object nPDetalleVenta(@RequestBody Object o);
+    /**
+     * Actualizar un detalle de venta
+     * @param l id|long
+     * @param o objeto web
+     * @return objeto web
+     */
     @PutMapping(PINTURA_DETALLE_VENTA_PUT)
-    public WebObject nPDetalleVenta(@PathVariable("idDetalleVenta") Long l, @RequestBody WebObject o);
-    public static final String PINTURA_DETALLE_VENTA_PUT         = "pintura/PUT/detalleventas/{idDetalleVenta}";
-    
-    /*
-        Obtener todas las devoluciones
-    */
+    public Object nPDetalleVenta(@PathVariable("idDetalleVenta") Long l, @RequestBody Object o);
+    /**
+     * Obtener todas las devoluciones
+     * @return objeto web
+     */
     @GetMapping(PINTURA_DEVOLUCION_GET)
-    public WebObject nPVecolucion();
-    public static final String PINTURA_DEVOLUCION_GET            = "pintura/GET/devolucion";
-    
-    /*
-        Crear una nueva devlución
-    */
+    public Object nPVecolucion();
+    /**
+     * Crear una nueva devlución
+     * @param o objeto web
+     * @return objeto web
+     */
     @PostMapping(PINTURA_DEVOLUCION_POST)
-    public WebObject nPDevolucion(@RequestBody WebObject o);
-    public static final String PINTURA_DEVOLUCION_POST           = "pintura/POST/devolucion";
-    
-    /*
-        Obtener todos los inventarios de vehiculo
-    */
+    public Object nPDevolucion(@RequestBody Object o);
+    /**
+     * Obtener todos los inventarios de vehiculo
+     * @return objeto web
+     */
     @GetMapping(PINTURA_VEHICULO_INVENTARIO_GET)
-    public WebObject nPVehiculoInventario();
-    public static final String PINTURA_VEHICULO_INVENTARIO_GET   = "pintura/GET/vehiculoinventarios";
-    
-    /*
-        Crear un nuevo inventario de vehiculo
-    */
+    public Object nPVehiculoInventario();
+    /**
+     * Crear un nuevo inventario de vehiculo
+     * @param o objeto web
+     * @return objeto web
+     */
     @PostMapping(PINTURA_VEHICULO_INVENTARIO_POST)
-    public WebObject nPVehiculoInventario(@RequestBody WebObject o);
-    public static final String PINTURA_VEHICULO_INVENTARIO_POST  = "pintura/POST/vehiculoinventarios";
-    
-    /*
-        Actualizar un inventario de vehiculo
-    */
+    public Object nPVehiculoInventario(@RequestBody Object o);
+    /**
+     * Actualizar un inventario de vehiculo
+     * @param o objeto web
+     * @return objeto web
+     */
     @PutMapping(PINTURA_VEHICULO_INVENTARIO_PUT)
-    public WebObject nPVehiculoInventarioPut(@RequestBody WebObject o);
-    public static final String PINTURA_VEHICULO_INVENTARIO_PUT   = "pintura/PUT/vehiculoinventarios";
+    public Object nPVehiculoInventarioPut(@RequestBody Object o);
+    
+    /**
+     * Obtiene precios de servicios
+     * @return objeto web
+     */
+    @GetMapping(PINTURA_PRECIOS_GET)
+    public Object nPreciosGet();    
+    /**
+     * Ingresa precios de servicios
+     * @param o objeto web
+     * @return objeto web
+     */
+    @PostMapping(PINTURA_PRECIOS_POST)
+    public Object nPreciosPost(@RequestBody Object o);
+    
+    /**
+     * Actualizar precios servicios
+     * @param id id|long
+     * @param o objeto web
+     * @return objeto web
+     */
+    @PutMapping(PINTURA_PRECIOS_PUT)
+    public Object nPreciosPut(@PathVariable("id") Long id, @RequestBody Object o);
 }

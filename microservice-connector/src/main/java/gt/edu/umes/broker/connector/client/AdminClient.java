@@ -4,8 +4,6 @@
  */
 package gt.edu.umes.broker.connector.client;
 
-import gt.edu.umes.broker.connector.http.WebObject;
-
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.*;
 
@@ -14,305 +12,347 @@ import org.springframework.web.bind.annotation.*;
  * @author wil
  */
 @FeignClient(value = "MCSV-Administracion", url = "http://localhost:3000/")
-public interface AdminClient {    
-    /*
-        Consultar la información de todos los empleados.
-    */
-    @GetMapping(HTTP_ADMIN_EMPLEADOS_GET)
-    public WebObject nAdminEmpleadoGet();
-    public static final String HTTP_ADMIN_EMPLEADOS_GET             = "/administracion/empleados";
-    
-    /*
-        Consultar la información de un empleado en específico.
-    */
-    @GetMapping(HTTP_ADMIN_EMPLEAODS_GET_ID)
-    public WebObject nAdmminEmpleadoGetId(@PathVariable("id") Long id);
-    public static final String HTTP_ADMIN_EMPLEAODS_GET_ID          = " /administracion/empleados/{id}";
-    
-    /*
-        Insertar un registro de empleado
-    */
-    @PostMapping(HTTP_ADMIN_EMPLEADOS_POST)
-    public WebObject nAdminEmpleadoPost(@RequestBody WebObject o);
-    public static final String HTTP_ADMIN_EMPLEADOS_POST            = "/administracion/empleados";
-    
-    /*
-        Actualizar la información de un empleado específico
-    */
-    @PutMapping(HTTP_ADMIN_EMPLEADOS_PUT)
-    public WebObject nAdmimEmpleadoPut(@PathVariable("id") Long id, @RequestBody WebObject o);
-    public static final String HTTP_ADMIN_EMPLEADOS_PUT             = "administracion/empleados/{id}";
-    
-    /*
-        Consultar todas las alertas actuales para abastecimiento de pedidos
-    */
-    @GetMapping(HTTP_ADMIN_ALERTAS_GET)
-    public WebObject nAdminAlertasGet();
+public interface AdminClient {
+    //******************************************************************************************************************
+    //**    RUTA DE ELNLACES
+    public static final String HTTP_ADMIN_EMPLEADOS_GET              = "/administracion/empleados";
+    public static final String HTTP_ADMIN_EMPLEAODS_GET_ID           = "/administracion/empleados/{id}";
+    public static final String HTTP_ADMIN_EMPLEADOS_POST             = "/administracion/empleados";
+    public static final String HTTP_ADMIN_EMPLEADOS_PUT              = "/administracion/empleados/{id}";
     public static final String HTTP_ADMIN_ALERTAS_GET                = "/administracion/alertas";
-    
-    /*
-        Consultar una alerta específica para abastecimiento de pedidos
-    */
-    @GetMapping(HTTP_ADMIN_ALETAS_GET_ID)
-    public WebObject nAdminAlertasGetId(@PathVariable("id") Long id);
-    public static final String HTTP_ADMIN_ALETAS_GET_ID             = "/administracion/alertas/{id}";
-    
-    /*
-        Alertas: Tienda
-    */
-    @PostMapping(HTTP_ADMIN_ALERTAS_TINDA_CONVENIENCIA)
-    public WebObject nAdminAlertaTinedaConveniencia(@RequestBody WebObject o);
+    public static final String HTTP_ADMIN_ALETAS_GET_ID              = "/administracion/alertas/{id}";
     public static final String HTTP_ADMIN_ALERTAS_TINDA_CONVENIENCIA = "/administracion/alertas/tienda_de_conveniencia";
-    
-    /*
-        Alertas: Gasolinear
-    */
-    @PostMapping(HTTP_ADMIN_ALERTAS_GASOLINERA)
-    public WebObject nAdminAlertaGasolinera(@RequestBody WebObject o);
-    public static final String HTTP_ADMIN_ALERTAS_GASOLINERA        = "/administracion/alertas/gasolinera";
-    
-    /*
-        Alertas: Repuesto
-    */
-    @PostMapping(HTTP_ADMIN_ALERTAS_REPUESTO)
-    public WebObject nAdminAlertasRepuetos(@RequestBody WebObject o);
+    public static final String HTTP_ADMIN_ALERTAS_GASOLINERA         = "/administracion/alertas/gasolinera";
     public static final String HTTP_ADMIN_ALERTAS_REPUESTO           = "/administracion/alertas/repuestos";
-    
-    /*
-        Alertas: RPintura
-    */
-    @PostMapping(HTTP_ADMIN_ALERTAS_PINTURA)
-    public WebObject nAdminPintura(@RequestBody WebObject o);
     public static final String HTTP_ADMIN_ALERTAS_PINTURA            = "/administracion/alertas/pintura";
-    
-    /*
-        Consultar todas las áreas (secciones) dentro de la gasolinera
-    */
+    public static final String HTTP_ADMIN_AREAS_GET                  = "/administracion/areas";
+    public static final String HTTP_ADMIN_AREAS_GET_ID               = "/administracion/areas/{id}";
+    public static final String HTTP_ADMIN_ROLES_GET                  = "/administracion/roles";
+    public static final String HTTP_ADMIN_ROLES_GET_ID               = "/administracion/roles/{id}";
+    public static final String HTTP_ADMIN_ROLES_POST                 = "/administracion/roles";
+    public static final String HTTP_ADMIN_ROLES_PUT                  = "/administracion/roles/{id}";
+    public static final String HTTP_ADMIN_JORNADAS_GET               = "/administracion/jornadas";
+    public static final String HTTP_ADMIN_JORNADAS_GET_ID            = "/administracion/jornadas/{id}";
+    public static final String HTTP_ADMIN_PROVEEDORES_GET            = "/administracion/proveedores";
+    public static final String HTTP_ADMIN_PROVEEDORES_GET_ID         = "/administracion/proveedores/{id}";
+    public static final String HTTP_ADMIN_PROVEEDORES_POST           = "/administracion/proveedores";
+    public static final String HTTP_ADMIN_PROVEEDORES_PUT            = "/administracion/proveedores/{id}";
+    public static final String HTTP_ADMIN_SERVICIO_GET               = "/administracion/servicios";
+    public static final String HTTP_ADMIN_SERVICIO_GET_ID            = "/administracion/servicios/{id}";
+    public static final String HTTP_ADMIN_MOVIMIENTO_GET             = "/administracion/movimientos";
+    public static final String HTTP_ADMIN_MOVIMIENTO_GET_ID          = "/administracion/movimientos/{id}";
+    public static final String HTTP_ADMIN_MOVIMIENTO_GET_TODO        = "GET/administracion/movimientos";
+    public static final String HTTP_ADMIN_MOVIMIENTO_GET_DIARIO      = "GET/administracion/movimientos/diarios";
+    public static final String HTTP_ADMIN_MIVIMIENTO_GET_MESULA      = "GET/administracion/movimientos/mensualess";
+    public static final String HTTP_ADMIN_MIVIMIENTO_GET_TRIMESTRAL  = "GET/administracion/movimientos/trimestrales";
+    public static final String HTTP_ADMIN_MIVIMIENTO_GET_SEMESTRAL   = "GET/administracion/movimientos/semestrales";
+    public static final String HTTP_ADMIN_MIVIMIENTO_GET_ANUAL       = "GET/administracion/movimientos/anuales";
+    public static final String HTTP_ADMIN_ASISTENCIA_GET             = "/administracion/asistencias/empleado/{id}";
+    public static final String HTTP_ADMIN_ASISTENCIA_POST            = "/administracion/asistencias";
+    public static final String HTTP_ADMIN_INASISTENCIA_GET           = "/administracion/inasistencias/empleado/{id}";
+    public static final String HTTP_ADMIN_ORDENES_GET                = "/administracion/ordenes";
+    public static final String HTTP_ADMIN_ORDENES_GET_ID             = "/administracion/ordenes/{id}";
+    public static final String HTTP_ADMIN_ORDENDES_POST              = "/administracion/ordenes/";
+    public static final String HTTP_ADMIN_ORDENDES_MODIFICAR_ESTADO  = "/administracion/ordenes/modificar_estado/{id}";
+    public static final String HTTP_ADMIN_ORDENES_DETALLE            = "/administracion/ordenes/detalles/{id_orden}";
+    public static final String HTTP_ADMIN_ORDENES_DETALLE_MODIFICAR  = "/administracion/ordenes/detalles/{id_detalle_orden}";
+    public static final String HTTP_ADMIN_ORDENES_ESTADO             = "/administracion/ordenes/estados_ordenes";
+    public static final String HTTP_ADMIN_ORDENES_ESTADO_DETALLE     = "/administracion/ordenes/estados_ordenes_detalles";
+    /**
+     * Consultar la información de todos los empleados.
+     * @return objeto web
+     */
+    @GetMapping(HTTP_ADMIN_EMPLEADOS_GET)
+    public Object nAdminEmpleadoGet();
+    /**
+     * Consultar la información de un empleado en específico.
+     * @param id id|long
+     * @return objeto web
+     */
+    @GetMapping(HTTP_ADMIN_EMPLEAODS_GET_ID)
+    public Object nAdmminEmpleadoGetId(@PathVariable("id") Long id);
+    /**
+     * Insertar un registro de empleado
+     * @param o objeto web
+     * @return objeto web
+     */
+    @PostMapping(HTTP_ADMIN_EMPLEADOS_POST)
+    public Object nAdminEmpleadoPost(@RequestBody Object o);
+    /**
+     * Actualizar la información de un empleado específico
+     * @param id id|long
+     * @param o objeto web
+     * @return objeto web
+     */
+    @PutMapping(HTTP_ADMIN_EMPLEADOS_PUT)
+    public Object nAdmimEmpleadoPut(@PathVariable("id") Long id, @RequestBody Object o);
+    /**
+     * Consultar todas las alertas actuales para abastecimiento de pedidos
+     * @return objeto web
+     */
+    @GetMapping(HTTP_ADMIN_ALERTAS_GET)
+    public Object nAdminAlertasGet();
+    /**
+     * Consultar una alerta específica para abastecimiento de pedidos
+     * @param id id|long
+     * @return objeto web
+     */
+    @GetMapping(HTTP_ADMIN_ALETAS_GET_ID)
+    public Object nAdminAlertasGetId(@PathVariable("id") Long id);
+    /**
+     * Alertas: Tienda
+     * @param o objeto web
+     * @return objeto web
+     */
+    @PostMapping(HTTP_ADMIN_ALERTAS_TINDA_CONVENIENCIA)
+    public Object nAdminAlertaTinedaConveniencia(@RequestBody Object o);
+    /**
+     * Alertas: Gasolinear
+     * @param o objeto web
+     * @return objeto web
+     */
+    @PostMapping(HTTP_ADMIN_ALERTAS_GASOLINERA)
+    public Object nAdminAlertaGasolinera(@RequestBody Object o);
+    /**
+     * Alertas: Repuesto
+     * @param o objeto web
+     * @return objeto web
+     */
+    @PostMapping(HTTP_ADMIN_ALERTAS_REPUESTO)
+    public Object nAdminAlertasRepuetos(@RequestBody Object o);
+    /**
+     * Alertas: RPintura
+     * @param o objeto web
+     * @return objeto web
+     */
+    @PostMapping(HTTP_ADMIN_ALERTAS_PINTURA)
+    public Object nAdminPintura(@RequestBody Object o);
+    /**
+     * Consultar todas las áreas (secciones) dentro de la gasolinera
+     * @return objeto web
+     */
     @GetMapping(HTTP_ADMIN_AREAS_GET)
-    public WebObject nAdminAreasGet();
-    public static final String HTTP_ADMIN_AREAS_GET                  = " /administracion/areas";
-    
-    /*
-        Consultar un área (sección) específica dentro de la gasolinera
-    */
+    public Object nAdminAreasGet();
+    /**
+     * Consultar un área (sección) específica dentro de la gasolinera
+     * @param id id|long
+     * @return objeto web
+     */
     @GetMapping(HTTP_ADMIN_AREAS_GET_ID)
-    public WebObject nAdminAreasGetId(@PathVariable("id") Long id);
-    public static final String HTTP_ADMIN_AREAS_GET_ID              = "/administracion/areas/{id}";
-    
-    /*
-        Consultar todos los roles que puede ocupar un empleado dentro de un área
-    */
+    public Object nAdminAreasGetId(@PathVariable("id") Long id);
+    /**
+     * Consultar todos los roles que puede ocupar un empleado dentro de un área
+     * @return objeto web
+     */
     @GetMapping(HTTP_ADMIN_ROLES_GET)
-    public WebObject nAdminRoles();
-    public static final String HTTP_ADMIN_ROLES_GET                 = "/administracion/roles";
-    
-    /*
-        Consultar un rol específico que puede ocupar un empleado dentro de un área.
-    */
+    public Object nAdminRoles();
+    /**
+     * Consultar un rol específico que puede ocupar un empleado dentro de un área.
+     * @param id id|long
+     * @return objeto web
+     */
     @GetMapping(HTTP_ADMIN_ROLES_GET_ID)
-    public WebObject nAdminRolesId(@PathVariable("id") Long id);
-    public static final String HTTP_ADMIN_ROLES_GET_ID              = "/administracion/roles/{id}";
-    
-    /*
-        insertar un nuevo rol que puede ocupar un empleado dentro de un área.
-    */
+    public Object nAdminRolesId(@PathVariable("id") Long id);
+    /**
+     * insertar un nuevo rol que puede ocupar un empleado dentro de un área.
+     * @param o objeto web
+     * @return objeto web
+     */
     @PostMapping(HTTP_ADMIN_ROLES_POST)
-    public WebObject nAdminRolesPost(@RequestBody WebObject o);
-    public static final String HTTP_ADMIN_ROLES_POST                = "/administracion/roles";
-    
-    /*
-        Editar un rol existente.
-    */
+    public Object nAdminRolesPost(@RequestBody Object o);
+    /**
+     * Editar un rol existente.
+     * @param id id|long
+     * @param o objeto web
+     * @return objeto web
+     */
     @PutMapping(HTTP_ADMIN_ROLES_PUT)
-    public WebObject nAdminRolesPut(@PathVariable("id") Long id, @RequestBody WebObject o);
-    public static final String HTTP_ADMIN_ROLES_PUT                 = "/administracion/roles/{id}";
-    
-    /*
-        Consultar todas las jornadas laborales.
-    */
+    public Object nAdminRolesPut(@PathVariable("id") Long id, @RequestBody Object o);
+    /**
+     * Consultar todas las jornadas laborales.
+     * @return objeto web
+     */
     @GetMapping(HTTP_ADMIN_JORNADAS_GET)
-    public WebObject nAdminJornadasGet();
-    public static final String HTTP_ADMIN_JORNADAS_GET              = "/administracion/jornadas";
-    
-    /*
-        Consultar una jornada laboral específica.
-    */
+    public Object nAdminJornadasGet();
+    /**
+     * Consultar una jornada laboral específica.
+     * @param id id|long
+     * @return objeto web
+     */
     @GetMapping(HTTP_ADMIN_JORNADAS_GET_ID)
-    public WebObject nAdminJornadasGetId(@PathVariable("id") Long id);
-    public static final String HTTP_ADMIN_JORNADAS_GET_ID           = "/administracion/jornadas/{id}";
-    
-    /*
-        Consultar a todos los proveedores.
-    */
+    public Object nAdminJornadasGetId(@PathVariable("id") Long id);
+    /**
+     * Consultar a todos los proveedores.
+     * @return objeto web
+     */
     @GetMapping(HTTP_ADMIN_PROVEEDORES_GET)
-    public WebObject nAdminProveedoresGet();
-    public static final String HTTP_ADMIN_PROVEEDORES_GET           = "/administracion/proveedores";
-    
-    /*
-        Consultar un proveedor en específico.
-    */
+    public Object nAdminProveedoresGet();
+    /**
+     * Consultar un proveedor en específico.
+     * @param id id|long
+     * @return objeto web
+     */
     @GetMapping(HTTP_ADMIN_PROVEEDORES_GET_ID)
-    public WebObject nAmindProveedoresGetId(@PathVariable("id") Long id);
-    public static final String HTTP_ADMIN_PROVEEDORES_GET_ID        = " /administracion/proveedores/{id}";
-    
-    /*
-        Insertar un nuevo proveedor.
-    */
+    public Object nAmindProveedoresGetId(@PathVariable("id") Long id);
+    /**
+     * Insertar un nuevo proveedor.
+     * @param o objeto web
+     * @return objeto web
+     */
     @PostMapping(HTTP_ADMIN_PROVEEDORES_POST)
-    public WebObject nAdminProveedoresPost(@RequestBody WebObject o);
-    public static final String HTTP_ADMIN_PROVEEDORES_POST          = "/administracion/proveedores";
-    
-    /*
-        Editar la información de un proveedor específico.
-    */
+    public Object nAdminProveedoresPost(@RequestBody Object o);
+    /**
+     * Editar la información de un proveedor específico.
+     * @param id id|long
+     * @param o objeto web
+     * @return objeto web
+     */
     @PutMapping(HTTP_ADMIN_PROVEEDORES_PUT)
-    public WebObject nAdminProveedoresPut(@PathVariable("id") Long id, @RequestBody WebObject o);
-    public static final String HTTP_ADMIN_PROVEEDORES_PUT           = "administracion/proveedores/{id}";
-    
-    /*
-        Consultar la información de todos los servicios.
-    */
+    public Object nAdminProveedoresPut(@PathVariable("id") Long id, @RequestBody Object o);
+    /**
+     * Consultar la información de todos los servicios.
+     * @return objeto web
+     */
     @GetMapping(HTTP_ADMIN_SERVICIO_GET)
-    public WebObject nAdminServicioGet();
-    public static final String HTTP_ADMIN_SERVICIO_GET              = "/administracion/servicios";
-    
-    /*
-        Consultar la información de un servicio específico.
-    */
+    public Object nAdminServicioGet();
+    /**
+     * Consultar la información de un servicio específico.
+     * @param id id|long
+     * @return objeto web
+     */
     @GetMapping(HTTP_ADMIN_SERVICIO_GET_ID)
-    public WebObject nAdminServicioGetId(@PathVariable("id") Long id);
-    public static final String HTTP_ADMIN_SERVICIO_GET_ID           = "/administracion/servicios/{id}";
-    
-    /*
-        Consultar la información de todos los tipos de movimientos.
-    */
+    public Object nAdminServicioGetId(@PathVariable("id") Long id);
+    /**
+     * Consultar la información de todos los tipos de movimientos.
+     * @return objeto web
+     */
     @GetMapping(HTTP_ADMIN_MOVIMIENTO_GET)
-    public WebObject nAdminMovGet();
-    public static final String HTTP_ADMIN_MOVIMIENTO_GET            = "/administracion/movimientos";
-    
-    /*
-        Consultar la información de un tipo de movimiento específico.
-    */
+    public Object nAdminMovGet();
+    /**
+     * Consultar la información de un tipo de movimiento específico.
+     * @param id id|long
+     * @return objeto web
+     */
     @GetMapping(HTTP_ADMIN_MOVIMIENTO_GET_ID)
-    public WebObject nAdminMovGetId(@PathVariable("id") Long id);
-    public static final String HTTP_ADMIN_MOVIMIENTO_GET_ID         = "/administracion/movimientos/{id}";
-    
-    /*
-        Devuelve el reporte de todos los movimientos.
-    */
+    public Object nAdminMovGetId(@PathVariable("id") Long id);
+    /**
+     * Devuelve el reporte de todos los movimientos.
+     * @return objeto web
+     */
     @GetMapping(HTTP_ADMIN_MOVIMIENTO_GET_TODO)
-    public WebObject nAdminMovTodo();
-    public static final String HTTP_ADMIN_MOVIMIENTO_GET_TODO       = "GET/administracion/movimientos";
-    
-    /*
-        Devuelve el reporte de movimientos de un dia especifico
-    */
+    public Object nAdminMovTodo();
+    /**
+     * Devuelve el reporte de movimientos de un dia especifico
+     * @param o objeto web
+     * @return objeto web
+     */
     @GetMapping(HTTP_ADMIN_MOVIMIENTO_GET_DIARIO)
-    public WebObject nAdminMovDiario(@RequestBody WebObject o);
-    public static final String HTTP_ADMIN_MOVIMIENTO_GET_DIARIO     = "GET/administracion/movimientos/diarios";
-    
-    /*
-        Devuelve el reporte de movimientos de un mes específico
-    */
+    public Object nAdminMovDiario(@RequestBody Object o);
+    /**
+     * Devuelve el reporte de movimientos de un mes específico
+     * @param o objeto web
+     * @return objeto web
+     */
     @GetMapping(HTTP_ADMIN_MIVIMIENTO_GET_MESULA)
-    public WebObject nAdminMovMensual(@RequestBody WebObject o);
-    public static final String HTTP_ADMIN_MIVIMIENTO_GET_MESULA     = "GET/administracion/movimientos/mensualess";
-    
-    /*
-        Devuelve el reporte de movimientos de un trimestre específico
-    */
+    public Object nAdminMovMensual(@RequestBody Object o);
+    /**
+     * Devuelve el reporte de movimientos de un trimestre específico
+     * @param o objeto web
+     * @return objeto web
+     */
     @GetMapping(HTTP_ADMIN_MIVIMIENTO_GET_TRIMESTRAL)
-    public WebObject nAdminMovTrimestral(@RequestBody WebObject o);
-    public static final String HTTP_ADMIN_MIVIMIENTO_GET_TRIMESTRAL   = "GET/administracion/movimientos/trimestrales";
-    
-    /*
-        Devuelve el reporte de movimientos de un dia especifico
-    */
+    public Object nAdminMovTrimestral(@RequestBody Object o);
+    /**
+     * Devuelve el reporte de movimientos de un dia especifico
+     * @param o objeto web
+     * @return objeto web
+     */
     @GetMapping(HTTP_ADMIN_MIVIMIENTO_GET_SEMESTRAL)
-    public WebObject nAdminMovSmestral(@RequestBody WebObject o);
-    public static final String HTTP_ADMIN_MIVIMIENTO_GET_SEMESTRAL     = "GET/administracion/movimientos/semestrales";
-    
-    /*
-        Devuelve el reporte de movimientos de un año específico
-    */
+    public Object nAdminMovSmestral(@RequestBody Object o);
+    /**
+     * Devuelve el reporte de movimientos de un año específico
+     * @param o objeto web
+     * @return objeto web
+     */
     @GetMapping(HTTP_ADMIN_MIVIMIENTO_GET_ANUAL)
-    public WebObject nAdminMovAnual(@RequestBody WebObject o);
-    public static final String HTTP_ADMIN_MIVIMIENTO_GET_ANUAL          = "GET/administracion/movimientos/anuales";
-    
-    /*
-        Ver las asistencias de un empleado específico
-    */
+    public Object nAdminMovAnual(@RequestBody Object o);
+    /**
+     * Ver las asistencias de un empleado específico
+     * @param id id|long
+     * @param o objeto web
+     * @return objeto web
+     */
     @GetMapping(HTTP_ADMIN_ASISTENCIA_GET)
-    public WebObject nAdminMovAsistencia(@PathVariable("id") Long id, @RequestBody WebObject o);
-    public static final String HTTP_ADMIN_ASISTENCIA_GET                = "/administracion/asistencias/empleado/{id}";
-    
-    /*
-        Registrar asistencia de un empleado específico
-    */
+    public Object nAdminMovAsistencia(@PathVariable("id") Long id, @RequestBody Object o);
+    /**
+     * Registrar asistencia de un empleado específico
+     * @param o objeto web
+     * @return objeto web
+     */
     @PostMapping(HTTP_ADMIN_ASISTENCIA_POST)
-    public WebObject nAdminAsistenciaPost(@RequestBody WebObject o);
-    public static final String HTTP_ADMIN_ASISTENCIA_POST               = "/administracion/asistencias";
-    
-    /*
-        Ver las inasistencias de un empleado específico
-    */
+    public Object nAdminAsistenciaPost(@RequestBody Object o);
+    /**
+     * Ver las inasistencias de un empleado específico
+     * @param id id|long
+     * @return objeto web
+     */
     @PostMapping(HTTP_ADMIN_INASISTENCIA_GET)
-    public WebObject nAdminInasistenicaGet(@PathVariable("id") Long id);
-    public static final String HTTP_ADMIN_INASISTENCIA_GET              = "/administracion/inasistencias/empleado/{id}";
-    
-    /*
-        Consultar la información básica de todas las órdenes.
-    */
+    public Object nAdminInasistenicaGet(@PathVariable("id") Long id);
+    /**
+     * Consultar la información básica de todas las órdenes.
+     * @return objeto web
+     */
     @GetMapping(HTTP_ADMIN_ORDENES_GET)
-    public WebObject nAdminOrdenesGet();
-    public static final String HTTP_ADMIN_ORDENES_GET                   = "/administracion/ordenes";
-    
-    /*
-        Consultar la información básica de una orden específica.
-    */
+    public Object nAdminOrdenesGet();
+    /**
+     * Consultar la información básica de una orden específica.
+     * @param id id|long
+     * @return objeto web
+     */
     @GetMapping(HTTP_ADMIN_ORDENES_GET_ID)
-    public WebObject nAdminOrdendeGetId(@PathVariable("id") Long id);
-    public static final String HTTP_ADMIN_ORDENES_GET_ID                = " /administracion/ordenes/{id}";
-    
-    /*
-        Registrar una orden.
-    */
+    public Object nAdminOrdendeGetId(@PathVariable("id") Long id);
+    /**
+     * Registrar una orden.
+     * @param o objeto web
+     * @return objeto web
+     */
     @PostMapping(HTTP_ADMIN_ORDENDES_POST)
-    public WebObject nAdminOrdenesPost(@RequestBody WebObject o);
-    public static final String HTTP_ADMIN_ORDENDES_POST                  = "/administracion/ordenes/";
-    
-    /*
-        Permite cambiar el estado actual de la orden (pedido realizado, pedido en camino, etc). Útil para rastreo de la misma.
-    */
+    public Object nAdminOrdenesPost(@RequestBody Object o);    
+    /**
+     * Permite cambiar el estado actual de la orden (pedido realizado, pedido en 
+     * camino, etc). Útil para rastreo de la misma.
+     * 
+     * @param id id|long
+     * @param o objeto web
+     * @return objeto web
+     */
     @PutMapping(HTTP_ADMIN_ORDENDES_MODIFICAR_ESTADO)
-    public WebObject nAdminOrdenesModificarEstado(@PathVariable("id") Long id, @RequestBody WebObject o);
-    public static final String HTTP_ADMIN_ORDENDES_MODIFICAR_ESTADO      = "administracion/ordenes/modificar_estado/{id}";
-    
-    /*
-        Ver los productos relacionados a una orden específica.
-    */
+    public Object nAdminOrdenesModificarEstado(@PathVariable("id") Long id, @RequestBody Object o);
+    /**
+     * Ver los productos relacionados a una orden específica.
+     * @param id id|long
+     * @return objeto web
+     */
     @GetMapping(HTTP_ADMIN_ORDENES_DETALLE)
-    public WebObject nAdminOrdenesDetalle(@PathVariable("id_orden") Long id);
-    public static final String HTTP_ADMIN_ORDENES_DETALLE                = "/administracion/ordenes/detalles/{id_orden}";
-    
-    /*
-        Editar estado de 1 producto de una orden
-    */
+    public Object nAdminOrdenesDetalle(@PathVariable("id_orden") Long id);
+    /**
+     * Editar estado de 1 producto de una orden
+     * @param id id|long
+     * @param o objeto web
+     * @return objeto web
+     */
     @PutMapping(HTTP_ADMIN_ORDENES_DETALLE_MODIFICAR)
-    public WebObject nAdminOrdenesDetalleModificar(@PathVariable("id_detalle_orden") Long id, @RequestBody WebObject o);
-    public static final String HTTP_ADMIN_ORDENES_DETALLE_MODIFICAR      = "administracion/ordenes/detalles/{id_detalle_orden}";
-    
-    /*
-         Consultar el estado de todas las órdenes.
-    */
+    public Object nAdminOrdenesDetalleModificar(@PathVariable("id_detalle_orden") Long id, @RequestBody Object o);
+    /**
+     * Consultar el estado de todas las órdenes.
+     * @return objeto web
+     */
     @GetMapping(HTTP_ADMIN_ORDENES_ESTADO)
-    public WebObject nAdminOrdendesEstado();
-    public static final String HTTP_ADMIN_ORDENES_ESTADO                = "/administracion/ordenes/estados_ordenes";
-    
-    /*
-        Consultar el estado de todos los productos de las órdenes.
-    */
+    public Object nAdminOrdendesEstado();
+    /**
+     * Consultar el estado de todos los productos de las órdenes.
+     * @return objeto web
+     */
     @GetMapping(HTTP_ADMIN_ORDENDES_MODIFICAR_ESTADO)
-    public WebObject nAdminOrdenesEstadoDetalle();
-    public static final String HTTP_ADMIN_ORDENES_ESTADO_DETALLE        = "administracion/ordenes/estados_ordenes_detalles";
+    public Object nAdminOrdenesEstadoDetalle();    
 }

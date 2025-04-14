@@ -15,16 +15,15 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
  * 
  * @author wil
  * @version 1.0.0
- * @since 1..0.0
+ * @since 1.0.0
  */
 @EnableFeignClients
 @EnableDiscoveryClient
 @SpringBootApplication
 public class MicroserviceConnectorApplication {
-
     /**
-     * Método principla donde se inicializar el microservicios
-     * @param args argumento de la linea de comandos.
+     * Método principla donde se inicializa el microservicios
+     * @param args argumentos de la linea de comandos.
      */
     public static void main(String[] args) {
         SpringApplication.run(MicroserviceConnectorApplication.class, args);

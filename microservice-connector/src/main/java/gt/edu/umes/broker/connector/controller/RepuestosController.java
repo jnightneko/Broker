@@ -4,12 +4,11 @@
  */
 package gt.edu.umes.broker.connector.controller;
 
-import gt.edu.umes.broker.connector.http.WebObject;
-import static gt.edu.umes.broker.connector.client.RepuestosClient.*;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
 import gt.edu.umes.broker.connector.client.RepuestosClient;
+import static gt.edu.umes.broker.connector.client.RepuestosClient.*;
 
 /**
  * Clase encargado de gestionar el redireccionamiento de las peticiones a las direcciones correctas.
@@ -19,126 +18,82 @@ import gt.edu.umes.broker.connector.client.RepuestosClient;
  */
 @RestController
 @RequestMapping("/broker/__connection__/")
-public class RepuestosController {
+public final class RepuestosController {
     @Autowired
     private RepuestosClient client;
-    /*
-        Enalce al end-pointe
-    */
+    /* (non-Javadoc) */
     @PostMapping(HTTP_CLIENTES_GET)
-    public WebObject getClientesGet() {
+    public Object getClientesGet() {
         return client.nClientesGet();
     }
-    
-    /*
-        Enalce al end-pointe
-    */
+    /* (non-Javadoc) */
     @PostMapping(HTTP_CLIENTES_POST)
-    public WebObject getClientesPost(@RequestBody WebObject o) {
+    public Object getClientesPost(@RequestBody Object o) {
         return client.nClientesPost(o);
     }
-    
-    /*
-        Enalce al end-pointe
-    */
+    /* (non-Javadoc) */
     @PostMapping(HTTP_CLIENTES_PUT)
-    public WebObject getClientesPut(@PathVariable("id") Long id, @RequestBody WebObject o) {
+    public Object getClientesPut(@PathVariable("id") Long id, @RequestBody Object o) {
         return client.nClientesPut(id, o);
     }
-    
-    /*
-        Enalce al end-pointe
-    */
+    /* (non-Javadoc) */
     @GetMapping(HTTP_PRODUCTOS_GET)
-    public WebObject getProductosGet() {
+    public Object getProductosGet() {
         return client.nProductosGet();
     }
-    
-    /*
-        Enalce al end-pointe
-    */
+    /* (non-Javadoc) */
     @PostMapping(HTTP_PRODUCTOS_POST)
-    public WebObject getProductosPost(@RequestBody WebObject o) {
+    public Object getProductosPost(@RequestBody Object o) {
         return client.nProductosPost(o);
     }
-    
-    /*
-        Enalce al end-pointe
-    */
+    /* (non-Javadoc) */
     @PostMapping(HTTP_PRODUCTOS_PUT)
-    public WebObject getProductosPut(@PathVariable("id") Long id, @RequestBody WebObject o) {
+    public Object getProductosPut(@PathVariable("id") Long id, @RequestBody Object o) {
         return client.nProductosPut(id, o);
     }
-    
-    /*
-        Enalce al end-pointe
-    */
+    /* (non-Javadoc) */
     @PostMapping(HTTP_VEHICULOS_GET)
-    public WebObject getVehiculosGet() {
+    public Object getVehiculosGet() {
         return client.nVehiculosGet();
     }
-    
-    /*
-        Enalce al end-pointe
-    */
+    /* (non-Javadoc) */
     @PostMapping(HTTP_VEHICULOS_POST)
-    public WebObject getVehiculosPost(@RequestBody WebObject o) {
+    public Object getVehiculosPost(@RequestBody Object o) {
         return client.nVehiculosPost(o);
     }
-    
-    /*
-        Enalce al end-pointe
-    */
+    /* (non-Javadoc) */
     @PostMapping(HTTP_VEHICULOS_PUT)
-    public WebObject getVehiculosPut(@PathVariable("id") Long id, @RequestBody WebObject o) {
+    public Object getVehiculosPut(@PathVariable("id") Long id, @RequestBody Object o) {
         return client.nVehiculosPut(id, o);
     }
-    
-    /*
-        Enalce al end-pointe
-    */
+    /* (non-Javadoc) */
     @PostMapping(HTTP_SERVICIOS_GET)
-    public WebObject getServicioGet() {
+    public Object getServicioGet() {
         return client.nServicioGet();
     }
-    
-    /*
-        Enalce al end-pointe
-    */
+    /* (non-Javadoc) */
     @PostMapping(HTTP_SERVICIOS_POST)
-    public WebObject getServicioPost(@RequestBody WebObject o) {
+    public Object getServicioPost(@RequestBody Object o) {
         return client.nServicioPost(o);
     }
-    
-    /*
-        Enalce al end-pointe
-    */
+    /* (non-Javadoc) */
     @PostMapping(HTTP_INVENTARIO_GET)
-    public WebObject getInventarioGet() {
+    public Object getInventarioGet() {
         return client.nInventarioGet();
     }
-    
-    /*
-        Enalce al end-pointe
-    */
+    /* (non-Javadoc) */
     @PostMapping(HTTP_VENTAS_GET)
-    public WebObject getVentasGet() {
+    public Object getVentasGet() {
         return client.nVentasGet();
     }
-    
-    /*
-        Enalce al end-pointe
-    */
+    /* (non-Javadoc) */
     @PostMapping(HTTP_VENTAS_POST)
-    public WebObject getVentasPost(@RequestBody WebObject o) {
+    public Object getVentasPost(@RequestBody Object o) {
         return client.nVentasPost(o);
     }
-    
-    /*
-        Enalce al end-pointe
-    */
+    /* (non-Javadoc) */
     @PostMapping(HTTP_VENTAS_PUT)
-    public WebObject getVentasPut(@PathVariable("id") Long id, @RequestBody WebObject o) {
+    public Object getVentasPut(@PathVariable("id") Long id, @RequestBody Object o) {
         return client.nVentasPut(id, o);
     }
 }

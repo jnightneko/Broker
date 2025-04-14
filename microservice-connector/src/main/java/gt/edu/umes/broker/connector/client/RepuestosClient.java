@@ -4,7 +4,6 @@
  */
 package gt.edu.umes.broker.connector.client;
 
-import gt.edu.umes.broker.connector.http.WebObject;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.*;
 
@@ -18,109 +17,124 @@ import org.springframework.web.bind.annotation.*;
  */
 @FeignClient(value = "MCSV-TallerRepuesto", url = "http://localhost:4000/")
 public interface RepuestosClient {
-    
-    /*
-        Enalce al end-pointe
-    */
+    //******************************************************************************************************************
+    //**    RUTA DE ELNLACES
+    public static final String HTTP_CLIENTES_GET    = "/tallerrepuestos/GET/clientes";
+    public static final String HTTP_CLIENTES_POST   = "/tallerrepuestos/POST/clientes";
+    public static final String HTTP_CLIENTES_PUT    = "/tallerrepuestos/PUT/clientes/{id}";
+    public static final String HTTP_PRODUCTOS_GET   = "/tallerrepuestos/GET/productos";
+    public static final String HTTP_PRODUCTOS_POST  = "/tallerrepuestos/POST/productos";
+    public static final String HTTP_PRODUCTOS_PUT   = "/tallerrepuestos/PUT/productos/{id}";
+    public static final String HTTP_VEHICULOS_GET   = "/tallerrepuestos/GET/vehiculos";
+    public static final String HTTP_VEHICULOS_POST  = "/tallerrepuestos/POST/vehiculos";
+    public static final String HTTP_VEHICULOS_PUT   = "/tallerrepuestos/PUT/vehiculos/{id}";
+    public static final String HTTP_SERVICIOS_GET   = "/tallerrepuestos/GET/servicios";
+    public static final String HTTP_SERVICIOS_POST  = "/tallerrepuestos/POST/servicio";
+    public static final String HTTP_INVENTARIO_GET  = "/tallerrepuestos/GET/inventarios";
+    public static final String HTTP_VENTAS_GET      = "/tallerrepuestos/GET/ventas";
+    public static final String HTTP_VENTAS_POST     = "/tallerrepuestos/POST/ventas";
+    public static final String HTTP_VENTAS_PUT      = "/tallerrepuestos/PUT/ventas/{id}";    
+    /**
+     * Enalce al end-pointe
+     * @return objeto web
+     */
     @GetMapping(HTTP_CLIENTES_GET)
-    public WebObject nClientesGet();
-    public static final String HTTP_CLIENTES_GET                    = "/tallerrepuestos/GET/clientes";
-    
-    /*
-        Enalce al end-pointe
-    */
+    public Object nClientesGet();    
+    /**
+     * Enalce al end-pointe
+     * @param o objeto web
+     * @return objeto web
+     */
     @PostMapping(HTTP_CLIENTES_POST)
-    public WebObject nClientesPost(@RequestBody WebObject o);
-    public static final String HTTP_CLIENTES_POST                   = "/tallerrepuestos/POST/clientes";
-    
-    /*
-        Enalce al end-pointe
-    */
+    public Object nClientesPost(@RequestBody Object o);
+    /**
+     * Enalce al end-pointe
+     * @param id id|long
+     * @param o objeto web
+     * @return objeto web
+     */
     @PutMapping(HTTP_CLIENTES_PUT)
-    public WebObject nClientesPut(@PathVariable("id") Long id, @RequestBody WebObject o);
-    public static final String HTTP_CLIENTES_PUT                    = "/tallerrepuestos/PUT/clientes/{id}";
-    
-    /*
-        Enalce al end-pointe
-    */
+    public Object nClientesPut(@PathVariable("id") Long id, @RequestBody Object o);
+    /**
+     * Enalce al end-pointe
+     * @return objeto web
+     */
     @GetMapping(HTTP_PRODUCTOS_GET)
-    public WebObject nProductosGet();
-    public static final String HTTP_PRODUCTOS_GET                   = "/tallerrepuestos/GET/productos";
-    
-    /*
-        Enalce al end-pointe
-    */
+    public Object nProductosGet();
+    /**
+     * Enalce al end-pointe
+     * @param o objeto web
+     * @return objeto web
+     */
     @PostMapping(HTTP_PRODUCTOS_POST)
-    public WebObject nProductosPost(@RequestBody WebObject o);
-    public static final String HTTP_PRODUCTOS_POST                  = "/tallerrepuestos/POST/productos";
-    
-    /*
-        Enalce al end-pointe
-    */
+    public Object nProductosPost(@RequestBody Object o);
+    /**
+     * Enalce al end-pointe
+     * @param id id|long
+     * @param o objeto web
+     * @return objeto web
+     */
     @PutMapping(HTTP_PRODUCTOS_PUT)
-    public WebObject nProductosPut(@PathVariable("id") Long id, @RequestBody WebObject o);
-    public static final String HTTP_PRODUCTOS_PUT                   = "/tallerrepuestos/PUT/productos/{id}";
-    
-    /*
-        Enalce al end-pointe
-    */
+    public Object nProductosPut(@PathVariable("id") Long id, @RequestBody Object o);
+    /**
+     * Enalce al end-pointe
+     * @return objeto web
+     */
     @GetMapping(HTTP_VEHICULOS_GET)
-    public WebObject nVehiculosGet();
-    public static final String HTTP_VEHICULOS_GET                   = "/tallerrepuestos/GET/vehiculos";
-    
-    /*
-        Enalce al end-pointe
-    */
+    public Object nVehiculosGet();
+    /**
+     * Enalce al end-pointe
+     * @param o objeto web
+     * @return objeto web
+     */
     @PostMapping(HTTP_VEHICULOS_POST)
-    public WebObject nVehiculosPost(@RequestBody WebObject o);
-    public static final String HTTP_VEHICULOS_POST                  = "/tallerrepuestos/POST/vehiculos";
-    
-    /*
-        Enalce al end-pointe
-    */
+    public Object nVehiculosPost(@RequestBody Object o);
+    /**
+     * Enalce al end-pointe 
+     * @param id di|long
+     * @param o objeto web
+     * @return objeto web
+     */
     @PutMapping(HTTP_VEHICULOS_PUT)
-    public WebObject nVehiculosPut(@PathVariable("id") Long id, @RequestBody WebObject o);
-    public static final String HTTP_VEHICULOS_PUT                   = "/tallerrepuestos/PUT/vehiculos/{id}";
-    
-    /*
-        Enalce al end-pointe
-    */
+    public Object nVehiculosPut(@PathVariable("id") Long id, @RequestBody Object o);
+    /**
+     * Enalce al end-pointe
+     * @return objeto web
+     */
     @GetMapping(HTTP_SERVICIOS_GET)
-    public WebObject nServicioGet();
-    public static final String HTTP_SERVICIOS_GET                   = "/tallerrepuestos/GET/servicios";
-    
-    /*
-        Enalce al end-pointe
-    */
+    public Object nServicioGet();
+    /**
+     * Enalce al end-pointe
+     * @param o objeto web
+     * @return objeto web
+     */
     @PostMapping(HTTP_SERVICIOS_POST)
-    public WebObject nServicioPost(@RequestBody WebObject o);
-    public static final String HTTP_SERVICIOS_POST                  = "/tallerrepuestos/POST/servicio";
-    
-    /*
-        Enalce al end-pointe
-    */
+    public Object nServicioPost(@RequestBody Object o);
+    /**
+     * Enalce al end-pointe
+     * @return objeto web
+     */
     @GetMapping(HTTP_INVENTARIO_GET)
-    public WebObject nInventarioGet();
-    public static final String HTTP_INVENTARIO_GET                  = "/tallerrepuestos/GET/inventarios";
-    
-    /*
-        Enalce al end-pointe
-    */
+    public Object nInventarioGet();
+    /**
+     * Enalce al end-pointe
+     * @return objeto web
+     */
     @GetMapping(HTTP_VENTAS_GET)
-    public WebObject nVentasGet();
-    public static final String HTTP_VENTAS_GET                      = "/tallerrepuestos/GET/ventas";
-    
-    /*
-        Enalce al end-pointe
-    */
+    public Object nVentasGet();
+    /**
+     * Enalce al end-pointe
+     * @param o objeto web
+     * @return objeto web
+     */
     @PostMapping(HTTP_VENTAS_POST)
-    public WebObject nVentasPost(@RequestBody WebObject o);
-    public static final String HTTP_VENTAS_POST                     = "/tallerrepuestos/POST/ventas";
-    
-    /*
-        Enalce al end-pointe
-    */
+    public Object nVentasPost(@RequestBody Object o);
+    /**
+     * Enalce al end-pointe
+     * @param id id|long
+     * @param o objeto web
+     * @return objeto web
+     */
     @PutMapping(HTTP_VENTAS_PUT)
-    public WebObject nVentasPut(@PathVariable("id") Long id, @RequestBody WebObject o);
-    public static final String HTTP_VENTAS_PUT                      = "/tallerrepuestos/PUT/ventas/{id}";   
+    public Object nVentasPut(@PathVariable("id") Long id, @RequestBody Object o);     
 }

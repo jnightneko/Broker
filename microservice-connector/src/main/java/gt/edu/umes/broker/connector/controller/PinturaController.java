@@ -4,280 +4,181 @@
  */
 package gt.edu.umes.broker.connector.controller;
 
-import gt.edu.umes.broker.connector.http.WebObject;
-import static gt.edu.umes.broker.connector.client.PinturaClient.*;
-
 import org.springframework.beans.factory.annotation.*;
 import org.springframework.web.bind.annotation.*;
+
 import gt.edu.umes.broker.connector.client.PinturaClient;
+import static gt.edu.umes.broker.connector.client.PinturaClient.*;
 /**
  * Clase encargado de gestionar el redireccionamiento de las peticiones a las direcciones correctas.
+ * 
  * @author wil
  * @version 1.0.0
  * @since 1.0.0
  */
 @RestController
 @RequestMapping("/broker/__connection__/")
-public class PinturaController {
+public final class PinturaController {
     @Autowired
     private PinturaClient client;
-    /**
-     * Obtener todos los servicios disponibles
-     * @return objeto json
-     */
-    @GetMapping(PINTURA_SERVICIO_GET)
-    public WebObject getPServicio() {
+    /*(non-Javadoc) */
+    @PostMapping(PINTURA_SERVICIO_GET)
+    public Object getPServicio() {
         return client.nPServicio();
     }
-    
-    /**
-     * Crear un nuevo servicio
-     * @param value object
-     * 
-     * @return objeto json
-     */
+    /*(non-Javadoc) */
     @PostMapping(PINTURA_SERVICIO_POST)
-    public WebObject getPServicio(@RequestBody WebObject value) {
+    public Object getPServicio(@RequestBody Object value) {
         return client.nPServicio(value);
     }
-    
-    /**
-     * Acutalizar un servicio
-     * 
-     * @param id number|object id
-     * @param value object
-     * 
-     * @return objeto json
-     */
-    @PutMapping(PINTURA_SERVICIO_PUT)
-    public WebObject getPServicio(@PathVariable("idServicio") Long id, @RequestBody WebObject value) {
+    /*(non-Javadoc) */
+    @PostMapping(PINTURA_SERVICIO_PUT)
+    public Object getPServicio(@PathVariable("idServicio") Long id, @RequestBody Object value) {
         return client.nPServicio(id, value);
     }
-    
-    /**
-     * Obtener todos los tipos de servicio
-     * @return objeto json
-     */
+    /*(non-Javadoc) */
     @GetMapping(PINTURA_TIPOSERVICIO_GET)
-    public WebObject getPTipoServicio() {
+    public Object getPTipoServicio() {
         return client.nPTipoServicio();
     }
-    
-    /**
-     * Actualizar un tipo de servicio
-     * 
-     * @param id number|object id
-     * @param value object
-     * 
-     * @return objeto json
-     */
-    @PutMapping(PINTURA_TIPOSERVICIO_PUT)
-    public WebObject getPTipoServicio(@PathVariable("idTipoServicio") Long id, @RequestBody WebObject value) {
+    /*(non-Javadoc) */
+    @PostMapping(PINTURA_TIPOSERVICIO_PUT)
+    public Object getPTipoServicio(@PathVariable("idTipoServicio") Long id, @RequestBody Object value) {
         return client.nPTipoServicio(id, value);
     }
-    
-    /**
-     * Crear un nuevo tipo de servicio
-     * @param value object
-     * 
-     * @return objeto json
-     */
+    /*(non-Javadoc) */
     @PostMapping(PINTURA_TIPOSERVICIO_POST)
-    public WebObject getPTipoServicio(@RequestBody WebObject value) {
+    public Object getPTipoServicio(@RequestBody Object value) {
         return client.nPTipoServicio(value);
     }
-    
-    /**
-     * Obtener todos los tipos de vehículo
-     * @return objeto json
-     */
-    @GetMapping(PINTURA_TIPOVEHICULO_GET)
-    public WebObject getPTipoVehiculo() {
+    /*(non-Javadoc) */
+    @PostMapping(PINTURA_TIPOVEHICULO_GET)
+    public Object getPTipoVehiculo() {
         return client.nPTipoVehiculo();
     }
-    
-    /**
-     * Crear un nuevo tipo de vehículo
-     * @param value object
-     * 
-     * @return objeto json
-     */
+    /*(non-Javadoc) */
     @PostMapping(PINTURA_TIPOVEHICULO_POST)
-    public WebObject getPTipoVehiculo(@RequestBody WebObject value) {
+    public Object getPTipoVehiculo(@RequestBody Object value) {
         return client.nPTipoVehiculo(value);
     }
-    
-    /**
-     * Actualizar un tipo de vehículo específico
-     * 
-     * @param id number|object id
-     * @param value object
-     * 
-     * @return objeto json
-     */
-    @PutMapping(PINTURA_TIPOVEHICULO_PUT)
-    public WebObject getPTipoVehiculo(@PathVariable("idTipoVehiculo") Long id, @RequestBody WebObject value) {
+    /*(non-Javadoc) */
+    @PostMapping(PINTURA_TIPOVEHICULO_PUT)
+    public Object getPTipoVehiculo(@PathVariable("idTipoVehiculo") Long id, @RequestBody Object value) {
         return client.nPTipoVehiculo(id, value);
     }
-    
-    /**
-     * Obtener todos los tipos de pintura disponibles
-     * @return objeto json
-     */
-    @GetMapping(PINTURA_TIPOPINTURA_GET)
-    public WebObject getPTipoPintura() {
+    /*(non-Javadoc) */
+    @PostMapping(PINTURA_TIPOPINTURA_GET)
+    public Object getPTipoPintura() {
         return client.nPTipoPintura();
     }
-    
-    /*
-        Crear un nuevo tipo de pintura
-    */
+    /*(non-Javadoc) */
     @PostMapping(PINTURA_TIPOPINTURA_POST)
-    public WebObject getPTipoPintura(@RequestBody WebObject value) {
+    public Object getPTipoPintura(@RequestBody Object value) {
         return client.nPTipoPintura(value);
     }
-    
-    /*
-        Actualizar un tipo de pintura
-    */
-    @PutMapping(PINTURA_TIPOPINTURA_PUT)
-    public WebObject getPTipoPintura(@PathVariable("idTipoPintura") Long id, @RequestBody WebObject value) {
+    /*(non-Javadoc) */
+    @PostMapping(PINTURA_TIPOPINTURA_PUT)
+    public Object getPTipoPintura(@PathVariable("idTipoPintura") Long id, @RequestBody Object value) {
         return client.nPTipoPintura(id, value);
     }
-    
-    /*
-        Obtener todos los inventarios
-    */
-    @GetMapping(PINTURA_INVENTARIO_GET)
-    public WebObject getPInvetario() {
+    /*(non-Javadoc) */
+    @PostMapping(PINTURA_INVENTARIO_GET)
+    public Object getPInvetario() {
         return client.nPInvetario();
     }
-    
-    /*
-        Crear un nuevo inventario
-    */
+    /*(non-Javadoc) */
     @PostMapping(PINTURA_INVENTARIO_POST)
-    public WebObject getPInventario(@RequestBody WebObject value) {
+    public Object getPInventario(@RequestBody Object value) {
         return client.nPInventario(value);
     }
-    
-    /*
-        Actualizar un tipo de inventario
-    */
-    @PutMapping(PINTURA_INVENTARIO_PUT)
-    public WebObject getPInventario(@PathVariable("idInventario") Long id, @RequestBody WebObject value) {
+    /*(non-Javadoc) */
+    @PostMapping(PINTURA_INVENTARIO_PUT)
+    public Object getPInventario(@PathVariable("idInventario") Long id, @RequestBody Object value) {
         return client.nPInventario(id, value);
     }
-    
-    /*
-        Obtener todos los movimientos de inventario
-    */
-    @GetMapping(PINTURA_MOVIMIENTO_GET)
-    public WebObject getPMovimiento() {
+    /*(non-Javadoc) */
+    @PostMapping(PINTURA_MOVIMIENTO_GET)
+    public Object getPMovimiento() {
         return client.nPMovimiento();
     }
-    
-    /*
-        Crear un nuevo movimiento de inventarios
-    */
+    /*(non-Javadoc) */
     @PostMapping(PINTURA_MOVIMIENTO_POST)
-    public WebObject getPMovimiento(@RequestBody WebObject o) {
+    public Object getPMovimiento(@RequestBody Object o) {
         return client.nPMovimiento(o);
     }
-    
-    /*
-        Actualizar un movimiento de inventario
-    */
-    @PutMapping(PINTURA_MOVIMINEOT_PUT)
-    public WebObject getPMovimientoPut(@RequestBody WebObject o) {
+    /*(non-Javadoc) */
+    @PostMapping(PINTURA_MOVIMINEOT_PUT)
+    public Object getPMovimientoPut(@RequestBody Object o) {
         return client.nPMovimientoPut(o);
     }
-    
-    /*
-        Crear una nueva venta
-    */
+    /*(non-Javadoc) */
     @PostMapping(PINTURA_VENTAS_POST)
-    public WebObject getPVentas(@RequestBody WebObject o) {
+    public Object getPVentas(@RequestBody Object o) {
         return client.nPVentas(o);
     }
-    
-    /*
-        Obtener todas las ventas
-    */
-    @GetMapping(PINTURA_VENTAS_GET)
-    public WebObject nPVentas() {
+    /*(non-Javadoc) */
+    @PostMapping(PINTURA_VENTAS_GET)
+    public Object nPVentas() {
         return client.nPVentas();
     }
-    
-    /*
-        Actualizar una venta
-    */
-    @PutMapping(PINTURA_VENTAS_PUT)
-    public WebObject getPVentas(@PathVariable("idVenta") Long id, @RequestBody WebObject o) {
+    /*(non-Javadoc) */
+    @PostMapping(PINTURA_VENTAS_PUT)
+    public Object getPVentas(@PathVariable("idVenta") Long id, @RequestBody Object o) {
         return client.nPVentas(id, o);
     }
-    
-    /*
-        Obtener el detalle de una venta específica
-    */
-    @GetMapping(PINTURA_DETALLE_VENTA_GET)
-    public WebObject getPDetallVenta(@PathVariable("idVenta") Long id) {
+    /*(non-Javadoc) */
+    @PostMapping(PINTURA_DETALLE_VENTA_GET)
+    public Object getPDetallVenta(@PathVariable("idVenta") Long id) {
         return client.nPDetallVenta(id);
     }
-    
-    /*
-        rear un nuevo detalle de venta
-    */
+    /*(non-Javadoc) */
     @PostMapping(PINTURA_DETALLE_VENTA_POST)
-    public WebObject getPDetalleVenta(@RequestBody WebObject o) {
+    public Object getPDetalleVenta(@RequestBody Object o) {
         return client.nPDetalleVenta(o);
     }
-    
-    /*
-        Actualizar un detalle de venta
-    */
-    @PutMapping(PINTURA_DETALLE_VENTA_PUT)
-    public WebObject getPDetalleVenta(@PathVariable("idDetalleVenta") Long l, @RequestBody WebObject o) {
+    /*(non-Javadoc) */
+    @PostMapping(PINTURA_DETALLE_VENTA_PUT)
+    public Object getPDetalleVenta(@PathVariable("idDetalleVenta") Long l, @RequestBody Object o) {
         return client.nPDetalleVenta(l, o);
     }
-    
-    /*
-        Obtener todas las devoluciones
-    */
-    @GetMapping(PINTURA_DEVOLUCION_GET)
-    public WebObject getPVecolucion() {
+    /*(non-Javadoc) */
+    @PostMapping(PINTURA_DEVOLUCION_GET)
+    public Object getPVecolucion() {
         return client.nPVecolucion();
     }
-    
-    /*
-        Crear una nueva devlución
-    */
+    /*(non-Javadoc) */
     @PostMapping(PINTURA_DEVOLUCION_POST)
-    public WebObject getPDevolucion(@RequestBody WebObject o) {
+    public Object getPDevolucion(@RequestBody Object o) {
         return client.nPDevolucion(o);
     }
-    
-    /*
-        Obtener todos los inventarios de vehiculo
-    */
-    @GetMapping(PINTURA_VEHICULO_INVENTARIO_GET)
-    public WebObject getPVehiculoInventario() {
+    /*(non-Javadoc) */
+    @PostMapping(PINTURA_VEHICULO_INVENTARIO_GET)
+    public Object getPVehiculoInventario() {
         return client.nPVehiculoInventario();
     }
-    
-    /*
-        Crear un nuevo inventario de vehiculo
-    */
+    /*(non-Javadoc) */
     @PostMapping(PINTURA_VEHICULO_INVENTARIO_POST)
-    public WebObject getPVehiculoInventario(@RequestBody WebObject o) {
+    public Object getPVehiculoInventario(@RequestBody Object o) {
         return client.nPVehiculoInventario(o);
     }
-    
-    /*
-        Actualizar un inventario de vehiculo
-    */
-    @PutMapping(PINTURA_VEHICULO_INVENTARIO_PUT)
-    public WebObject getPVehiculoInventarioPut(@RequestBody WebObject o) {
+    /*(non-Javadoc) */
+    @PostMapping(PINTURA_VEHICULO_INVENTARIO_PUT)
+    public Object getPVehiculoInventarioPut(@RequestBody Object o) {
         return client.nPVehiculoInventarioPut(o);
+    }
+    /*(non-Javadoc) */
+    @PostMapping(PINTURA_PRECIOS_GET)
+    public Object getPreciosGet() {
+        return client.nPreciosGet();
+    }    
+    /*(non-Javadoc) */
+    @PostMapping(PINTURA_PRECIOS_POST)
+    public Object getPreciosPost(@RequestBody Object o) {
+        return client.nPreciosPost(o);
+    }    
+    /*(non-Javadoc) */
+    @PostMapping(PINTURA_PRECIOS_PUT)
+    public Object getPreciosPut(@PathVariable("id") Long id, @RequestBody Object o) {
+        return client.nPreciosPut(id, o);
     }
 }

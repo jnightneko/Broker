@@ -1,0 +1,1039 @@
+{
+  "uuid": "955b97c8-27d2-4dcf-8350-8c000b264b45",
+  "lastMigration": 33,
+  "name": "Gas",
+  "endpointPrefix": "",
+  "latency": 0,
+  "port": 3002,
+  "hostname": "",
+  "folders": [],
+  "routes": [
+    {
+      "uuid": "6f0abc83-8fa4-4086-8071-0b56fc0d2bba",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "bomb/list",
+      "responses": [
+        {
+          "uuid": "25e41485-4034-4d14-9476-a6ff6604b3eb",
+          "body": "{\n    \"bomb\": [\n        {\n            \"bombId\": \"uuid\",\n            \"bombNumber\": \"int\",\n            \"servedQuantity\": \"decimal\",\n            \"employeeInCharge\": {\n                \"employeeId\": \"uuid\",\n                \"employeeName\": \"string\"\n            },\n            \"createdAt\": \"time\",\n            \"createdBy\": {\n                \"employeeId\": \"uuid\",\n                \"employeeName\": \"string\"\n            },\n            \"updatedAt\": \"time\",\n            \"updatedBy\": {\n                \"employeeId\": \"uuid\",\n                \"employeeName\": \"string\"\n            },\n            \"status\": \"int\"\n        }\n    ]\n}\n",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "9dcfc45b-fa66-420b-a5cb-b385241dd38b",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "bomb/list/active",
+      "responses": [
+        {
+          "uuid": "3886d159-8fae-4475-9901-d868c34b53d1",
+          "body": "{\n    \"bomb\": [\n        {\n            \"bombId\": \"uuid\",\n            \"bombNumber\": \"int\",\n            \"servedQuantity\": \"decimal\",\n            \"employeeInCharge\": {\n                \"employeeId\": \"uuid\",\n                \"employeeName\": \"string\"\n            },\n            \"status\": \"int\"\n        }\n    ]\n}\n",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "0a3dacdc-ab8a-4017-ab89-c7862ae829cc",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "bomb/list/inactive",
+      "responses": [
+        {
+          "uuid": "7be712b3-e822-4b47-b36e-b33dc490cc8c",
+          "body": "{\n    \"bomb\": [\n        {\n            \"bombId\": \"uuid\",\n            \"bombNumber\": \"int\",\n            \"servedQuantity\": \"decimal\",\n            \"employeeInCharge\": {\n                \"employeeId\": \"uuid\",\n                \"employeeName\": \"string\"\n            },\n            \"status\": \"int\"\n        }\n    ]\n}\n",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "4a41cafd-0054-461f-bed2-af0db1a868ed",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "bomb/list/mainteance",
+      "responses": [
+        {
+          "uuid": "23cb6efc-83ca-46bc-85b6-1d6dfa1a539d",
+          "body": "{\n    \"bomb\": [\n        {\n            \"bombId\": \"uuid\",\n            \"bombNumber\": \"int\",\n            \"servedQuantity\": \"decimal\",\n            \"employeeInCharge\": {\n                \"employeeId\": \"uuid\",\n                \"employeeName\": \"string\"\n            },\n            \"status\": \"int\"\n        }\n    ]\n}\n",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "53de6385-8884-42fd-94fd-b8db193ee4a3",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "bomb/list/:bombId",
+      "responses": [
+        {
+          "uuid": "67d3b496-6145-4506-a7b8-d785e554aa5b",
+          "body": "{\n    \"bomb\": [\n        {\n            \"bombId\": \"uuid\",\n            \"bombNumber\": \"int\",\n            \"servedQuantity\": \"decimal\",\n            \"employeeInCharge\": {\n                \"employeeId\": \"uuid\",\n                \"employeeName\": \"string\"\n            },\n            \"createdAt\": \"time\",\n            \"createdBy\": {\n                \"employeeId\": \"uuid\",\n                \"employeeName\": \"string\"\n            },\n            \"updatedAt\": \"time\",\n            \"updatedBy\": {\n                \"employeeId\": \"uuid\",\n                \"employeeName\": \"string\"\n            },\n            \"status\": \"int\"\n        }\n    ]\n}\n",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "ef7b5a22-3470-414b-b5e4-b26d8e2cf8c3",
+      "type": "http",
+      "documentation": "",
+      "method": "post",
+      "endpoint": "bomb/create",
+      "responses": [
+        {
+          "uuid": "ab7976e0-5cfd-40a7-a187-1e619b5de1a1",
+          "body": "{\n    \"status\": 200,\n    \"mensaje\": \"Se creó correctamente la bomba\"\n}\n",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "309d227a-8447-4a27-b96f-4c26d56abf6d",
+      "type": "http",
+      "documentation": "",
+      "method": "patch",
+      "endpoint": "bomb/update/:bombId",
+      "responses": [
+        {
+          "uuid": "5ccd8fd3-c310-4eea-8cbf-6a5e32a88995",
+          "body": "{\n    \"status\": 200,\n    \"mensaje\": \"Se actualizó correctamente la bomba\"\n}\n",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "fa7def5d-9058-4a0f-9b08-b04010799d64",
+      "type": "http",
+      "documentation": "",
+      "method": "patch",
+      "endpoint": "bomb/delete/:bombId",
+      "responses": [
+        {
+          "uuid": "0def1780-2a9e-49b5-94de-03408048e4d5",
+          "body": "{\n    \"status\": 200,\n    \"mensaje\": \"Se eliminó correctamente la bomba\"\n}\n",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "f9b6d7db-8856-42bd-aebc-dbe4d1e949c6",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "fuelType/list",
+      "responses": [
+        {
+          "uuid": "caee9c75-c848-4c9e-bb1e-5632fb2274e6",
+          "body": "{\n  \"fuelTypes\": [\n    {\n      \"fuelId\": \"string\",\n      \"fuelName\": \"string\",\n      \"costPriceGalon\": \"number\",\n      \"salePriceGalon\": \"number\",\n      \"createdBy\": {\n        \"employeeId\": \"string\",\n        \"employeeName\": \"string\"\n      },\n      \"status\": \"boolean\",\n      \"createdAt\": \"timestamp\",\n      \"updatedAt\": \"timestamp\"\n    }\n  ]\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "f26e6bde-fe0e-4633-bf9d-429303e9627e",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "fuelType/list/:fuelId",
+      "responses": [
+        {
+          "uuid": "5432a33b-3445-4d28-8c85-d67b74aec1a0",
+          "body": "{\n  \"fuelId\": \"string\",\n  \"fuelName\": \"string\",\n  \"costPriceGalon\": \"number\",\n  \"salePriceGalon\": \"number\",\n  \"createdBy\": {\n    \"employeeId\": \"string\",\n    \"employeeName\": \"string\"\n  },\n  \"status\": \"boolean\",\n  \"createdAt\": \"timestamp\",\n  \"updatedAt\": \"timestamp\"\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "4d289250-78d9-40d2-8830-2d3b21bcffbe",
+      "type": "http",
+      "documentation": "",
+      "method": "post",
+      "endpoint": "fuelType/create",
+      "responses": [
+        {
+          "uuid": "f480add1-2ee3-4205-83a3-99ce351075e0",
+          "body": "{\n    \"status\": 201,\n    \"mensaje\": \"Se creó correctamente\"\n}\n",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "a0e1b1da-124f-4b1b-b5a5-04dad74b0455",
+      "type": "http",
+      "documentation": "",
+      "method": "patch",
+      "endpoint": "fuelType/update/:fuelId",
+      "responses": [
+        {
+          "uuid": "5c7ef851-e4f7-458e-abcf-8b2629774c99",
+          "body": "{\n    \"status\": 201,\n    \"mensaje\": \"Se actualizó correctamente\"\n}\n",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "933c942d-666e-452f-9d1b-fd933d2c4134",
+      "type": "http",
+      "documentation": "",
+      "method": "patch",
+      "endpoint": "fuelType/delete/:fuelId",
+      "responses": [
+        {
+          "uuid": "3ae8018e-697e-44bd-ae95-39ee26bebc9c",
+          "body": "{\n    \"status\": 204\n}\n",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "9ddff642-2080-4589-a9c2-751378676ef7",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "sale/list",
+      "responses": [
+        {
+          "uuid": "830d31c8-81ac-4e76-9db3-90ff921ba2bf",
+          "body": "[\n  {\n    \"fuelSaleId\": \"uuid\",\n    \"amount\": \"decimal\",\n    \"consumedQuantity\": \"decimal\",\n    \"customer\": {\n        \"customerId\": \"uuid\",\n        \"customerName\": \"string\",\n        \"nit\": \"string\"\n    },\n    \"bomb\": {\n        \"bombId\": \"uuid\",\n        \"bombNumber\": \"int\"\n    },\n    \"fuel\": {\n        \"fuelId\": \"uuid\",\n        \"fuelName\": \"string\",\n        \"salePriceGalon\": \"decimal\"\n    },\n    \"paymentMethods\": [\n        {\n            \"paymentId\": \"uuid\",\n            \"methood\": \"string\",\n            \"amount\": \"decimal\"\n        }\n    ],\n    \"fidelityCard\": {\n        \"fidelityCardId\": \"uuid\",\n        \"earnedPoints\": \"decimal\",\n        \"lostPoints\": \"decimal\"\n    },\n    \"createdAt\": \"time\",\n    \"createdBy\": {\n        \"employeeId\": \"uuid\",\n        \"employeeName\": \"string\"\n    },\n    \"updatedAt\": \"time\",\n    \"updatedBy\": {\n        \"employeeId\": \"uuid\",\n        \"employeeName\": \"string\"\n    },\n    \"state\": \"int\"\n  }\n  \n]",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "44364931-c14c-46bb-b94e-342d343d2549",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "sale/list/:fuelSaleId",
+      "responses": [
+        {
+          "uuid": "4ac46f7b-108e-473b-86a0-1f512ace91dd",
+          "body": "{\n            \"fuelSaleId\": \"uuid\",\n            \"amount\": \"decimal\",\n            \"consumedQuantity\": \"decimal\",\n            \"customer\": {\n                \"customerId\": \"uuid\",\n                \"customerName\": \"string\",\n                \"nit\": \"string\"\n            },\n            \"bomb\": {\n                \"bombId\": \"uuid\",\n                \"bombNumber\": \"int\"\n            },\n            \"fuel\": {\n                \"fuelId\": \"uuid\",\n                \"fuelName\": \"string\",\n                \"salePriceGalon\": \"decimal\"\n            },\n            \"paymentMethods\": [\n                {\n                    \"paymentId\": \"uuid\",\n                    \"methood\": \"string\",\n                    \"amount\": \"decimal\"\n                }\n            ],\n            \"fidelityCard\": {\n                \"fidelityCardId\": \"uuid\",\n                \"earnedPoints\": \"decimal\",\n                \"lostPoints\": \"decimal\"\n            },\n            \"createdAt\": \"time\",\n            \"createdBy\": {\n                \"employeeId\": \"uuid\",\n                \"employeeName\": \"string\"\n            },\n            \"updatedAt\": \"time\",\n            \"updatedBy\": {\n                \"employeeId\": \"uuid\",\n                \"employeeName\": \"string\"\n            },\n            \"state\": \"int\"\n        }\n",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "88bd1dc0-3b4c-4e5d-bc3b-ef7d2a4799d1",
+      "type": "http",
+      "documentation": "",
+      "method": "post",
+      "endpoint": "sale/create",
+      "responses": [
+        {
+          "uuid": "d430446a-587a-4272-a82d-02be59fe007e",
+          "body": "{\n    \"status\": 200,\n    \"mensaje\": \"Se insertó correctamente la venta de combustible\"\n}\n",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "b006d6cc-a07f-407a-82e3-67b970a85a51",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "sale/update/:fuelSaleId",
+      "responses": [
+        {
+          "uuid": "0fb40ddd-6722-4096-9ca5-a9addaf792ce",
+          "body": "{\n    \"status\": 200,\n    \"mensaje\": \"Se actualizó correctamente la venta de combustible\"\n}\n",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "d14ead1a-cbd5-4734-93f8-e17de0acf951",
+      "type": "http",
+      "documentation": "",
+      "method": "patch",
+      "endpoint": "sale/delete/:fuelSaleId",
+      "responses": [
+        {
+          "uuid": "f495711d-0e73-471b-9f9d-6db97556a984",
+          "body": "{\n    \"status\": 200,\n    \"mensaje\": \"Se eliminó correctamente la venta de combustible\"\n}\n",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "aee87f42-3771-403f-81ae-15ccffc6d363",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "generalDeposit/list",
+      "responses": [
+        {
+          "uuid": "d84f2418-d4c7-40e2-9d5f-d57b859d0730",
+          "body": "{\n    \"general-deposit\": [\n        {\n            \"generalDepositId\": \"uuid\",\n            \"maxCapacity\": \"decimal\",\n            \"actualQuantity\": \"decimal\",\n            \"fuel\": {\n                \"fuelId\": \"uuid\",\n                \"fuelName\": \"string\"\n            }\n        }\n    ]\n}\n",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "fceb5161-3fc2-4f1a-9848-a5dad7b5eefc",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "generalDeposit/list/:generalDepositId",
+      "responses": [
+        {
+          "uuid": "d59a2a68-ee97-4da5-b008-daba862ee36e",
+          "body": "{\n            \"generalDepositId\": \"uuid\",\n            \"maxCapacity\": \"decimal\",\n            \"actualQuantity\": \"decimal\",\n            \"fuel\": {\n                \"fuelId\": \"uuid\",\n                \"fuelName\": \"string\"\n            }\n        }\n",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "3066a7ff-8b84-43ef-96af-9d2f69ee1d3b",
+      "type": "http",
+      "documentation": "",
+      "method": "post",
+      "endpoint": "generalDeposit/create",
+      "responses": [
+        {
+          "uuid": "6636db02-3b86-43dc-91af-f87ae73d53aa",
+          "body": "{\n    \"status\": 201,\n    \"mensaje\": \"Se creó correctamente el depósito general\"\n}\n",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "24d11108-ea17-4e03-bff5-6269179a1ec5",
+      "type": "http",
+      "documentation": "",
+      "method": "patch",
+      "endpoint": "generalDeposit/update/:generalDepositId",
+      "responses": [
+        {
+          "uuid": "01bc41bd-1904-44a4-89c4-86de1e4d5c57",
+          "body": "{\n    \"status\": 200,\n    \"mensaje\": \"Se actualizó correctamente el depósito general\"\n}\n",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "905b5645-0cbc-4dba-b7c7-950ae13a0282",
+      "type": "http",
+      "documentation": "",
+      "method": "patch",
+      "endpoint": "generalDeposit/delete/:generalDepositId",
+      "responses": [
+        {
+          "uuid": "1ea3f04c-850d-46c3-9d1d-751165503df9",
+          "body": "{\n    \"status\": 204\n}\n",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "b31ed854-c6d1-454e-bd6e-808a94c7d300",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "alert/list",
+      "responses": [
+        {
+          "uuid": "dbba5886-dc0e-4ba4-8461-fe0cafba8c3f",
+          "body": "{\n    \"alerts\": [\n        {\n            \"alertId\": \"string\",\n            \"message\": \"string\",\n            \"destination\": \"string\",\n            \"createdAt\": \"timestamp\",\n            \"createdBy\": {\n                \"employeeId\": \"string\",\n                \"employeeName\": \"string\"\n            }\n        }\n    ]\n}\n",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "df0b4039-c9d3-4d21-bc53-28b249b2380b",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "alert/list/:alertId",
+      "responses": [
+        {
+          "uuid": "c03083e5-8e96-4cec-b740-bd6674d7e9f1",
+          "body": "{\n            \"alertId\": \"string\",\n            \"message\": \"string\",\n            \"destination\": \"string\",\n            \"createdAt\": \"timestamp\",\n            \"createdBy\": {\n                \"employeeId\": \"string\",\n                \"employeeName\": \"string\"\n            }\n        }\n",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "f7ed8369-4e21-42d7-b4ab-78be02a4a9bf",
+      "type": "http",
+      "documentation": "",
+      "method": "post",
+      "endpoint": "alert/create",
+      "responses": [
+        {
+          "uuid": "ff62fb33-0a4e-451e-a29f-a50f5c42fc9a",
+          "body": "{\n    \"status\": 201,\n    \"mensaje\": \"Se creó correctamente la alerta\"\n}\n",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "6077f4f4-8001-42a1-9274-9f65e73cbb9d",
+      "type": "http",
+      "documentation": "",
+      "method": "patch",
+      "endpoint": "alert/update/:alertId",
+      "responses": [
+        {
+          "uuid": "5ea6da3a-c373-4be8-bded-ec5f115172c4",
+          "body": "{\n    \"status\": 200,\n    \"mensaje\": \"Se actualizó correctamente la alerta\"\n}\n",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "d3553556-cb27-47e8-acda-87013030a2b0",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "alert/delete/:alertId",
+      "responses": [
+        {
+          "uuid": "d6cd707a-ea54-42a7-a05a-84fd7c99f5f2",
+          "body": "{\n    \"status\": 204\n}\n",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    }
+  ],
+  "rootChildren": [
+    {
+      "type": "route",
+      "uuid": "6f0abc83-8fa4-4086-8071-0b56fc0d2bba"
+    },
+    {
+      "type": "route",
+      "uuid": "9dcfc45b-fa66-420b-a5cb-b385241dd38b"
+    },
+    {
+      "type": "route",
+      "uuid": "0a3dacdc-ab8a-4017-ab89-c7862ae829cc"
+    },
+    {
+      "type": "route",
+      "uuid": "4a41cafd-0054-461f-bed2-af0db1a868ed"
+    },
+    {
+      "type": "route",
+      "uuid": "53de6385-8884-42fd-94fd-b8db193ee4a3"
+    },
+    {
+      "type": "route",
+      "uuid": "ef7b5a22-3470-414b-b5e4-b26d8e2cf8c3"
+    },
+    {
+      "type": "route",
+      "uuid": "309d227a-8447-4a27-b96f-4c26d56abf6d"
+    },
+    {
+      "type": "route",
+      "uuid": "fa7def5d-9058-4a0f-9b08-b04010799d64"
+    },
+    {
+      "type": "route",
+      "uuid": "f9b6d7db-8856-42bd-aebc-dbe4d1e949c6"
+    },
+    {
+      "type": "route",
+      "uuid": "f26e6bde-fe0e-4633-bf9d-429303e9627e"
+    },
+    {
+      "type": "route",
+      "uuid": "4d289250-78d9-40d2-8830-2d3b21bcffbe"
+    },
+    {
+      "type": "route",
+      "uuid": "a0e1b1da-124f-4b1b-b5a5-04dad74b0455"
+    },
+    {
+      "type": "route",
+      "uuid": "933c942d-666e-452f-9d1b-fd933d2c4134"
+    },
+    {
+      "type": "route",
+      "uuid": "9ddff642-2080-4589-a9c2-751378676ef7"
+    },
+    {
+      "type": "route",
+      "uuid": "44364931-c14c-46bb-b94e-342d343d2549"
+    },
+    {
+      "type": "route",
+      "uuid": "88bd1dc0-3b4c-4e5d-bc3b-ef7d2a4799d1"
+    },
+    {
+      "type": "route",
+      "uuid": "b006d6cc-a07f-407a-82e3-67b970a85a51"
+    },
+    {
+      "type": "route",
+      "uuid": "d14ead1a-cbd5-4734-93f8-e17de0acf951"
+    },
+    {
+      "type": "route",
+      "uuid": "aee87f42-3771-403f-81ae-15ccffc6d363"
+    },
+    {
+      "type": "route",
+      "uuid": "fceb5161-3fc2-4f1a-9848-a5dad7b5eefc"
+    },
+    {
+      "type": "route",
+      "uuid": "3066a7ff-8b84-43ef-96af-9d2f69ee1d3b"
+    },
+    {
+      "type": "route",
+      "uuid": "24d11108-ea17-4e03-bff5-6269179a1ec5"
+    },
+    {
+      "type": "route",
+      "uuid": "905b5645-0cbc-4dba-b7c7-950ae13a0282"
+    },
+    {
+      "type": "route",
+      "uuid": "b31ed854-c6d1-454e-bd6e-808a94c7d300"
+    },
+    {
+      "type": "route",
+      "uuid": "df0b4039-c9d3-4d21-bc53-28b249b2380b"
+    },
+    {
+      "type": "route",
+      "uuid": "f7ed8369-4e21-42d7-b4ab-78be02a4a9bf"
+    },
+    {
+      "type": "route",
+      "uuid": "6077f4f4-8001-42a1-9274-9f65e73cbb9d"
+    },
+    {
+      "type": "route",
+      "uuid": "d3553556-cb27-47e8-acda-87013030a2b0"
+    }
+  ],
+  "proxyMode": false,
+  "proxyHost": "",
+  "proxyRemovePrefix": false,
+  "tlsOptions": {
+    "enabled": false,
+    "type": "CERT",
+    "pfxPath": "",
+    "certPath": "",
+    "keyPath": "",
+    "caPath": "",
+    "passphrase": ""
+  },
+  "cors": true,
+  "headers": [
+    {
+      "key": "Content-Type",
+      "value": "application/json"
+    },
+    {
+      "key": "Access-Control-Allow-Origin",
+      "value": "*"
+    },
+    {
+      "key": "Access-Control-Allow-Methods",
+      "value": "GET,POST,PUT,PATCH,DELETE,HEAD,OPTIONS"
+    },
+    {
+      "key": "Access-Control-Allow-Headers",
+      "value": "Content-Type, Origin, Accept, Authorization, Content-Length, X-Requested-With"
+    }
+  ],
+  "proxyReqHeaders": [
+    {
+      "key": "",
+      "value": ""
+    }
+  ],
+  "proxyResHeaders": [
+    {
+      "key": "",
+      "value": ""
+    }
+  ],
+  "data": [],
+  "callbacks": []
+}

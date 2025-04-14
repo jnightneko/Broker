@@ -26,6 +26,8 @@ public interface PagosClient {
     public static final String PAGOS_CLIENTE_ELIMINAR                   = "/pagos/cliente/eliminar/{id_cliente}";
     public static final String PAGOS_CLIENTE_FIDELIDAD_CREAR            = "/pagos/cliente/fidelidad/crear/{id_cliente}";
     public static final String PAGOS_CLIENTE_FIDELIDAD_DESACTIVAR       = "/pagos/cliente/fidelidad/desactivar/{id_cliente}";
+    public static final String PAGOS_METODO_OBTENER                     = "/pagos/metodos/obtener";
+    public static final String PAGOS_METODO_OBTENER_ID                  = "/pagos/metodos/obtener/{idMetodo}";
     public static final String PAGOS_METODO_CREAR                       = "/pagos/metodos/crear";
     public static final String PAGOS_METODO_ELIMINAR                    = "/pagos/metodos/eliminar/{id_metodo}";
     public static final String PAGOS_TRANSACCION_OBTENER                = "/pagos/transacciones/obtener";
@@ -37,9 +39,9 @@ public interface PagosClient {
     public static final String PAGOS_DEVOLUCION_OBTENER_PARAM           = "/pagos/devoluciones/obtener/{noDevolucion}";
     public static final String PAGOS_DEVOLUCION_CREAR                   = "/pagos/devoluciones/crear";
     public static final String PAGOS_BANCOS_OBTENER                     = "/pagos/bancos/obtener";
-    public static final String PAGOS_BANCO_OBTENER_PARAM                = "/pagos/bancos/obtener/{IdBanco}";
+    public static final String PAGOS_BANCO_OBTENER_PARAM                = "/pagos/bancos/obtener/{id}";
     public static final String PAGOS_BANCO_CREAR                        = "/pagos/bancos/crear";
-    public static final String PAGOS_BANCO_ELIMINAR                     = "/pagos/bancos/eliminar/{id_banco}";
+    public static final String PAGOS_BANCO_ELIMINAR                     = "/pagos/bancos/eliminar/{id}";
     public static final String PAGOS_FACTURA_OBTENER                    = "/pagos/facturas/obtener/{noFactura}";
     public static final String PAGOS_FACTURA_ANULAR                     = "/pagos/facturas/anular/{noFactura}";
     public static final String PAGOS_CIERRE_OBTENER                     = "/pagos/cierre/obtener";
@@ -98,6 +100,20 @@ public interface PagosClient {
     
     //***************************************************************************************************
     // >>                                        MÓDULO PAGOS                                          <<
+    /**
+     * lista todos los métodos de pago disponibles
+     * @return objeto web
+     */
+    @GetMapping(PAGOS_METODO_OBTENER)
+    public Object pMetodoObtener();
+    /**
+     * busca el método de pago por el id
+     * @param id id|long
+     * @return objeto web
+     */
+    @GetMapping(PAGOS_METODO_OBTENER_ID)
+    public Object pMetodoObtenerId(@PathVariable("idMetodo") Long id);
+    
     /**
      * Método encargado de enlazar la ruta (endpoint) del microservicio 'Pagos'.
      * @param value parámetro (body)
@@ -192,7 +208,7 @@ public interface PagosClient {
      * @return objeto json
      */
     @GetMapping(PAGOS_BANCO_OBTENER_PARAM)
-    public Object pBancosObtener(@PathVariable("IdBanco") Long id);
+    public Object pBancosObtener(@PathVariable("id") Long id);
     /**
      * Crea un nuevo banco
      * @param value parámetro (body)
@@ -206,7 +222,7 @@ public interface PagosClient {
      * @return objeto json
      */
     @PutMapping(PAGOS_BANCO_ELIMINAR)
-    public Object pBancoEliminar(@PathVariable("id_banco") Long id);
+    public Object pBancoEliminar(@PathVariable("id") Long id);
     
     //***************************************************************************************************
     // >>                                        MÓDULO FACTURAS                                       <<

@@ -37,7 +37,7 @@ public final class PinturaController {
         return client.nPServicio(id, value);
     }
     /*(non-Javadoc) */
-    @GetMapping(PINTURA_TIPOSERVICIO_GET)
+    @PostMapping(PINTURA_TIPOSERVICIO_GET)
     public Object getPTipoServicio() {
         return client.nPTipoServicio();
     }

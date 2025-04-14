@@ -7,11 +7,11 @@
 		<artifactId>broker</artifactId>
 		<version>1.0.0</version>
 	</parent>
-	<groupId>gt.edu.umes.broker.gateway</groupId>
-	<artifactId>microservice-gateway</artifactId>
+	<groupId>gt.edu.umes.broker</groupId>
+	<artifactId>microservice-connector</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>microservice-gateway</name>
-	<description>Spring Boot Microservice GateWay</description>
+	<name>microservice-connector</name>
+	<description>Spring Boot Microservice Connector</description>
 	<url/>
 	<licenses>
 		<license/>
@@ -27,7 +27,7 @@
 	</scm>
 	<properties>
 		<java.version>17</java.version>
-		<spring-cloud.version>2024.0.0</spring-cloud.version>
+		<spring-cloud.version>2024.0.1</spring-cloud.version>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -39,17 +39,17 @@
 			<artifactId>spring-cloud-starter-config</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-starter-gateway</artifactId>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
 		</dependency>
-                <dependency>
-                    <groupId>org.springframework.boot</groupId>
-                    <artifactId>spring-boot-starter-webflux</artifactId>
-                </dependency>
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-openfeign</artifactId>
+		</dependency>
 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>

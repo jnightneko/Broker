@@ -1,3 +1,7 @@
+/**
+ * Este proyecto es de libre uso y/o modificación.
+ * Visite https://github.com/jnightneko/Broker para obtener más información.
+ */
 package gt.edu.umes.broker.config;
 
 import org.springframework.boot.SpringApplication;
@@ -11,5 +15,4 @@ public class MicroserviceConfigApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(MicroserviceConfigApplication.class, args);
 	}
-
 }

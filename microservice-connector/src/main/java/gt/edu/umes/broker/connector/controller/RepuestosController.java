@@ -37,7 +37,7 @@ public final class RepuestosController {
         return client.nClientesPut(id, o);
     }
     /* (non-Javadoc) */
-    @GetMapping(HTTP_PRODUCTOS_GET)
+    @PostMapping(HTTP_PRODUCTOS_GET)
     public Object getProductosGet() {
         return client.nProductosGet();
     }

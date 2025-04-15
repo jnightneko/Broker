@@ -13,16 +13,17 @@ realizar una transacción.
 
 Arquitectura implementada para el servicio **SFPB**
 
-<img src="assets/SFPN.png" style="border-radius: 15px;" />
+![IMG](./assets/arch/SFPN.png)
 
 ### Micro Servicios
 
-| MicroServicio | Descripción                                                                                           | PUERTO    |
-|---------------|-------------------------------------------------------------------------------------------------------|-----------|
-| GATEWAY       | La puerta de entrada para los cliente que utilizán o requieren de este servicio                       | **3761**  |
-| EUREKA        | Es el servicio encargado de redirigir las peticiones a su destino                                     | 8761      |
-| CONFIG        | Microservicio encargado de gestionar las configuración de todos los microservicios utilizadas         | 8888      |
-| EXAMPLE       | Un microservicio _**muestra**_ que ejemplifica; como se conecta con todos los microservicios internos | 8090      |
+| MicroServicio | Descripción                                                                                           | PUERTO   |
+|---------------|-------------------------------------------------------------------------------------------------------|----------|
+| GATEWAY       | La puerta de entrada para los cliente que utilizán o requieren de este servicio                       | **3761** |
+| EUREKA        | Es el servicio encargado de redirigir las peticiones a su destino                                     | 8761     |
+| CONFIG        | Microservicio encargado de gestionar las configuración de todos los microservicios utilizadas         | 8888     |
+| CONNECTOR     | Microservicio encargado de redireccioinar las peticiones a los servicios externos                     | 8090     |
+| EXAMPLE       | Un microservicio _**muestra**_ que ejemplifica; como se conecta con todos los microservicios internos | 8092     |
 
 ## Iniciar Proyecto
 
@@ -36,6 +37,13 @@ siguientes módulos de la siguiente manera:
 1. CONFIG
 2. EUREKA
 3. GATEWAY
-4. EXAMPLE (Otros servicios)
+4. MY_SERVICE (Otros servicios)
 
 Ya iniciado los servicios, podemos empezar a utilizar el broker: http://localhost:3761/
+
+## Protocolos
+
+Para comunicarse con el servicio SFPB y redireccionar sus solicitudes mediante HTTP (API REST) ​​a
+otros servicios externos, es necesario que sigas los estándares impuetos por el equipo SFPB.
+
+[Ir a los Protocolos](./assets/docs/PROTOCOLO.md)

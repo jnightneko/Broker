@@ -1,0 +1,1144 @@
+{
+  "uuid": "2e2ee5ee-9ee6-4551-a581-c6ac1d8489b9",
+  "lastMigration": 33,
+  "name": "Pintura",
+  "endpointPrefix": "",
+  "latency": 0,
+  "port": 8000,
+  "hostname": "",
+  "folders": [],
+  "routes": [
+    {
+      "uuid": "179e7c55-cc7a-4a88-a3e4-7dd77073d971",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "pintura/GET/servicios",
+      "responses": [
+        {
+          "uuid": "913b070a-4736-4770-b048-fc8527660061",
+          "body": "[\n    { \"idServicio\": 1, \"NombreServicio\": \"Pintura1\", \"DescripcionServicio\": \"Pintura general de vehículos\" },\n    { \"idServicio\": 2, \"NombreServicio\": \"Pintura2\", \"DescripcionServicio\": \"Pintura general de vehículos\" },\n    { \"idServicio\": 3, \"NombreServicio\": \"Pintura3\", \"DescripcionServicio\": \"Pintura general de vehículos\" }\n]",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "272b29e8-4a88-4ed5-941e-891b0fa4f3bc",
+      "type": "http",
+      "documentation": "",
+      "method": "post",
+      "endpoint": "pintura/POST/servicios",
+      "responses": [
+        {
+          "uuid": "e6899a60-249d-4b4d-8ebe-20acc04b0da8",
+          "body": "{\n    \"idServicio\": 1,\n    \"NombreServicio\": \"Pintura\",\n    \"DescripcionServicio\": \"Pintura general de vehículos\"\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "256183fe-f919-4417-9903-40060a946ca2",
+      "type": "http",
+      "documentation": "",
+      "method": "put",
+      "endpoint": "pintura/PUT/servicios/:idServicio",
+      "responses": [
+        {
+          "uuid": "301f5a84-adb8-4e1f-b713-6edb37a0cec8",
+          "body": "{ \"idServicio\": 1, \"NombreServicio\": \"Pintura1\", \"DescripcionServicio\": \"Pintura general de vehículos\" }",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "fb052beb-c991-46c4-8425-739091753550",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "pintura/GET/tiposervicios",
+      "responses": [
+        {
+          "uuid": "8330526a-8d7e-4189-9e28-0864651e646f",
+          "body": "[\n  { \"idTipoServicio\": 1, \"NombreTipo\": \"Mantenimiento\", \"PrecioBase\": 100.00, \"idServicio\": 1 },\n  { \"idTipoServicio\": 2, \"NombreTipo\": \"Mantenimiento\", \"PrecioBase\": 100.00, \"idServicio\": 2 },\n  { \"idTipoServicio\": 3, \"NombreTipo\": \"Mantenimiento\", \"PrecioBase\": 100.00, \"idServicio\": 3 }\n]",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "6cac66f2-dc38-4f5f-aa7b-c42d4b83a6be",
+      "type": "http",
+      "documentation": "",
+      "method": "put",
+      "endpoint": "pintura/PUT/tiposervicios/:idTipoServicio",
+      "responses": [
+        {
+          "uuid": "be8c717b-c979-46d6-97de-8c79f8f1810e",
+          "body": "{ \"idTipoServicio\": 1, \"NombreTipo\": \"Parcial\", \"PrecioBase\": 120.00 }",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "483addc1-989e-490e-8b12-92b9ffd94f05",
+      "type": "http",
+      "documentation": "",
+      "method": "post",
+      "endpoint": "pintura/POST/tiposervicios",
+      "responses": [
+        {
+          "uuid": "62a282e1-565e-496d-b9ed-55903b3fde46",
+          "body": "{ \"idTipoServicio\": 1, \"NombreTipo\": \"Mantenimiento\", \"PrecioBase\": 100.00, \"idServicio\": 1 }",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "ae52b79d-78b5-4194-873b-5f17fd139572",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "pintura/POST/tipovehiculos",
+      "responses": [
+        {
+          "uuid": "ae00df1e-aba8-45d0-9475-78c30d241dbb",
+          "body": "[\n  { \"idTipoVehiculo\": 1, \"NombreTipoVehiculo\": \"camión\" },\n  { \"idTipoVehiculo\": 2, \"NombreTipoVehiculo\": \"camión\" },\n  { \"idTipoVehiculo\": 3, \"NombreTipoVehiculo\": \"camión\" }\n]",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "b6bc6c31-b2eb-467a-83a0-3c77942d9a3b",
+      "type": "http",
+      "documentation": "",
+      "method": "put",
+      "endpoint": "pintura/PUT/tiposvehiculos/:idTipoVehiculo",
+      "responses": [
+        {
+          "uuid": "82afc3b4-80da-4401-9b15-e07e4b150520",
+          "body": "{ \"idTipoVehiculo\": 1, \"NombreTipoVehiculo\": \"Camioneta\" }",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "5d6da4d0-650f-45cc-91ef-64a2ee586c87",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "pintura/GET/tipospinturas",
+      "responses": [
+        {
+          "uuid": "95e2492d-d78d-4065-9ea3-a384b2ac9a05",
+          "body": "[\n  { \"idTipoPintura\": 1, \"NombreTipoPintura\": \"Azul metálico\" },\n  { \"idTipoPintura\": 2, \"NombreTipoPintura\": \"Azul metálico\" }\n  { \"idTipoPintura\": 3, \"NombreTipoPintura\": \"Azul metálico\" }\n]",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "dba6c23d-b00c-4a1e-8403-004f959e9ff0",
+      "type": "http",
+      "documentation": "",
+      "method": "post",
+      "endpoint": "pintura/POST/tipopinturas",
+      "responses": [
+        {
+          "uuid": "9e772501-078f-4e29-b57b-fb6cc2cec21f",
+          "body": "{ \"idTipoPintura\": 1, \"NombreTipoPintura\": \"Metálica\" }",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "3e93e507-4ccb-4414-acf7-f44f8de36c6a",
+      "type": "http",
+      "documentation": "",
+      "method": "put",
+      "endpoint": "pintura/PUT/tipopinturas/:idTipoPintura",
+      "responses": [
+        {
+          "uuid": "7461e1c8-9ed7-4336-8166-a65b6b7b4653",
+          "body": "{ \"idTipoPintura\": 1, \"NombreTipoPintura\": \"Azul metálico\" }",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "0644aa6f-9ca6-46d2-b2ec-3f1d26ea2734",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "pintura/GET/inventarios",
+      "responses": [
+        {
+          "uuid": "75e3776e-1ee6-457f-a6e4-a69055bf4abd",
+          "body": "[\n  {\"idInventario\": 1, \"NombreProducto\": \"Pintura Azul\", \"CantidadDisponible\": 15, \"idTipoPintura\": 2, \"TipoInventario\": 1, \"Lote\": 2, \"CodigoColor\": \"AZL456\", \"FechaAdquisicion\": \"2025-03-22\", \"FechaVencimiento\": \"2026-03-22\", \"EstadoInventario\": 1},\n  {\"idInventario\": 2, \"NombreProducto\": \"Pintura Azul\", \"CantidadDisponible\": 15, \"idTipoPintura\": 2, \"TipoInventario\": 1, \"Lote\": 2, \"CodigoColor\": \"AZL456\", \"FechaAdquisicion\": \"2025-03-22\", \"FechaVencimiento\": \"2026-03-22\", \"EstadoInventario\": 1},\n  {\"idInventario\": 3, \"NombreProducto\": \"Pintura Azul\", \"CantidadDisponible\": 15, \"idTipoPintura\": 2, \"TipoInventario\": 1, \"Lote\": 2, \"CodigoColor\": \"AZL456\", \"FechaAdquisicion\": \"2025-03-22\", \"FechaVencimiento\": \"2026-03-22\", \"EstadoInventario\": 1}\n]",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "a41363aa-a2e8-4835-be67-69aca42d1d5e",
+      "type": "http",
+      "documentation": "",
+      "method": "post",
+      "endpoint": "pintura/POST/inventarios",
+      "responses": [
+        {
+          "uuid": "cfd0fd99-dc61-42a9-85ee-336808813bdc",
+          "body": "{ \"idInventario\": 1, \"NombreProducto\": \"Pintura Roja\", \"CantidadDisponible\": 10, \"idTipoPintura\": 1, \"TipoInventario\": 1, \"Lote\": 1, \"CodigoColor\": \"ROJ123\", \"FechaAdquisicion\": \"2025-03-21\", \"FechaVencimiento\": \"2026-03-21\", \"EstadoInventario\": 1 }",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "56874a02-b88a-4a40-acae-c00d28a4b9c6",
+      "type": "http",
+      "documentation": "",
+      "method": "put",
+      "endpoint": "pintura/PUT/inventarios/:idInventario",
+      "responses": [
+        {
+          "uuid": "7c225142-79b3-46e6-bc83-5472a1e09088",
+          "body": "{\"idInventario\": 1, \"NombreProducto\": \"Pintura Azul\", \"CantidadDisponible\": 15, \"idTipoPintura\": 2, \"TipoInventario\": 1, \"Lote\": 2, \"CodigoColor\": \"AZL456\", \"FechaAdquisicion\": \"2025-03-22\", \"FechaVencimiento\": \"2026-03-22\", \"EstadoInventario\": 1}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "1c82e3da-955f-44aa-8369-c3f12ca2e108",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "pintura/GET/movimientos",
+      "responses": [
+        {
+          "uuid": "e631a7c2-8137-4fb3-8426-5acb9efd7d31",
+          "body": "[\n  { \"idVenta\": 1, \"FechaVenta\": \"2025-03-11\", \"TotalVenta\": 200.50 },\n  { \"idVenta\": 2, \"FechaVenta\": \"2025-03-11\", \"TotalVenta\": 200.50 },\n  { \"idVenta\": 3, \"FechaVenta\": \"2025-03-11\", \"TotalVenta\": 200.50 }\n]",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "2f7ec9b2-8b54-474f-ae3c-d0a2ddb6dde8",
+      "type": "http",
+      "documentation": "",
+      "method": "post",
+      "endpoint": "pintura/POST/movimientos",
+      "responses": [
+        {
+          "uuid": "1dff9d15-6265-483d-911c-a6442647316d",
+          "body": "{ \"idInventario\": 1, \"TipoMovimiento\": \"Salida\", \"Cantidad\": 2, \"FechaMovimiento\": \"2025-03-20\" }",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "5dcc3235-a1e4-4e67-aeac-f333e450f7d3",
+      "type": "http",
+      "documentation": "",
+      "method": "post",
+      "endpoint": "pintura/POST/ventas",
+      "responses": [
+        {
+          "uuid": "8f820b34-14d4-445a-bade-8ff4f6ab9fb8",
+          "body": "{ \"idVenta\": 1, \"FechaVenta\": \"2025-03-11\", \"TotalVenta\": 200.50 }",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "72cb9c57-1eb0-4323-96eb-3b8399ebb1d0",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "pintura/GET/ventas",
+      "responses": [
+        {
+          "uuid": "3d87e9cb-9cf2-46b4-b4c2-6e98af8dd221",
+          "body": "[\n  { \"idCliente\": 1, \"FechaVenta\": \"2025-05-10\", \"TotalVenta\": 220.50 },\n  { \"idCliente\": 2, \"FechaVenta\": \"2025-05-10\", \"TotalVenta\": 220.50 },\n  { \"idCliente\": 3, \"FechaVenta\": \"2025-05-10\", \"TotalVenta\": 220.50 }\n]",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "7d968a21-beeb-4982-90be-e0f039b62a45",
+      "type": "http",
+      "documentation": "",
+      "method": "put",
+      "endpoint": "pintura/PUT/ventas/:idVenta",
+      "responses": [
+        {
+          "uuid": "5a592b8c-fb4d-4e32-ba46-083a6307d0b4",
+          "body": " {\"idCliente\": 1, \"FechaVenta\": \"2025-05-10\", \"TotalVenta\": 220.50 }",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "f71aeef6-4782-4dc1-ad23-2b9d5e0adf18",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "pintura/GET/detalleventas/:idVenta",
+      "responses": [
+        {
+          "uuid": "eab682e7-ed09-4189-b969-b4651eda0b4f",
+          "body": "{ \"idDetalleVenta\": 1,\"idVenta\": 1,  \"idTipoVehiculo\": 1,\"idServicio\": 2, \"Cantidad\": 3, \"Subtotal\": 150.00, \"Devolucion\": 1 }",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "62e86935-a8fe-4317-bbae-9ef2e76a4416",
+      "type": "http",
+      "documentation": "",
+      "method": "post",
+      "endpoint": "pintura/POST/detalleventas",
+      "responses": [
+        {
+          "uuid": "07c9efa2-7b10-4cb7-9e10-d212510b058e",
+          "body": "{ \"idDetalleVenta\": 1,\"idVenta\": 1,  \"idTipoVehiculo\": 1,\"idServicio\": 2, \"Cantidad\": 3, \"Subtotal\": 150.00, \"Devolucion\": 0 }",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "4befadf7-8d5f-4142-86a0-9c01b7d4451b",
+      "type": "http",
+      "documentation": "",
+      "method": "put",
+      "endpoint": "pintura/PUT/detalleventas/:idDetalleVenta",
+      "responses": [
+        {
+          "uuid": "7600a813-b233-4304-bbba-a316aadf873a",
+          "body": "{ \"idDetalleVenta\": 1,\"idVenta\": 1,  \"idTipoVehiculo\": 1,\"idServicio\": 2, \"Cantidad\": 3, \"Subtotal\": 150.00, \"Devolucion\": 1 }",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "093dfefd-ae2a-4337-b0a0-f286a6340299",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "pintura/GET/devolucion",
+      "responses": [
+        {
+          "uuid": "80bfac3b-a56c-4f71-a637-1bc8d453789d",
+          "body": "[\n  { \"FechaDevolucion\": \"2025-05-10\", \"Motivo\": \"Desgaste\", \"idDetalleVenta\": 5 },\n  { \"FechaDevolucion\": \"2025-05-10\", \"Motivo\": \"Desgaste\", \"idDetalleVenta\": 6 },\n  { \"FechaDevolucion\": \"2025-05-10\", \"Motivo\": \"Desgaste\", \"idDetalleVenta\": 7 },\n  { \"FechaDevolucion\": \"2025-05-10\", \"Motivo\": \"Desgaste\", \"idDetalleVenta\": 8 }\n]",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "22fe2fe0-9937-4589-84c8-6f1adea5cd3f",
+      "type": "http",
+      "documentation": "",
+      "method": "post",
+      "endpoint": "pintura/POST/devolucion",
+      "responses": [
+        {
+          "uuid": "4239b684-db2b-44a9-aa55-5ee09d7d42a9",
+          "body": "{ \"FechaDevolucion\": \"2025-05-10\", \"Motivo\": \"Desgaste\", \"idDetalleVenta:\"5 }",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "3d6e1db1-8fef-4e73-bb36-1cea8dc7b7ae",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "pintura/GET/vehiculoinventarios",
+      "responses": [
+        {
+          "uuid": "fe3322a4-9b68-4dae-9c63-019e7f478bfe",
+          "body": "[\n  { \"idVehiculoInventario\": 1, \"idTipoVehiculo\": 2, \"idInventario\": 3, \"CantidadRequerida\": 8},\n  { \"idVehiculoInventario\": 2, \"idTipoVehiculo\": 2, \"idInventario\": 3, \"CantidadRequerida\": 8} ,\n  { \"idVehiculoInventario\": 3, \"idTipoVehiculo\": 2, \"idInventario\": 3, \"CantidadRequerida\": 8} ,\n  { \"idVehiculoInventario\": 4, \"idTipoVehiculo\": 2, \"idInventario\": 3, \"CantidadRequerida\": 8} \n]",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "c9acfa48-8203-495a-9fe5-3a4ddc89b675",
+      "type": "http",
+      "documentation": "",
+      "method": "post",
+      "endpoint": "pintura/POST/vehiculoinventarios",
+      "responses": [
+        {
+          "uuid": "aa1fb8f8-5ab5-4969-8cbd-24c336b65d99",
+          "body": "{ \"idVehiculoInventario\":1,\"idTipoVehiculo\": 1,\"idInventario\": 2, \"CantidadRequerida\": 5}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "5f079021-364c-4e71-b003-5d9e3d7b6cf4",
+      "type": "http",
+      "documentation": "",
+      "method": "put",
+      "endpoint": "pintura/PUT/vehiculoinventarios",
+      "responses": [
+        {
+          "uuid": "3cb5b2a4-4f96-4d6f-82bf-2c9d03ff8326",
+          "body": "{ \"idVehiculoInventario\": 1, \"idTipoVehiculo\": 2, \"idInventario\": 3, \"CantidadRequerida\": 8}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "e48c1f91-a5a1-4d4e-be00-629137cbc6ba",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "pintura/GET/precioservicio",
+      "responses": [
+        {
+          "uuid": "f27ac36e-1ee9-4f33-8623-f195302f9228",
+          "body": "[\n   {\n    \"idTipoServicio\": 0,\n    \"idTipoVehiculo\": 0,\n    \"Precio\": 0,\n    \"CreatedAt\": \"2025-04-12T20:11:27.631Z\",\n    \"UpdatedAt\": \"2025-04-12T20:11:27.631Z\",\n    \"idPrecioServicioVehiculo\": 0\n  },\n   {\n    \"idTipoServicio\": 1,\n    \"idTipoVehiculo\": 2,\n    \"Precio\": 100,\n    \"CreatedAt\": \"2025-04-12T20:11:27.631Z\",\n    \"UpdatedAt\": \"2025-04-12T20:11:27.631Z\",\n    \"idPrecioServicioVehiculo\": 0\n  },\n   {\n    \"idTipoServicio\": 3,\n    \"idTipoVehiculo\": 4,\n    \"Precio\": 865,\n    \"CreatedAt\": \"2025-04-12T20:11:27.631Z\",\n    \"UpdatedAt\": \"2025-04-12T20:11:27.631Z\",\n    \"idPrecioServicioVehiculo\": 0\n  }\n\n]",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "fd8b96c0-fc6f-4a29-9bd7-53e9fa084e7f",
+      "type": "http",
+      "documentation": "",
+      "method": "post",
+      "endpoint": "pintura/POST/precioservicio",
+      "responses": [
+        {
+          "uuid": "bb2804da-82f5-445d-97d8-7dabb011b769",
+          "body": "{\n  \"idTipoServicio\": 0,\n  \"idTipoVehiculo\": 0,\n  \"Precio\": 0,\n}\n",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "bd1aed00-b764-48ee-b8b4-c7083a33c951",
+      "type": "http",
+      "documentation": "",
+      "method": "put",
+      "endpoint": "pintura/PUT/precioservicio/:id",
+      "responses": [
+        {
+          "uuid": "f8254455-ae9e-4cce-8f16-e1fbcca396fc",
+          "body": "{\n  \"idTipoServicio\": 0,\n  \"idTipoVehiculo\": 0,\n  \"Precio\": 0,\n}\n",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "5c8acc40-85dc-4eb4-b987-191d68aefca8",
+      "type": "http",
+      "documentation": "",
+      "method": "put",
+      "endpoint": "pintura/PUT/movimientos",
+      "responses": [
+        {
+          "uuid": "94669aeb-8df2-42ce-87be-482c055e2a24",
+          "body": "{ \"idInventario\": 1, \"TipoMovimiento\": \"Salida\", \"Cantidad\": 2, \"FechaMovimiento\": \"2025-03-20\" }",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    }
+  ],
+  "rootChildren": [
+    {
+      "type": "route",
+      "uuid": "179e7c55-cc7a-4a88-a3e4-7dd77073d971"
+    },
+    {
+      "type": "route",
+      "uuid": "272b29e8-4a88-4ed5-941e-891b0fa4f3bc"
+    },
+    {
+      "type": "route",
+      "uuid": "256183fe-f919-4417-9903-40060a946ca2"
+    },
+    {
+      "type": "route",
+      "uuid": "fb052beb-c991-46c4-8425-739091753550"
+    },
+    {
+      "type": "route",
+      "uuid": "6cac66f2-dc38-4f5f-aa7b-c42d4b83a6be"
+    },
+    {
+      "type": "route",
+      "uuid": "483addc1-989e-490e-8b12-92b9ffd94f05"
+    },
+    {
+      "type": "route",
+      "uuid": "ae52b79d-78b5-4194-873b-5f17fd139572"
+    },
+    {
+      "type": "route",
+      "uuid": "b6bc6c31-b2eb-467a-83a0-3c77942d9a3b"
+    },
+    {
+      "type": "route",
+      "uuid": "5d6da4d0-650f-45cc-91ef-64a2ee586c87"
+    },
+    {
+      "type": "route",
+      "uuid": "dba6c23d-b00c-4a1e-8403-004f959e9ff0"
+    },
+    {
+      "type": "route",
+      "uuid": "3e93e507-4ccb-4414-acf7-f44f8de36c6a"
+    },
+    {
+      "type": "route",
+      "uuid": "0644aa6f-9ca6-46d2-b2ec-3f1d26ea2734"
+    },
+    {
+      "type": "route",
+      "uuid": "a41363aa-a2e8-4835-be67-69aca42d1d5e"
+    },
+    {
+      "type": "route",
+      "uuid": "56874a02-b88a-4a40-acae-c00d28a4b9c6"
+    },
+    {
+      "type": "route",
+      "uuid": "1c82e3da-955f-44aa-8369-c3f12ca2e108"
+    },
+    {
+      "type": "route",
+      "uuid": "2f7ec9b2-8b54-474f-ae3c-d0a2ddb6dde8"
+    },
+    {
+      "type": "route",
+      "uuid": "5c8acc40-85dc-4eb4-b987-191d68aefca8"
+    },
+    {
+      "type": "route",
+      "uuid": "5dcc3235-a1e4-4e67-aeac-f333e450f7d3"
+    },
+    {
+      "type": "route",
+      "uuid": "72cb9c57-1eb0-4323-96eb-3b8399ebb1d0"
+    },
+    {
+      "type": "route",
+      "uuid": "7d968a21-beeb-4982-90be-e0f039b62a45"
+    },
+    {
+      "type": "route",
+      "uuid": "f71aeef6-4782-4dc1-ad23-2b9d5e0adf18"
+    },
+    {
+      "type": "route",
+      "uuid": "62e86935-a8fe-4317-bbae-9ef2e76a4416"
+    },
+    {
+      "type": "route",
+      "uuid": "4befadf7-8d5f-4142-86a0-9c01b7d4451b"
+    },
+    {
+      "type": "route",
+      "uuid": "093dfefd-ae2a-4337-b0a0-f286a6340299"
+    },
+    {
+      "type": "route",
+      "uuid": "22fe2fe0-9937-4589-84c8-6f1adea5cd3f"
+    },
+    {
+      "type": "route",
+      "uuid": "3d6e1db1-8fef-4e73-bb36-1cea8dc7b7ae"
+    },
+    {
+      "type": "route",
+      "uuid": "c9acfa48-8203-495a-9fe5-3a4ddc89b675"
+    },
+    {
+      "type": "route",
+      "uuid": "5f079021-364c-4e71-b003-5d9e3d7b6cf4"
+    },
+    {
+      "type": "route",
+      "uuid": "e48c1f91-a5a1-4d4e-be00-629137cbc6ba"
+    },
+    {
+      "type": "route",
+      "uuid": "fd8b96c0-fc6f-4a29-9bd7-53e9fa084e7f"
+    },
+    {
+      "type": "route",
+      "uuid": "bd1aed00-b764-48ee-b8b4-c7083a33c951"
+    }
+  ],
+  "proxyMode": false,
+  "proxyHost": "",
+  "proxyRemovePrefix": false,
+  "tlsOptions": {
+    "enabled": false,
+    "type": "CERT",
+    "pfxPath": "",
+    "certPath": "",
+    "keyPath": "",
+    "caPath": "",
+    "passphrase": ""
+  },
+  "cors": true,
+  "headers": [
+    {
+      "key": "Content-Type",
+      "value": "application/json"
+    },
+    {
+      "key": "Access-Control-Allow-Origin",
+      "value": "*"
+    },
+    {
+      "key": "Access-Control-Allow-Methods",
+      "value": "GET,POST,PUT,PATCH,DELETE,HEAD,OPTIONS"
+    },
+    {
+      "key": "Access-Control-Allow-Headers",
+      "value": "Content-Type, Origin, Accept, Authorization, Content-Length, X-Requested-With"
+    }
+  ],
+  "proxyReqHeaders": [
+    {
+      "key": "",
+      "value": ""
+    }
+  ],
+  "proxyResHeaders": [
+    {
+      "key": "",
+      "value": ""
+    }
+  ],
+  "data": [],
+  "callbacks": []
+}

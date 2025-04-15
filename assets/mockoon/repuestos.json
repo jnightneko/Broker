@@ -1,0 +1,584 @@
+{
+  "uuid": "bd944ddb-ce1a-4100-ad8f-f9bef4c53ced",
+  "lastMigration": 33,
+  "name": "Repuestos",
+  "endpointPrefix": "",
+  "latency": 0,
+  "port": 4000,
+  "hostname": "",
+  "folders": [],
+  "routes": [
+    {
+      "uuid": "b0f89ab0-96f8-4e6e-8584-47a23c455261",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "tallerrepuestos/GET/clientes",
+      "responses": [
+        {
+          "uuid": "4072c2a7-bc1d-410a-bfad-3bae3d962b0a",
+          "body": "[\n  {\n    \"idCliente\": 1,\n    \"nombre\": \"Juan\",\n    \"apellido\": \"Pérez\",\n    \"telefono\": \"3012345678\",\n    \"email\": \"juan.perez@gmail.com\"\n  }\n  \n]",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "9f1ad40c-b318-4c03-9787-3258b9b7cda6",
+      "type": "http",
+      "documentation": "",
+      "method": "post",
+      "endpoint": "tallerrepuestos/POST/clientes",
+      "responses": [
+        {
+          "uuid": "8db229c8-a936-4e11-b166-a675e8c91f55",
+          "body": "{\n\t\"mensaje\": \"Cliente agregado con éxito\"\n}\n",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "80f607d9-e020-47df-8159-0b13182280c2",
+      "type": "http",
+      "documentation": "",
+      "method": "put",
+      "endpoint": "tallerrepuestos/PUT/clientes/:id",
+      "responses": [
+        {
+          "uuid": "bb18e7c4-8142-4b97-b3a9-3b47c34938b4",
+          "body": "{\n  \"mensaje\": \"string\"\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "f02576da-daea-4658-a882-f6c13727d021",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "tallerrepuestos/GET/productos",
+      "responses": [
+        {
+          "uuid": "37dc789a-c699-4f65-9758-22271388df9c",
+          "body": "[\n{\n  \"idProducto\": 10,\n  \"nombre\": \"Aceite 10W40\",\n  \"descripcion\": \"Aceite sintético para motor\",\n  \"precio\": 85000.00,\n  \"idCategoria\": 3,\n  \"categoria\": {\n\t\"idCategoria\": 3,\n\t\"nombre\": \"Lubricantes\",\n\t\"descripcion\": \"Productos para lubricación de vehículos\"\n  }\n}\n\n]",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "5e393d21-24be-4b6d-9830-d8950751679c",
+      "type": "http",
+      "documentation": "",
+      "method": "post",
+      "endpoint": "tallerrepuestos/POST/productos",
+      "responses": [
+        {
+          "uuid": "d61ee861-e946-4bec-8551-e6c0709aca35",
+          "body": "{\n\t\"mesaje\":\"Producto agregado con éxito\"\n}\n",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "46e4fe6c-6597-4d13-baf9-4c11c9c3d5ed",
+      "type": "http",
+      "documentation": "",
+      "method": "put",
+      "endpoint": "tallerrepuestos/PUT/productos/:id",
+      "responses": [
+        {
+          "uuid": "d4ed85c7-ece6-41e1-8139-ed28777125eb",
+          "body": "{\n  \"mensaje\": \"string\"\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "58378796-f225-4000-9e64-4d8c1da85cc3",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "tallerrepuestos/GET/vehiculos",
+      "responses": [
+        {
+          "uuid": "1f4411d5-41b8-40f4-b7b6-37e77c5f79b3",
+          "body": "[\n{\n  \"idVehiculo\": 1,\n  \"placa\": \"ABC123\",\n  \"marca\": \"Chevrolet\",\n  \"modelo\": \"Aveo\",\n  \"fecha\": \"2015-06-01\",\n  \"tipoVehiculo\": \"Sedán\",\n  \"idCliente\": 1\n}\n  \n]",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "6adad148-5357-471d-a1e9-27bba9c47fd9",
+      "type": "http",
+      "documentation": "",
+      "method": "post",
+      "endpoint": "tallerrepuestos/POST/vehiculos",
+      "responses": [
+        {
+          "uuid": "a2d74d9a-846c-4b48-8c9d-017d041a3b04",
+          "body": "{\n  \"mensaje\": \"string\"\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "a2a8a434-2c64-4a4c-b6d0-dba4840985c0",
+      "type": "http",
+      "documentation": "",
+      "method": "put",
+      "endpoint": "tallerrepuestos/PUT/vehiculos/:id",
+      "responses": [
+        {
+          "uuid": "03ef9b17-75fb-4574-9488-43961ff59efb",
+          "body": "{\n  \"mensaje\": \"string\"\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "92239e41-e136-4d7c-b811-d637334f0cec",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "tallerrepuestos/GET/servicios",
+      "responses": [
+        {
+          "uuid": "9bbf0c21-eecb-48a0-b987-8021defe232d",
+          "body": "[\n{\n  \"idServicio\": 1,\n  \"tipoVehiculo\": \"Sedán\",\n  \"idTipoServicio\": 1,\n  \"idEmpleado\": 2,\n  \"tipoServicio\": {\n\t\"descripcion\": \"Cambio de Aceite\"\n  },\n  \"empleado\": {\n\t\"nombre\": \"Carlos\",\n\t\"apellido\": \"Gómez\"\n  }\n}\n\n]",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "2f5e3736-8d93-44ee-8371-07c3307bc01b",
+      "type": "http",
+      "documentation": "",
+      "method": "post",
+      "endpoint": "tallerrepuestos/POST/servicio",
+      "responses": [
+        {
+          "uuid": "04ba0d18-dd05-470f-bee9-d7c771777eb6",
+          "body": "{\n  \"mensaje\": \"string\"\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "db0b693a-c980-4975-bfc7-f83cce5c3944",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "tallerrepuestos/GET/inventarios",
+      "responses": [
+        {
+          "uuid": "d36e5d25-ff83-42df-a43d-782bac698220",
+          "body": "[\n{\n  \"idInventario\": 3,\n  \"cantidad\": 25,\n  \"fechaIngreso\": \"2025-03-01\",\n  \"existenciaMinima\": 10,\n  \"estado\": 1,\n  \"idProducto\": 10\n}\n\n]",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "b957aa63-5a51-4254-aa1d-ea780c60235f",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "tallerrepuestos/GET/ventas",
+      "responses": [
+        {
+          "uuid": "7f9e4464-83f2-49d4-9040-7f9f5294151e",
+          "body": "[\n{\n  \"idVenta\": 1,\n  \"fechaVenta\": \"2025-03-17\",\n  \"totalVenta\": 255000.00,\n  \"idCliente\": 1,\n  \"cliente\": {\n\t\"nombre\": \"Juan\",\n\t\"apellido\": \"Pérez\"\n  }\n}\n\n]",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "fb23ce1d-3918-49f0-97f0-cb7b2eb86281",
+      "type": "http",
+      "documentation": "",
+      "method": "post",
+      "endpoint": "tallerrepuestos/POST/ventas",
+      "responses": [
+        {
+          "uuid": "960fa7d5-8ea5-42b1-afb2-1532fb606c34",
+          "body": "{\n  \"mensaje\": \"string\"\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "9e2da3df-74a8-47b2-ad32-def36dfdb5c7",
+      "type": "http",
+      "documentation": "",
+      "method": "put",
+      "endpoint": "tallerrepuestos/PUT/ventas/:id",
+      "responses": [
+        {
+          "uuid": "472b743c-8856-41ba-a4d5-e03af2e27b10",
+          "body": "{\n  \"mensaje\": \"string\"\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    }
+  ],
+  "rootChildren": [
+    {
+      "type": "route",
+      "uuid": "b0f89ab0-96f8-4e6e-8584-47a23c455261"
+    },
+    {
+      "type": "route",
+      "uuid": "9f1ad40c-b318-4c03-9787-3258b9b7cda6"
+    },
+    {
+      "type": "route",
+      "uuid": "80f607d9-e020-47df-8159-0b13182280c2"
+    },
+    {
+      "type": "route",
+      "uuid": "5e393d21-24be-4b6d-9830-d8950751679c"
+    },
+    {
+      "type": "route",
+      "uuid": "f02576da-daea-4658-a882-f6c13727d021"
+    },
+    {
+      "type": "route",
+      "uuid": "46e4fe6c-6597-4d13-baf9-4c11c9c3d5ed"
+    },
+    {
+      "type": "route",
+      "uuid": "58378796-f225-4000-9e64-4d8c1da85cc3"
+    },
+    {
+      "type": "route",
+      "uuid": "6adad148-5357-471d-a1e9-27bba9c47fd9"
+    },
+    {
+      "type": "route",
+      "uuid": "a2a8a434-2c64-4a4c-b6d0-dba4840985c0"
+    },
+    {
+      "type": "route",
+      "uuid": "92239e41-e136-4d7c-b811-d637334f0cec"
+    },
+    {
+      "type": "route",
+      "uuid": "2f5e3736-8d93-44ee-8371-07c3307bc01b"
+    },
+    {
+      "type": "route",
+      "uuid": "db0b693a-c980-4975-bfc7-f83cce5c3944"
+    },
+    {
+      "type": "route",
+      "uuid": "b957aa63-5a51-4254-aa1d-ea780c60235f"
+    },
+    {
+      "type": "route",
+      "uuid": "fb23ce1d-3918-49f0-97f0-cb7b2eb86281"
+    },
+    {
+      "type": "route",
+      "uuid": "9e2da3df-74a8-47b2-ad32-def36dfdb5c7"
+    }
+  ],
+  "proxyMode": false,
+  "proxyHost": "",
+  "proxyRemovePrefix": false,
+  "tlsOptions": {
+    "enabled": false,
+    "type": "CERT",
+    "pfxPath": "",
+    "certPath": "",
+    "keyPath": "",
+    "caPath": "",
+    "passphrase": ""
+  },
+  "cors": true,
+  "headers": [
+    {
+      "key": "Content-Type",
+      "value": "application/json"
+    },
+    {
+      "key": "Access-Control-Allow-Origin",
+      "value": "*"
+    },
+    {
+      "key": "Access-Control-Allow-Methods",
+      "value": "GET,POST,PUT,PATCH,DELETE,HEAD,OPTIONS"
+    },
+    {
+      "key": "Access-Control-Allow-Headers",
+      "value": "Content-Type, Origin, Accept, Authorization, Content-Length, X-Requested-With"
+    }
+  ],
+  "proxyReqHeaders": [
+    {
+      "key": "",
+      "value": ""
+    }
+  ],
+  "proxyResHeaders": [
+    {
+      "key": "",
+      "value": ""
+    }
+  ],
+  "data": [],
+  "callbacks": []
+}

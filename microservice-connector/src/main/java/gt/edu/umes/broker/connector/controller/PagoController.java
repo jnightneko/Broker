@@ -61,6 +61,16 @@ public final class PagoController {
     //***************************************************************************************************
     // >>                                        MÓDULO PAGOS                                          <<
     /* (non-Javadoc) */
+    @PostMapping(PAGOS_METODO_OBTENER)
+    public Object nMetodoObtener() {
+        return client.pMetodoObtener();
+    }
+    /* (non-Javadoc) */
+    @PostMapping(PAGOS_METODO_OBTENER_ID)
+    public Object nMetodoObtenerId(@PathVariable("idMetodo") Long id) {
+        return client.pMetodoObtenerId(id);
+    }
+    /* (non-Javadoc) */
     @PostMapping(PAGOS_METODO_CREAR)
     public Object getMetodoCrear(@RequestBody Object value) {
         return client.pMetodoCrear(value);
@@ -128,7 +138,7 @@ public final class PagoController {
     }
     /* (non-Javadoc) */
     @PostMapping(PAGOS_BANCO_OBTENER_PARAM)
-    public Object getBancosObtener(@PathVariable("IdBanco") Long id) {
+    public Object getBancosObtener(@PathVariable("id") Long id) {
         return client.pBancosObtener(id);
     }
     /* (non-Javadoc) */
@@ -138,7 +148,7 @@ public final class PagoController {
     }
     /* (non-Javadoc) */
     @PostMapping(PAGOS_BANCO_ELIMINAR)
-    public Object getBancoEliminar(@PathVariable("id_banco") Long id) {
+    public Object getBancoEliminar(@PathVariable("id") Long id) {
         return client.pBancoEliminar(id);
     }
     

@@ -18,13 +18,13 @@ por igual y segura/garantizada):
     }
 }
 ```
-#### Tabla de datos
+#### [ TABLA DE DATOS ]
 
 | PROPIEDAD          | DESCRIPCIÓN                                                                                                                                                      | TIPO   | MUESTRA          |
 |--------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------|------------------|
-| metadata           | Son todos los datos que el servicio SFPB necesita para procesar su petición.                                                                                     | Objeto | -                |
+| metadata           | Son todos los datos que el servicio SFPB necesita para procesar su petición.                                                                                     | Object | -                |
 | uri                | La ruta de destino (endpoint), es decir; donde desea comunicarse. Dicha ruta es propuesta por los servicios externos (**_vea el documento compartido_**).        | String | bomb/list/active |
-| request            | El objeto que recibe la petición (depende del destinatario), este objeto puede estar vacío si no hay un objeto rquerido por parte del destinatario (**_body_**). | Objeto | -                |
+| request            | El objeto que recibe la petición (depende del destinatario), este objeto puede estar vacío si no hay un objeto rquerido por parte del destinatario (**_body_**). | Object | -                |
 
 2. Toda petición tiene una respuesta, con el formato siguiente (maquetado):
 ```json5
@@ -44,6 +44,8 @@ por igual y segura/garantizada):
 }
 ```
 
+#### [ TABLA DE DATOS ]
+
 | PROPIEDAD             | DESCRIPCIÓN                                                                                                                                               | TIPO   | MUESTRA                              |
 |-----------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------|--------|--------------------------------------|
 | metadata              | Son todos los datos utilizados por el servicio SFPB para procesar su petición.                                                                            | Object | -                                    |
@@ -51,5 +53,5 @@ por igual y segura/garantizada):
 | response              | La respueta del servicio SFPB                                                                                                                             | Object | -                                    |
 | data                  | El objeto que devuelve la petición (depende del destinatario), este objeto puede estar vacío si no hay una respueta por parte del destinatario.           | Object | -                                    |
 | _broker_session_token | Sólo existirá cuando se hace un inicio de sesión (el token de autenticación), de lo contrario no estará presente en el cuerpo de la respuesta (response). | String | eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9 |
-| _broker_status        | Estado de la petición, el mismo estándar que utiliza [HTTP](https://developer.mozilla.org/es/docs/Web/HTTP/Reference/Status)                              | Int    | 200                                  |
-| _broker_message       | Mensaje por parte del Bróker                                                                                                                              | String | OK                                   |
+| _broker_status        | Estado de la petición, el mismo estándar que utiliza definida por el protocolo [HTTP](https://developer.mozilla.org/es/docs/Web/HTTP/Reference/Status)    | Int    | 200                                  |
+| _broker_message       | Mensaje por parte del BROKER (SFPB)                                                                                                                       | String | OK                                   |

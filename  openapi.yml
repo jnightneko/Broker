@@ -210,14 +210,6 @@ paths:
           application/json:
             schema:
               type: object
-              properties:
-                metadata:
-                  type: object
-                  properties:
-                    uri:
-                      type: string
-                request:
-                  type: object
       responses: 
         '200':
           description: Respueta de la petición
@@ -225,22 +217,3 @@ paths:
             application/json:
               schema:
                 type: object
-                properties:
-                  metadata:
-                    type: object
-                    properties:
-                      uri:
-                        type: string
-                  response:
-                    type: object
-                    properties:
-                      data:
-                        type: object
-                      _broker_status:
-                        type: integer
-                      _broker_message:
-                        type: integer
-
-
-
-

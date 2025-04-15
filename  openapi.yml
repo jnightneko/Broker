@@ -13,7 +13,7 @@ paths:
   /broker/api/rest:
     get:
       summary: Conexión para peticiones externas por GET
-      description: Se necesita un objeto con la información del destinatario, siempre devolverá una respuesta idependientemente del destinatrario (servicio externo)
+      description: Se necesita un objeto con la información del destinatario, siempre devolverá una respuesta independientemente del destinatario (servicio externo)
       requestBody:
         content:
           application/json:
@@ -51,7 +51,7 @@ paths:
                         type: integer
     post:
       summary: Conexión para peticiones externas por POST
-      description: Se necesita un objeto con la información del destinatario, siempre devolverá una respuesta idependientemente del destinatrario (servicio externo)
+      description: Se necesita un objeto con la información del destinatario, siempre devolverá una respuesta independientemente del destinatario (servicio externo)
       requestBody:
         content:
           application/json:
@@ -89,7 +89,7 @@ paths:
                         type: integer
     put:
       summary: Conexión para peticiones externas por PUT
-      description: Se necesita un objeto con la información del destinatario, siempre devolverá una respuesta idependientemente del destinatrario (servicio externo)
+      description: Se necesita un objeto con la información del destinatario, siempre devolverá una respuesta independientemente del destinatario (servicio externo)
       requestBody:
         content:
           application/json:
@@ -127,7 +127,7 @@ paths:
                         type: integer
     patch:
       summary: Conexión para peticiones externas por PATCH
-      description: Se necesita un objeto con la información del destinatario, siempre devolverá una respuesta idependientemente del destinatrario (servicio externo)
+      description: Se necesita un objeto con la información del destinatario, siempre devolverá una respuesta independientemente del destinatario (servicio externo)
       requestBody:
         content:
           application/json:
@@ -165,7 +165,7 @@ paths:
                         type: integer
     delete:
       summary: Conexión para peticiones externas por DELETE
-      description: Se necesita un objeto con la información del destinatario, siempre devolverá una respuesta idependientemente del destinatrario (servicio externo)
+      description: Se necesita un objeto con la información del destinatario, siempre devolverá una respuesta independientemente del destinatario (servicio externo)
       requestBody:
         content:
           application/json:
@@ -204,7 +204,7 @@ paths:
   /broker/__connection__:
     post:
       summary: Redireccionamiento de peticiones
-      description: Encargado de redireccionar las peticiones crudad a otros servicios externo de confianza
+      description: Encargado de redireccionar las peticiones crudas a otros servicios externo de confianza
       requestBody:
         content:
           application/json:

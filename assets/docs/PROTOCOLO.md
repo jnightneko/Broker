@@ -22,7 +22,7 @@ por igual y segura/garantizada):
 
 | PROPIEDAD          | DESCRIPCIÓN                                                                                                                                                      | TIPO   | MUESTRA          |
 |--------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------|------------------|
-| metadata           | Son todo lo que el servicio SFPB necesita para procesar su petición.                                                                                             | Objeto | -                |
+| metadata           | Son todos los datos que el servicio SFPB necesita para procesar su petición.                                                                                     | Objeto | -                |
 | uri                | La ruta de destino (endpoint), es decir; donde desea comunicarse. Dicha ruta es propuesta por los servicios externos (**_vea el documento compartido_**).        | String | bomb/list/active |
 | request            | El objeto que recibe la petición (depende del destinatario), este objeto puede estar vacío si no hay un objeto rquerido por parte del destinatario (**_body_**). | Objeto | -                |
 
@@ -44,12 +44,12 @@ por igual y segura/garantizada):
 }
 ```
 
-| PROPIEDAD             | DESCRIPCIÓN                                                                                                                                                         | TIPO   | MUESTRA                              |
-|-----------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------|--------------------------------------|
-| metadata              | Son todo lo que el servicio SFPB necesita para procesar su petición.                                                                                                | Object | -                                    |
-| uri                   | La ruta de destino (endpoint), es decir; donde desea comunicarse. Dicha ruta es propuesta por los servicios externos (**_vea el documento compartido_**).           | String | bomb/list/active                     |
-| response              | La respueta de el servicio  SFPB devuelve                                                                                                                           | Object | -                                    |
-| data                  | El objeto que devuelve la petición (depende del destinatario), este objeto puede estar vacío si no hay una respueta por parte del destinatario.                     | Object | -                                    |
-| _broker_session_token | Sólo existirá cuando se hace un inicio de sesión (el token de autenticación), de lo contrario no estará presente en el cuerpo de la respuesta (response).           | String | eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9 |
-| _broker_status        | Estado de la petición, el mismo estándar que utiliza [HTTP](https://developer.mozilla.org/es/docs/Web/HTTP/Reference/Status)                                        | Int    | 200                                  |
-| _broker_message       | Mensaje por parte del Bróker                                                                                                                                        | String | OK                                   |
+| PROPIEDAD             | DESCRIPCIÓN                                                                                                                                               | TIPO   | MUESTRA                              |
+|-----------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------|--------|--------------------------------------|
+| metadata              | Son todos los datos utilizados por el servicio SFPB para procesar su petición.                                                                            | Object | -                                    |
+| uri                   | La ruta de destino (endpoint), es decir; donde se conectó. Dicha ruta es propuesta por los servicios externos (**_vea el documento compartido_**).        | String | bomb/list/active                     |
+| response              | La respueta del servicio SFPB                                                                                                                             | Object | -                                    |
+| data                  | El objeto que devuelve la petición (depende del destinatario), este objeto puede estar vacío si no hay una respueta por parte del destinatario.           | Object | -                                    |
+| _broker_session_token | Sólo existirá cuando se hace un inicio de sesión (el token de autenticación), de lo contrario no estará presente en el cuerpo de la respuesta (response). | String | eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9 |
+| _broker_status        | Estado de la petición, el mismo estándar que utiliza [HTTP](https://developer.mozilla.org/es/docs/Web/HTTP/Reference/Status)                              | Int    | 200                                  |
+| _broker_message       | Mensaje por parte del Bróker                                                                                                                              | String | OK                                   |

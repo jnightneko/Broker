@@ -36,7 +36,7 @@ por igual y segura/garantizada):
         "data": {
           /* RESPUETA DEL SERVICIO DESTINO. */
         },
-      "_broker_session_token": "xgd29d", /* OPCIONAL */
+      "_broker_session_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9", /* OPCIONAL */
       "_broker_status": 200,
       "_broker_message": "OK"
 
@@ -44,12 +44,12 @@ por igual y segura/garantizada):
 }
 ```
 
-| PROPIEDAD              | DESCRIPCIÓN                                                                                                                                                | TIPO   | MUESTRA                              |
-|------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------|--------|--------------------------------------|
-| metadata               | Son todo lo que el servicio SFPB necesita para procesar su petición.                                                                                       | Objeto | -                                    |
-| uri                    | La ruta de destino (endpoint), es decir; donde desea comunicarse. Dicha ruta es propuesta por los servicios externos (**_vea el documento compartido_**).  | String | bomb/list/active                     |
-| response               | La respueta de el servicio  SFPB devuelve                                                                                                                  | Objeto | -                                    |
-| data                   | El objeto que devuelve la petición (depende del destinatario), este objeto puede estar vacío si no hay una respueta por parte del destinatario.            | Objeto | -                                    |
-| _broker_session_tokenN | Sólo existirá cuando se hace un inicio de sesión (el token de autenticación), de lo contrario no estará presente en el cuerpo de la respuesta (response).  | String | eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9 |
-| _broker_status         | Estado de la petición, el mismo estándar que utiliza HTTP                                                                                                  | Int    | 200                                  |
-|                        | Mensaje por parte del Bróker                                                                                                                               | String | OK                                   |
+| PROPIEDAD             | DESCRIPCIÓN                                                                                                                                                         | TIPO   | MUESTRA                              |
+|-----------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------|--------------------------------------|
+| metadata              | Son todo lo que el servicio SFPB necesita para procesar su petición.                                                                                                | Object | -                                    |
+| uri                   | La ruta de destino (endpoint), es decir; donde desea comunicarse. Dicha ruta es propuesta por los servicios externos (**_vea el documento compartido_**).           | String | bomb/list/active                     |
+| response              | La respueta de el servicio  SFPB devuelve                                                                                                                           | Object | -                                    |
+| data                  | El objeto que devuelve la petición (depende del destinatario), este objeto puede estar vacío si no hay una respueta por parte del destinatario.                     | Object | -                                    |
+| _broker_session_token | Sólo existirá cuando se hace un inicio de sesión (el token de autenticación), de lo contrario no estará presente en el cuerpo de la respuesta (response).           | String | eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9 |
+| _broker_status        | Estado de la petición, el mismo estándar que utiliza [HTTP](https://developer.mozilla.org/es/docs/Web/HTTP/Reference/Status)                                        | Int    | 200                                  |
+| _broker_message       | Mensaje por parte del Bróker                                                                                                                                        | String | OK                                   |

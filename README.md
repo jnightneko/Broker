@@ -44,6 +44,6 @@ Ya iniciado los servicios, podemos empezar a utilizar el broker: http://localhos
 ## Protocolos
 
 Para comunicarse con el servicio SFPB y redireccionar sus solicitudes mediante HTTP (API REST) ​​a
-otros servicios externos, es necesario que sigas los estándares impuetos por el equipo SFPB.
+otros servicios externos, es necesario que sigas los estándares impuestos por el equipo **SFPB**.
 
 [Ir a los Protocolos](./assets/docs/PROTOCOLO.md)

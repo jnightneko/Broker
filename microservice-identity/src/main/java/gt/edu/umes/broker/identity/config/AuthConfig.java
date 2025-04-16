@@ -1,12 +1,10 @@
-package gt.edu.umes.broker.broker.config;
+package gt.edu.umes.broker.identity.config;
 
-import gt.edu.umes.broker.broker.client.AdministracionCliente;
-import lombok.RequiredArgsConstructor;
+import gt.edu.umes.broker.identity.client.AdministracionCliente;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
-import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -32,12 +30,6 @@ public class AuthConfig {
     public CustomUserDetailsService customUserDetailsService() {
         return new CustomUserDetailsService(administracionCliente, passwordEncoder());
     }
-
-    /*@Autowired
-    public AuthConfig(AdministracionCliente administracionCliente, PasswordEncoder passwordEncoder) {
-        this.administracionCliente = administracionCliente;
-        this.passwordEncoder = passwordEncoder;
-    }*/
 
     @Bean
     public UserDetailsService userDetailsService() {
@@ -80,5 +72,4 @@ public class AuthConfig {
     public AuthenticationManager authenticationManager(AuthenticationConfiguration config) throws Exception {
         return config.getAuthenticationManager();
     }
-
 }

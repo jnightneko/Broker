@@ -1,14 +1,11 @@
-package gt.edu.umes.broker.broker.controller;
+package gt.edu.umes.broker.identity.controller;
 
-import gt.edu.umes.broker.broker.client.AdministracionCliente;
-import gt.edu.umes.broker.broker.dto.*;
-import gt.edu.umes.broker.broker.entity.UserCredential;
-import gt.edu.umes.broker.broker.service.AuthService;
+import gt.edu.umes.broker.identity.client.AdministracionCliente;
+import gt.edu.umes.broker.identity.dto.*;
+import gt.edu.umes.broker.identity.service.AuthService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
-import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -27,7 +24,7 @@ public class AuthController {
         this.administracionCliente = administracionCliente;
     }
 
-    @PostMapping("/auth/admin") /*probado*/
+    @PostMapping("/POST/validarEmpleado") /*probado*/
     public ResponseEntity<EmpleadoResponseDTO> validarEmpleado(@RequestBody AuthRequest authRequest) {
         EmpleadoResponseDTO empleado = administracionCliente.validarEmpleado(authRequest);
         return ResponseEntity.ok(empleado);

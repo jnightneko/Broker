@@ -1,7 +1,7 @@
-package gt.edu.umes.broker.broker.client;
-import gt.edu.umes.broker.broker.dto.AuthRequest;
-import gt.edu.umes.broker.broker.dto.EmpleadoRegistroDTO;
-import gt.edu.umes.broker.broker.dto.EmpleadoResponseDTO;
+package gt.edu.umes.broker.identity.client;
+import gt.edu.umes.broker.identity.dto.AuthRequest;
+import gt.edu.umes.broker.identity.dto.EmpleadoRegistroDTO;
+import gt.edu.umes.broker.identity.dto.EmpleadoResponseDTO;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;

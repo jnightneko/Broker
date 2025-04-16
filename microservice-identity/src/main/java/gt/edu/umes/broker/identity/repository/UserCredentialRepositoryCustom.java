@@ -1,6 +1,6 @@
-package gt.edu.umes.broker.broker.repository;
+package gt.edu.umes.broker.identity.repository;
 
-import gt.edu.umes.broker.broker.entity.UserCredential;
+import gt.edu.umes.broker.identity.entity.UserCredential;
 
 import java.util.Optional;
 

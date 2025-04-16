@@ -1,4 +1,4 @@
-package gt.edu.umes.broker.broker;
+package gt.edu.umes.broker.identity;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

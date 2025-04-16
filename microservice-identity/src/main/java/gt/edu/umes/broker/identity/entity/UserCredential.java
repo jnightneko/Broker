@@ -1,4 +1,4 @@
-package gt.edu.umes.broker.broker.entity;
+package gt.edu.umes.broker.identity.entity;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

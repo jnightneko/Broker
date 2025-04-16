@@ -1,8 +1,6 @@
-package gt.edu.umes.broker.broker.repository;
+package gt.edu.umes.broker.identity.repository;
 
-import gt.edu.umes.broker.broker.entity.UserCredential;
-import org.springframework.context.annotation.Profile;
-import org.springframework.data.jpa.repository.JpaRepository;
+import gt.edu.umes.broker.identity.entity.UserCredential;
 import org.springframework.stereotype.Repository;
 
 import java.util.Optional;

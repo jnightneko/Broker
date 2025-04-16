@@ -1,6 +1,6 @@
-package gt.edu.umes.broker.broker.config;
+package gt.edu.umes.broker.identity.config;
 
-import gt.edu.umes.broker.broker.entity.UserCredential;
+import gt.edu.umes.broker.identity.entity.UserCredential;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 

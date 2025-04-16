@@ -22,8 +22,8 @@
         <module>microservice-gateway</module>
         <module>microservice-eureka</module>
         <module>microservice-config</module>
-
         <module>microservice-example</module>
+        <module>microservice-identity</module>
     </modules>
 
     <properties>

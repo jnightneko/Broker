@@ -1,8 +1,8 @@
-package gt.edu.umes.broker.broker.implementation;
+package gt.edu.umes.broker.identity.implementation;
 
-import gt.edu.umes.broker.broker.client.AdministracionCliente;
-import gt.edu.umes.broker.broker.entity.UserCredential;
-import gt.edu.umes.broker.broker.repository.UserCredentialRepositoryCustom;
+import gt.edu.umes.broker.identity.client.AdministracionCliente;
+import gt.edu.umes.broker.identity.entity.UserCredential;
+import gt.edu.umes.broker.identity.repository.UserCredentialRepositoryCustom;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.Optional;

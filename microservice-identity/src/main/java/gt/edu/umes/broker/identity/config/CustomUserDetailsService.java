@@ -1,20 +1,14 @@
-package gt.edu.umes.broker.broker.config;
+package gt.edu.umes.broker.identity.config;
 
-import gt.edu.umes.broker.broker.client.AdministracionCliente;
-import gt.edu.umes.broker.broker.dto.EmpleadoResponseDTO;
-import gt.edu.umes.broker.broker.entity.UserCredential;
-import gt.edu.umes.broker.broker.repository.UserCredentialRepository;
-import lombok.RequiredArgsConstructor;
+import gt.edu.umes.broker.identity.client.AdministracionCliente;
+import gt.edu.umes.broker.identity.dto.EmpleadoResponseDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
-
-import java.util.Optional;
 
 @Service
 public class CustomUserDetailsService implements UserDetailsService {

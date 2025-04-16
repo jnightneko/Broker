@@ -1,4 +1,4 @@
-package gt.edu.umes.broker.broker.dto;
+package gt.edu.umes.broker.identity.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

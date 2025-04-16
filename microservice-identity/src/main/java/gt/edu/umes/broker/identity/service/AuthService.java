@@ -1,15 +1,10 @@
-package gt.edu.umes.broker.broker.service;
+package gt.edu.umes.broker.identity.service;
 
-import gt.edu.umes.broker.broker.client.AdministracionCliente;
-import gt.edu.umes.broker.broker.dto.*;
-import gt.edu.umes.broker.broker.entity.UserCredential;
-import gt.edu.umes.broker.broker.repository.UserCredentialRepository;
+import gt.edu.umes.broker.identity.client.AdministracionCliente;
+import gt.edu.umes.broker.identity.dto.*;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.client.RestTemplate;
 
 @Service
 public class AuthService {

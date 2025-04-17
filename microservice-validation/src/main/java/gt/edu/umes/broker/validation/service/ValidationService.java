@@ -6,7 +6,14 @@ package gt.edu.umes.broker.validation.service;
 
 import gt.edu.umes.broker.validation.model.AbstractBKModel;
 import gt.edu.umes.broker.validation.model.MetaData;
+import gt.edu.umes.broker.validation.model.BKRequestModel;
+import gt.edu.umes.broker.validation.model.BKResponseModel;
+import gt.edu.umes.broker.validation.model.Response;
 import static gt.edu.umes.broker.validation.Validation.*;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -24,6 +31,9 @@ public class ValidationService {
     /** Servicios de logs. */
     @Autowired
     private LogService logService;
+    /** Microservicio de conexión (redireccionamiento)*/
+    @Autowired
+    private ConnectorService connectorService;
     
     /**
      * Método encargado de validar el cuerpo de la petición, esta validación depende
@@ -46,12 +56,75 @@ public class ValidationService {
                     + ">> https://github.com/jnightneko/Broker/blob/master/assets/docs/PROTOCOLO.md ", true);
             return false;
         }
-        if (isServicePagos(model.getMetaData())) {
-            /* validación de pagos */
+        
+        // validación de métodos de pagos a travez de sus ID's
+        if (isServicePagos(model.getMetaData())) {            
+            if (isCrearTransaccion(model.getMetaData())) {
+                Map<String, Object> map = (Map<String, Object>) model.getBody();
+                List<Object> metosPagos = (List<Object>) map.get("MetodosPago");
+
+                boolean metodoNoValido = true;
+                List<Map<String, Object>> metosValidos = getListMetodoPago();
+                
+                for (int i = 0; i < metosPagos.size(); i++) {
+                    Map<String, Object> item = (Map<String, Object>) metosPagos.get(i);
+
+                    for (int j = 0; j < metosValidos.size(); j++) {
+                        Map<String, Object> element = metosValidos.get(j);                        
+                        if (String.valueOf(item.get("IdMetodo")).equals(String.valueOf(element.get("idMetodo")))) {
+                            metodoNoValido = false;
+                            break;
+                        }
+                    }
+                }
+
+                if (metodoNoValido) {
+                    logs.log(logService, model, "Métodos de pagos inválidos: " + model.getMetaData().getEndPoint() + ":" + metosPagos, true);
+                    return false;
+                }
+            }
         }
         
         logs.log(logService, model, "Petición solicitada: " + model.getMetaData().getEndPoint(), false);
         return true;
+    }
+    
+    /**
+     * Determin si la petición (endpoint) es para realizar una transacción
+     * 
+     * @param metaData metadatos
+     * @return boolean
+     */
+    public boolean isCrearTransaccion(MetaData metaData) {
+        String uri = metaData.getEndPoint();
+        if (! uri.startsWith("/")) {
+            uri = '/' + uri;
+        }
+        if (! uri.endsWith("/")) {
+            uri += "/";
+        }
+        return uri.toLowerCase().equals("/pagos/transaccion/crear/");
+    }
+    
+    /**
+     * Lista todo los métodos de pagos soportados por el servicios
+     * @return list|pagos
+     */
+    public List<Map<String, Object>> getListMetodoPago() {
+        BKRequestModel request = new BKRequestModel(new MetaData("/pagos/metodos/obtener"), BKRequestModel.EMPTY_BODY);
+        Object htttObject = connectorService.send(request);
+        logService.log("Obtención de pagos", "GET", LogService.Type.LOG);
+        
+        if (htttObject instanceof BKResponseModel responseModel) {
+            Response response = responseModel.getBody();
+            
+            if (response.getData() instanceof List myArray) {
+                if (!myArray.isEmpty() && (myArray.get(0) instanceof Map)) {
+                    return myArray;
+                }
+            }
+        }
+        return new ArrayList<>();
     }
     
     /**
@@ -61,7 +134,7 @@ public class ValidationService {
      * @return boolean
      */
     public boolean isServicePagos(MetaData data) {
-        String uri = data.getEndPoint().toLowerCase();
+        String uri = data.getEndPoint().toUpperCase();
         return uri.startsWith("/PAGOS") || uri.startsWith("PAGOS");
     }
 }

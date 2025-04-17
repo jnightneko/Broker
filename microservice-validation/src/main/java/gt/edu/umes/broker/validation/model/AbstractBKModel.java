@@ -5,6 +5,8 @@
 package gt.edu.umes.broker.validation.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import java.util.Collections;
+import java.util.HashMap;
 
 /**
  * Clase abstracta encargado de generar la plantilla de las respuetas, así como
@@ -18,6 +20,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * @since 1.0.0
  */
 public abstract class AbstractBKModel<T> {
+    
+    /** Un objeto JSON vacío utilizada para peticiones {@code GET} que no necesitan un cuerpo. */
+    public static final Object EMPTY_BODY = Collections.unmodifiableMap(new HashMap<>());
     
     /** Objeto donde se alojan los metadatos. */
     @JsonProperty("metadata")

@@ -92,7 +92,7 @@ public final class ConnectorService {
                 
                 bkResponse.setStatus(res.getStatusCode().value());
                 return new BKResponseModel(metaData, bkResponse);
-            });
+            }).block();
         } catch (Exception e) {
             return bkNewError(metaData, e.getMessage(), 404);
         }

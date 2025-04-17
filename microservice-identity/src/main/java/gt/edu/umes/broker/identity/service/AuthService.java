@@ -1,6 +1,6 @@
 package gt.edu.umes.broker.identity.service;
 
-import gt.edu.umes.broker.identity.client.AdministracionCliente;
+import gt.edu.umes.broker.identity.client.AuthAdminClient;
 import gt.edu.umes.broker.identity.dto.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -10,21 +10,21 @@ import org.springframework.stereotype.Service;
 public class AuthService {
     private final PasswordEncoder passwordEncoder;
     private final JwtService jwtService;
-    private final AdministracionCliente administracionCliente;
+    private final AuthAdminClient authAdminClient;
 
     @Autowired
     public AuthService(PasswordEncoder passwordEncoder,
                        JwtService jwtService,
-                       AdministracionCliente administracionCliente) {
+                       AuthAdminClient authAdminClient) {
         this.passwordEncoder = passwordEncoder;
         this.jwtService = jwtService;
-        this.administracionCliente = administracionCliente;
+        this.authAdminClient = authAdminClient;
     }
 
     public AuthResponseDTO authenticationUser(AuthRequest authRequest) {
-        EmpleadoResponseDTO empleado = administracionCliente.validarEmpleado(authRequest);
+        EmpleadoResponseDTO empleado = authAdminClient.validarEmpleado(authRequest);
 
-        if (empleado == null) {
+        if (empleado == null || empleado.getPasswordEncriptada() == null) {
             throw new RuntimeException("Credenciales invalidas");
         }
 
@@ -48,7 +48,7 @@ public class AuthService {
             throw new IllegalArgumentException("Correo y contraseña son campos obligatorios");
         }
 
-        if(administracionCliente.existeUsuario(request.getEmail())) {
+        if(authAdminClient.existeUsuario(request.getEmail())) {
             throw new RuntimeException("El usuario " + request.getEmail() + " ya existe");
         }
 
@@ -62,7 +62,7 @@ public class AuthService {
         );
 
         try{
-            boolean registroExitoso = administracionCliente.registrarUsuario(registroDTO);
+            boolean registroExitoso = authAdminClient.registrarUsuario(registroDTO);
 
             if (!registroExitoso) {
                 throw new RuntimeException("Error al registrar usuario en Administracion");
@@ -82,7 +82,7 @@ public class AuthService {
     public UserInfoDTO obtenerInfoUsuario(String token) {
         String username = jwtService.extractUsername(token);
 
-        EmpleadoResponseDTO empleado = administracionCliente.validarEmpleado(
+        EmpleadoResponseDTO empleado = authAdminClient.validarEmpleado(
                 new AuthRequest(username, "")
         );
 

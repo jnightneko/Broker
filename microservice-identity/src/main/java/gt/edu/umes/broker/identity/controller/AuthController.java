@@ -1,6 +1,6 @@
 package gt.edu.umes.broker.identity.controller;
 
-import gt.edu.umes.broker.identity.client.AdministracionCliente;
+import gt.edu.umes.broker.identity.client.AuthAdminClient;
 import gt.edu.umes.broker.identity.dto.*;
 import gt.edu.umes.broker.identity.service.AuthService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,20 +13,20 @@ import org.springframework.web.bind.annotation.*;
 public class AuthController {
     private final AuthService authService;
     private final AuthenticationManager authenticationManager;
-    private final AdministracionCliente administracionCliente;
+    private final AuthAdminClient authAdminClient;
 
     @Autowired
     public AuthController(AuthService authService,
                           AuthenticationManager authenticationManager,
-                          AdministracionCliente administracionCliente) {
+                          AuthAdminClient authAdminClient) {
         this.authService = authService;
         this.authenticationManager = authenticationManager;
-        this.administracionCliente = administracionCliente;
+        this.authAdminClient = authAdminClient;
     }
 
     @PostMapping("/POST/validarEmpleado") /*probado*/
     public ResponseEntity<EmpleadoResponseDTO> validarEmpleado(@RequestBody AuthRequest authRequest) {
-        EmpleadoResponseDTO empleado = administracionCliente.validarEmpleado(authRequest);
+        EmpleadoResponseDTO empleado = authAdminClient.validarEmpleado(authRequest);
         return ResponseEntity.ok(empleado);
     }
 
@@ -38,7 +38,7 @@ public class AuthController {
 
     @PostMapping("/POST/autenticacion") /*probado*/
     public ResponseEntity<AuthResponseDTO> getToken(@RequestBody AuthRequest authRequest) {
-        EmpleadoResponseDTO empleado = administracionCliente.validarEmpleado(authRequest);
+        EmpleadoResponseDTO empleado = authAdminClient.validarEmpleado(authRequest);
 
         if (empleado == null || !empleado.isActivo()) {
             throw new RuntimeException("Credencias invalidas o usuario inactivo");

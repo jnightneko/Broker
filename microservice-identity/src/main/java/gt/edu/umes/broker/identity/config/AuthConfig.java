@@ -1,6 +1,6 @@
 package gt.edu.umes.broker.identity.config;
 
-import gt.edu.umes.broker.identity.client.AdministracionCliente;
+import gt.edu.umes.broker.identity.client.AuthAdminClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -19,21 +19,21 @@ import org.springframework.security.web.SecurityFilterChain;
 @Configuration
 @EnableWebSecurity
 public class AuthConfig {
-    private final AdministracionCliente administracionCliente;
+    private final AuthAdminClient authAdminClient;
 
     @Autowired
-    public AuthConfig(AdministracionCliente administracionCliente){
-        this.administracionCliente = administracionCliente;
+    public AuthConfig(AuthAdminClient authAdminClient){
+        this.authAdminClient = authAdminClient;
     }
 
     @Bean
     public CustomUserDetailsService customUserDetailsService() {
-        return new CustomUserDetailsService(administracionCliente, passwordEncoder());
+        return new CustomUserDetailsService(authAdminClient, passwordEncoder());
     }
 
     @Bean
     public UserDetailsService userDetailsService() {
-        return new CustomUserDetailsService(administracionCliente, passwordEncoder());
+        return new CustomUserDetailsService(authAdminClient, passwordEncoder());
     }
 
     @Bean

@@ -1,6 +1,6 @@
 package gt.edu.umes.broker.identity.implementation;
 
-import gt.edu.umes.broker.identity.client.AdministracionCliente;
+import gt.edu.umes.broker.identity.client.AuthAdminClient;
 import gt.edu.umes.broker.identity.entity.UserCredential;
 import gt.edu.umes.broker.identity.repository.UserCredentialRepositoryCustom;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,7 +9,7 @@ import java.util.Optional;
 
 public class UserCredentialRepositoryImpl implements UserCredentialRepositoryCustom {
     @Autowired
-    private AdministracionCliente administracionCliente;
+    private AuthAdminClient authAdminClient;
 
     @Override
     public boolean existsByCorreo(String email) {

@@ -2,7 +2,7 @@
  * Copyright Broker (SFPB). All rights reserved,
  * Licence terms: https://github.com/jnightneko/Broker?tab=BSD-3-Clause-1-ov-file
  */
-package gt.edu.umes.broker.gateway.model;
+package gt.edu.umes.broker.validation.model;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;

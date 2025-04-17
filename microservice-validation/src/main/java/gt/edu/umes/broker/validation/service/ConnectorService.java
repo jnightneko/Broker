@@ -2,15 +2,15 @@
  * Copyright Broker (SFPB). All rights reserved,
  * Licence terms: https://github.com/jnightneko/Broker?tab=BSD-3-Clause-1-ov-file
  */
-package gt.edu.umes.broker.gateway.service;
+package gt.edu.umes.broker.validation.service;
 
-
-import gt.edu.umes.broker.gateway.Configuration;
-import gt.edu.umes.broker.gateway.model.AbstractBKModel;
-import gt.edu.umes.broker.gateway.model.BKResponseModel;
-import gt.edu.umes.broker.gateway.model.MetaData;
-import gt.edu.umes.broker.gateway.model.Response;
-import static gt.edu.umes.broker.gateway.Gateway.*;
+import gt.edu.umes.broker.validation.Configuration;
+import gt.edu.umes.broker.validation.model.AbstractBKModel;
+import gt.edu.umes.broker.validation.model.BKResponseModel;
+import gt.edu.umes.broker.validation.model.MetaData;
+import gt.edu.umes.broker.validation.model.Response;
+import static gt.edu.umes.broker.validation.Validation.*;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -27,7 +27,14 @@ import reactor.core.publisher.Mono;
  * @see 1.0.0
  */
 @Service
-public final class GatewayService {
+public final class ConnectorService {
+    
+    /**
+     * Servicio que conexta con el microservicios encargado de gestionar los 
+     * <strong>logs</strong> que pasa por el broker.
+     */
+    @Autowired
+    private LogService logService;
     
     /**
      * Método encargado de enviar las peticiones a su destino atravez del microservicio 
@@ -43,13 +50,6 @@ public final class GatewayService {
      * @return datos devueltos.
      */
     public Object send(AbstractBKModel<Object> object) {
-        if (object == null) {
-            return bkNewError("No se puede procesar la petición.", 501);
-        }
-        
-        if (! bkCheckRequest(object)) {
-            return bkNewError("La petición es inválida (formato - broker).", 422);
-        }
         MetaData metaData = object.getMetaData();
         try {
             StringBuilder URLBuilder = new StringBuilder();
@@ -65,10 +65,17 @@ public final class GatewayService {
                     .onStatus((t) -> t.is4xxClientError(), (t) ->  {
                         /* Guardar un log de una peticion fraudulenta. */
                         
+                        logService.log("Error al procesar el redireccionamiento con destino: " 
+                                + metaData.getEndPoint()
+                                + " mediante le puente >> " 
+                                + URLBuilder, "ALL", LogService.Type.LOG);
                         return Mono.empty();
                     })
                     .onStatus((t) -> t.is5xxServerError(), (t) -> {
                         /* Guardar un long si hay un error con sel servidor destinatario (interno). */
+                        
+                        logService.log("El servidor destino tiene problemas para procesar la solicitud: " 
+                                        + metaData.getEndPoint(), "ALL", LogService.Type.LOG);
                         
                         return Mono.empty();
                     })
@@ -80,7 +87,7 @@ public final class GatewayService {
                     bkResponse.setData(res.getBody());
                     bkResponse.setMessage("La solicitud tuvo éxito ;)!");
                 } else {
-                    bkResponse.setMessage("Error de conexión con el servidor destino .(");
+                    bkResponse.setMessage("El servicio no puede ser prestado en este momento.");
                 }
                 
                 bkResponse.setStatus(res.getStatusCode().value());

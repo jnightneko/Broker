@@ -4,10 +4,10 @@
  */
 
 /**
- * Paquete donde se alojan todo los 'modelos' utilizadas por el microservicios 'gateway'
+ * Paquete donde se alojan todo los 'modelos' utilizadas por el microservicios 'validation'
  * 
  * @author wil
  * @version 1.0.0
  * @since 1.0.0
  */
-package gt.edu.umes.broker.gateway.model;
+package gt.edu.umes.broker.validation.model;

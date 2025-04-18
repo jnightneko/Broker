@@ -25,12 +25,23 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/broker/api/rest")
 public final class ValidationController {
+    /** Servicio de conexiones. */
     @Autowired
     private ConnectorService service;
+    /** Servicio de validaciones. */
     @Autowired
     private ValidationService valService;
     
+    /** Un mensaje de error. */
     private String error = null;
+    
+    /**
+     * Método encargado de redireccionar una petición a cualquier servicio externo.
+     * 
+     * @param model modelo|body de la petición
+     * @param method método
+     * @return objeto respueta
+     */
     private Object requestAll(BKRequestModel model, final String method) {        
         if (valService.isValid(model, (LogService logs, AbstractBKModel<Object> request, String msg, boolean err) -> {
             if (err) {

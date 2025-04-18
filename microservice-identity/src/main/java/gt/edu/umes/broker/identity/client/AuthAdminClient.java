@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
-@FeignClient(name = "microservice-connector", url = "http://localhost:8090")
+@FeignClient(name = "microservice-connector", url = "http://localhost:5173/administracion")
 public interface AuthAdminClient {
     @PostMapping("/empleados")
     EmpleadoResponseDTO validarEmpleado(@RequestBody AuthRequest authRequest);

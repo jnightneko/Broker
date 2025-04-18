@@ -19,10 +19,13 @@
     <packaging>pom</packaging>
 
     <modules>
+        <!-- Microservicios que conforma la arquitectura SFPB. -->
         <module>microservice-gateway</module>
         <module>microservice-eureka</module>
         <module>microservice-config</module>
+        <module>microservice-connector</module>
         <module>microservice-example</module>
+        <module>microservice-validation</module>
         <module>microservice-identity</module>
     </modules>
 
@@ -33,11 +36,13 @@
     </properties>
 
     <dependencies>
+        <!--
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
             <version>1.18.36</version>
         </dependency>
+        -->
     </dependencies>
 
     <build>

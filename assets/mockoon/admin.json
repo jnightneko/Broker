@@ -1,0 +1,1564 @@
+{
+  "uuid": "2b336f84-1588-4e97-8859-f427cd95229f",
+  "lastMigration": 33,
+  "name": "Admin",
+  "endpointPrefix": "",
+  "latency": 0,
+  "port": 3000,
+  "hostname": "",
+  "folders": [],
+  "routes": [
+    {
+      "uuid": "062c0e7d-d2d9-4ef7-bf02-681494cea05f",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "administracion/GET/empleados",
+      "responses": [
+        {
+          "uuid": "50d8803a-f228-4e0a-99c4-1c9424ba17b7",
+          "body": "[\n{\n    \"id\":{\n        \"empleado\": {\n            \"dpi\": 4345657860901,\n            \"nombres\": \"nombres\",\n            \"apellidos\": \"apellidos\",\n            \"telefono\": 12345678,\n            \"direccion\": \"direccion\",\n            \"nit\": \"nit\",\n            \"idJornada\": 1,\n            \"genero\": 1\n        },\n        \"asignacion\": {\n            \"id_area\": 1,\n            \"area\": \"area\",\n            \"id_rol\": 1,\n            \"rol\": \"rol\"\n        }\n    }\n}\n\n]",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "38ac4dea-76a5-4281-bd3b-d1c6f5cd833d",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "administracion/GET/empleados/:id",
+      "responses": [
+        {
+          "uuid": "493f613a-f7ef-40d2-aab9-ea50e91092a8",
+          "body": "{\n  \"empleado\": {\n    \"dpi\": 4345657860901,\n    \"nombres\": \"nombres\",\n    \"apellidos\": \"apellidos\",\n    \"telefono\": 12345678,\n    \"direccion\": \"direccion\",\n    \"nit\": \"nit\",\n    \"idJornada\": 1,\n    \"genero\": 1\n  },\n  \"asignacion\": {\n    \"id_area\": 1,\n    \"area\": \"area\",\n    \"id_rol\": 1,\n    \"rol\": \"rol\"\n  }\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "65d398ed-a5d2-4230-aabe-0b8ea4e995c3",
+      "type": "http",
+      "documentation": "",
+      "method": "post",
+      "endpoint": "administracion/POST/empleados",
+      "responses": [
+        {
+          "uuid": "55107c37-cc79-4bac-a685-a36dd9bc6ac4",
+          "body": "{\n  \"memsaje\": \"string\"\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "82f2f58c-3246-4bdd-b5c3-42feb904b02e",
+      "type": "http",
+      "documentation": "",
+      "method": "put",
+      "endpoint": "administracion/PUT/empleados/:id",
+      "responses": [
+        {
+          "uuid": "1ff27f9e-e187-42aa-a5cc-e6798b72548d",
+          "body": "Empleado actualizado con éxito",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "8f45040c-5d87-4272-b4ce-24a4e51e16bc",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "administracion/GET/alertas",
+      "responses": [
+        {
+          "uuid": "97dd2fc2-d59b-4675-83ae-f4ff08071ebe",
+          "body": "[\n{\n    \"alertas\": {\n        \"id\": {\n            \"nombre_producto\": \"nombre_producto\",\n            \"mensaje\": \"mensaje\",\n            \"id_servicio\": 1\n        },\n         \"id2\": {\n            \"nombre_producto\": \"nombre_producto\",\n            \"mensaje\": \"mensaje\",\n            \"id_servicio\": 2\n        }\n    }\n}\n  \n]",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "fd3f4e15-6200-4f58-bec7-106e15c61dc9",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "administracion/GET/alertas/:id",
+      "responses": [
+        {
+          "uuid": "d2cff515-9691-4fe3-85a0-2080c52b0947",
+          "body": "{\n    \"nombre_producto\": \"nombre_producto\",\n    \"mensaje\": \"mensaje\",\n    \"id_servicio\": 10\n}\n",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "9c2a6f7f-68cc-448e-8cb2-df724a8439b3",
+      "type": "http",
+      "documentation": "",
+      "method": "post",
+      "endpoint": "administracion/POST/alertas/tienda_de_conveniencia",
+      "responses": [
+        {
+          "uuid": "3df5816c-96cf-4bbe-b830-761a9362c8d5",
+          "body": "Alerta agregada con éxito.",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "df302214-b44b-49a2-9db6-ca653e607842",
+      "type": "http",
+      "documentation": "",
+      "method": "post",
+      "endpoint": "administracion/POST/alertas/gasolinera",
+      "responses": [
+        {
+          "uuid": "548fa3e3-7889-464f-a7dc-e75d99eeaa36",
+          "body": "Alerta agregada con éxito.",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "bfb3c2aa-1826-4403-9c51-780ba1c1a3d2",
+      "type": "http",
+      "documentation": "",
+      "method": "post",
+      "endpoint": "administracion/POST/alertas/repuestos",
+      "responses": [
+        {
+          "uuid": "04fa5c13-b94f-4f33-89a2-2adf2f8a7c66",
+          "body": "Alerta agregada con éxito.",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "9c03c930-1586-4045-8869-7fa22e2b1349",
+      "type": "http",
+      "documentation": "",
+      "method": "post",
+      "endpoint": "administracion/POST/alertas/pintura",
+      "responses": [
+        {
+          "uuid": "8f327978-412c-4e8b-aabe-6bb41e6085d0",
+          "body": "Alerta agregada con éxito.",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "613a4e11-ca61-4e57-a9c5-7a83ff983ba5",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "administracion/GET/areas",
+      "responses": [
+        {
+          "uuid": "4b7e7875-03ba-4785-9158-9286fa5845f0",
+          "body": "{\n    \"areas\": {\n        \"id\": {\n            \"nombre_area\": \"nombre_area\",\n            \"descripcion\": \"descripcion\",\n            \"estado\": 1\n        },\n        \"id2\": {\n            \"nombre_area\": \"nombre_area\",\n            \"descripcion\": \"descripcion\",\n            \"estado\": 1\n        }\n    }\n}\n",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "e5d481b5-c2b7-44a8-98f9-f7ea1beac6aa",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "administracion/GET/areas/:id",
+      "responses": [
+        {
+          "uuid": "8ddc5c2e-887e-4a09-a562-6c655f1b8538",
+          "body": "{\n    \"nombre_area\": \"nombre_area\",\n    \"descripcion\": \"descripcion\",\n    \"estado\": 1\n}\n",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "bc19dc6b-31fd-42e1-bdd2-90b6610583b6",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "administracion/GET/roles",
+      "responses": [
+        {
+          "uuid": "89bb3be7-5ea6-44bb-b333-3edc57404226",
+          "body": "{\n    \"roles\":{\n        \"id\":{\n            \"nombre_rol\": \"nombre\",\n            \"descripcion_rol\": \"descripcion\",\n            \"salario\": 3000.00\n        },\n        \"id2\":{\n            \"nombre_rol\": \"nombre\",\n            \"descripcion_rol\": \"descripcion\",\n            \"salario\": 5000.00\n        }\n\n    }\n}\n",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "97c6390d-310c-4fcd-a657-bde8872c0cea",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "administracion/GET/roles/:id",
+      "responses": [
+        {
+          "uuid": "d54453d5-2236-41ca-b61e-983c30713f9a",
+          "body": "{\n    \"nombre\": \"nombre\",\n    \"descripcion\": \"descripcion\",\n    \"salario_mensual\": 5000.00\n}\n",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "090f4ba2-33d9-42c0-8ad8-c070835e0eb6",
+      "type": "http",
+      "documentation": "",
+      "method": "post",
+      "endpoint": "administracion/POST/roles",
+      "responses": [
+        {
+          "uuid": "596e90d3-bb17-4554-a1e1-4366d768966a",
+          "body": "Rol registrado con éxito",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "44eb4505-c97d-40ad-b3dd-2e06b679b109",
+      "type": "http",
+      "documentation": "",
+      "method": "put",
+      "endpoint": "administracion/PUT/roles/:id",
+      "responses": [
+        {
+          "uuid": "242ef5be-cc8f-47eb-975c-e4825813fe59",
+          "body": "Rol actualizado con éxito",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "5d6c46b1-2f93-4969-8e74-da146ce2d558",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "administracion/GET/jornadas",
+      "responses": [
+        {
+          "uuid": "34ec78db-27f6-47ac-b8d7-a0128011cc60",
+          "body": "{\n    \"jornadas\": {\n        \"id\":{\n            \"nombre\": \"nombre\",\n            \"descripcion\": \"descripcion\"\n        },\n        \"id2\":{\n            \"nombre\": \"nombre\",\n            \"descripcion\": \"descripcion\"\n        }\n    }\n}\n",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "301bd617-77c9-4f68-ae3e-644041f24e53",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "administracion/GET/jornadas/:id",
+      "responses": [
+        {
+          "uuid": "a5efef9a-7181-4ea7-972c-f91aec5ebb6a",
+          "body": "{\n    \"nombre\": \"nombre\",\n    \"descripcion\": \"descripcion\"\n}\n",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "48a9a880-4b3f-4d07-888e-c286a16e3e13",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "administracion/GET/proveedores",
+      "responses": [
+        {
+          "uuid": "fd2fb4db-73a1-495a-9131-ed2c6338c010",
+          "body": "{\n    \"proveedores\": {\n        \"id\": {\n            \"nombres\": \"nombres\",\n            \"apellidos\": \"apellidos\",\n            \"telefono\": 12345678,\n            \"direccion\": \"direccion\",\n            \"nit\": \"nit\"\n        },\n         \"id2\": {\n            \"nombres\": \"nombres\",\n            \"apellidos\": \"apellidos\",\n            \"telefono\": 12345678,\n            \"direccion\": \"direccion\",\n            \"nit\": \"nit\"\n        }\n    }\n}\n",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "4937689f-5a9c-4eea-af78-a9eb350d974f",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "administracion/GET/proveedores/:id",
+      "responses": [
+        {
+          "uuid": "12f8dc43-5711-41fe-92d4-217d27d0555b",
+          "body": "{\n    \"nombres\": \"nombres\",\n    \"apellidos\": \"apellidos\",\n    \"telefono\": 12345678,\n    \"direccion\": \"direccion\",\n    \"nit\": \"nit\"\n}\n",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "02daeb54-a796-478d-9c31-94df9090bdae",
+      "type": "http",
+      "documentation": "",
+      "method": "post",
+      "endpoint": "administracion/GET/proveedores",
+      "responses": [
+        {
+          "uuid": "63873785-3e29-41a1-a420-909b481694c9",
+          "body": "Proveedor registrado con éxito",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "cfb22533-6801-4c2b-a7b3-6dce4a3b54aa",
+      "type": "http",
+      "documentation": "",
+      "method": "put",
+      "endpoint": "administracion/PUT/proveedores/:id",
+      "responses": [
+        {
+          "uuid": "f6935265-7677-47c2-8a4f-4a86b553ceb7",
+          "body": "Proveedor actualizado con éxito",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "abf11965-4ec2-4dd9-b666-5b01b27fc0b8",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "administracion/GET/servicios",
+      "responses": [
+        {
+          "uuid": "b2afcd47-f622-4717-9335-33bcecb70c71",
+          "body": "{\n    \"servicios\":{\n        \"id\": {\n            \"nombre\": \"nombre\",\n            \"descripcion\": \"descripcion\"\n        },\n        \"id2\": {\n            \"nombre\": \"nombre\",\n            \"descripcion\": \"descripcion\"\n       \t  }\n        }\n}\n",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "c5d179f7-645a-4ad5-8adc-3061951e7443",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "administracion/GET/servicios/:id",
+      "responses": [
+        {
+          "uuid": "344af528-8ab0-433b-aff5-43202708da20",
+          "body": "{\n    \"nombre\": \"nombre\",\n    \"descripcion\": \"descripcion\"\n}\n",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "775bd1fd-83f4-4139-a103-3588a72e840e",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": " administracion/GET/movimientos",
+      "responses": [
+        {
+          "uuid": "0057f1ab-b652-45b2-ac6c-c057a1e600c9",
+          "body": "{\n    \"tipo_movimientos\": {\n        \"id\": {\n            \"nombre\": \"nombre\",\n            \"descripcion\": \"descripcion\"\n        }, \n        \"id2\": {\n            \"nombre\": \"nombre\",\n            \"descripcion\": \"descripcion\"\n        }\n    }\n}\n",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "a088d402-db25-4984-bf9f-a0fa81bc421a",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "administracion/GET/movimientos/:id",
+      "responses": [
+        {
+          "uuid": "b3566fb6-60d6-422e-839e-a4031e381d64",
+          "body": "{\n    \"nombre\": \"nombre\",\n    \"descripcion\": \"descripcion\"\n}\n",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "e60199f1-0982-4edd-b2e6-c3d0aac534b5",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "administracion/GET/movimientos",
+      "responses": [
+        {
+          "uuid": "ab90a945-c538-4f77-b251-ce7bb669657d",
+          "body": "{\n  \"Pago de salarios\": {\n      \"movimientos\": {\n          \"1\": {\n              \"concepto\": \"concepto\",\n              \"cantidad\": 5000,\n              \"fecha_movimiento\": \"01/01/2025\",\n              \"nombre_empleado\": \"nombre\"\n          },\n          \"2\": {\n              \"concepto\": \"concepto\",\n              \"cantidad\": 5000,\n              \"fecha_movimiento\": \"01/01/2025\",\n              \"nombre_empleado\": \"nombre\"\n          }\n      }\n  },\n  \"Compras\": {\n      \"movimientos\": {\n          \"1\": {\n              \"concepto\": \"concepto\",\n              \"cantidad\": 500,\n              \"fecha_movimiento\": \"01/01/2025\",\n              \"id_servicio\": 1,\n              \"servicio\": \"nombre_servicio\",\n              \"id_producto\": 1,\n              \"producto\": \"producto\"\n          }\n      }\n  },\n  \"Ventas\": {\n      \"movimientos\": {\n          \"1\": {\n              \"concepto\": \"concepto\",\n              \"cantidad\": 500,\n              \"fecha_movimiento\": \"01/01/2025\",\n              \"id_servicio\": 2,\n              \"servicio\": \"nombre_servicio\",\n              \"id_producto\": 3,\n              \"producto\": \"producto\"\n          }\n      }\n  },\n  \"Devoluciones\": {\n      \"movimientos\": {\n          \"1\": {\n              \"concepto\": \"concepto\",\n              \"cantidad\": 500,\n              \"fecha_movimiento\": \"01/01/2025\",\n              \"id_servicio\": 4,\n              \"servicio\": \"nombre_servicio\",\n              \"id_producto\": 6,\n              \"producto\": \"producto\"\n          }\n      }\n  }\n}\n",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "49d18c6a-8ee9-4e81-816b-01964908ec75",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "administracion/GET/movimientos/diarios",
+      "responses": [
+        {
+          "uuid": "471c7955-e4b1-4a27-8025-a6cd7541b0fb",
+          "body": "{\n  \"Pago de salarios\": {\n      \"movimientos\": {\n          \"1\": {\n              \"concepto\": \"concepto\",\n              \"cantidad\": 5000,\n              \"fecha_movimiento\": \"01/01/2025\",\n              \"nombre_empleado\": \"nombre\"\n          },\n          \"2\": {\n              \"concepto\": \"concepto\",\n              \"cantidad\": 5000,\n              \"fecha_movimiento\": \"01/01/2025\",\n              \"nombre_empleado\": \"nombre\"\n          }\n      }\n  },\n  \"Compras\": {\n      \"movimientos\": {\n          \"1\": {\n              \"concepto\": \"concepto\",\n              \"cantidad\": 500,\n              \"fecha_movimiento\": \"01/01/2025\",\n              \"id_servicio\": 1,\n              \"servicio\": \"nombre_servicio\",\n              \"id_producto\": 1,\n              \"producto\": \"producto\"\n          }\n      }\n  },\n  \"Ventas\": {\n      \"movimientos\": {\n          \"1\": {\n              \"concepto\": \"concepto\",\n              \"cantidad\": 500,\n              \"fecha_movimiento\": \"01/01/2025\",\n              \"id_servicio\": 2,\n              \"servicio\": \"nombre_servicio\",\n              \"id_producto\": 3,\n              \"producto\": \"producto\"\n          }\n      }\n  },\n  \"Devoluciones\": {\n      \"movimientos\": {\n          \"1\": {\n              \"concepto\": \"concepto\",\n              \"cantidad\": 500,\n              \"fecha_movimiento\": \"01/01/2025\",\n              \"id_servicio\": 4,\n              \"servicio\": \"nombre_servicio\",\n              \"id_producto\": 6,\n              \"producto\": \"producto\"\n          }\n      }\n  }\n}\n",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "b15ea24c-f7af-4ae4-a101-cd16d017de5a",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "administracion/GET/movimientos/mensuales",
+      "responses": [
+        {
+          "uuid": "6053d003-940b-4424-b6f0-57c5dc28cfbe",
+          "body": "{\n  \"Pago de salarios\": {\n      \"movimientos\": {\n          \"1\": {\n              \"concepto\": \"concepto\",\n              \"cantidad\": 5000,\n              \"fecha_movimiento\": \"01/01/2025\",\n              \"nombre_empleado\": \"nombre\"\n          },\n          \"2\": {\n              \"concepto\": \"concepto\",\n              \"cantidad\": 5000,\n              \"fecha_movimiento\": \"01/01/2025\",\n              \"nombre_empleado\": \"nombre\"\n          }\n      }\n  },\n  \"Compras\": {\n      \"movimientos\": {\n          \"1\": {\n              \"concepto\": \"concepto\",\n              \"cantidad\": 500,\n              \"fecha_movimiento\": \"01/01/2025\",\n              \"id_servicio\": 1,\n              \"servicio\": \"nombre_servicio\",\n              \"id_producto\": 1,\n              \"producto\": \"producto\"\n          }\n      }\n  },\n  \"Ventas\": {\n      \"movimientos\": {\n          \"1\": {\n              \"concepto\": \"concepto\",\n              \"cantidad\": 500,\n              \"fecha_movimiento\": \"01/01/2025\",\n              \"id_servicio\": 2,\n              \"servicio\": \"nombre_servicio\",\n              \"id_producto\": 3,\n              \"producto\": \"producto\"\n          }\n      }\n  },\n  \"Devoluciones\": {\n      \"movimientos\": {\n          \"1\": {\n              \"concepto\": \"concepto\",\n              \"cantidad\": 500,\n              \"fecha_movimiento\": \"01/01/2025\",\n              \"id_servicio\": 4,\n              \"servicio\": \"nombre_servicio\",\n              \"id_producto\": 6,\n              \"producto\": \"producto\"\n          }\n      }\n  }\n}\n",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "2f08a831-6e0e-4286-a18f-e60a70201dc8",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "administracion/GET/movimientos/trimestrales",
+      "responses": [
+        {
+          "uuid": "c0c4dce9-267d-4fa4-af79-665732bd27c8",
+          "body": "{\n  \"Pago de salarios\": {\n      \"movimientos\": {\n          \"1\": {\n              \"concepto\": \"concepto\",\n              \"cantidad\": 5000,\n              \"fecha_movimiento\": \"01/01/2025\",\n              \"nombre_empleado\": \"nombre\"\n          },\n          \"2\": {\n              \"concepto\": \"concepto\",\n              \"cantidad\": 5000,\n              \"fecha_movimiento\": \"01/01/2025\",\n              \"nombre_empleado\": \"nombre\"\n          }\n      }\n  },\n  \"Compras\": {\n      \"movimientos\": {\n          \"1\": {\n              \"concepto\": \"concepto\",\n              \"cantidad\": 500,\n              \"fecha_movimiento\": \"01/01/2025\",\n              \"id_servicio\": 1,\n              \"servicio\": \"nombre_servicio\",\n              \"id_producto\": 1,\n              \"producto\": \"producto\"\n          }\n      }\n  },\n  \"Ventas\": {\n      \"movimientos\": {\n          \"1\": {\n              \"concepto\": \"concepto\",\n              \"cantidad\": 500,\n              \"fecha_movimiento\": \"01/01/2025\",\n              \"id_servicio\": 2,\n              \"servicio\": \"nombre_servicio\",\n              \"id_producto\": 3,\n              \"producto\": \"producto\"\n          }\n      }\n  },\n  \"Devoluciones\": {\n      \"movimientos\": {\n          \"1\": {\n              \"concepto\": \"concepto\",\n              \"cantidad\": 500,\n              \"fecha_movimiento\": \"01/01/2025\",\n              \"id_servicio\": 4,\n              \"servicio\": \"nombre_servicio\",\n              \"id_producto\": 6,\n              \"producto\": \"producto\"\n          }\n      }\n  }\n}\n",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "2d229e07-7db3-4292-a6c7-5661657992d2",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "administracion/GET/movimientos/semestrales",
+      "responses": [
+        {
+          "uuid": "0563b727-f134-457a-96ae-b8aba9719b74",
+          "body": "{\n  \"Pago de salarios\": {\n      \"movimientos\": {\n          \"1\": {\n              \"concepto\": \"concepto\",\n              \"cantidad\": 5000,\n              \"fecha_movimiento\": \"01/01/2025\",\n              \"nombre_empleado\": \"nombre\"\n          },\n          \"2\": {\n              \"concepto\": \"concepto\",\n              \"cantidad\": 5000,\n              \"fecha_movimiento\": \"01/01/2025\",\n              \"nombre_empleado\": \"nombre\"\n          }\n      }\n  },\n  \"Compras\": {\n      \"movimientos\": {\n          \"1\": {\n              \"concepto\": \"concepto\",\n              \"cantidad\": 500,\n              \"fecha_movimiento\": \"01/01/2025\",\n              \"id_servicio\": 1,\n              \"servicio\": \"nombre_servicio\",\n              \"id_producto\": 1,\n              \"producto\": \"producto\"\n          }\n      }\n  },\n  \"Ventas\": {\n      \"movimientos\": {\n          \"1\": {\n              \"concepto\": \"concepto\",\n              \"cantidad\": 500,\n              \"fecha_movimiento\": \"01/01/2025\",\n              \"id_servicio\": 2,\n              \"servicio\": \"nombre_servicio\",\n              \"id_producto\": 3,\n              \"producto\": \"producto\"\n          }\n      }\n  },\n  \"Devoluciones\": {\n      \"movimientos\": {\n          \"1\": {\n              \"concepto\": \"concepto\",\n              \"cantidad\": 500,\n              \"fecha_movimiento\": \"01/01/2025\",\n              \"id_servicio\": 4,\n              \"servicio\": \"nombre_servicio\",\n              \"id_producto\": 6,\n              \"producto\": \"producto\"\n          }\n      }\n  }\n}\n",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "c4f433b3-f23f-4db5-bf09-772b73ebe721",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "administracion/GET/movimientos/anuales",
+      "responses": [
+        {
+          "uuid": "54b992e5-8a99-429c-91e9-445e8dc8dd9a",
+          "body": "{\n  \"Pago de salarios\": {\n      \"movimientos\": {\n          \"1\": {\n              \"concepto\": \"concepto\",\n              \"cantidad\": 5000,\n              \"fecha_movimiento\": \"01/01/2025\",\n              \"nombre_empleado\": \"nombre\"\n          },\n          \"2\": {\n              \"concepto\": \"concepto\",\n              \"cantidad\": 5000,\n              \"fecha_movimiento\": \"01/01/2025\",\n              \"nombre_empleado\": \"nombre\"\n          }\n      }\n  },\n  \"Compras\": {\n      \"movimientos\": {\n          \"1\": {\n              \"concepto\": \"concepto\",\n              \"cantidad\": 500,\n              \"fecha_movimiento\": \"01/01/2025\",\n              \"id_servicio\": 1,\n              \"servicio\": \"nombre_servicio\",\n              \"id_producto\": 1,\n              \"producto\": \"producto\"\n          }\n      }\n  },\n  \"Ventas\": {\n      \"movimientos\": {\n          \"1\": {\n              \"concepto\": \"concepto\",\n              \"cantidad\": 500,\n              \"fecha_movimiento\": \"01/01/2025\",\n              \"id_servicio\": 2,\n              \"servicio\": \"nombre_servicio\",\n              \"id_producto\": 3,\n              \"producto\": \"producto\"\n          }\n      }\n  },\n  \"Devoluciones\": {\n      \"movimientos\": {\n          \"1\": {\n              \"concepto\": \"concepto\",\n              \"cantidad\": 500,\n              \"fecha_movimiento\": \"01/01/2025\",\n              \"id_servicio\": 4,\n              \"servicio\": \"nombre_servicio\",\n              \"id_producto\": 6,\n              \"producto\": \"producto\"\n          }\n      }\n  }\n}\n",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "9babff2e-6335-485e-b404-4aaeaccaa4f0",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "administracion/GET/asistencias/empleado/:id",
+      "responses": [
+        {
+          "uuid": "84cd1eee-b80c-45ca-8338-96f7d5f316c7",
+          "body": "{\n    \"asistencias\":{\n        \"01/01/2025\": {\n            \"hora_entrada\": \"08:00:00\",\n            \"hora_salida\": \"17:00:00\"\n        },\n        \"02/01/2025\": {\n            \"hora_entrada\": \"08:00:00\",\n            \"hora_salida\": \"17:00:00\"\n        },\n        \"03/01/2025\": {\n            \"hora_entrada\": \"08:00:00\",\n            \"hora_salida\": \"17:00:00\"\n        }\n    }\n}\n",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "dd5445a6-f8f2-4a46-a0dd-5e66751299c7",
+      "type": "http",
+      "documentation": "",
+      "method": "post",
+      "endpoint": "administracion/POST/asistencias/",
+      "responses": [
+        {
+          "uuid": "03975030-8b74-454a-929f-5ee6967dc3aa",
+          "body": "Asistencia registrada con éxito",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "3d582249-7ef5-40e9-a031-0f069f546b7a",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "administracion/GET/inasistencias/empleado/:id",
+      "responses": [
+        {
+          "uuid": "c67f6c11-62d9-4050-8fb1-db13475bd87d",
+          "body": "{\n    \"inasistencias\": [\n        \"01/01/2025\",\n        \"02/01/2025\",\n        \"03/01/2025\",\n        \"04/01/2025\"\n    ],\n    \"no_inasistencias\": 4\n}\n",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "4db9e999-bb81-4e19-acbc-d80c3124ff62",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "administracion/GET/ordenes",
+      "responses": [
+        {
+          "uuid": "c41a47af-86d8-48a7-bf58-73b7ea0854c1",
+          "body": "{\n    \"ordenes\": {\n        \"id\": {\n            \"id_servicio\": 1,\n            \"servicio\": \"servicio\",\n            \"id_estado_orden\": 1,\n            \"estado_orden\": \"estado_orden\",\n            \"id_proveedor\": \"proveedor\",\n            \"fecha_estimada\": \"01/01/2025\",\n            \"costo_total\": 3500,\n            \"estado\": 1\n        },\n        \"id\": {\n            \"id_servicio\": 1,\n            \"servicio\": \"servicio\",\n            \"id_estado_orden\": 1,\n            \"estado_orden\": \"estado_orden\",\n            \"id_proveedor\": \"proveedor\",\n            \"fecha_estimada\": \"01/01/2025\",\n            \"costo_total\": 3500,\n            \"estado\": 1\n        }\n    }\n}\n",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "c79c0e07-96a1-4f87-9337-569e6032667c",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "administracion/GET/ordenes/:id",
+      "responses": [
+        {
+          "uuid": "cad3986a-efa7-498a-b802-02b9b8752e89",
+          "body": "{\n    \"id_servicio\": 1,\n    \"servicio\": \"servicio\",\n    \"id_estado_orden\": 1,\n    \"estado_orden\": \"estado_orden\",\n    \"id_proveedor\": \"proveedor\",\n    \"fecha_estimada\": \"01/01/2025\",\n    \"costo_total\": 3500,\n    \"estado\": 1\n}\n",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "695237d0-2c0a-46e5-b6db-3f0aec7b27a1",
+      "type": "http",
+      "documentation": "",
+      "method": "post",
+      "endpoint": "administracion/POST/ordenes/",
+      "responses": [
+        {
+          "uuid": "f9267f7a-83cc-4342-ad2c-0a951c73e416",
+          "body": "Orden registrada con exito",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "2f85661f-6512-43fa-ac52-b670b1c032db",
+      "type": "http",
+      "documentation": "",
+      "method": "put",
+      "endpoint": "administracion/PUT/ordenes/modificar_estado/:id",
+      "responses": [
+        {
+          "uuid": "c7b9bec0-566e-4fcf-bb35-b5a1cfcfb0d4",
+          "body": "Estado de la orden actualizado con éxito.",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "59a8dc7d-f1a5-4188-a0ad-56082f8459fb",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "administracion/GET/ordenes/detalles/:id_orden",
+      "responses": [
+        {
+          "uuid": "866d382a-dd9b-4915-97ec-6b673c497a00",
+          "body": "{\n    \"detalle_orden\":{\n        \"id_detalle_orden\":{\n            \"estado_detalle_orden\": 1,\n            \"id_producto\": \"id_producto\",\n            \"cantidad\": \"cantidad\",\n            \"precio_unitario\": \"precio_unitario\"\n        }\n    }\n}\n",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "d10ad8d4-c586-4142-8092-7158f92b08b9",
+      "type": "http",
+      "documentation": "",
+      "method": "put",
+      "endpoint": "administracion/PUT/ordenes/detalles/:id_detalle_orden",
+      "responses": [
+        {
+          "uuid": "bfbc8a2d-caa6-4bd5-a292-363ef1baa009",
+          "body": "Estado del producto actualizado con éxito",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "87caabda-98c0-4efc-b6c5-188e929a1c1f",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "administracion/GET/ordenes/estados_ordenes",
+      "responses": [
+        {
+          "uuid": "796fa022-3007-485a-a608-f2d469fc5f63",
+          "body": "{\n    \"estados_ordenes\": {\n        \"id\":{\n            \"nombre\": \"nombre\",\n            \"descripcion\": \"descripcion\"\n        },\n        \"id2\":{\n            \"nombre\": \"nombre\",\n            \"descripcion\": \"descripcion\"\n        }\n    }\n}\n",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "080b0b25-c60c-4096-bd2f-b5e5dcfc14cd",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "administracion/GET/ordenes/estados_ordenes_detalles",
+      "responses": [
+        {
+          "uuid": "360e06a7-6757-4cfe-af12-aca1473ba07d",
+          "body": "{\n  \"estados_ordenes_detalles\": {\n    \"id\": {\n      \"nombre\": \"nombre\",\n      \"descripcion\": \"descripcion\"\n    },\n    \"id2\": {\n      \"nombre\": \"nombre\",\n      \"descripcion\": \"descripcion\"\n    }\n  }\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    }
+  ],
+  "rootChildren": [
+    {
+      "type": "route",
+      "uuid": "062c0e7d-d2d9-4ef7-bf02-681494cea05f"
+    },
+    {
+      "type": "route",
+      "uuid": "38ac4dea-76a5-4281-bd3b-d1c6f5cd833d"
+    },
+    {
+      "type": "route",
+      "uuid": "65d398ed-a5d2-4230-aabe-0b8ea4e995c3"
+    },
+    {
+      "type": "route",
+      "uuid": "82f2f58c-3246-4bdd-b5c3-42feb904b02e"
+    },
+    {
+      "type": "route",
+      "uuid": "8f45040c-5d87-4272-b4ce-24a4e51e16bc"
+    },
+    {
+      "type": "route",
+      "uuid": "fd3f4e15-6200-4f58-bec7-106e15c61dc9"
+    },
+    {
+      "type": "route",
+      "uuid": "9c2a6f7f-68cc-448e-8cb2-df724a8439b3"
+    },
+    {
+      "type": "route",
+      "uuid": "df302214-b44b-49a2-9db6-ca653e607842"
+    },
+    {
+      "type": "route",
+      "uuid": "bfb3c2aa-1826-4403-9c51-780ba1c1a3d2"
+    },
+    {
+      "type": "route",
+      "uuid": "9c03c930-1586-4045-8869-7fa22e2b1349"
+    },
+    {
+      "type": "route",
+      "uuid": "613a4e11-ca61-4e57-a9c5-7a83ff983ba5"
+    },
+    {
+      "type": "route",
+      "uuid": "e5d481b5-c2b7-44a8-98f9-f7ea1beac6aa"
+    },
+    {
+      "type": "route",
+      "uuid": "bc19dc6b-31fd-42e1-bdd2-90b6610583b6"
+    },
+    {
+      "type": "route",
+      "uuid": "97c6390d-310c-4fcd-a657-bde8872c0cea"
+    },
+    {
+      "type": "route",
+      "uuid": "090f4ba2-33d9-42c0-8ad8-c070835e0eb6"
+    },
+    {
+      "type": "route",
+      "uuid": "44eb4505-c97d-40ad-b3dd-2e06b679b109"
+    },
+    {
+      "type": "route",
+      "uuid": "5d6c46b1-2f93-4969-8e74-da146ce2d558"
+    },
+    {
+      "type": "route",
+      "uuid": "301bd617-77c9-4f68-ae3e-644041f24e53"
+    },
+    {
+      "type": "route",
+      "uuid": "48a9a880-4b3f-4d07-888e-c286a16e3e13"
+    },
+    {
+      "type": "route",
+      "uuid": "4937689f-5a9c-4eea-af78-a9eb350d974f"
+    },
+    {
+      "type": "route",
+      "uuid": "02daeb54-a796-478d-9c31-94df9090bdae"
+    },
+    {
+      "type": "route",
+      "uuid": "cfb22533-6801-4c2b-a7b3-6dce4a3b54aa"
+    },
+    {
+      "type": "route",
+      "uuid": "abf11965-4ec2-4dd9-b666-5b01b27fc0b8"
+    },
+    {
+      "type": "route",
+      "uuid": "c5d179f7-645a-4ad5-8adc-3061951e7443"
+    },
+    {
+      "type": "route",
+      "uuid": "775bd1fd-83f4-4139-a103-3588a72e840e"
+    },
+    {
+      "type": "route",
+      "uuid": "a088d402-db25-4984-bf9f-a0fa81bc421a"
+    },
+    {
+      "type": "route",
+      "uuid": "e60199f1-0982-4edd-b2e6-c3d0aac534b5"
+    },
+    {
+      "type": "route",
+      "uuid": "49d18c6a-8ee9-4e81-816b-01964908ec75"
+    },
+    {
+      "type": "route",
+      "uuid": "b15ea24c-f7af-4ae4-a101-cd16d017de5a"
+    },
+    {
+      "type": "route",
+      "uuid": "2f08a831-6e0e-4286-a18f-e60a70201dc8"
+    },
+    {
+      "type": "route",
+      "uuid": "2d229e07-7db3-4292-a6c7-5661657992d2"
+    },
+    {
+      "type": "route",
+      "uuid": "c4f433b3-f23f-4db5-bf09-772b73ebe721"
+    },
+    {
+      "type": "route",
+      "uuid": "9babff2e-6335-485e-b404-4aaeaccaa4f0"
+    },
+    {
+      "type": "route",
+      "uuid": "dd5445a6-f8f2-4a46-a0dd-5e66751299c7"
+    },
+    {
+      "type": "route",
+      "uuid": "3d582249-7ef5-40e9-a031-0f069f546b7a"
+    },
+    {
+      "type": "route",
+      "uuid": "4db9e999-bb81-4e19-acbc-d80c3124ff62"
+    },
+    {
+      "type": "route",
+      "uuid": "c79c0e07-96a1-4f87-9337-569e6032667c"
+    },
+    {
+      "type": "route",
+      "uuid": "695237d0-2c0a-46e5-b6db-3f0aec7b27a1"
+    },
+    {
+      "type": "route",
+      "uuid": "2f85661f-6512-43fa-ac52-b670b1c032db"
+    },
+    {
+      "type": "route",
+      "uuid": "59a8dc7d-f1a5-4188-a0ad-56082f8459fb"
+    },
+    {
+      "type": "route",
+      "uuid": "d10ad8d4-c586-4142-8092-7158f92b08b9"
+    },
+    {
+      "type": "route",
+      "uuid": "87caabda-98c0-4efc-b6c5-188e929a1c1f"
+    },
+    {
+      "type": "route",
+      "uuid": "080b0b25-c60c-4096-bd2f-b5e5dcfc14cd"
+    }
+  ],
+  "proxyMode": false,
+  "proxyHost": "",
+  "proxyRemovePrefix": false,
+  "tlsOptions": {
+    "enabled": false,
+    "type": "CERT",
+    "pfxPath": "",
+    "certPath": "",
+    "keyPath": "",
+    "caPath": "",
+    "passphrase": ""
+  },
+  "cors": true,
+  "headers": [
+    {
+      "key": "Content-Type",
+      "value": "application/json"
+    },
+    {
+      "key": "Access-Control-Allow-Origin",
+      "value": "*"
+    },
+    {
+      "key": "Access-Control-Allow-Methods",
+      "value": "GET,POST,PUT,PATCH,DELETE,HEAD,OPTIONS"
+    },
+    {
+      "key": "Access-Control-Allow-Headers",
+      "value": "Content-Type, Origin, Accept, Authorization, Content-Length, X-Requested-With"
+    }
+  ],
+  "proxyReqHeaders": [
+    {
+      "key": "",
+      "value": ""
+    }
+  ],
+  "proxyResHeaders": [
+    {
+      "key": "",
+      "value": ""
+    }
+  ],
+  "data": [],
+  "callbacks": []
+}

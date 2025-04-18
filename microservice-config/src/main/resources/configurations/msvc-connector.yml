@@ -1,9 +1,9 @@
 server:
-  port: 8092
+  port: 8090
 
 spring:
   application:
-    name: msvc-example
+    name: msvc-connector
 
 eureka:
   instance:

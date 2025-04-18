@@ -1,0 +1,1110 @@
+{
+  "uuid": "e807d80b-5cb6-423c-89cf-803aa773bb3e",
+  "lastMigration": 33,
+  "name": "Pagos",
+  "endpointPrefix": "",
+  "latency": 0,
+  "port": 3001,
+  "hostname": "",
+  "folders": [
+    {
+      "uuid": "bbc27352-82ce-486c-919b-4c683c7db166",
+      "name": "clientes",
+      "children": [
+        {
+          "type": "route",
+          "uuid": "12c142da-7d6c-49e8-9809-d4227cd3fdac"
+        },
+        {
+          "type": "route",
+          "uuid": "8f93942e-882e-411a-b057-a897e3030fd0"
+        },
+        {
+          "type": "route",
+          "uuid": "0a20383b-8241-4709-b5a5-66a8420a1165"
+        },
+        {
+          "type": "route",
+          "uuid": "f7bdee67-1e9c-4ce6-9bec-4255c5d9bc8b"
+        },
+        {
+          "type": "route",
+          "uuid": "610c98db-6b88-4a9f-8c8c-6ee031413a4c"
+        },
+        {
+          "type": "route",
+          "uuid": "e205abf2-3011-4f90-af8b-3ce34d03a18a"
+        },
+        {
+          "type": "route",
+          "uuid": "0af9a17c-7ca7-46d1-b4e4-6e4b7f5b5056"
+        }
+      ]
+    },
+    {
+      "uuid": "2278a52c-953f-48e9-a2fc-1866212f6981",
+      "name": "pagos",
+      "children": [
+        {
+          "type": "route",
+          "uuid": "7f06c2f8-1dbb-4040-9bd7-8bc34543c55e"
+        },
+        {
+          "type": "route",
+          "uuid": "629f1405-d462-4331-8599-25ccba061837"
+        },
+        {
+          "type": "route",
+          "uuid": "a2031457-6dc9-4c9f-9945-2eb1d0660e6b"
+        },
+        {
+          "type": "route",
+          "uuid": "679a05f1-6ac2-4277-9b22-8a6607597aba"
+        }
+      ]
+    },
+    {
+      "uuid": "e6a16983-efa3-4a80-9924-92ab27c68427",
+      "name": "transaccion",
+      "children": [
+        {
+          "type": "route",
+          "uuid": "d8a66b93-fd3c-484b-9016-59a85b6ba82e"
+        },
+        {
+          "type": "route",
+          "uuid": "b7130a7c-0aff-49af-8149-74be451ab468"
+        },
+        {
+          "type": "route",
+          "uuid": "ef35c9e4-9e6c-4604-844d-61524aa31e21"
+        },
+        {
+          "type": "route",
+          "uuid": "3e3fbfa6-04ad-4e81-82cc-8b027c665162"
+        },
+        {
+          "type": "route",
+          "uuid": "dae67fa1-7bab-41a6-8b18-955942cb0c57"
+        }
+      ]
+    },
+    {
+      "uuid": "e6043e8f-aba0-4824-ba71-495c76d48a1f",
+      "name": "devoluciones",
+      "children": [
+        {
+          "type": "route",
+          "uuid": "96937085-0d92-48bf-ab23-3246080bcdc4"
+        },
+        {
+          "type": "route",
+          "uuid": "74b1b65b-d0ce-4bb2-9d6a-5e94a9c6656d"
+        },
+        {
+          "type": "route",
+          "uuid": "cbd1c01c-ddf6-453a-b8cd-06333d1d7e15"
+        }
+      ]
+    },
+    {
+      "uuid": "15d5cc76-e9b1-46d9-856b-9ba9bb1b9ff2",
+      "name": "bancos",
+      "children": [
+        {
+          "type": "route",
+          "uuid": "a3599b32-c1fe-440a-a2fc-6b6bc1b4c4c1"
+        },
+        {
+          "type": "route",
+          "uuid": "06c78426-b4c4-444a-8295-621e7d19aa61"
+        },
+        {
+          "type": "route",
+          "uuid": "0d181eb7-20de-4b72-8168-948463c87b8c"
+        },
+        {
+          "type": "route",
+          "uuid": "a59b90e7-2c3c-49d4-a8d0-f66854e4f63a"
+        }
+      ]
+    },
+    {
+      "uuid": "37d6876b-6f53-4698-bd6f-47695727f7bb",
+      "name": "facturas",
+      "children": [
+        {
+          "type": "route",
+          "uuid": "0be91ee4-f6d8-46f8-b76d-3dd582eb7f9b"
+        },
+        {
+          "type": "route",
+          "uuid": "d549eee4-df65-4eb9-888d-3971021dc400"
+        }
+      ]
+    },
+    {
+      "uuid": "1ed5d517-56f5-4bab-ace6-aa20bc14d2ea",
+      "name": "cierrecaja",
+      "children": [
+        {
+          "type": "route",
+          "uuid": "258b2654-8d04-4d6f-9e2b-e963b7cb9a22"
+        },
+        {
+          "type": "route",
+          "uuid": "d0a9bccc-c1c4-4b3b-9b27-b0a8f0638cf9"
+        },
+        {
+          "type": "route",
+          "uuid": "a5133b72-7261-4aff-9256-8d6f571ff6de"
+        }
+      ]
+    }
+  ],
+  "routes": [
+    {
+      "uuid": "12c142da-7d6c-49e8-9809-d4227cd3fdac",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "pagos/cliente/obtener",
+      "responses": [
+        {
+          "uuid": "abb5e6d0-30ac-43ea-aa84-dfec14bf8212",
+          "body": "{\n  \"clientes\": [\n    {\n      \"_id\": \"\",\n      \"nombreCliente\": \"\",\n      \"apellidosCliente\": \"\",\n      \"nit\": \"\",\n      \"tarjetaFidelidad\": [\n        {\n          \"noTarjeta\": \"\",\n          \"cantidadPuntos\": 0,\n          \"fechaExpiracion\": \"\",\n          \"estado\": 1,\n          \"_id\": \"\"\n        }\n      ],\n      \"direccion\": \"\",\n      \"telefono\": \"\",\n      \"email\": \"\",\n      \"dpi\": \"\",\n      \"estado\": 2\n    }\n  ]\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "8f93942e-882e-411a-b057-a897e3030fd0",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "pagos/clientes/obtener/:nit",
+      "responses": [
+        {
+          "uuid": "f1d62b2c-e9c1-4ad5-865a-7dac6c3ee84d",
+          "body": "{\n  \"cliente\": {\n    \"_id\": \"\",\n    \"nombreCliente\": \"\",\n    \"apellidosCliente\": \"\",\n    \"nit\": \"\",\n    \"tarjetaFidelidad\": [\n      {\n        \"noTarjeta\": \"\",\n        \"cantidadPuntos\": 100,\n        \"fechaExpiracion\": \"\",\n        \"estado\": 1,\n        \"_id\": \"\"\n      }\n    ],\n    \"direccion\": \"\",\n    \"telefono\": \"\",\n    \"email\": \"\",\n    \"dpi\": \"\",\n    \"estado\": 1\n  }\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "0a20383b-8241-4709-b5a5-66a8420a1165",
+      "type": "http",
+      "documentation": "",
+      "method": "post",
+      "endpoint": "pagos/cliente/crear",
+      "responses": [
+        {
+          "uuid": "917d7cfa-2119-4f42-8ed8-c5753241f580",
+          "body": "{\n  \"cliente\": {\n    \"nombreCliente\": \"\",\n    \"apellidosCliente\": \"\",\n    \"nit\": \"\",\n    \"tarjetaFidelidad\": [\n      {\n        \"noTarjeta\": \"\",\n        \"cantidadPuntos\": 1,\n        \"fechaExpiracion\": \"\",\n        \"estado\": 1,\n        \"_id\": \"\"\n      }\n    ],\n    \"direccion\": \"\",\n    \"telefono\": \"\",\n    \"email\": \"\",\n    \"dpi\": \"\",\n    \"compras\": [],\n    \"estado\": 1,\n    \"_id\": \"\",\n    \"createdAt\": \"\",\n    \"updatedAt\": \"\"\n  }\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "f7bdee67-1e9c-4ce6-9bec-4255c5d9bc8b",
+      "type": "http",
+      "documentation": "",
+      "method": "put",
+      "endpoint": "pagos/cliente/actualizar/:id_cliente",
+      "responses": [
+        {
+          "uuid": "fe9026c3-92b1-445b-b087-0f39ebc99626",
+          "body": "{\n  \"ClienteActualizado\": {\n    \"_id\": \"\",\n    \"nombreCliente\": \"\",\n    \"apellidosCliente\": \"\",\n    \"nit\": \"\",\n    \"tarjetaFidelidad\": [\n      {\n        \"noTarjeta\": \"\",\n        \"cantidadPuntos\": 2,\n        \"fechaExpiracion\": \"\",\n        \"estado\": 1,\n        \"_id\": \"\"\n      }\n    ],\n    \"direccion\": \"\",\n    \"telefono\": \"\",\n    \"email\": \"\",\n    \"dpi\": \"\",\n    \"compras\": [],\n    \"estado\": 1,\n    \"createdAt\": \"\",\n    \"updatedAt\": \"\"\n  }\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "610c98db-6b88-4a9f-8c8c-6ee031413a4c",
+      "type": "http",
+      "documentation": "",
+      "method": "put",
+      "endpoint": " pagos/cliente/eliminar/:id_cliente",
+      "responses": [
+        {
+          "uuid": "5c4e8ee9-03f0-42fe-b9db-7ad458c365eb",
+          "body": "{\n    \"mensaje\":\"Cliente eliminado exitosamente\"\n}\n",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "e205abf2-3011-4f90-af8b-3ce34d03a18a",
+      "type": "http",
+      "documentation": "",
+      "method": "put",
+      "endpoint": "pagos/cliente/fidelidad/crear/:id_cliente",
+      "responses": [
+        {
+          "uuid": "2cf19c44-fa73-48be-a22a-d8003ae7f635",
+          "body": "{\n    \"mensaje\":\"Tarjeta creada exitosamente\",\n    \"NoTarjeta\":\"\"\n}\n",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "0af9a17c-7ca7-46d1-b4e4-6e4b7f5b5056",
+      "type": "http",
+      "documentation": "",
+      "method": "put",
+      "endpoint": "pagos/cliente/fidelidad/desactivar/:id_cliente",
+      "responses": [
+        {
+          "uuid": "093fad2d-0344-4ec9-b40b-9a0ada9bd3dd",
+          "body": "{\n    \"mensaje\":\"Tarjeta desactivada exitosamente\",\n}\n",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "7f06c2f8-1dbb-4040-9bd7-8bc34543c55e",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "pagos/metodos/obtener",
+      "responses": [
+        {
+          "uuid": "ca31a519-bddd-4ff3-b476-765d56c1c330",
+          "body": "[\n  {\n    \"idMetodo\": 2,\n    \"Metodo\": \"Efectivo\"\n  },\n  {\n    \"idMetodo\": 1,\n    \"Metodo\": \"Cheque\"\n  }\n]",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "629f1405-d462-4331-8599-25ccba061837",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "pagos/metodos/obtener/:idMetodo",
+      "responses": [
+        {
+          "uuid": "6296fa4c-00cf-4db2-b8a5-e3c744ef1455",
+          "body": "{\n  \"idMetodo\": \"\",\n  \"Metodo\":\"\"\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "a2031457-6dc9-4c9f-9945-2eb1d0660e6b",
+      "type": "http",
+      "documentation": "",
+      "method": "post",
+      "endpoint": "pagos/metodos/crear",
+      "responses": [
+        {
+          "uuid": "e823fab2-5781-479c-a428-6749e9aa7402",
+          "body": "{\n    \"status\":200,\n    \"mensaje\":\"Metodo creado exitosamente\"\n}\n",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "679a05f1-6ac2-4277-9b22-8a6607597aba",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "pagos/metodo/eliminar/:id_metodo",
+      "responses": [
+        {
+          "uuid": "ba7520d2-8b87-4c8a-9332-f661d80e44f7",
+          "body": "{\n    \"status\":200,\n    \"mensaje\":\"Cliente eliminado exitosamente\"\n}\n",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "d8a66b93-fd3c-484b-9016-59a85b6ba82e",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "pagos/transacciones/obtener",
+      "responses": [
+        {
+          "uuid": "4cc3d431-404e-47a4-8804-1ba3112811e4",
+          "body": "{\n  \"Transacciones\": [\n    {\n      \"NoTransaccion\": \"\",\n      \"Fecha\": \"\",\n      \"IdCliente\": \"\",\n      \"NoFactura\": \"\",\n      \"Total\": \"\",\n      \"IdCaja\": \"\",\n      \"ServiciosTransaccion\": \"\",\n      \"MetodosDePago\": [\n        {\n          \"NoTarjeta\": \"\",\n          \"IdMetodo\": \"\",\n          \"Monto\": \"\",\n          \"Correlativo\": \"\",\n          \"IdBanco\": \"\"\n        }\n      ]\n    }\n  ]\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "b7130a7c-0aff-49af-8149-74be451ab468",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "pagos/transacciones/obtener/:noTransaccion",
+      "responses": [
+        {
+          "uuid": "b8e56c78-5575-4155-a1f3-a9a4af24a17b",
+          "body": "{\n  \"Transaccion\": {\n    \"idTransaccion\": \"\",\n    \"NoTransaccion\": \"\",\n    \"Fecha\": \"\",\n    \"IdCliente\": \"\",\n    \"NoFactura\": \"\",\n    \"Total\": \"\",\n    \"IdCaja\": \"\",\n    \"ServiciosTransaccion\": \"\",\n    \"MetodosDePago\": [\n      {\n        \"NoTarjeta\": \"\",\n        \"IdMetodo\": \"\",\n        \"Monto\": \"\",\n        \"Correlativo\": \"\",\n        \"IdBanco\": \"\"\n      }\n    ]\n  }\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "ef35c9e4-9e6c-4604-844d-61524aa31e21",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "pagos/transacciones/obtenerPorServicio/:idServicio",
+      "responses": [
+        {
+          "uuid": "d33dc258-ba99-4908-a9aa-7251ff6123b5",
+          "body": "{\n  \"Transacciones\": [\n    {\n      \"idTransaccion\": \"\",\n      \"NoTransaccion\": \"\",\n      \"Fecha\": \"\",\n      \"IdCliente\": \"\",\n      \"NoFactura\": \"\",\n      \"Total\": \"\",\n      \"IdCaja\": \"\",\n      \"ServiciosTransaccion\": \"\",\n      \"MetodosDePago\": [\n        {\n          \"NoTarjeta\": \"\",\n          \"IdMetodo\": \"\",\n          \"Monto\": \"\",\n          \"Correlativo\": \"\",\n          \"IdBanco\": \"\"\n        }\n      ]\n    }\n  ]\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "3e3fbfa6-04ad-4e81-82cc-8b027c665162",
+      "type": "http",
+      "documentation": "",
+      "method": "post",
+      "endpoint": "pagos/transaccion/crear",
+      "responses": [
+        {
+          "uuid": "bd43bda2-939b-4398-b40b-d4a7fc60a57d",
+          "body": "{\n  \"status\": 200,\n  \"mensaje\": \"Transaccion registrada exitosamente\",\n  \"Factura\": {\n    \"NoFactura\": \"\",\n    \"Serie\": \"\",\n    \"Empresa\": {\n      \"NitEmpresa\": \"\",\n      \"NombreEmpresa\": \"\",\n      \"TelefonoEmpresa\": \"\",\n      \"DireccionEmpresa\": \"\"\n    },\n    \"Fecha\": \"\",\n    \"Cliente\": {\n      \"IdCliente\": \"\",\n      \"NitCliente\": \"\",\n      \"NombreCliente\": \"\",\n      \"ApellidoCliente\": \"\",\n      \"Direccion\": \"\"\n    },\n    \"Detalle\": [\n      {\n        \"Producto\": \"\",\n        \"Cantidad\": \"\",\n        \"Precio\": \"\"\n      }\n    ],\n    \"Total\": \"\"\n  }\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "dae67fa1-7bab-41a6-8b18-955942cb0c57",
+      "type": "http",
+      "documentation": "",
+      "method": "put",
+      "endpoint": " pagos/transaccion/anular/:noTransaccion",
+      "responses": [
+        {
+          "uuid": "1bb15721-98a8-49d3-8ed0-437991260ba6",
+          "body": "{\n    \"status\":200,\n    \"mensaje\":\"Transaccion anulada exitosamente\"\n}\n",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "96937085-0d92-48bf-ab23-3246080bcdc4",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "pagos/devoluciones/obtener",
+      "responses": [
+        {
+          "uuid": "a1a7b39c-dc44-4348-9487-2fd181c15b1f",
+          "body": "{\n  \"Devoluciones\": [\n    {\n      \"NoDevolucion\": \"\",\n      \"NoTransaccion\": \"\",\n      \"Monto\": \"\",\n      \"NotaCredito\": \"\"\n    }\n  ]\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "74b1b65b-d0ce-4bb2-9d6a-5e94a9c6656d",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "pagos/devoluciones/obtener/:noDevolucion",
+      "responses": [
+        {
+          "uuid": "0b1de329-1829-4c07-ad50-dd2c32ebc83f",
+          "body": "{\n  \"Devolucion\": {\n    \"NoDevolucion\": \"\",\n    \"NoTransaccion\": \"\",\n    \"Monto\": \"\",\n    \"NotaCredito\": \"\"\n  }\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "cbd1c01c-ddf6-453a-b8cd-06333d1d7e15",
+      "type": "http",
+      "documentation": "",
+      "method": "post",
+      "endpoint": "pagos/devoluciones/crear",
+      "responses": [
+        {
+          "uuid": "57de02bf-4975-4c14-846f-79b48fca9d96",
+          "body": "{\n    \"status\": 200,\n    \"Mensaje\": \"Devolucion realizada correctamente\"\n}\n",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "a3599b32-c1fe-440a-a2fc-6b6bc1b4c4c1",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "pagos/bancos/obtener",
+      "responses": [
+        {
+          "uuid": "93c86c6a-a75d-49c3-b2e8-a8143ae089e3",
+          "body": "{\n  \"Bancos\": [\n    {\n      \"_id\": \"\",\n      \"nombre\": \"\",\n      \"totalTransacciones\": 1,\n      \"transacciones\": [\n        {\n          \"metodosDePago\": [\n            {\n              \"correlativo\": \"\",\n              \"idMetodo\": \"\",\n              \"monto\": \"\"\n            }\n          ],\n          \"_id\": \"\",\n          \"noTransaccion\": \"\"\n        }\n      ],\n      \"estado\": 1,\n      \"createdAt\": \"\",\n      \"updatedAt\": \"\"\n    }\n  ]\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "06c78426-b4c4-444a-8295-621e7d19aa61",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "pagos/\t/obtener/:id",
+      "responses": [
+        {
+          "uuid": "b13dfd3a-7583-4d0c-877a-57950434ef56",
+          "body": "{\n  \"Banco\": {\n    \"_id\": \"\",\n    \"nombre\": \"\",\n    \"totalTransacciones\": 1,\n    \"transacciones\": [\n      {\n        \"metodosDePago\": [\n          {\n            \"correlativo\": \"\",\n            \"idMetodo\": \"\",\n            \"monto\": 1\n          }\n        ],\n        \"_id\": \"\",\n        \"noTransaccion\": \"\"\n      }\n    ],\n    \"estado\": 1,\n    \"createdAt\": \"\",\n    \"updatedAt\": \"\"\n  }\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "0d181eb7-20de-4b72-8168-948463c87b8c",
+      "type": "http",
+      "documentation": "",
+      "method": "post",
+      "endpoint": "pagos/bancos/crear",
+      "responses": [
+        {
+          "uuid": "5f088dd1-7ada-49db-9f3d-5338fa3f3af8",
+          "body": "{\n    \"mensaje\":\"Banco creado exitosamente\"\n}\n",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "a59b90e7-2c3c-49d4-a8d0-f66854e4f63a",
+      "type": "http",
+      "documentation": "",
+      "method": "put",
+      "endpoint": "pagos/bancos/eliminar/:id",
+      "responses": [
+        {
+          "uuid": "d613c76c-fad5-4cbf-a702-353a0d8ccc6a",
+          "body": "{\t\n    \"mensaje\":\"Banco eliminado exitosamente\"\n}\n",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "0be91ee4-f6d8-46f8-b76d-3dd582eb7f9b",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "pagos/facturas/obtener/:noFactura",
+      "responses": [
+        {
+          "uuid": "e4f2ea7b-6df4-41b6-9248-134499db4da8",
+          "body": "{\n  \"factura\": {\n    \"NoFactura\": \"\",\n    \"Serie\": \"\",\n    \"Empresa\": {\n      \"NitEmpresa\": \"\",\n      \"NombreEmpresa\": \"\",\n      \"TelefonoEmpresa\": \"\",\n      \"DireccionEmpresa\": \"\"\n    },\n    \"Fecha\": \"\",\n    \"Cliente\": {\n      \"IdCliente\": \"\",\n      \"NitCliente\": \"\",\n      \"NombreCliente\": \"\",\n      \"ApellidoCliente\": \"\",\n      \"Direccion\": \"\"\n    },\n    \"Detalle\": [\n      {\n        \"Producto\": \"\",\n        \"Cantidad\": \"\",\n        \"Precio\": \"\",\n        \"estado\": \"\"\n      }\n    ],\n    \"Total\": \"\",\n    \"NotasCredito\": [\n      {\n        \"IdNota\": \"\",\n        \"Monto\": \"\",\n        \"Descripcion\": \"\"\n      }\n    ]\n  }\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "d549eee4-df65-4eb9-888d-3971021dc400",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "pagos/facturas/anular/:noFactura",
+      "responses": [
+        {
+          "uuid": "508769a2-5c7b-4ef5-813c-56523f37d9e5",
+          "body": "{\n    \"status\":200,\n    \"mensaje\":\"Factura anulada exitosamente\"\n}\n",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "258b2654-8d04-4d6f-9e2b-e963b7cb9a22",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "pagos/cierre/obtener",
+      "responses": [
+        {
+          "uuid": "82b279f3-856f-4d8e-9345-f05742027671",
+          "body": "{\n  \"cierre\": [\n    {\n      \"IdCaja\": \"\",\n      \"Servicio\": \"\",\n      \"Fecha\": \"\",\n      \"CantidadInicial\": \"\",\n      \"CantidadFinal\": \"\",\n      \"Diferencia\": \"\",\n      \"Empleado\": {\n        \"IdEmpleado\": \"\",\n        \"NombreCompleto\": \"\"\n      },\n      \"Retiros\": [\n        {\n          \"NoRetiro\": \"\",\n          \"Monto\": \"\"\n        }\n      ]\n    }\n  ]\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "d0a9bccc-c1c4-4b3b-9b27-b0a8f0638cf9",
+      "type": "http",
+      "documentation": "",
+      "method": "post",
+      "endpoint": "pagos/cierre/crear",
+      "responses": [
+        {
+          "uuid": "a15592c5-503e-4119-853d-f4754df97d90",
+          "body": "{\n    \"status\":200,\n    \"mensaje\":\"Cierre realizado exitosamente\"\n}\n",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "a5133b72-7261-4aff-9256-8d6f571ff6de",
+      "type": "http",
+      "documentation": "",
+      "method": "post",
+      "endpoint": "pagos/retiros",
+      "responses": [
+        {
+          "uuid": "04b35fe0-5694-4598-9717-be419c466391",
+          "body": "{\n    \"status\":200,\n    \"mensaje\":\"Retiro realizado exitosamente\"\n}\n",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    }
+  ],
+  "rootChildren": [
+    {
+      "type": "folder",
+      "uuid": "bbc27352-82ce-486c-919b-4c683c7db166"
+    },
+    {
+      "type": "folder",
+      "uuid": "2278a52c-953f-48e9-a2fc-1866212f6981"
+    },
+    {
+      "type": "folder",
+      "uuid": "e6a16983-efa3-4a80-9924-92ab27c68427"
+    },
+    {
+      "type": "folder",
+      "uuid": "e6043e8f-aba0-4824-ba71-495c76d48a1f"
+    },
+    {
+      "type": "folder",
+      "uuid": "15d5cc76-e9b1-46d9-856b-9ba9bb1b9ff2"
+    },
+    {
+      "type": "folder",
+      "uuid": "37d6876b-6f53-4698-bd6f-47695727f7bb"
+    },
+    {
+      "type": "folder",
+      "uuid": "1ed5d517-56f5-4bab-ace6-aa20bc14d2ea"
+    }
+  ],
+  "proxyMode": false,
+  "proxyHost": "",
+  "proxyRemovePrefix": false,
+  "tlsOptions": {
+    "enabled": false,
+    "type": "CERT",
+    "pfxPath": "",
+    "certPath": "",
+    "keyPath": "",
+    "caPath": "",
+    "passphrase": ""
+  },
+  "cors": true,
+  "headers": [
+    {
+      "key": "Content-Type",
+      "value": "application/json"
+    },
+    {
+      "key": "Access-Control-Allow-Origin",
+      "value": "*"
+    },
+    {
+      "key": "Access-Control-Allow-Methods",
+      "value": "GET,POST,PUT,PATCH,DELETE,HEAD,OPTIONS"
+    },
+    {
+      "key": "Access-Control-Allow-Headers",
+      "value": "Content-Type, Origin, Accept, Authorization, Content-Length, X-Requested-With"
+    }
+  ],
+  "proxyReqHeaders": [
+    {
+      "key": "",
+      "value": ""
+    }
+  ],
+  "proxyResHeaders": [
+    {
+      "key": "",
+      "value": ""
+    }
+  ],
+  "data": [],
+  "callbacks": []
+}

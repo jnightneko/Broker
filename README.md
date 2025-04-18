@@ -17,13 +17,14 @@ Arquitectura implementada para el servicio **SFPB**
 
 ### Micro Servicios
 
-| MicroServicio | Descripción                                                                                           | PUERTO   |
-|---------------|-------------------------------------------------------------------------------------------------------|----------|
-| GATEWAY       | La puerta de entrada para los cliente que utilizán o requieren de este servicio                       | **3761** |
-| EUREKA        | Es el servicio encargado de redirigir las peticiones a su destino                                     | 8761     |
-| CONFIG        | Microservicio encargado de gestionar las configuración de todos los microservicios utilizadas         | 8888     |
-| CONNECTOR     | Microservicio encargado de redireccioinar las peticiones a los servicios externos                     | 8090     |
-| EXAMPLE       | Un microservicio _**muestra**_ que ejemplifica; como se conecta con todos los microservicios internos | 8092     |
+| MicroServicio | Descripción                                                                                                   | PUERTO   |
+|---------------|---------------------------------------------------------------------------------------------------------------|----------|
+| GATEWAY       | La puerta de entrada para los cliente que utilizán o requieren de este servicio                               | **3761** |
+| EUREKA        | Es el servicio encargado de redirigir las peticiones a su destino                                             | 8761     |
+| CONFIG        | Microservicio encargado de gestionar las configuración de todos los microservicios utilizadas                 | 8888     |
+| CONNECTOR     | Microservicio encargado de redireccioinar las peticiones a los servicios externos                             | 8090     |
+| VALIDATION    | Microservicio encargado de las validaciones de las peticiones por parte del cliente (especialmente los pagos) | 9090     |
+| EXAMPLE       | Un microservicio _**muestra**_ que ejemplifica; como se conecta con todos los microservicios internos         | 8092     |
 
 ## Iniciar Proyecto
 

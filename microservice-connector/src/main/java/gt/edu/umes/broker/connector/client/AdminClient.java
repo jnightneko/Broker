@@ -15,49 +15,49 @@ import org.springframework.web.bind.annotation.*;
 public interface AdminClient {
     //******************************************************************************************************************
     //**    RUTA DE ELNLACES
-    public static final String HTTP_ADMIN_EMPLEADOS_GET              = "/administracion/empleados";
-    public static final String HTTP_ADMIN_EMPLEAODS_GET_ID           = "/administracion/empleados/{id}";
-    public static final String HTTP_ADMIN_EMPLEADOS_POST             = "/administracion/empleados";
-    public static final String HTTP_ADMIN_EMPLEADOS_PUT              = "/administracion/empleados/{id}";
-    public static final String HTTP_ADMIN_ALERTAS_GET                = "/administracion/alertas";
-    public static final String HTTP_ADMIN_ALETAS_GET_ID              = "/administracion/alertas/{id}";
-    public static final String HTTP_ADMIN_ALERTAS_TINDA_CONVENIENCIA = "/administracion/alertas/tienda_de_conveniencia";
-    public static final String HTTP_ADMIN_ALERTAS_GASOLINERA         = "/administracion/alertas/gasolinera";
-    public static final String HTTP_ADMIN_ALERTAS_REPUESTO           = "/administracion/alertas/repuestos";
-    public static final String HTTP_ADMIN_ALERTAS_PINTURA            = "/administracion/alertas/pintura";
-    public static final String HTTP_ADMIN_AREAS_GET                  = "/administracion/areas";
-    public static final String HTTP_ADMIN_AREAS_GET_ID               = "/administracion/areas/{id}";
-    public static final String HTTP_ADMIN_ROLES_GET                  = "/administracion/roles";
-    public static final String HTTP_ADMIN_ROLES_GET_ID               = "/administracion/roles/{id}";
-    public static final String HTTP_ADMIN_ROLES_POST                 = "/administracion/roles";
-    public static final String HTTP_ADMIN_ROLES_PUT                  = "/administracion/roles/{id}";
-    public static final String HTTP_ADMIN_JORNADAS_GET               = "/administracion/jornadas";
-    public static final String HTTP_ADMIN_JORNADAS_GET_ID            = "/administracion/jornadas/{id}";
-    public static final String HTTP_ADMIN_PROVEEDORES_GET            = "/administracion/proveedores";
-    public static final String HTTP_ADMIN_PROVEEDORES_GET_ID         = "/administracion/proveedores/{id}";
-    public static final String HTTP_ADMIN_PROVEEDORES_POST           = "/administracion/proveedores";
-    public static final String HTTP_ADMIN_PROVEEDORES_PUT            = "/administracion/proveedores/{id}";
-    public static final String HTTP_ADMIN_SERVICIO_GET               = "/administracion/servicios";
-    public static final String HTTP_ADMIN_SERVICIO_GET_ID            = "/administracion/servicios/{id}";
-    public static final String HTTP_ADMIN_MOVIMIENTO_GET             = "/administracion/movimientos";
-    public static final String HTTP_ADMIN_MOVIMIENTO_GET_ID          = "/administracion/movimientos/{id}";
-    public static final String HTTP_ADMIN_MOVIMIENTO_GET_TODO        = "GET/administracion/movimientos";
-    public static final String HTTP_ADMIN_MOVIMIENTO_GET_DIARIO      = "GET/administracion/movimientos/diarios";
-    public static final String HTTP_ADMIN_MIVIMIENTO_GET_MESULA      = "GET/administracion/movimientos/mensualess";
-    public static final String HTTP_ADMIN_MIVIMIENTO_GET_TRIMESTRAL  = "GET/administracion/movimientos/trimestrales";
-    public static final String HTTP_ADMIN_MIVIMIENTO_GET_SEMESTRAL   = "GET/administracion/movimientos/semestrales";
-    public static final String HTTP_ADMIN_MIVIMIENTO_GET_ANUAL       = "GET/administracion/movimientos/anuales";
-    public static final String HTTP_ADMIN_ASISTENCIA_GET             = "/administracion/asistencias/empleado/{id}";
-    public static final String HTTP_ADMIN_ASISTENCIA_POST            = "/administracion/asistencias";
-    public static final String HTTP_ADMIN_INASISTENCIA_GET           = "/administracion/inasistencias/empleado/{id}";
-    public static final String HTTP_ADMIN_ORDENES_GET                = "/administracion/ordenes";
-    public static final String HTTP_ADMIN_ORDENES_GET_ID             = "/administracion/ordenes/{id}";
-    public static final String HTTP_ADMIN_ORDENDES_POST              = "/administracion/ordenes/";
-    public static final String HTTP_ADMIN_ORDENDES_MODIFICAR_ESTADO  = "/administracion/ordenes/modificar_estado/{id}";
-    public static final String HTTP_ADMIN_ORDENES_DETALLE            = "/administracion/ordenes/detalles/{id_orden}";
-    public static final String HTTP_ADMIN_ORDENES_DETALLE_MODIFICAR  = "/administracion/ordenes/detalles/{id_detalle_orden}";
-    public static final String HTTP_ADMIN_ORDENES_ESTADO             = "/administracion/ordenes/estados_ordenes";
-    public static final String HTTP_ADMIN_ORDENES_ESTADO_DETALLE     = "/administracion/ordenes/estados_ordenes_detalles";
+    public static final String HTTP_ADMIN_EMPLEADOS_GET              = "/administracion/GET/empleados";
+    public static final String HTTP_ADMIN_EMPLEAODS_GET_ID           = "/administracion/GET/empleados/{id}";
+    public static final String HTTP_ADMIN_EMPLEADOS_POST             = "/administracion/POST/empleados";
+    public static final String HTTP_ADMIN_EMPLEADOS_PUT              = "/administracion/PUT/empleados/{id}";
+    public static final String HTTP_ADMIN_ALERTAS_GET                = "/administracion/GET/alertas";
+    public static final String HTTP_ADMIN_ALETAS_GET_ID              = "/administracion/GET/alertas/{id}";
+    public static final String HTTP_ADMIN_ALERTAS_TINDA_CONVENIENCIA = "/administracion/POST/alertas/tienda_de_conveniencia";
+    public static final String HTTP_ADMIN_ALERTAS_GASOLINERA         = "/administracion/POST/alertas/gasolinera";
+    public static final String HTTP_ADMIN_ALERTAS_REPUESTO           = "/administracion/POST/alertas/repuestos";
+    public static final String HTTP_ADMIN_ALERTAS_PINTURA            = "/administracion/POST/alertas/pintura";
+    public static final String HTTP_ADMIN_AREAS_GET                  = "/administracion/GET/areas";
+    public static final String HTTP_ADMIN_AREAS_GET_ID               = "/administracion/GET/areas/{id}";
+    public static final String HTTP_ADMIN_ROLES_GET                  = "/administracion/GET/roles";
+    public static final String HTTP_ADMIN_ROLES_GET_ID               = "/administracion/GET/roles/{id}";
+    public static final String HTTP_ADMIN_ROLES_POST                 = "/administracion/POST/roles";
+    public static final String HTTP_ADMIN_ROLES_PUT                  = "/administracion/PUT/roles/{id}";
+    public static final String HTTP_ADMIN_JORNADAS_GET               = "/administracion/GET/jornadas";
+    public static final String HTTP_ADMIN_JORNADAS_GET_ID            = "/administracion/GET/jornadas/{id}";
+    public static final String HTTP_ADMIN_PROVEEDORES_GET            = "/administracion/GET/proveedores";
+    public static final String HTTP_ADMIN_PROVEEDORES_GET_ID         = "/administracion/GET/proveedores/{id}";
+    public static final String HTTP_ADMIN_PROVEEDORES_POST           = "/administracion/POST/proveedores";
+    public static final String HTTP_ADMIN_PROVEEDORES_PUT            = "/administracion/PUT/proveedores/{id}";
+    public static final String HTTP_ADMIN_SERVICIO_GET               = "/administracion/GET/servicios";
+    public static final String HTTP_ADMIN_SERVICIO_GET_ID            = "/administracion/GET/servicios/{id}";
+    public static final String HTTP_ADMIN_MOVIMIENTO_GET             = "/administracion/GET/movimientos";
+    public static final String HTTP_ADMIN_MOVIMIENTO_GET_ID          = "/administracion/GET/movimientos/{id}";
+    /*public static final String HTTP_ADMIN_MOVIMIENTO_GET_TODO        = "/administracion/GET/movimientos";*/
+    public static final String HTTP_ADMIN_MOVIMIENTO_GET_DIARIO      = "/administracion/GET/movimientos/diarios";
+    public static final String HTTP_ADMIN_MIVIMIENTO_GET_MESULA      = "/administracion/GET/movimientos/mensuales";
+    public static final String HTTP_ADMIN_MIVIMIENTO_GET_TRIMESTRAL  = "/administracion/GET/movimientos/trimestrales";
+    public static final String HTTP_ADMIN_MIVIMIENTO_GET_SEMESTRAL   = "/administracion/GET/movimientos/semestrales";
+    public static final String HTTP_ADMIN_MIVIMIENTO_GET_ANUAL       = "/administracion/GET/movimientos/anuales";
+    public static final String HTTP_ADMIN_ASISTENCIA_GET             = "/administracion/GET/asistencias/empleado/{id}";
+    public static final String HTTP_ADMIN_ASISTENCIA_POST            = "/administracion/POST/asistencias/";
+    public static final String HTTP_ADMIN_INASISTENCIA_GET           = "/administracion/GET/inasistencias/empleado/{id}";
+    public static final String HTTP_ADMIN_ORDENES_GET                = "/administracion/GET/ordenes";
+    public static final String HTTP_ADMIN_ORDENES_GET_ID             = "/administracion/GET/ordenes/{id}";
+    public static final String HTTP_ADMIN_ORDENDES_POST              = "/administracion/POST/ordenes/";
+    public static final String HTTP_ADMIN_ORDENDES_MODIFICAR_ESTADO  = "/administracion/PUT/ordenes/modificar_estado/{id}";
+    public static final String HTTP_ADMIN_ORDENES_DETALLE            = "/administracion/GET/ordenes/detalles/{id_orden}";
+    public static final String HTTP_ADMIN_ORDENES_DETALLE_MODIFICAR  = "/administracion/PUT/ordenes/detalles/{id_detalle_orden}";
+    public static final String HTTP_ADMIN_ORDENES_ESTADO             = "/administracion/GET/ordenes/estados_ordenes";
+    public static final String HTTP_ADMIN_ORDENES_ESTADO_DETALLE     = "administracion/GET/ordenes/estados_ordenes_detalles";
     /**
      * Consultar la información de todos los empleados.
      * @return objeto web
@@ -235,12 +235,12 @@ public interface AdminClient {
      */
     @GetMapping(HTTP_ADMIN_MOVIMIENTO_GET_ID)
     public Object nAdminMovGetId(@PathVariable("id") Long id);
-    /**
-     * Devuelve el reporte de todos los movimientos.
-     * @return objeto web
-     */
-    @GetMapping(HTTP_ADMIN_MOVIMIENTO_GET_TODO)
-    public Object nAdminMovTodo();
+    ///**
+    // * Devuelve el reporte de todos los movimientos.
+    // * @return objeto web
+    // */
+    //@GetMapping(HTTP_ADMIN_MOVIMIENTO_GET_TODO)
+    //public Object nAdminMovTodo();
     /**
      * Devuelve el reporte de movimientos de un dia especifico
      * @param o objeto web
@@ -353,6 +353,6 @@ public interface AdminClient {
      * Consultar el estado de todos los productos de las órdenes.
      * @return objeto web
      */
-    @GetMapping(HTTP_ADMIN_ORDENDES_MODIFICAR_ESTADO)
+    @GetMapping(HTTP_ADMIN_ORDENES_ESTADO_DETALLE)
     public Object nAdminOrdenesEstadoDetalle();    
 }

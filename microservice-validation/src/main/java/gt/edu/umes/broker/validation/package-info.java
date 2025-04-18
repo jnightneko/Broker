@@ -4,10 +4,10 @@
  */
 
 /**
- * Paquete donde se alojan todo los servicios utilizadas por el microservicios 'gateway'
+ * Paquete princiapal de miscroservicio 'validation'
  * 
  * @author wil
  * @version 1.0.0
  * @since 1.0.0
  */
-package gt.edu.umes.broker.gateway.service;
+package gt.edu.umes.broker.validation;

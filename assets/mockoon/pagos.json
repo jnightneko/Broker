@@ -389,7 +389,7 @@
       "responses": [
         {
           "uuid": "ca31a519-bddd-4ff3-b476-765d56c1c330",
-          "body": "[\n  {\n    \"idMetodo\": \"\",\n    \"Metodo\":\"\"\n  },\n  {\n    \"idMetodo\": \"\",\n    \"Metodo\":\"\"\n  }\n]",
+          "body": "[\n  {\n    \"idMetodo\": 2,\n    \"Metodo\": \"Efectivo\"\n  },\n  {\n    \"idMetodo\": 1,\n    \"Metodo\": \"Cheque\"\n  }\n]",
           "latency": 0,
           "statusCode": 200,
           "label": "",

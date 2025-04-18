@@ -2,11 +2,11 @@
  * Copyright Broker (SFPB). All rights reserved,
  * Licence terms: https://github.com/jnightneko/Broker?tab=BSD-3-Clause-1-ov-file
  */
-package gt.edu.umes.broker.gateway;
+package gt.edu.umes.broker.validation;
 
-import gt.edu.umes.broker.gateway.model.AbstractBKModel;
-import gt.edu.umes.broker.gateway.model.BKErrorResponseModel;
-import gt.edu.umes.broker.gateway.model.MetaData;
+import gt.edu.umes.broker.validation.model.AbstractBKModel;
+import gt.edu.umes.broker.validation.model.BKErrorResponseModel;
+import gt.edu.umes.broker.validation.model.MetaData;
 
 /**
  * Clase encargado de proptocionar método utilizada para el redireccionamento de las peticiones
@@ -16,7 +16,7 @@ import gt.edu.umes.broker.gateway.model.MetaData;
  * @version 1.0.0
  * @since 1.0.0
  */
-public final class Gateway {
+public final class Validation {
     
     /**
      * Genera un mensaje (JSON) de error por incumplimiento de formato al solicitar un redireccionamiento

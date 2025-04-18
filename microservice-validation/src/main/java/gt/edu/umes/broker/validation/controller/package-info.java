@@ -4,10 +4,10 @@
  */
 
 /**
- * Paquete donde se alojan todo los controladores utilizadas por el microservicios 'gateway'
+ * Paquete de controles para el miscroservicio 'validation'
  * 
  * @author wil
  * @version 1.0.0
  * @since 1.0.0
  */
-package gt.edu.umes.broker.gateway.controller;
+package gt.edu.umes.broker.validation.controller;

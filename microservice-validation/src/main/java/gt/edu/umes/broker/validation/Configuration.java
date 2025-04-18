@@ -2,7 +2,7 @@
  * Copyright Broker (SFPB). All rights reserved,
  * Licence terms: https://github.com/jnightneko/Broker?tab=BSD-3-Clause-1-ov-file
  */
-package gt.edu.umes.broker.gateway;
+package gt.edu.umes.broker.validation;
 
 import java.util.function.Function;
 

@@ -1,22 +1,9 @@
 package gt.edu.umes.broker.identity.entity;
 
-import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-
-@Entity
-@Table(name = "clientes")
-@Data
-@AllArgsConstructor
-@NoArgsConstructor
 public class UserCredential {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    
     private Long id;
-
     private String correo;
-
     private String contraseña;
 
     public Long getId() {

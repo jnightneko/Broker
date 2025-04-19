@@ -18,11 +18,12 @@ import org.springframework.security.web.SecurityFilterChain;
 
 @Configuration
 @EnableWebSecurity
-public class AuthConfig {
+public class JWTAuthorizationFilter {
+
     private final AuthAdminClient authAdminClient;
 
     @Autowired
-    public AuthConfig(AuthAdminClient authAdminClient){
+    public JWTAuthorizationFilter(AuthAdminClient authAdminClient) {
         this.authAdminClient = authAdminClient;
     }
 
@@ -41,22 +42,21 @@ public class AuthConfig {
         return http
                 .csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers(
-                                "/broker/auth/register",
-                                "/broker/POST/autenticacion",
-                                "/broker/auth/validate",
-                                "/broker/auth/admin",
-                                "/broker/auth/userinfo"
-                        ).permitAll()
-                        .anyRequest().authenticated()
+                .requestMatchers(
+                        "/broker/POST/registrar",
+                        "/broker/POST/autenticacion",
+                        "/broker/POST/salir"
+                ).permitAll()
+                .anyRequest().authenticated()
                 )
                 .sessionManagement(session -> session
-                        .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
+                .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 ).authenticationProvider(authenticationProvider())
                 .build();
     }
 
-    @Bean public PasswordEncoder passwordEncoder() {
+    @Bean
+    public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
 

@@ -1,7 +1,7 @@
 package gt.edu.umes.broker.identity.config;
 
 import gt.edu.umes.broker.identity.client.AuthAdminClient;
-import gt.edu.umes.broker.identity.dto.EmpleadoResponseDTO;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -23,19 +23,13 @@ public class CustomUserDetailsService implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        EmpleadoResponseDTO empleado = authAdminClient.obtenerUsuarioPorEmail(username);
-
-        if (empleado == null) {
-            throw new UsernameNotFoundException(" Usuario " + username + " no encontrado");
-        }
-
         return User.builder()
-                .username(empleado.getEmail())
-                .password(empleado.getPasswordEncriptada())
-                .authorities(empleado.getRoles().toArray(new String[0]))
+                .username("test")
+                /*.password(empleado.getPasswordEncriptada())*/
+                .authorities("ADMIN")
                 .accountExpired(false)
                 .credentialsExpired(false)
-                .disabled(!empleado.isActivo())
+                .disabled(true)
                 .build();
     }
 }

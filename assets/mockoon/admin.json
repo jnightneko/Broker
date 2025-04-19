@@ -6,7 +6,18 @@
   "latency": 0,
   "port": 3000,
   "hostname": "",
-  "folders": [],
+  "folders": [
+    {
+      "uuid": "a3cf5f0a-677c-4d6a-a3e7-99b0d2c8fccf",
+      "name": "__test___",
+      "children": [
+        {
+          "type": "route",
+          "uuid": "1c7f6ea0-6fd4-4add-b630-fbaa7f578730"
+        }
+      ]
+    }
+  ],
   "routes": [
     {
       "uuid": "062c0e7d-d2d9-4ef7-bf02-681494cea05f",
@@ -1340,6 +1351,37 @@
       "responseMode": null,
       "streamingMode": null,
       "streamingInterval": 0
+    },
+    {
+      "uuid": "1c7f6ea0-6fd4-4add-b630-fbaa7f578730",
+      "type": "http",
+      "documentation": "",
+      "method": "post",
+      "endpoint": "administracion/POST/login/empleados",
+      "responses": [
+        {
+          "uuid": "73e58e2b-943e-43b6-9272-bbd9ed19abff",
+          "body": "{\n    \"empleado\": {\n        \"dpi\": 4345657860901,\n        \"nombres\": \"nombres\",\n        \"apellidos\": \"apellidos\",\n        \"telefono\": 12345678,\n        \"direccion\": \"direccion\",\n        \"nit\": \"nit\",\n        \"idJornada\": 1,\n        \"genero\": 1,\n        \"password\": \"BCSTRCDETESDTRSERF\"\n    },\n    \"asignacion\": {\n        \"id_area\": 1,\n        \"area\": \"area\",\n        \"id_rol\": 1,\n        \"rol\": \"rol\"\n    }\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
     }
   ],
   "rootChildren": [
@@ -1514,6 +1556,10 @@
     {
       "type": "route",
       "uuid": "080b0b25-c60c-4096-bd2f-b5e5dcfc14cd"
+    },
+    {
+      "type": "folder",
+      "uuid": "a3cf5f0a-677c-4d6a-a3e7-99b0d2c8fccf"
     }
   ],
   "proxyMode": false,

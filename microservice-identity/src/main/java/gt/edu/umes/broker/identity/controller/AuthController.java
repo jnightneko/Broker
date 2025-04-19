@@ -1,67 +1,62 @@
 package gt.edu.umes.broker.identity.controller;
 
+import gt.edu.umes.broker.core.model.BKErrorResponseModel;
+import gt.edu.umes.broker.core.model.BKRequestModel;
+import gt.edu.umes.broker.core.model.BKResponseModel;
 import gt.edu.umes.broker.identity.client.AuthAdminClient;
-import gt.edu.umes.broker.identity.dto.*;
+import gt.edu.umes.broker.identity.dto.JsonObjectDTO;
 import gt.edu.umes.broker.identity.service.AuthService;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/broker")
 public class AuthController {
+    
     private final AuthService authService;
-    private final AuthenticationManager authenticationManager;
     private final AuthAdminClient authAdminClient;
 
     @Autowired
-    public AuthController(AuthService authService,
-                          AuthenticationManager authenticationManager,
-                          AuthAdminClient authAdminClient) {
+    public AuthController(
+        AuthService authService,
+        AuthAdminClient authAdminClient
+    ) {
         this.authService = authService;
-        this.authenticationManager = authenticationManager;
         this.authAdminClient = authAdminClient;
     }
 
-    @PostMapping("/POST/validarEmpleado") /*probado*/
-    public ResponseEntity<EmpleadoResponseDTO> validarEmpleado(@RequestBody AuthRequest authRequest) {
-        EmpleadoResponseDTO empleado = authAdminClient.validarEmpleado(authRequest);
-        return ResponseEntity.ok(empleado);
+    @PostMapping("/POST/registrar")
+    public ResponseEntity<BKResponseModel> registerUser(@RequestBody BKRequestModel request) {
+        return ResponseEntity.status(200)
+                                 .body(new BKErrorResponseModel("Funcionalidad no implementada", 200));
     }
-
-    @PostMapping("/auth/register") /*probado*/
-    public ResponseEntity<String> registerUser(@RequestBody UserRegistrationRequestDTO request) {
-        String resultado = authService.registerUser(request);
-        return ResponseEntity.ok(resultado);
-    }
-
-    @PostMapping("/POST/autenticacion") /*probado*/
-    public ResponseEntity<AuthResponseDTO> getToken(@RequestBody AuthRequest authRequest) {
-        EmpleadoResponseDTO empleado = authAdminClient.validarEmpleado(authRequest);
-
-        if (empleado == null || !empleado.isActivo()) {
-            throw new RuntimeException("Credencias invalidas o usuario inactivo");
+    
+    @PostMapping("/POST/autenticacion")
+    public ResponseEntity<BKResponseModel> getToken(@RequestBody BKRequestModel authRequest) {
+        if (authRequest == null) {
+            return ResponseEntity.status(402)
+                                 .body(new BKErrorResponseModel("Formato inválido", 402));
         }
-
-        AuthResponseDTO response = authService.authenticationUser(authRequest);
-
+        
+        Object object = authAdminClient.validarEmpleado(authRequest.getBody());
+        JsonObjectDTO webObject = new JsonObjectDTO(object).block();
+        if (webObject == null) {
+            return ResponseEntity.status(402)
+                                 .body(new BKErrorResponseModel("Credencias inválidas o usuario inactivo", 402));
+        }
+        
+        BKResponseModel response = authService.authenticationUser(webObject);
         return ResponseEntity.ok(response);
     }
-
-    @GetMapping("/auth/validate") /*probado*/
-    public ResponseEntity<UserInfoDTO> validateToken(@RequestHeader("Authorization") String token) {
-        String jwtToken = token.startsWith("Bearer ") ? token.substring(7) : token;
-
-        authService.validarToken(jwtToken);
-        UserInfoDTO userInfoDTO = authService.obtenerInfoUsuario(jwtToken);
-        return ResponseEntity.ok(userInfoDTO);
-    }
-
-    @GetMapping("/auth/userinfo") /*probado*/
-    public ResponseEntity<UserInfoDTO> getUserInfo(@RequestHeader("Authorization") String token) {
-        String jwtToken = token.startsWith("Bearer ") ? token.substring(7) : token;
-        UserInfoDTO userInfoDTO = authService.obtenerInfoUsuario(jwtToken);
-        return ResponseEntity.ok(userInfoDTO);
+    
+    @PostMapping("/POST/salir")
+    public ResponseEntity<BKResponseModel> logOutUser(@RequestHeader(HttpHeaders.AUTHORIZATION) String token) {
+        
+        System.out.println("log: token >> " + token);
+        return ResponseEntity.status(200)
+                                 .body(new BKErrorResponseModel("Funcionalidad no implementada", 200));
     }
 }

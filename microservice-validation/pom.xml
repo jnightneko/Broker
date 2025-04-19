@@ -32,6 +32,14 @@
         <spring-cloud.version>2024.0.1</spring-cloud.version>
     </properties>
     <dependencies>
+        <!-- Dependencias locales -->
+        <dependency>
+            <groupId>gt.edu.umes.broker.core</groupId>
+            <artifactId>core</artifactId>
+            <version>1.0</version>
+        </dependency>
+                        
+        <!-- Dependencias Spring  -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-actuator</artifactId>

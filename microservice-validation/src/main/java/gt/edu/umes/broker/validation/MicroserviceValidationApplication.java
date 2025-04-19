@@ -4,9 +4,12 @@
  */
 package gt.edu.umes.broker.validation;
 
+import gt.edu.umes.broker.core.Microservice;
+
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
+
 import static java.lang.System.setProperty;
 
 /**
@@ -22,7 +25,7 @@ public class MicroserviceValidationApplication {
 
     /* global */
     static  {
-        setProperty("msvc.connector.host",          "http://localhost:8090");
+        setProperty("msvc.connector.host",          Microservice.INTERNAL_MICROSERVICE_CONNECTOR);
         setProperty("msvc.connector.host.endpoint", "/broker/__connection__/");
     }
     

@@ -5,10 +5,10 @@
 package gt.edu.umes.broker.validation.service;
 
 import gt.edu.umes.broker.validation.Configuration;
-import gt.edu.umes.broker.validation.model.AbstractBKModel;
-import gt.edu.umes.broker.validation.model.BKResponseModel;
-import gt.edu.umes.broker.validation.model.MetaData;
-import gt.edu.umes.broker.validation.model.Response;
+import gt.edu.umes.broker.core.model.AbstractBKModel;
+import gt.edu.umes.broker.core.model.BKResponseModel;
+import gt.edu.umes.broker.core.model.MetaData;
+import gt.edu.umes.broker.core.model.Response;
 import static gt.edu.umes.broker.validation.Validation.*;
 import org.springframework.beans.factory.annotation.Autowired;
 

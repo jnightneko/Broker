@@ -2,7 +2,7 @@
  * Copyright Broker (SFPB). All rights reserved,
  * Licence terms: https://github.com/jnightneko/Broker?tab=BSD-3-Clause-1-ov-file
  */
-package gt.edu.umes.broker.validation.model;
+package gt.edu.umes.broker.core.model;
 
 /**
  * Clase encargado de modelar un mensaje de error.

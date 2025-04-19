@@ -4,11 +4,12 @@
  */
 package gt.edu.umes.broker.validation.service;
 
-import gt.edu.umes.broker.validation.model.AbstractBKModel;
-import gt.edu.umes.broker.validation.model.MetaData;
-import gt.edu.umes.broker.validation.model.BKRequestModel;
-import gt.edu.umes.broker.validation.model.BKResponseModel;
-import gt.edu.umes.broker.validation.model.Response;
+import gt.edu.umes.broker.core.endpoints.MCSVPagos;
+import gt.edu.umes.broker.core.model.AbstractBKModel;
+import gt.edu.umes.broker.core.model.MetaData;
+import gt.edu.umes.broker.core.model.BKRequestModel;
+import gt.edu.umes.broker.core.model.BKResponseModel;
+import gt.edu.umes.broker.core.model.Response;
 import static gt.edu.umes.broker.validation.Validation.*;
 
 import java.util.ArrayList;
@@ -100,10 +101,10 @@ public class ValidationService {
         if (! uri.startsWith("/")) {
             uri = '/' + uri;
         }
-        if (! uri.endsWith("/")) {
-            uri += "/";
+        if (uri.endsWith("/")) {
+            uri = uri.substring(0, uri.length() - 1);
         }
-        return uri.toLowerCase().equals("/pagos/transaccion/crear/");
+        return uri.toLowerCase().equals(MCSVPagos.PAGOS_TRANSACCION_CREAR);
     }
     
     /**
@@ -111,7 +112,7 @@ public class ValidationService {
      * @return list|pagos
      */
     public List<Map<String, Object>> getListMetodoPago() {
-        BKRequestModel request = new BKRequestModel(new MetaData("/pagos/metodos/obtener"), BKRequestModel.EMPTY_BODY);
+        BKRequestModel request = new BKRequestModel(new MetaData(MCSVPagos.PAGOS_METODO_OBTENER), BKRequestModel.EMPTY_BODY);
         Object htttObject = connectorService.send(request);
         logService.log("Obtención de pagos", "GET", LogService.Type.LOG);
         

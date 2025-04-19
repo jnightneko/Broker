@@ -4,9 +4,9 @@
  */
 package gt.edu.umes.broker.validation;
 
-import gt.edu.umes.broker.validation.model.AbstractBKModel;
-import gt.edu.umes.broker.validation.model.BKErrorResponseModel;
-import gt.edu.umes.broker.validation.model.MetaData;
+import gt.edu.umes.broker.core.model.AbstractBKModel;
+import gt.edu.umes.broker.core.model.BKErrorResponseModel;
+import gt.edu.umes.broker.core.model.MetaData;
 
 /**
  * Clase encargado de proptocionar método utilizada para el redireccionamento de las peticiones

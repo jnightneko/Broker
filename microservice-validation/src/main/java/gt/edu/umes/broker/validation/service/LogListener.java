@@ -4,7 +4,7 @@
  */
 package gt.edu.umes.broker.validation.service;
 
-import gt.edu.umes.broker.validation.model.AbstractBKModel;
+import gt.edu.umes.broker.core.model.AbstractBKModel;
 
 /**
  * Interfaz encargada de gestionar un oyente paara las validaciónes.

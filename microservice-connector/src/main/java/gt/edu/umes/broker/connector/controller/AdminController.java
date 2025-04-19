@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import gt.edu.umes.broker.connector.client.AdminClient;
-import static gt.edu.umes.broker.connector.client.AdminClient.*;
+import static gt.edu.umes.broker.core.endpoints.MCSVAdmin.*;
 
 /**
  * Clase encargado de gestionar el redireccionamiento de las peticiones a las direcciones correctas.
@@ -21,6 +21,13 @@ import static gt.edu.umes.broker.connector.client.AdminClient.*;
 public class AdminController {
     @Autowired
     private AdminClient client;
+    /* (non-Javadoc) */
+    @PostMapping(HTTP_ADMIN_USUARIO_LOGIN)
+    public Object getUsuariosLogin(@RequestBody Object o) {
+        return client.nUsuariosLogin(o);
+    }
+    
+    
     /* (non-Javadoc) */
     @PostMapping(HTTP_ADMIN_EMPLEADOS_GET)
     public Object getAdminEmpleadoGet() {

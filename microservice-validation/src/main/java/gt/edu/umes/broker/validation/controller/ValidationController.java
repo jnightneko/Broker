@@ -4,8 +4,8 @@
  */
 package gt.edu.umes.broker.validation.controller;
 
-import gt.edu.umes.broker.validation.model.AbstractBKModel;
-import gt.edu.umes.broker.validation.model.BKRequestModel;
+import gt.edu.umes.broker.core.model.AbstractBKModel;
+import gt.edu.umes.broker.core.model.BKRequestModel;
 import gt.edu.umes.broker.validation.service.ConnectorService;
 import gt.edu.umes.broker.validation.service.LogService;
 import gt.edu.umes.broker.validation.service.ValidationService;

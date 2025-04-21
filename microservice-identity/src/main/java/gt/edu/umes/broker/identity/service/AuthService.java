@@ -13,6 +13,8 @@ import org.springframework.stereotype.Service;
 
 import org.springframework.http.HttpStatus;
 
+import java.util.*;
+
 @Service
 public class AuthService {
     private final PasswordEncoder passwordEncoder;
@@ -29,16 +31,31 @@ public class AuthService {
     }
 
     public BKResponseModel authenticationUser(JsonObjectDTO authRequest) {
-        JsonObjectDTO empleados = authRequest.getObjec("empleado");
+        JsonObjectDTO empleados = authRequest.getObjec("userData");
         if (empleados == null) {
             return new BKErrorResponseModel("No se puede procesar el usuario|empleado", HttpStatus.PROCESSING.value());
         }
+
+        Map<String, Object> userData = new HashMap<>();
+        userData.put("userId", empleados.getLong("userId", 0L));
+        userData.put("nombre", empleados.getString("nombre"));
+        userData.put("usuario", empleados.getString("usuario"));
+        userData.put("Rol", Collections.singletonList(obtenerRol(empleados)));
+
+
+        /*Para incluir los datos en data*/
+        Map<String, Object> responseData = new HashMap<>();
+        responseData.put("success", true);
+        responseData.put("message", "Inicio de sesión exitoso");
+        responseData.put("userData", userData);
+
         Response response = new Response();
         response.setToken(jwtService.generateToken(
                 empleados.getString("nombres"), 
                 empleados.getLong("dpi", 0L)
         ));
-        
+
+        response.setData(responseData);
         response.setMessage("Acceso autorizado...");
         response.setStatus(HttpStatus.OK.value());
         return new BKResponseModel(new MetaData(), response);
@@ -46,5 +63,17 @@ public class AuthService {
 
     public void validarToken(String token) {
         jwtService.validateToken(token);
+    }
+
+    private List<String> obtenerRol(JsonObjectDTO empleado) {
+        if(empleado.toMap().containsKey("Rol")) {
+            Object roles = empleado.toMap().get("Rol");
+
+            if(roles instanceof java.awt.List){
+                return (List<String>) roles;
+            }
+        }
+
+        return Collections.singletonList("Usuario");
     }
 }

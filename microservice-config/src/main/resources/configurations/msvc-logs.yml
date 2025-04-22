@@ -4,7 +4,7 @@ server:
 spring:
   data:
     mongodb:
-      uri: mongodb://localhost:27017/DBPB
+      uri: mongodb://localhost:27017/DB
 
 eureka:
   instance:

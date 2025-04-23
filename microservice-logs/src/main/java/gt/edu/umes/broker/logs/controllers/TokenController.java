@@ -40,9 +40,9 @@ public class TokenController {
         return tokenService.guardarToken(token);
     }
 
-    @PutMapping("/{id}")
-    public Token actualizarEstado(@PathVariable String id, @RequestBody Boolean nuevoEstado) {
-        return tokenService.actualizarEstado(id, nuevoEstado);
+    @GetMapping("/validar/{token}")
+    public boolean esTokenValido(@PathVariable String token) {
+        return tokenService.esTokenValido(token);
     }
 
     @DeleteMapping("/{id}")

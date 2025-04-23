@@ -26,17 +26,17 @@ public class SesionService {
         return sesionRepository.findByIdU(idU);
     }
 
-    public Sesion crearOSobrescribirSesion(Sesion nuevaSesion) {
-        List<Sesion> sesiones = sesionRepository.findByIdU(nuevaSesion.getIdU());
-
-        if (!sesiones.isEmpty()) {
-            // Solo debe existir una sesión por usuario
-            Sesion existente = sesiones.get(0);
-            existente.setEstadoSesion(nuevaSesion.getEstadoSesion());
-            return sesionRepository.save(existente);
+    public Sesion crearSesion(Sesion sesion) {
+        //cierre de cualquier sesión activa existente del mismo usuario
+        List<Sesion> sesionesExistentes = sesionRepository.findByIdU(sesion.getIdU());
+        for (Sesion s : sesionesExistentes) {
+            if (Boolean.TRUE.equals(s.getEstadoSesion())) {
+                s.setEstadoSesion(false);
+                sesionRepository.save(s);
+            }
         }
 
-        return sesionRepository.save(nuevaSesion);
+        return sesionRepository.save(sesion);
     }
 
     public Sesion actualizarEstado(String id, Boolean nuevoEstado) {

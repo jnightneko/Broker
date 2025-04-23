@@ -31,8 +31,8 @@ public class SesionController {
     }
 
     @PostMapping
-    public Sesion crearOSobrescribirSesion(@RequestBody Sesion sesion) {
-        return sesionService.crearOSobrescribirSesion(sesion);
+    public Sesion crearSesion(@RequestBody Sesion sesion) {
+        return sesionService.crearSesion(sesion);
     }
 
     @PutMapping("/{id}")

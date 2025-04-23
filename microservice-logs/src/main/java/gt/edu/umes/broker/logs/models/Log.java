@@ -1,5 +1,7 @@
 package gt.edu.umes.broker.logs.models;
 
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -18,6 +20,12 @@ public class Log {
 
     private String idU;  //_id de Usuario
     private String idEP; //_id de estadoPeticion
+
+    @CreatedDate
+    private Date createdAt;
+
+    @LastModifiedDate
+    private Date updatedAt;
 
     public Log() {}
 
@@ -58,4 +66,10 @@ public class Log {
     public String getIdEP() { return idEP; }
 
     public void setIdEP(String idEP) { this.idEP = idEP; }
+
+    public Date getCreatedAt() { return createdAt; }
+    public void setCreatedAt(Date createdAt) { this.createdAt = createdAt; }
+
+    public Date getUpdatedAt() { return updatedAt; }
+    public void setUpdatedAt(Date updatedAt) { this.updatedAt = updatedAt; }
 }

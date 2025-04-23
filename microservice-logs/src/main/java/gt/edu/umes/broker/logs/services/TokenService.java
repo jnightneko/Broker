@@ -5,6 +5,7 @@ import gt.edu.umes.broker.logs.repository.TokenRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -31,32 +32,20 @@ public class TokenService {
     }
 
     public Token guardarToken(Token nuevoToken) {
-        // Buscar tokens activos del mismo usuario
-        List<Token> tokensUsuario = tokenRepository.findByIdU(nuevoToken.getIdU());
-
-        for (Token token : tokensUsuario) {
-            if (Boolean.TRUE.equals(token.getEstado())) {
-                token.setEstado(false);
-                tokenRepository.save(token);
-            }
-        }
-
-        // Guardar el nuevo token como activo
-        nuevoToken.setEstado(true);
+        // puedes agregar aquí validaciones extra si deseas controlar duplicados
         return tokenRepository.save(nuevoToken);
-    }
-
-    public Token actualizarEstado(String id, Boolean nuevoEstado) {
-        Optional<Token> optToken = tokenRepository.findById(id);
-        if (optToken.isPresent()) {
-            Token tokenExistente = optToken.get();
-            tokenExistente.setEstado(nuevoEstado);
-            return tokenRepository.save(tokenExistente);
-        }
-        return null;
     }
 
     public void eliminarToken(String id) {
         tokenRepository.deleteById(id);
+    }
+
+    public boolean esTokenValido(String token) {
+        Optional<Token> tokenOpt = tokenRepository.findByToken(token);
+        if (tokenOpt.isPresent()) {
+            Token t = tokenOpt.get();
+            return t.getFechaExpiracion().after(new Date());
+        }
+        return false;
     }
 }

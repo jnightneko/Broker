@@ -61,8 +61,7 @@ public class AuthService {
 
         Response response = new Response();
         response.setToken(jwtService.generateToken(
-                empleados.getString("usuario"),
-                empleados.getString("password")
+                empleados.getString("userId")
         ));
 
         response.setData(responseData);

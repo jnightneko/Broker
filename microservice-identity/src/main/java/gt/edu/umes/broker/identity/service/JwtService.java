@@ -12,6 +12,7 @@ import javax.crypto.SecretKey;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.UUID;
 
 @Component
 public class JwtService {
@@ -23,16 +24,16 @@ public class JwtService {
                 .parseSignedClaims(token);
     }
 
-    public String generateToken(String userName, String id){
+    public String generateToken(String id){
         Map<String, Object> claims = new HashMap<>();
-        return createToken(claims, userName, id);
+        return createToken(claims, id);
     }
 
-    public String createToken(Map<String, Object> claims, String userName, String id){
+    public String createToken(Map<String, Object> claims, String userId){
         return Jwts.builder()
                 .claims(claims)
-                .subject(userName)
-                .id(String.valueOf(id))
+                .subject(userId)
+                .id(UUID.randomUUID().toString())
                 .issuedAt(new Date(System.currentTimeMillis()))
                 .expiration(new Date(System.currentTimeMillis() + SFPBSystem.TIME_EXPIRATION_TOKEN))
                 .signWith(getSignKey()).compact();

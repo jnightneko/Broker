@@ -34,6 +34,7 @@ public final class Response {
     /** El objeto resultado de la petición (respueta del servicio externo) */
     @JsonProperty("data")
     private Object data;
+
     /** Estado de la petición (dependiente del broker ). */
     @JsonProperty("_broker_status")
     private int status;

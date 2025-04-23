@@ -33,7 +33,17 @@ public class AuthService {
     public BKResponseModel authenticationUser(JsonObjectDTO authRequest) {
         JsonObjectDTO empleados = authRequest.getObjec("userData");
         if (empleados == null) {
-            return new BKErrorResponseModel("No se puede procesar el usuario|empleado", HttpStatus.PROCESSING.value());
+            Map<String, Object> responseData = new HashMap<>();
+            responseData.put("message", "Credenciales invalidas");
+            responseData.put("success", false);
+
+            Response response = new Response();
+            response.setData(responseData);
+            response.setMessage("Credenciales invalidas");
+            response.setStatus(HttpStatus.UNAUTHORIZED.value());
+
+            /*return new BKErrorResponseModel("No se puede procesar el usuario|empleado", HttpStatus.PROCESSING.value());*/
+            return new BKResponseModel(new MetaData(), response);
         }
 
         Map<String, Object> userData = new HashMap<>();
@@ -51,8 +61,8 @@ public class AuthService {
 
         Response response = new Response();
         response.setToken(jwtService.generateToken(
-                empleados.getString("nombres"), 
-                empleados.getLong("dpi", 0L)
+                empleados.getString("usuario"),
+                empleados.getString("password")
         ));
 
         response.setData(responseData);
@@ -69,7 +79,7 @@ public class AuthService {
         if(empleado.toMap().containsKey("Rol")) {
             Object roles = empleado.toMap().get("Rol");
 
-            if(roles instanceof java.awt.List){
+            if(roles instanceof List) {
                 return (List<String>) roles;
             }
         }

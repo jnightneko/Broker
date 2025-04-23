@@ -23,12 +23,12 @@ public class JwtService {
                 .parseSignedClaims(token);
     }
 
-    public String generateToken(String userName, Long id){
+    public String generateToken(String userName, String id){
         Map<String, Object> claims = new HashMap<>();
         return createToken(claims, userName, id);
     }
 
-    public String createToken(Map<String, Object> claims, String userName, Long id){
+    public String createToken(Map<String, Object> claims, String userName, String id){
         return Jwts.builder()
                 .claims(claims)
                 .subject(userName)

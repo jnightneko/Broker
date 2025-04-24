@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/api/tokens")
+@RequestMapping("/broker/tokens")
 public class TokenController {
 
     @Autowired

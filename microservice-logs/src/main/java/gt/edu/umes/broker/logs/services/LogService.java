@@ -32,7 +32,7 @@ public class LogService {
     }
 
     public Log crearLog(Log log) {
-        log.setFecha(new Date()); // establece fecha actual
+        log.setFecha(new Date());
         return logRepository.save(log);
     }
 

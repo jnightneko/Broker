@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/api/sesiones")
+@RequestMapping("/broker/sesiones")
 public class SesionController {
 
     @Autowired

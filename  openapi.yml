@@ -249,3 +249,359 @@ paths:
           application/json:
             schema:
               type: object
+  /broker/usuarios:
+    get:
+      summary: Obtener todos los usuarios
+      description: Devuelve una lista de todos los usuarios registrados.
+      responses:
+        '200':
+          description: Petición procesada correctamente
+          content:
+            application/json:
+              schema:
+                type: object
+    post:
+      summary: Crear un nuevo usuario
+      description: Crea un nuevo usuario con los datos proporcionados.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+      responses:
+        '200':
+          description: Petición procesada correctamente
+          content:
+            application/json:
+              schema:
+                type: object
+  /broker/usuarios/{id}:
+    get:
+      summary: Obtener usuario por ID
+      description: Devuelve los datos del usuario correspondiente al ID proporcionado.
+      responses:
+        '200':
+          description: Petición procesada correctamente
+          content:
+            application/json:
+              schema:
+                type: object
+    delete:
+      summary: Eliminar usuario
+      description: Elimina un usuario por su ID.
+      responses:
+        '200':
+          description: Petición procesada correctamente
+          content:
+            application/json:
+              schema:
+                type: object
+
+  /broker/sesiones:
+    get:
+      summary: Obtener todas las sesiones
+      description: Devuelve una lista con todas las sesiones registradas.
+      responses:
+        '200':
+          description: Petición procesada correctamente
+          content:
+            application/json:
+              schema:
+                type: object
+    post:
+      summary: Crear o sobrescribir sesión
+      description: Crea una nueva sesión para un usuario o sobrescribe la sesión existente si ya tiene una.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+      responses:
+        '200':
+          description: Petición procesada correctamente
+          content:
+            application/json:
+              schema:
+                type: object
+  /broker/sesiones/{id}:
+    get:
+      summary: Obtener sesión por ID
+      description: Devuelve los datos de la sesión con el ID especificado.
+      responses:
+        '200':
+          description: Petición procesada correctamente
+          content:
+            application/json:
+              schema:
+                type: object
+    put:
+      summary: Actualizar estado de sesión
+      description: Actualiza el estado (true/false) de una sesión específica.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+      responses:
+        '200':
+          description: Petición procesada correctamente
+          content:
+            application/json:
+              schema:
+                type: object
+    delete:
+      summary: Eliminar sesión
+      description: Elimina una sesión por su ID.
+      responses:
+        '200':
+          description: Petición procesada correctamente
+          content:
+            application/json:
+              schema:
+                type: object
+  /broker/sesiones/usuario/{idU}:
+    get:
+      summary: Obtener sesiones por usuario
+      description: Lista las sesiones vinculadas a un usuario específico.
+      responses:
+        '200':
+          description: Petición procesada correctamente
+          content:
+            application/json:
+              schema:
+                type: object
+
+  /broker/logs:
+    get:
+      summary: Obtener todos los logs
+      description: Devuelve el historial de logs registrados.
+      responses:
+        '200':
+          description: Petición procesada correctamente
+          content:
+            application/json:
+              schema:
+                type: object
+    post:
+      summary: Registrar log
+      description: Registra un nuevo log automáticamente con la fecha del sistema.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+      responses:
+        '200':
+          description: Petición procesada correctamente
+          content:
+            application/json:
+              schema:
+                type: object
+  /broker/logs/{id}:
+    get:
+      summary: Obtener log por ID
+      description: Devuelve el log con el ID especificado.
+      responses:
+        '200':
+          description: Petición procesada correctamente
+          content:
+            application/json:
+              schema:
+                type: object
+    delete:
+      summary: Eliminar log
+      description: Elimina un log por su ID.
+      responses:
+        '200':
+          description: Petición procesada correctamente
+          content:
+            application/json:
+              schema:
+                type: object
+  /broker/logs/usuario/{idU}:
+    get:
+      summary: Obtener logs por usuario
+      description: Muestra los logs que pertenecen a un usuario específico.
+      responses:
+        '200':
+          description: Petición procesada correctamente
+          content:
+            application/json:
+              schema:
+                type: object
+  /broker/logs/estado/{idEP}:
+    get:
+      summary: Obtener logs por estado de petición
+      description: Muestra los logs con un estado de petición específico.
+      responses:
+        '200':
+          description: Petición procesada correctamente
+          content:
+            application/json:
+              schema:
+                type: object
+
+  /broker/tokens:
+    get:
+      summary: Obtener todos los tokens
+      description: Devuelve una lista con todos los tokens registrados.
+      responses:
+        '200':
+          description: Petición procesada correctamente
+          content:
+            application/json:
+              schema:
+                type: object
+    post:
+      summary: Guardar token
+      description: Guarda un nuevo token para un usuario, cerrando cualquier token previo.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+      responses:
+        '200':
+          description: Petición procesada correctamente
+          content:
+            application/json:
+              schema:
+                type: object
+  /broker/tokens/{id}:
+    get:
+      summary: Obtener token por ID
+      description: Devuelve el token con el ID especificado.
+      responses:
+        '200':
+          description: Petición procesada correctamente
+          content:
+            application/json:
+              schema:
+                type: object
+    delete:
+      summary: Eliminar token
+      description: Elimina un token por su ID.
+      responses:
+        '200':
+          description: Petición procesada correctamente
+          content:
+            application/json:
+              schema:
+                type: object
+  /broker/tokens/usuario/{idU}:
+    get:
+      summary: Obtener tokens por usuario
+      description: Lista los tokens asociados a un usuario.
+      responses:
+        '200':
+          description: Petición procesada correctamente
+          content:
+            application/json:
+              schema:
+                type: object
+  /broker/tokens/valor/{token}:
+    get:
+      summary: Obtener token por valor
+      description: Busca un token específico por su valor.
+      responses:
+        '200':
+          description: Petición procesada correctamente
+          content:
+            application/json:
+              schema:
+                type: object
+  /broker/tokens/validar/{token}:
+    get:
+      summary: Validar token
+      description: Verifica si un token aún es válido comparando su fecha de expiración con la actual.
+      responses:
+        '200':
+          description: Petición procesada correctamente
+          content:
+            application/json:
+              schema:
+                type: object
+components:
+  schemas:
+    Usuario:
+      type: object
+      properties:
+        id:
+          type: string
+        nombreUsuario:
+          type: string
+        estado:
+          type: boolean
+        servicio:
+          type: string
+        createdAt:
+          type: string
+          format: date-time
+        updatedAt:
+          type: string
+          format: date-time
+    Sesion:
+      type: object
+      properties:
+        id:
+          type: string
+        estadoSesion:
+          type: boolean
+        idU:
+          type: string
+        createdAt:
+          type: string
+          format: date-time
+        updatedAt:
+          type: string
+          format: date-time
+    Log:
+      type: object
+      properties:
+        id:
+          type: string
+        descripcion:
+          type: string
+        fecha:
+          type: string
+          format: date-time
+        metodo:
+          type: string
+        endPoint:
+          type: string
+        idU:
+          type: string
+        idEP:
+          type: string
+        createdAt:
+          type: string
+          format: date-time
+        updatedAt:
+          type: string
+          format: date-time
+    Token:
+      type: object
+      properties:
+        id:
+          type: string
+        token:
+          type: string
+        idU:
+          type: string
+        fechaInicio:
+          type: string
+          format: date-time
+        fechaExpiracion:
+          type: string
+          format: date-time
+        createdAt:
+          type: string
+          format: date-time
+        updatedAt:
+          type: string
+          format: date-time

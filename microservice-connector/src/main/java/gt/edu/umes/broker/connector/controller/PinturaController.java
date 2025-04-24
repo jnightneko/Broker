@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.*;
 import org.springframework.web.bind.annotation.*;
 
 import gt.edu.umes.broker.connector.client.PinturaClient;
-import static gt.edu.umes.broker.connector.client.PinturaClient.*;
+import static gt.edu.umes.broker.core.endpoints.MCSVPintura.*;
 /**
  * Clase encargado de gestionar el redireccionamiento de las peticiones a las direcciones correctas.
  * 

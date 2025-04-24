@@ -4,6 +4,9 @@
  */
 package gt.edu.umes.broker.connector.client;
 
+import gt.edu.umes.broker.core.Microservice;
+import static gt.edu.umes.broker.core.endpoints.MCSVGas.*;
+
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.*;
 
@@ -15,39 +18,8 @@ import org.springframework.web.bind.annotation.*;
  * @version 1.0.0
  * @since 1.0.0
  */
-@FeignClient(value = "MCSV-CombustibleGas", url = "http://localhost:3002/")
-public interface GasClient {    
-    //******************************************************************************************************************
-    //**    RUTA DE ELNLACES
-    public static final String HTTP_BOMB_LIST                = "bomb/list";
-    public static final String HTTP_BOMB_LIST_ACTIVE         = "bomb/list/active";
-    public static final String HTTP_BOMB_LIST_INACTIVE       = "bomb/list/inactive";
-    public static final String HTTP_BOMB_LIST_MAINTEANCE     = "bomb/list/mainteance";
-    public static final String HTTP_BOMB_LIST_BOMBID         = "bomb/list/{bombId}";
-    public static final String HTTP_BOMB_CREATE              = "bomb/create";
-    public static final String HTTP_BOMB_UPDATE              = "bomb/update/{bombId}";
-    public static final String HTTP_BOMB_DELETE              = "bomb/delete/{bombId}";
-    public static final String HTTP_FUEL_TYPE_LIST           = "fuelType/list";
-    public static final String HTTP_FUEL_TYPE_LIST_ID        = "fuelType/list/{fuelId}";
-    public static final String HTTP_FUEL_TYPE_CREATE         = "fuelType/create";
-    public static final String HTTP_FUEL_TYPE_UPDATE         = "fuelType/update/{fuelId}";
-    public static final String HTTP_FUEL_TYPE_DELETE         = "fuelType/delete/{fuelId}";
-    public static final String HTTP_SALE_LIST                = "sale/list";
-    public static final String HTTP_SALE_LIST_FUEL_SALE_ID   = "sale/list/{fuelSaleId}";
-    public static final String HTTP_SALE_CREATE              = "sale/create";
-    public static final String HTTP_SALE_UPDATE              = "sale/update/{fuelSaleId}";
-    public static final String HTTP_SALE_DELETE              = "sale/delete/{fuelSaleId}";
-    public static final String HTTP_GENERAL_DEPOSIT_LIST     = "generalDeposit/list";
-    public static final String HTTP_GENERAL_DEPOSIT_LIST_ID  = "generalDeposit/list/{generalDepositId}";
-    public static final String HTTP_GENERAL_DEPOSIT_CREATE   = "generalDeposit/create";
-    public static final String HTTP_GENERAL_DEPOSIT_UPDATE   = "generalDeposit/update/{generalDepositId}";
-    public static final String HTTP_GENERAL_DEPOSIT_DELETE   = "generalDeposit/delete/{generalDepositId}";
-    public static final String HTTP_ALERT_LIST               = "alert/list";
-    public static final String HTTP_ALERT_LIST_ID            = "alert/list/{alertId}";
-    public static final String HTTP_ALERT_CREATE             = "alert/create";
-    public static final String HTTP_ALERT_UPDATE             = "alert/update/{alertId}";
-    public static final String HTTP_ALERT_DELETE             = "alert/delete/{alertId}";
-    
+@FeignClient(value = "MCSV-CombustibleGas", url = Microservice.MICROSERVICE_GAS)
+public interface GasClient {
     /**
      * Obtener todas las gasolinas 
      * @return objeto web

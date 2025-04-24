@@ -1,0 +1,1 @@
+{"indexes":[{"v":{"$numberInt":"2"},"key":{"_id":{"$numberInt":"1"}},"name":"_id_"}],"uuid":"4318c2aa57984d5da1c8dbb0f78e2b33","collectionName":"estadoPeticion","type":"collection"}

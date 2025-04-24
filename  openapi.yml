@@ -1,0 +1,251 @@
+openapi: 3.1.1
+info:
+  title: Servicio de filtrado de peticiones - Broker (SFPB)
+  description: Servicio encargado de filtrar las peticiones
+  license:
+    name: BSD-3-Clause
+    url: https://opensource.org/license/BSD-3-clause
+  version: 1.0.1
+servers:
+  - url: http://localhost:3761/
+    description: Servidor de desarrollo (testeo)
+paths:
+  /broker/api/rest:
+    get:
+      summary: Conexión para peticiones externas por GET
+      description: Se necesita un objeto con la información del destinatario, siempre devolverá una respuesta independientemente del destinatario (servicio externo)
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                metadata:
+                  type: object
+                  properties:
+                    uri:
+                      type: string
+                request:
+                  type: object
+      responses: 
+        '200':
+          description: Respueta de la petición
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  metadata:
+                    type: object
+                    properties:
+                      uri:
+                        type: string
+                  response:
+                    type: object
+                    properties:
+                      data:
+                        type: object
+                      _broker_status:
+                        type: integer
+                      _broker_message:
+                        type: integer
+    post:
+      summary: Conexión para peticiones externas por POST
+      description: Se necesita un objeto con la información del destinatario, siempre devolverá una respuesta independientemente del destinatario (servicio externo)
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                metadata:
+                  type: object
+                  properties:
+                    uri:
+                      type: string
+                request:
+                  type: object
+      responses: 
+        '200':
+          description: Respueta de la petición
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  metadata:
+                    type: object
+                    properties:
+                      uri:
+                        type: string
+                  response:
+                    type: object
+                    properties:
+                      data:
+                        type: object
+                      _broker_status:
+                        type: integer
+                      _broker_message:
+                        type: integer
+    put:
+      summary: Conexión para peticiones externas por PUT
+      description: Se necesita un objeto con la información del destinatario, siempre devolverá una respuesta independientemente del destinatario (servicio externo)
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                metadata:
+                  type: object
+                  properties:
+                    uri:
+                      type: string
+                request:
+                  type: object
+      responses: 
+        '200':
+          description: Respueta de la petición
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  metadata:
+                    type: object
+                    properties:
+                      uri:
+                        type: string
+                  response:
+                    type: object
+                    properties:
+                      data:
+                        type: object
+                      _broker_status:
+                        type: integer
+                      _broker_message:
+                        type: integer
+    patch:
+      summary: Conexión para peticiones externas por PATCH
+      description: Se necesita un objeto con la información del destinatario, siempre devolverá una respuesta independientemente del destinatario (servicio externo)
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                metadata:
+                  type: object
+                  properties:
+                    uri:
+                      type: string
+                request:
+                  type: object
+      responses: 
+        '200':
+          description: Respueta de la petición
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  metadata:
+                    type: object
+                    properties:
+                      uri:
+                        type: string
+                  response:
+                    type: object
+                    properties:
+                      data:
+                        type: object
+                      _broker_status:
+                        type: integer
+                      _broker_message:
+                        type: integer
+    delete:
+      summary: Conexión para peticiones externas por DELETE
+      description: Se necesita un objeto con la información del destinatario, siempre devolverá una respuesta independientemente del destinatario (servicio externo)
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                metadata:
+                  type: object
+                  properties:
+                    uri:
+                      type: string
+                request:
+                  type: object
+      responses: 
+        '200':
+          description: Respueta de la petición
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  metadata:
+                    type: object
+                    properties:
+                      uri:
+                        type: string
+                  response:
+                    type: object
+                    properties:
+                      data:
+                        type: object
+                      _broker_status:
+                        type: integer
+                      _broker_message:
+                        type: integer
+  /broker/__connection__/**:
+    post:
+      summary: Redireccionamiento de peticiones
+      description: Encargado de redireccionar las peticiones crudas a otros servicios externo de confianza
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+      responses: 
+        '200':
+          description: Respueta de la petición
+          content:
+            application/json:
+              schema:
+                type: object
+  broker/POST/registrar:
+    post:
+      summary: Registra a un nuevo usuario
+      description: Ruta disponible de forma libre para el registro de nuevos usuarios. Este endpoint depende el la implementación 
+                  del servicio de administración por lo que tendrá que acceder a los requerimientos de ellos para el llenado de un nuevo usuarios en el sistema (empleado)
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+      responses:
+        '2xx':
+          description: Respueta de la petición
+          content:
+            application/json:
+              schema:
+                type: object
+        '5xx':
+          description: Respueta de la petición (error)
+          content:
+            application/json:
+              schema:
+                type: object
+  /broker/POST/salir:
+    post:
+      summary: Cierre de sesión
+      description: Endpoint para invalidar un token de sesión mediante el broker.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object

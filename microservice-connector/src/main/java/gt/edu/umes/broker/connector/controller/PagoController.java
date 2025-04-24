@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import gt.edu.umes.broker.connector.client.PagosClient;
-import static gt.edu.umes.broker.connector.client.PagosClient.*;
+import static gt.edu.umes.broker.core.endpoints.MCSVPagos.*;
 
 /**
  * Clase encargado de gestionar el redireccionamiento de las peticiones a las direcciones correctas.

@@ -25,6 +25,7 @@
         <module>microservice-config</module>
         <module>microservice-connector</module>
         <module>microservice-example</module>
+        <module>microservice-logs</module>
         <module>microservice-validation</module>
         <module>microservice-identity</module>
 

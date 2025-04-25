@@ -249,3 +249,386 @@ paths:
           application/json:
             schema:
               type: object
+  /broker/usuarios:
+    get:
+      summary: Obtener todos los usuarios
+      description: Devuelve una lista con todos los usuarios registrados.
+      responses:
+        '200':
+          description: Lista de usuarios
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Usuario"
+    post:
+      summary: Crear un nuevo usuario
+      description: Crea un nuevo usuario con los datos proporcionados.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Usuario"
+      responses:
+        '200':
+          description: Usuario creado correctamente
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Usuario"
+
+  /broker/usuarios/{id}:
+    get:
+      summary: Obtener usuario por ID
+      description: Devuelve el usuario correspondiente al ID proporcionado.
+      responses:
+        '200':
+          description: Petición procesada correctamente
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Usuario"
+    delete:
+      summary: Eliminar usuario
+      description: Elimina un usuario por su ID.
+      responses:
+        '200':
+          description: Eliminado correctamente
+          content:
+            application/json:
+              schema:
+                type: object
+
+  /broker/sesiones:
+    get:
+      summary: Obtener todos los sesiones
+      description: Devuelve una lista con todos los sesiones registrados.
+      responses:
+        '200':
+          description: Lista de sesiones
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Sesion"
+    post:
+      summary: Crear un nuevo sesione
+      description: Crea un nuevo sesione con los datos proporcionados.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Sesion"
+      responses:
+        '200':
+          description: Sesión creada correctamente
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Sesion"
+
+  /broker/sesiones/{id}:
+    get:
+      summary: Obtener sesión por ID
+      description: Devuelve la sesión con el ID especificado.
+      responses:
+        '200':
+          description: Petición procesada correctamente
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Sesion"
+    put:
+      summary: Actualizar estado de sesión
+      description: Actualiza el estado de una sesión específica.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: boolean
+      responses:
+        '200':
+          description: Sesión actualizada correctamente
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Sesion"
+    delete:
+      summary: Eliminar sesión
+      description: Elimina una sesión por su ID.
+      responses:
+        '200':
+          description: Eliminado correctamente
+          content:
+            application/json:
+              schema:
+                type: object
+
+  /broker/sesiones/usuario/{idU}:
+    get:
+      summary: Obtener sesiones por usuario
+      description: Lista las sesiones de un usuario específico.
+      responses:
+        '200':
+          description: Lista de sesiones
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Sesion"
+
+  /broker/logs:
+    get:
+      summary: Obtener todos los logs
+      description: Devuelve todos los logs registrados.
+      responses:
+        '200':
+          description: Lista de logs
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Log"
+    post:
+      summary: Crear un nuevo log
+      description: Registra un nuevo log con fecha automática.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Log"
+      responses:
+        '200':
+          description: Log creado correctamente
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Log"
+
+  /broker/logs/{id}:
+    get:
+      summary: Obtener log por ID
+      description: Devuelve un log por su ID.
+      responses:
+        '200':
+          description: Log encontrado
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Log"
+    delete:
+      summary: Eliminar log
+      description: Elimina un log por ID.
+      responses:
+        '200':
+          description: Log eliminado
+          content:
+            application/json:
+              schema:
+                type: object
+
+  /broker/logs/usuario/{idU}:
+    get:
+      summary: Obtener logs por usuario
+      description: Devuelve los logs de un usuario.
+      responses:
+        '200':
+          description: Lista de logs
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Log"
+
+  /broker/logs/estado/{idEP}:
+    get:
+      summary: Obtener logs por estado de petición
+      description: Devuelve los logs según estado de petición.
+      responses:
+        '200':
+          description: Lista de logs por estado
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Log"
+
+  /broker/tokens:
+    get:
+      summary: Obtener todos los tokens
+      description: Lista todos los tokens registrados.
+      responses:
+        '200':
+          description: Lista de tokens
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Token"
+    post:
+      summary: Crear un nuevo token
+      description: Registra un token nuevo para un usuario.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Token"
+      responses:
+        '200':
+          description: Token creado correctamente
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Token"
+
+  /broker/tokens/{id}:
+    get:
+      summary: Obtener token por ID
+      description: Busca un token por ID.
+      responses:
+        '200':
+          description: Token encontrado
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Token"
+    delete:
+      summary: Eliminar token
+      description: Elimina un token.
+      responses:
+        '200':
+          description: Token eliminado
+          content:
+            application/json:
+              schema:
+                type: object
+
+  /broker/tokens/usuario/{idU}:
+    get:
+      summary: Obtener tokens por usuario
+      description: Devuelve tokens de un usuario.
+      responses:
+        '200':
+          description: Tokens encontrados
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Token"
+
+  /broker/tokens/valor/{token}:
+    get:
+      summary: Obtener token por valor
+      description: Busca un token por su valor.
+      responses:
+        '200':
+          description: Token encontrado
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Token"
+
+  /broker/tokens/validar/{token}:
+    get:
+      summary: Validar token
+      description: Verifica si un token está vigente.
+      responses:
+        '200':
+          description: Estado del token
+          content:
+            application/json:
+              schema:
+                type: boolean
+
+components:
+  schemas:
+    Usuario:
+      type: object
+      properties:
+        id:
+          type: string
+        nombreUsuario:
+          type: string
+        estado:
+          type: boolean
+        servicio:
+          type: string
+        createdAt:
+          type: string
+          format: date-time
+        updatedAt:
+          type: string
+          format: date-time
+    Sesion:
+      type: object
+      properties:
+        id:
+          type: string
+        estadoSesion:
+          type: boolean
+        idU:
+          type: string
+        createdAt:
+          type: string
+          format: date-time
+        updatedAt:
+          type: string
+          format: date-time
+    Log:
+      type: object
+      properties:
+        id:
+          type: string
+        descripcion:
+          type: string
+        fecha:
+          type: string
+          format: date-time
+        metodo:
+          type: string
+        endPoint:
+          type: string
+        idU:
+          type: string
+        idEP:
+          type: string
+        createdAt:
+          type: string
+          format: date-time
+        updatedAt:
+          type: string
+          format: date-time
+    Token:
+      type: object
+      properties:
+        id:
+          type: string
+        token:
+          type: string
+        idU:
+          type: string
+        fechaInicio:
+          type: string
+          format: date-time
+        fechaExpiracion:
+          type: string
+          format: date-time
+        createdAt:
+          type: string
+          format: date-time
+        updatedAt:
+          type: string
+          format: date-time

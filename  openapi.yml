@@ -217,7 +217,7 @@ paths:
             application/json:
               schema:
                 type: object
-  broker/POST/registrar:
+  /broker/POST/registrar:
     post:
       summary: Registra a un nuevo usuario
       description: Ruta disponible de forma libre para el registro de nuevos usuarios. Este endpoint depende el la implementación 
@@ -236,6 +236,29 @@ paths:
                 type: object
         '5xx':
           description: Respueta de la petición (error)
+          content:
+            application/json:
+              schema:
+                type: object
+
+  /broker/POST/autenticacion:
+    post:
+      summary: Autentica a un usuario
+      description: Ruta libre para la autenticacion de usuarios existentes y validos.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+      responses:
+        '2xx':
+          description: Respuesta exitosa de la peticion
+          content:
+            application/json:
+              schema:
+                type: object
+        '5xx':
+          description: Respuesta erronea de la peticion
           content:
             application/json:
               schema:

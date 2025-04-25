@@ -43,9 +43,7 @@ public class MicroserviceValidationApplication {
         ConfigurableApplicationContext context = SpringApplication.run(MicroserviceValidationApplication.class, args);
         ConfigurableEnvironment env = context.getEnvironment();
 
+        /* SETTERS */
         setProperty("broker.logs.debug",env.getProperty("broker.logs.debug"));
-        //Configuration.ENABLE_DEBUGGER_LOGS.set(Boolean.valueOf());
-
-        out.println(Configuration.ENABLE_DEBUGGER_LOGS.get());
     }
 }

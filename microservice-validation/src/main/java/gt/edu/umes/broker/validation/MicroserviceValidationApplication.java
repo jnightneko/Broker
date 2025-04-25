@@ -6,10 +6,15 @@ package gt.edu.umes.broker.validation;
 
 import gt.edu.umes.broker.core.Microservice;
 
+import gt.edu.umes.broker.core.system.Configuration;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
+import org.springframework.cloud.openfeign.EnableFeignClients;
+import org.springframework.context.ConfigurableApplicationContext;
+import org.springframework.core.env.ConfigurableEnvironment;
 
+import static java.lang.System.out;
 import static java.lang.System.setProperty;
 
 /**
@@ -20,6 +25,7 @@ import static java.lang.System.setProperty;
  * @since 1.0.0
  */
 @EnableDiscoveryClient
+@EnableFeignClients
 @SpringBootApplication
 public class MicroserviceValidationApplication {
 
@@ -34,6 +40,10 @@ public class MicroserviceValidationApplication {
      * @param args argumentos de la linea de comandos
      */
     public static void main(String[] args) {
-        SpringApplication.run(MicroserviceValidationApplication.class, args);
+        ConfigurableApplicationContext context = SpringApplication.run(MicroserviceValidationApplication.class, args);
+        ConfigurableEnvironment env = context.getEnvironment();
+
+        /* SETTERS */
+        setProperty("broker.logs.debug",env.getProperty("broker.logs.debug"));
     }
 }

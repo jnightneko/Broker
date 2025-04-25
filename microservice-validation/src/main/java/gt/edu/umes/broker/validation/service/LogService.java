@@ -4,8 +4,16 @@
  */
 package gt.edu.umes.broker.validation.service;
 
+import gt.edu.umes.broker.core.model.EstadoPeticion;
+import gt.edu.umes.broker.core.model.JsonObjectX;
+import gt.edu.umes.broker.core.system.Configuration;
+import gt.edu.umes.broker.validation.client.ClientLogs;
+
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.Date;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 /**
@@ -18,12 +26,9 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class LogService {
-    
-    /** Tipo de log (depende de los tipos manejados) */
-    public static enum Type {
-        ERROR,
-        LOG
-    }
+    /** Cliente de los logs. */
+    @Autowired
+    private ClientLogs clientLogs;
     
     /**
      * Método encargado de comunicarse con el microservicios de <strong>logs</strong>
@@ -31,13 +36,26 @@ public class LogService {
      * 
      * @param msg mensaje|cuerpo de log
      * @param method método de la peticiión
+     * @param endpoint endpoint
+     * @param id id cliente
      * @param type tipo de log
      */
-    public void log(String msg, String method, Type type) {
+    public void log(String msg, String method, String endpoint, String id, EstadoPeticion type) {
         // mensaje a guardar en la DB
-        String logMessage = LogService.logFormatted(msg, method);
-        
-        System.err.println(logMessage + " |=" + type);
+        String message = LogService.logFormatted(msg, method, type);
+        if (Configuration.ENABLE_DEBUGGER_LOGS.get(false)) {
+            clientLogs.crearLog(JsonObjectX.wrap()
+                .set("descripcion", message)
+                .set("fecha", new Date())
+                .set("metodo", method)
+                .set("endPoint", endpoint)
+                .set("idU", id)
+                .set("idEP", type.getUuid())
+                .toMap()
+            );
+        } else {
+            System.out.println("[ DEBUGGER ]" + message);
+        }
     }
     
     /**
@@ -45,9 +63,10 @@ public class LogService {
      * 
      * @param msg mensaje en crudo
      * @param methdo método HTTP
+     * @param type el tipo
      * @return string|log
      */
-    public static String logFormatted(String msg, String methdo) {
+    public static String logFormatted(String msg, String methdo, EstadoPeticion type) {
         LocalDateTime myDateObj = LocalDateTime.now();
         DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
         
@@ -63,6 +82,6 @@ public class LogService {
         return String.valueOf(
                 buffer.append('[').append(myDateObj.format(myFormatObj)).append(']')
                       .append('[').append(methdo).append("] :")
-                      .append(msg));
+                      .append(" <").append(type).append("> ").append(msg));
     }
 }

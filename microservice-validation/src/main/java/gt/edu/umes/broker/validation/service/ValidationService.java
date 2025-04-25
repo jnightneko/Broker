@@ -9,6 +9,7 @@ import gt.edu.umes.broker.core.model.AbstractBKModel;
 import gt.edu.umes.broker.core.model.MetaData;
 import gt.edu.umes.broker.core.model.BKRequestModel;
 import gt.edu.umes.broker.core.model.BKResponseModel;
+import gt.edu.umes.broker.core.model.EstadoPeticion;
 import gt.edu.umes.broker.core.model.Response;
 import static gt.edu.umes.broker.validation.Validation.*;
 
@@ -46,7 +47,7 @@ public class ValidationService {
      */
     public boolean isValid(AbstractBKModel<Object> model, LogListener<AbstractBKModel<Object>, Object> logs) {
         if (model == null || model.getMetaData() == null) {
-            logs.log(logService, model, "Error al procesar los datos, verifique el protocolo de comunicación con SFPB", true);
+            logs.log(logService, model, "Error al procesar los datos, verifique el protocolo de comunicación con SFPB", EstadoPeticion.Rechazada);
             return false;
         }
         
@@ -54,7 +55,7 @@ public class ValidationService {
             logs.log(logService, model, "Violación de redireccionamiento [" 
                     + model.getMetaData().getEndPoint() 
                     + "], verifique el protocolo de comunicación con SFPB "
-                    + ">> https://github.com/jnightneko/Broker/blob/master/assets/docs/PROTOCOLO.md ", true);
+                    + ">> https://github.com/jnightneko/Broker/blob/master/assets/docs/PROTOCOLO.md ", EstadoPeticion.Rechazada);
             return false;
         }
         
@@ -80,13 +81,13 @@ public class ValidationService {
                 }
 
                 if (metodoNoValido) {
-                    logs.log(logService, model, "Métodos de pagos inválidos: " + model.getMetaData().getEndPoint() + ":" + metosPagos, true);
+                    logs.log(logService, model, "Métodos de pagos inválidos: " + model.getMetaData().getEndPoint() + ":" + metosPagos, EstadoPeticion.Rechazada);
                     return false;
                 }
             }
         }
         
-        logs.log(logService, model, "Petición solicitada: " + model.getMetaData().getEndPoint(), false);
+        logs.log(logService, model, "Petición solicitada: " + model.getMetaData().getEndPoint(), EstadoPeticion.Aprobada);
         return true;
     }
     
@@ -114,7 +115,7 @@ public class ValidationService {
     public List<Map<String, Object>> getListMetodoPago() {
         BKRequestModel request = new BKRequestModel(new MetaData(MCSVPagos.PAGOS_METODO_OBTENER), BKRequestModel.EMPTY_BODY);
         Object htttObject = connectorService.send(request);
-        logService.log("Obtención de pagos", "GET", LogService.Type.LOG);
+        logService.log("Obtención de pagos", "GET", "BROKER", null, EstadoPeticion.Aprobada);
         
         if (htttObject instanceof BKResponseModel responseModel) {
             Response response = responseModel.getBody();

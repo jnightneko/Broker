@@ -4,6 +4,7 @@
  */
 module Core {
     requires com.fasterxml.jackson.annotation;
+    requires jjwt.api;
     
     exports gt.edu.umes.broker.core;
     exports gt.edu.umes.broker.core.model;

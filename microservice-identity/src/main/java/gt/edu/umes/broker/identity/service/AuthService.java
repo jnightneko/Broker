@@ -1,6 +1,5 @@
 package gt.edu.umes.broker.identity.service;
 
-import gt.edu.umes.broker.core.model.BKErrorResponseModel;
 import gt.edu.umes.broker.core.model.BKResponseModel;
 import gt.edu.umes.broker.core.model.MetaData;
 import gt.edu.umes.broker.core.model.Response;
@@ -68,10 +67,6 @@ public class AuthService {
         response.setMessage("Acceso autorizado...");
         response.setStatus(HttpStatus.OK.value());
         return new BKResponseModel(new MetaData(), response);
-    }
-
-    public void validarToken(String token) {
-        jwtService.validateToken(token);
     }
 
     private List<String> obtenerRol(JsonObjectDTO empleado) {

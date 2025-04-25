@@ -4,18 +4,20 @@
  */
 package gt.edu.umes.broker.validation.service;
 
-import gt.edu.umes.broker.validation.Configuration;
+import gt.edu.umes.broker.core.system.Configuration;
 import gt.edu.umes.broker.core.model.AbstractBKModel;
 import gt.edu.umes.broker.core.model.BKResponseModel;
+import gt.edu.umes.broker.core.model.EstadoPeticion;
 import gt.edu.umes.broker.core.model.MetaData;
 import gt.edu.umes.broker.core.model.Response;
 import static gt.edu.umes.broker.validation.Validation.*;
-import org.springframework.beans.factory.annotation.Autowired;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.http.MediaType;
 import org.springframework.web.reactive.function.client.WebClient;
+
 import reactor.core.publisher.Mono;
 
 /**
@@ -68,14 +70,14 @@ public final class ConnectorService {
                         logService.log("Error al procesar el redireccionamiento con destino: " 
                                 + metaData.getEndPoint()
                                 + " mediante le puente >> " 
-                                + URLBuilder, "ALL", LogService.Type.LOG);
+                                + URLBuilder, "ALL", metaData.getEndPoint(), null, EstadoPeticion.Rechazada);
                         return Mono.empty();
                     })
                     .onStatus((t) -> t.is5xxServerError(), (t) -> {
                         /* Guardar un long si hay un error con sel servidor destinatario (interno). */
                         
                         logService.log("El servidor destino tiene problemas para procesar la solicitud: " 
-                                        + metaData.getEndPoint(), "ALL", LogService.Type.LOG);
+                                        + metaData.getEndPoint(), "ALL", metaData.getEndPoint(), null, EstadoPeticion.Pendiente);
                         
                         return Mono.empty();
                     })

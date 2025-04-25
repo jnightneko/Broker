@@ -2,7 +2,7 @@
  * Copyright Broker (SFPB). All rights reserved,
  * Licence terms: https://github.com/jnightneko/Broker?tab=BSD-3-Clause-1-ov-file
  */
-package gt.edu.umes.broker.validation;
+package gt.edu.umes.broker.core.system;
 
 import java.util.function.Function;
 
@@ -27,6 +27,12 @@ public class Configuration<T> {
     
     /** El endpoint/ruta del microservicios de redireccionamiento. */
     public static final Configuration<String> MSVC_CONNECTOT_PATH = new Configuration<>("msvc.connector.host.endpoint", StateInit.STRING);
+    
+    /**
+     * Cuando se habilita como 'depurador' la conexión de los {@code logs}, nos se guarda la infomación en la base de datos
+     * No-SQL para facilitar la comunicación y testeo de los microservicios.
+     */
+    public static final Configuration<Boolean> ENABLE_DEBUGGER_LOGS = new Configuration<>("broker.logs.debug", StateInit.BOOLEAN);
     
     private interface StateInit<T> extends Function<String, T> {
         StateInit<Boolean> BOOLEAN = property -> {

@@ -5,6 +5,7 @@
 package gt.edu.umes.broker.validation.service;
 
 import gt.edu.umes.broker.core.model.AbstractBKModel;
+import gt.edu.umes.broker.core.model.EstadoPeticion;
 
 /**
  * Interfaz encargada de gestionar un oyente paara las validaciónes.
@@ -24,7 +25,7 @@ public interface LogListener<T extends AbstractBKModel<E>, E extends Object>{
      * @param logs servicio de logs
      * @param request petición
      * @param msg mensaje|log
-     * @param err boolean
+     * @param type tipo
      */
-    void log(LogService logs, T request, String msg, boolean err);
+    void log(LogService logs, T request, String msg, EstadoPeticion type);
 }

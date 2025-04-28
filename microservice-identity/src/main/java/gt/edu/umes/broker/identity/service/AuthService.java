@@ -1,36 +1,28 @@
 package gt.edu.umes.broker.identity.service;
 
 import gt.edu.umes.broker.core.model.BKResponseModel;
+import gt.edu.umes.broker.core.model.JsonArrayX;
+import gt.edu.umes.broker.core.model.JsonObjectX;
 import gt.edu.umes.broker.core.model.MetaData;
 import gt.edu.umes.broker.core.model.Response;
-import gt.edu.umes.broker.identity.client.AuthAdminClient;
-import gt.edu.umes.broker.identity.dto.*;
+import gt.edu.umes.broker.core.system.SFPBSystem;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
-
 import org.springframework.http.HttpStatus;
 
 import java.util.*;
 
 @Service
 public class AuthService {
-    private final PasswordEncoder passwordEncoder;
-    private final JwtService jwtService;
-    private final AuthAdminClient authAdminClient;
-
     @Autowired
-    public AuthService(PasswordEncoder passwordEncoder,
-                       JwtService jwtService,
-                       AuthAdminClient authAdminClient) {
-        this.passwordEncoder = passwordEncoder;
-        this.jwtService = jwtService;
-        this.authAdminClient = authAdminClient;
-    }
+    private JwtService jwtService;
+    @Autowired
+    private LogsService logService;
 
-    public BKResponseModel authenticationUser(JsonObjectDTO authRequest) {
-        JsonObjectDTO empleados = authRequest.getObjec("userData");
+
+    public BKResponseModel authenticationUser(JsonObjectX authRequest) {
+        JsonObjectX empleados = authRequest.getObject("userData");
         if (empleados == null) {
             Map<String, Object> responseData = new HashMap<>();
             responseData.put("message", "Credenciales invalidas");
@@ -46,7 +38,7 @@ public class AuthService {
         }
 
         Map<String, Object> userData = new HashMap<>();
-        userData.put("userId", empleados.getLong("userId", 0L));
+        userData.put("userId", empleados.getLong("userId"));
         userData.put("nombre", empleados.getString("nombre"));
         userData.put("usuario", empleados.getString("usuario"));
         userData.put("Rol", Collections.singletonList(obtenerRol(empleados)));
@@ -58,18 +50,78 @@ public class AuthService {
         responseData.put("message", "Inicio de sesión exitoso");
         responseData.put("userData", userData);
 
-        Response response = new Response();
-        response.setToken(jwtService.generateToken(
+        JwtService.JwtToken token = jwtService.generateToken(
                 empleados.getString("userId")
-        ));
+        );
+
+        Response response = new Response();
+        response.setToken(token.getToke());
 
         response.setData(responseData);
         response.setMessage("Acceso autorizado...");
         response.setStatus(HttpStatus.OK.value());
+        
+        guardarToken(token, empleados.getLong("userId"));
         return new BKResponseModel(new MetaData(), response);
     }
+    
+    private void guardarToken(JwtService.JwtToken token, Long userId) {
+        JsonObjectX obj = JsonObjectX.wrap()
+                                    .set("token", token.getToke())
+                                    .set("fechaInicio", token.getIssuedAt())
+                                    .set("fechaExpiracion", token.getExpirarion())
+                                    .set("idU", userId);
+        
+        JsonArrayX sesiones = logService.obtenerSesionPorUsuario(userId);
+        JsonObjectX sesionAbierta;
+        if (sesiones != null && sesiones.length() > 0) {
+            sesionAbierta = sesiones.getObject(0);
+            logService.actualizarEstadoSesion(sesionAbierta.getString("id"), true);
+        } else {
+            sesionAbierta = JsonObjectX.wrap()
+                                        .set("estadoSesion", true)
+                                        .set("idU", userId);
+            logService.crearSesion(sesionAbierta);
+        }
+        
+        logService.saveToken(obj, null);
+    }
+    
+    public void cerrarSesion(String token) {
+        String id = SFPBSystem.extractUsername(SFPBSystem.extractBearerToken(token), (e) -> {
+            System.out.println("[ERROR][TOKEN] :" + e.getMessage());
+        });
+        if (id == null) {
+            return;
+        }
+        
+        JsonArrayX tokens = logService.obtenerTokenUsuario(id);
+        if (token == null || tokens.isEmpty()) {
+            System.out.println("[DEBUG] :NO HAY TOKEN GUARDADO");
+            return;
+        }
+        
+        for (int i = 0; i < tokens.length(); i++) {
+            JsonObjectX tk = tokens.getObject(i);
+                        
+            if (tk.getString("token").equals(SFPBSystem.extractBearerToken(token))) {
+                tk.set("fechaExpiracion", tk.getDate("fechaInicio"));
+                
+                JsonArrayX sesiones = logService.obtenerSesionPorUsuario(tk.getLong("idU"));
+                for (int l = 0; l < sesiones.length(); l++) {
+                    JsonObjectX item = sesiones.getObject(l);
+                    
+                    if (item.getBoolean("estadoSesion")) {
+                        logService.actualizarEstadoSesion(item.getString("id"), false);
+                        break;
+                    }
+                }
+                break;
+            }
+        }
+    }
 
-    private List<String> obtenerRol(JsonObjectDTO empleado) {
+    private List<String> obtenerRol(JsonObjectX empleado) {
         if(empleado.toMap().containsKey("Rol")) {
             Object roles = empleado.toMap().get("Rol");
 

@@ -11,19 +11,50 @@ import java.util.UUID;
 
 @Component
 public class JwtService {
+    
+    public static class JwtToken {
+        private final String toke;
+        private final Date issuedAt;
+        private final Date expirarion;
 
-    public String generateToken(String id){
+        public JwtToken(String toke, Date issuedAt, Date expirarion) {
+            this.toke = toke;
+            this.issuedAt = issuedAt;
+            this.expirarion = expirarion;
+        }
+
+        public String getToke() {
+            return toke;
+        }
+
+        public Date getIssuedAt() {
+            return issuedAt;
+        }
+
+        public Date getExpirarion() {
+            return expirarion;
+        }
+    }
+
+    public JwtToken generateToken(String id){
         Map<String, Object> claims = new HashMap<>();
         return createToken(claims, id);
     }
 
-    public String createToken(Map<String, Object> claims, String userId){
-        return Jwts.builder()
-                .claims(claims)
-                .subject(userId)
-                .id(UUID.randomUUID().toString())
-                .issuedAt(new Date(System.currentTimeMillis()))
-                .expiration(new Date(System.currentTimeMillis() + SFPBSystem.TIME_EXPIRATION_TOKEN))
-                .signWith(SFPBSystem.jwtGetSignKey()).compact();
+    public JwtToken createToken(Map<String, Object> claims, String userId) {
+        Date issAt = new Date(System.currentTimeMillis());
+        Date exp = new Date(System.currentTimeMillis() + SFPBSystem.TIME_EXPIRATION_TOKEN);
+
+        return new JwtToken(
+                Jwts.builder()
+                        .claims(claims)
+                        .subject(userId)
+                        .id(UUID.randomUUID().toString())
+                        .issuedAt(issAt)
+                        .expiration(exp)
+                        .signWith(SFPBSystem.jwtGetSignKey()).compact(),
+                issAt,
+                exp
+        );
     }
 }

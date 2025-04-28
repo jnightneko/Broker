@@ -22,6 +22,9 @@ public class JsonArrayX implements Iterable<Object> {
         return new JsonArrayX();
     }
     public static JsonArrayX wrap(Object object) {
+        if (object == null) {
+            return null;
+        }
         return new JsonArrayX(object);
     }
 
@@ -80,6 +83,10 @@ public class JsonArrayX implements Iterable<Object> {
     
     public List<Object> toList() {
         return array;
+    }
+    
+    public boolean isEmpty() {
+        return array.isEmpty();
     }
     
     public int length() {

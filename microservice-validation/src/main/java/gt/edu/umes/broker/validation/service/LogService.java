@@ -31,6 +31,21 @@ public class LogService {
     private ClientLogs clientLogs;
     
     /**
+     * Busca el nombre de usuario en la base de datos del broker
+     * 
+     * @param id id
+     * @return string
+     */
+    public String findUserName(String id) {
+        Object object = clientLogs.obtenerPorId(id);
+        if (object == null) {
+            return null;
+        }
+        JsonObjectX userModel = JsonObjectX.wrap(object);
+        return userModel.getString("nombreUsuario");
+    }
+    
+    /**
      * Método encargado de comunicarse con el microservicios de <strong>logs</strong>
      * para almacenar dicho registro en la base de datos NOSQL.
      * 

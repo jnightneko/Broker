@@ -4,6 +4,11 @@
  */
 package gt.edu.umes.broker.core.model;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.Instant;
+import java.time.LocalTime;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -21,6 +26,9 @@ public class JsonObjectX {
         return new JsonObjectX();
     }
     public static final JsonObjectX wrap(Object object) {
+        if (object == null) {
+            return null;
+        }
         return new JsonObjectX(object);
     }
     
@@ -57,6 +65,35 @@ public class JsonObjectX {
         try {
             return Integer.valueOf(getString(key));
         } catch (NumberFormatException e) {
+            return null;
+        }
+    }
+    
+    public Long getLong(String key) {
+        try {
+            return Long.valueOf(getString(key));
+        } catch (NumberFormatException e) {
+            return null;
+        }
+    }
+    
+    public Boolean getBoolean(String key) {
+        return Boolean.valueOf(getString(key));
+    }
+    
+    public Date getDate(String key) {
+        Object o = map.get(key);
+        if (o == null) {
+            return null;
+        }
+        
+        if (o instanceof Date date) {
+            return date;
+        }
+        try {
+            SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+            return formatter.parse(String.valueOf(o));
+        } catch (ParseException e) {
             return null;
         }
     }

@@ -7,12 +7,11 @@ package gt.edu.umes.broker.validation.controller;
 import gt.edu.umes.broker.core.model.AbstractBKModel;
 import gt.edu.umes.broker.core.model.BKRequestModel;
 import gt.edu.umes.broker.core.model.EstadoPeticion;
-import gt.edu.umes.broker.core.model.JsonObjectX;
+import gt.edu.umes.broker.core.model.MetaData;
 import gt.edu.umes.broker.core.system.SFPBSystem;
 import gt.edu.umes.broker.validation.service.ConnectorService;
 import gt.edu.umes.broker.validation.service.LogService;
 import gt.edu.umes.broker.validation.service.ValidationService;
-import gt.edu.umes.broker.validation.client.ClientLogs;
 import static gt.edu.umes.broker.validation.Validation.*;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,13 +34,13 @@ public final class ValidationController {
     @Autowired private ConnectorService service;
     /** Servicio de validaciones. */
     @Autowired private ValidationService valService;
-    /** Cliente para los logs */
-    @Autowired private ClientLogs clientLogs;
     /** Servicio de los logs.  */
     @Autowired private LogService logService;
     
     /** Un mensaje de error. */
     private String error = null;
+    /** Id temporal|global*/
+    private String id;
     
     /**
      * Método encargado de redireccionar una petición a cualquier servicio externo.
@@ -52,25 +51,23 @@ public final class ValidationController {
      * @return objeto respueta
      */
     private Object requestAll(BKRequestModel model, String token, final String method) {
-        boolean next = true;
         if (token != null) {            
-            String id = SFPBSystem.extractUsername(SFPBSystem.extractBearerToken(token), (ex) -> {
+            id = SFPBSystem.extractUsername(SFPBSystem.extractBearerToken(token), (ex) -> {
                 error = "Error a extrare los datos del token: " + ex.getMessage();
                 logService.log(error, method, model.getMetaData().getEndPoint(), "none", EstadoPeticion.Pendiente);
             });
             if (id == null) {
-                next = false;
-            }
-            
-            if (!next) {
                 Object res = bkNewError(error, 422);
                 error = null;
+                id    = null;
                 return ResponseEntity.status(422).body(res);
             } else {
-                JsonObjectX userModel = JsonObjectX.wrap(clientLogs.obtenerPorId(id));
-                String nombreUsuario = userModel.getString("nombreUsuario");
-                
-                System.out.println("id: " + id + ", useranem: " + nombreUsuario);
+                String nombreUsuario = logService.findUserName(id);
+                if (nombreUsuario != null) {
+                    MetaData metaData = model.getMetaData();
+                    metaData.setClientId(id);
+                    metaData.setClientName(nombreUsuario);
+                }
             }
         }
         
@@ -78,13 +75,15 @@ public final class ValidationController {
             if (type != EstadoPeticion.Aprobada) {
                 error = "El servicio no puede ser prestado en este momento.";
             }
-            logs.log(msg, method, model.getMetaData().getEndPoint(), null, type);
+            logs.log(msg, method, model.getMetaData().getEndPoint(), id, type);
         })) {
+            id = null;
             return service.send(model);
         }
         
         Object res = bkNewError(error, 422);
         error = null;
+        id    = null;
         return ResponseEntity.status(422).body(res);
     }
 

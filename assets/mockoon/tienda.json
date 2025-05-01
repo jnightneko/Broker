@@ -13,11 +13,352 @@
       "type": "http",
       "documentation": "",
       "method": "get",
-      "endpoint": "",
+      "endpoint": "api/v1/tienda/GET/ventas",
       "responses": [
         {
           "uuid": "a320faa1-031e-414e-bc2f-b5a87c461992",
-          "body": "{}",
+          "body": "[\n    {\n        \"id\": 1,\n        \"fecha\": \"2023-05-15T14:30:00Z\",\n        \"total\": 245.50,\n        \"metodo_pago\": \"Efectivo\",\n        \"id_cliente\": 1,\n        \"estado\": 1\n    },\n    {\n        \"id\": 2,\n        \"fecha\": \"2023-05-15T16:45:00Z\",\n        \"total\": 189.00,\n        \"metodo_pago\": \"Tarjeta\",\n        \"id_cliente\": 3,\n        \"estado\": 1\n    }\n]",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "f2095853-4c64-4669-abe8-615547956e40",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "api/v1/tienda/GET/ventas/completo",
+      "responses": [
+        {
+          "uuid": "dd0d4c6f-8d21-4c87-92b0-8620295a3531",
+          "body": "[\n    {\n        \"id\": 1,\n        \"fecha\": \"2023-05-15T14:30:00Z\",\n        \"total\": 245.50,\n        \"metodo_pago\": \"Efectivo\",\n        \"id_cliente\": 1,\n        \"estado\": 1\n    },\n    {\n        \"id\": 2,\n        \"fecha\": \"2023-05-15T16:45:00Z\",\n        \"total\": 189.00,\n        \"metodo_pago\": \"Tarjeta\",\n        \"id_cliente\": 3,\n        \"estado\": 1\n    }\n]",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "c52f2e1a-3a89-4093-93fa-0e6da5d81df8",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "api/v1/tienda/GET/ventas/:id",
+      "responses": [
+        {
+          "uuid": "86eceeac-2e75-4103-98a8-1e635c9d963c",
+          "body": "{\n    \"id\": 1,\n    \"fecha\": \"2023-05-15T14:30:00Z\",\n    \"total\": 245.50,\n    \"metodo_pago\": \"Efectivo\",\n    \"id_cliente\": 1,\n    \"estado\": 1,\n    \"productos\": [\n        {\n            \"id\": 1,\n            \"id_producto\": 2,\n            \"cantidad\": 3,\n            \"precio_unitario\": 18.50\n        },\n        {\n            \"id\": 2,\n            \"id_producto\": 5,\n            \"cantidad\": 1,\n            \"precio_unitario\": 190.00\n        }\n    ]\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "691939a6-9350-44bf-95e2-d875cff4dd66",
+      "type": "http",
+      "documentation": "",
+      "method": "post",
+      "endpoint": "api/v1/tienda/POST/ventas",
+      "responses": [
+        {
+          "uuid": "7a7da8b8-9dd3-4b26-9453-f39957eccf22",
+          "body": "{\n    \"fecha\": \"2023-05-15T14:30:00Z\",\n    \"total\": 245.50,\n    \"metodo_pago\": \"Efectivo\",\n    \"id_cliente\": 1,\n    \"productos\": {\n        \"create\": [\n            {\n                \"producto\": {\n                    \"connect\": {\n                        \"id\": 2\n                    }\n                },\n                \"cantidad\": 3,\n                \"precio_unitario\": 18.50\n            },\n            {\n                \"producto\": {\n                    \"connect\": {\n                        \"id\": 5\n                    }\n                },\n                \"cantidad\": 1,\n                \"precio_unitario\": 190.00\n            }\n        ]\n    }\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "f1fca3ba-4eba-47f8-bb4c-4c4c0e9acb9d",
+      "type": "http",
+      "documentation": "",
+      "method": "put",
+      "endpoint": "api/v1/tienda/PUT/ventas/:id",
+      "responses": [
+        {
+          "uuid": "25ac441e-42a6-419e-a74d-a25e6baea97c",
+          "body": "{\n    \"id\": 1,\n    \"fecha\": \"2023-05-15T14:30:00Z\",\n    \"total\": 245.50,\n    \"metodo_pago\": \"Tarjeta\",\n    \"id_cliente\": 1,\n    \"estado\": 1\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "a7c7ac83-5279-481d-8986-c1386d474f63",
+      "type": "http",
+      "documentation": "",
+      "method": "delete",
+      "endpoint": "api/v1/tienda/DELETE/ventas/:id",
+      "responses": [
+        {
+          "uuid": "9cd805c9-1060-45ee-81b8-45dfbde155a1",
+          "body": "{\n\"id\": 1,\n\"fecha\": \"2023-05-15T14:30:00Z\",\n\"total\": 245.50,\n\"metodo_pago\": \"Tarjeta\",\n\"id_cliente\": 1,\n\"estado\": 0\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "1f1a920d-b06e-4407-a53e-0923b4815c05",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "api/v1/tienda/GET/devoluciones",
+      "responses": [
+        {
+          "uuid": "87714c13-f1cc-4198-9858-c11b256fa21e",
+          "body": "[\n    {\n        \"id\": 1,\n        \"id_venta\": 1,\n        \"fecha\": \"2023-05-16T10:30:00Z\",\n        \"motivo\": \"Producto dañado\",\n        \"monto\": 18.50,\n        \"estado\": \"aprobada\"\n    },\n    {\n        \"id\": 2,\n        \"id_venta\": 2,\n        \"fecha\": \"2023-05-17T11:15:00Z\",\n        \"motivo\": \"Cambio de opinión\",\n        \"monto\": 78.90,\n        \"estado\": \"pendiente\"\n    }\n]",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "0761531b-28f5-41fb-b1a2-117bcaac642f",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "api/v1/tienda/GET/devoluciones/:path",
+      "responses": [
+        {
+          "uuid": "a246990b-3a96-4397-aedc-308043fe03c4",
+          "body": "{\n    \"id\": 1,\n    \"id_venta\": 1,\n    \"fecha\": \"2023-05-16T10:30:00Z\",\n    \"motivo\": \"Producto dañado\",\n    \"monto\": 18.50,\n    \"estado\": \"aprobada\",\n    \"productos_devueltos\": [\n        {\n            \"id_producto\": 2,\n            \"cantidad\": 1,\n            \"precio_unitario\": 18.50\n        }\n    ]\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "1b5aea27-ba9b-42cd-b701-e517bf6cb89f",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "api/v1/tienda/GET/devoluciones/venta/:id",
+      "responses": [
+        {
+          "uuid": "52f5bbfd-89fe-4412-a450-84648505eada",
+          "body": "[\n{\n\"id\": 1,\n\"id_venta\": 1,\n\"fecha\": \"2023-05-16T10:30:00Z\",\n\"motivo\": \"Producto dañado\",\n\"monto\": 18.50,\n\"estado\": \"aprobada\"\n},\n{\n\"id\": 3,\n\"id_venta\": 1,\n\"fecha\": \"2023-05-18T09:45:00Z\",\n\"motivo\": \"Error en cobro\",\n\"monto\": 50.00,\n\"estado\": \"rechazada\"\n}\n]",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "1fdae5fb-fd5e-47b8-b0c2-656c4e5dea47",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "api/v1/tienda/GET/devoluciones/estado/pendiente",
+      "responses": [
+        {
+          "uuid": "9fc80943-c365-40f7-a1f7-1f5a567ed8f5",
+          "body": "[\n{\n\"id\": 2,\n\"id_venta\": 2,\n\"fecha\": \"2023-05-17T11:15:00Z\",\n\"motivo\": \"Cambio de opinión\",\n\"monto\": 78.90,\n\"estado\": \"pendiente\"\n},\n{\n\"id\": 4,\n\"id_venta\": 3,\n\"fecha\": \"2023-05-19T16:20:00Z\",\n\"motivo\": \"Producto incorrecto\",\n\"monto\": 124.50,\n\"estado\": \"pendiente\"\n}\n]",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "ae7fea7e-a9f5-498d-8f13-0395c9a6fc35",
+      "type": "http",
+      "documentation": "",
+      "method": "post",
+      "endpoint": "api/v1/tienda/POST/devoluciones",
+      "responses": [
+        {
+          "uuid": "0b8779e2-b0ec-4bbd-90fb-c83abdd53d4d",
+          "body": "{\n\"id\": 5,\n\"id_venta\": 2,\n\"fecha\": \"2023-05-20T13:40:00Z\",\n\"motivo\": \"Producto expirado\",\n\"monto\": 45.80,\n\"estado\": \"pendiente\"\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "04a93cff-cbef-4f94-b342-dcc90f0ecc37",
+      "type": "http",
+      "documentation": "",
+      "method": "put",
+      "endpoint": "api/v1/tienda/PUT/devoluciones/:id",
+      "responses": [
+        {
+          "uuid": "c11c7d9b-c7e9-4436-9e20-4e1ce28abc5a",
+          "body": "{\n\"id\": 5,\n\"id_venta\": 2,\n\"fecha\": \"2023-05-20T13:40:00Z\",\n\"motivo\": \"Producto expirado\",\n\"monto\": 45.80,\n\"estado\": \"aprobada\",\n\"comentarios\": \"Verificado por gerente. Se autoriza devolución.\"\n}",
           "latency": 0,
           "statusCode": 200,
           "label": "",
@@ -44,6 +385,50 @@
     {
       "type": "route",
       "uuid": "71ba49b5-aa18-4aa4-8947-713345d08e6d"
+    },
+    {
+      "type": "route",
+      "uuid": "f2095853-4c64-4669-abe8-615547956e40"
+    },
+    {
+      "type": "route",
+      "uuid": "c52f2e1a-3a89-4093-93fa-0e6da5d81df8"
+    },
+    {
+      "type": "route",
+      "uuid": "691939a6-9350-44bf-95e2-d875cff4dd66"
+    },
+    {
+      "type": "route",
+      "uuid": "f1fca3ba-4eba-47f8-bb4c-4c4c0e9acb9d"
+    },
+    {
+      "type": "route",
+      "uuid": "a7c7ac83-5279-481d-8986-c1386d474f63"
+    },
+    {
+      "type": "route",
+      "uuid": "1f1a920d-b06e-4407-a53e-0923b4815c05"
+    },
+    {
+      "type": "route",
+      "uuid": "0761531b-28f5-41fb-b1a2-117bcaac642f"
+    },
+    {
+      "type": "route",
+      "uuid": "1b5aea27-ba9b-42cd-b701-e517bf6cb89f"
+    },
+    {
+      "type": "route",
+      "uuid": "1fdae5fb-fd5e-47b8-b0c2-656c4e5dea47"
+    },
+    {
+      "type": "route",
+      "uuid": "ae7fea7e-a9f5-498d-8f13-0395c9a6fc35"
+    },
+    {
+      "type": "route",
+      "uuid": "04a93cff-cbef-4f94-b342-dcc90f0ecc37"
     }
   ],
   "proxyMode": false,

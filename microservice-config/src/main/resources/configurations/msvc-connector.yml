@@ -5,6 +5,10 @@ spring:
   application:
     name: msvc-connector
 
+feign:
+  okhttp:
+    enabled: true
+
 eureka:
   instance:
     hostname: localhost

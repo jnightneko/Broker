@@ -12,6 +12,8 @@ package gt.edu.umes.broker.core.endpoints;
  */
 public final class MCSVBroker {
     
+    public static final String BK_LOGS                       = "/broker/logs";
+    
     public static final String BK_USUARIO_OBTENER_POR_ID     = "/broker/usuarios/{id}";
     public static final String BK_USUARIO_CREAR              = "/broker/usuarios";
     

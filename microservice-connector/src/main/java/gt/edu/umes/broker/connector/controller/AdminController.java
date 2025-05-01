@@ -26,7 +26,31 @@ public class AdminController {
     public Object getUsuariosLogin(@RequestBody Object o) {
         return client.nUsuariosLogin(o);
     }
-    
+    /* (non-Javadoc) */
+    @PostMapping(HTTP_ADMIN_USUARIO_CAMBIO_PASS)
+    public Object getUsuarioCambioPass(@RequestBody Object o) {
+        return client.nUsuarioCambioPass(o);
+    }
+    /* (non-Javadoc) */
+    @PostMapping(HTTP_ADMIN_USUARIO_RESET_PASS)
+    public Object getUsuarioResetPass(@RequestBody Object o) {
+        return client.nUsuarioResetPass(o);
+    }
+    /* (non-Javadoc) */
+    @PostMapping(HTTP_ADMIN_ALERTAS_PATCH)
+    public Object getAlertasPatch() {
+        return client.nAlertasPatch();
+    }
+    /* (non-Javadoc) */
+    @PostMapping(HTTP_ADMIN_ROLES_PATCH)
+    public Object getRolesPatch() {
+        return client.nRolesPatch();
+    }
+    /* (non-Javadoc) */
+    @PostMapping(HTTP_ADMIN_ASISTENCIA_PATCH)
+    public Object getAsistenciaPatch(@RequestBody Object o) {
+        return client.nAsistenciaPatch(o);
+    }
     
     /* (non-Javadoc) */
     @PostMapping(HTTP_ADMIN_EMPLEADOS_GET)

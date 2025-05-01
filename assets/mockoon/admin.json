@@ -1371,6 +1371,161 @@
       "responseMode": null,
       "streamingMode": null,
       "streamingInterval": 0
+    },
+    {
+      "uuid": "d24d8220-de53-491b-8b42-9b99b4fd9141",
+      "type": "http",
+      "documentation": "",
+      "method": "post",
+      "endpoint": "administracion/POST/restablecer-password",
+      "responses": [
+        {
+          "uuid": "1a0adfbf-c66d-469b-b31c-d7822aa79cd5",
+          "body": "{\n    \"success\": true,\n    \"message\": \"Contraseña restablecida exitosamente\",\n    \"password\": {\n        \"usuario\": \"usuario\",\n        \"contraseniaTemporal\": \"contraseniaTemporal\"\n    }\n}\n",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "adb09a1c-13bb-447e-8760-7a337280916a",
+      "type": "http",
+      "documentation": "",
+      "method": "post",
+      "endpoint": "administracion/POST/cambiar-password",
+      "responses": [
+        {
+          "uuid": "02e00675-4ce0-406a-a1eb-655cea9bedff",
+          "body": "{\n    \"success\": true,\n    \"message\": \"Contraseña cambiada exitosamente\"\n}\n",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "29408c23-e385-49ac-9c42-0851c3408e1d",
+      "type": "http",
+      "documentation": "",
+      "method": "patch",
+      "endpoint": "administracion/PATCH/alertas/:id",
+      "responses": [
+        {
+          "uuid": "f6deae7a-f843-402a-9b71-fdaf43919dfe",
+          "body": "{ \n  \"mensagge\": \"Alerta desactivada con éxito\"\n}\n",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "aa92850a-4cd0-4552-834e-70cc5ac79fec",
+      "type": "http",
+      "documentation": "",
+      "method": "patch",
+      "endpoint": "administracion/PATCH/roles/:id",
+      "responses": [
+        {
+          "uuid": "7edbc23e-ac80-4839-bc4d-f541dfb13550",
+          "body": "Rol eliminado con éxito",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "7e750985-9645-4263-85c2-d413d6c3d7b3",
+      "type": "http",
+      "documentation": "",
+      "method": "patch",
+      "endpoint": "administracion/PATCH/asistencias/salida",
+      "responses": [
+        {
+          "uuid": "12ee4575-de9c-4e9a-80a4-9496b33ba126",
+          "body": "{\n    \"message\": \"Asistencia - Hora de salida registrada correctamente\"\n}\n",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
     }
   ],
   "rootChildren": [
@@ -1549,6 +1704,26 @@
     {
       "type": "route",
       "uuid": "c59d0bfa-bb14-441d-bb09-8a1372325e11"
+    },
+    {
+      "type": "route",
+      "uuid": "d24d8220-de53-491b-8b42-9b99b4fd9141"
+    },
+    {
+      "type": "route",
+      "uuid": "adb09a1c-13bb-447e-8760-7a337280916a"
+    },
+    {
+      "type": "route",
+      "uuid": "29408c23-e385-49ac-9c42-0851c3408e1d"
+    },
+    {
+      "type": "route",
+      "uuid": "aa92850a-4cd0-4552-834e-70cc5ac79fec"
+    },
+    {
+      "type": "route",
+      "uuid": "7e750985-9645-4263-85c2-d413d6c3d7b3"
     }
   ],
   "proxyMode": false,

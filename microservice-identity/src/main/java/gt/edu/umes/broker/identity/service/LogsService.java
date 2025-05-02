@@ -6,8 +6,8 @@ package gt.edu.umes.broker.identity.service;
 
 import gt.edu.umes.broker.core.model.JsonArrayX;
 import gt.edu.umes.broker.core.model.JsonObjectX;
-import gt.edu.umes.broker.core.model.MetaData;
 import gt.edu.umes.broker.identity.client.ClientLogs;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -20,7 +20,7 @@ public class LogsService {
     @Autowired
     private ClientLogs clientLogs;
     
-    public void checkUser(JsonObjectX object, MetaData metaData) {
+    public void checkUser(JsonObjectX object) {
         JsonObjectX userData = object.getObject("userData");
         if (userData == null) {
             return;
@@ -32,17 +32,12 @@ public class LogsService {
         }
         
         JsonObjectX saveUser = JsonObjectX.wrap(clientLogs.obtenerUsuarioPorId(Long.toString(id)));
-        if (saveUser == null) {
-            String path = metaData.getEndPoint();
-            if (path.startsWith("/")) {
-                path = path.substring(1, path.length());
-            }
-            
+        if (saveUser == null) {            
             saveUser = JsonObjectX.wrap();
             saveUser.set("id", id)
                     .set("nombreUsuario", usuario)
                     .set("estado", true)
-                    .set("servicio", path.substring(0, path.indexOf("/")));
+                    .set("servicio", "frontend");
             
             clientLogs.crearUsuario(saveUser.toMap());
         } else {

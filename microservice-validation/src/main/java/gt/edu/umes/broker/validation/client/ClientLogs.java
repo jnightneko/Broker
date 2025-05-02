@@ -4,17 +4,14 @@
  */
 package gt.edu.umes.broker.validation.client;
 
-import gt.edu.umes.broker.core.Microservice;
+import static gt.edu.umes.broker.core.Microservice.*;
+import static gt.edu.umes.broker.core.endpoints.MCSVBroker.*;
 import org.springframework.cloud.openfeign.FeignClient;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-
+import org.springframework.web.bind.annotation.*;
 /**
  * @author wil
  */
-@FeignClient(value = "MCSV-Logs", url = Microservice.INTERNAL_MICROSERVICE_LOGS)
+@FeignClient(value = "MCSV-Logs", url = INTERNAL_MICROSERVICE_LOGS)
 public interface ClientLogs {
     
     /**
@@ -22,7 +19,7 @@ public interface ClientLogs {
      * @param o objeto web
      * @return objeto we
      */
-    @PostMapping("/broker/logs")
+    @PostMapping(BK_LOGS)
     public Object crearLog(@RequestBody Object o);
     
     /**
@@ -30,6 +27,6 @@ public interface ClientLogs {
      * @param id uuid|string
      * @return objeto we
      */
-    @GetMapping("/broker/usuarios/{id}")
+    @GetMapping(BK_USUARIO_OBTENER_POR_ID)
     public Object obtenerPorId(@PathVariable("id") String id);
 }

@@ -20,11 +20,55 @@ import org.springframework.web.bind.annotation.*;
  */
 @FeignClient(value = "MCSV-Administracion", url = Microservice.MICROSERVICE_ADMIN)
 public interface AdminClient {
-    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    /* Enalces de prueba para el login. */
+    /**
+     * Enalces de prueba para el login.
+     * @param o objeto web
+     * @return objeto web
+     */
     @PostMapping(HTTP_ADMIN_USUARIO_LOGIN)
     public Object nUsuariosLogin(@RequestBody Object o);
-    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    
+    /**
+     * Permite que un empleado pueda cambiar su contraseña de acceso al sistema. 
+     * Haciendo uso de su contraseña anterior. Debe de cambiar contraseña al primer logueo
+     * 
+     * @param o objeto web
+     * @return objeto web
+     */
+    @PostMapping(HTTP_ADMIN_USUARIO_CAMBIO_PASS)
+    public Object nUsuarioCambioPass(@RequestBody Object o);
+    
+    /**
+     * Permite restablecer la contraseña de un empleado que la haya olvidado. Genera 
+     * una contraseña temporal, que luego el empleado puede cambiar.
+     * 
+     * @param o objeto web
+     * @return objeto web
+     */
+    @PostMapping(HTTP_ADMIN_USUARIO_RESET_PASS)
+    public Object nUsuarioResetPass(@RequestBody Object o);
+    
+    /**
+     * Desactivar una alerta de manera lógica.
+     * @return objeto web
+     */
+    @PatchMapping(HTTP_ADMIN_ALERTAS_PATCH)
+    public Object nAlertasPatch();
+    
+    /**
+     * Eliminar un rol de manera lógica.
+     * @return objeto web
+     */
+    @PatchMapping(HTTP_ADMIN_ROLES_PATCH)
+    public Object nRolesPatch();
+    
+    /**
+     * Registrar asistencia de un empleado específico (salida).
+     * @param o objeto web
+     * @return objeto web
+     */
+    @PatchMapping(HTTP_ADMIN_ASISTENCIA_PATCH)
+    public Object nAsistenciaPatch(@RequestBody Object o);
     
     /**
      * Consultar la información de todos los empleados.

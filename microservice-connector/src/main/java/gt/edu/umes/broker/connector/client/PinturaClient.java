@@ -43,7 +43,7 @@ public interface PinturaClient {
      * @return objeto json
      */
     @PutMapping(PINTURA_SERVICIO_PUT)
-    public Object nPServicio(@PathVariable("idServicio") Long id, @RequestBody Object value);    
+    public Object nPServicio(@PathVariable("idServicio") Object id, @RequestBody Object value);    
     /**
      * Obtener todos los tipos de servicio
      * @return objeto json
@@ -59,7 +59,7 @@ public interface PinturaClient {
      * @return objeto json
      */
     @PutMapping(PINTURA_TIPOSERVICIO_PUT)
-    public Object nPTipoServicio(@PathVariable("idTipoServicio") Long id, @RequestBody Object value);
+    public Object nPTipoServicio(@PathVariable("idTipoServicio") Object id, @RequestBody Object value);
     /**
      * Crear un nuevo tipo de servicio
      * @param value object
@@ -91,7 +91,7 @@ public interface PinturaClient {
      * @return objeto json
      */
     @PutMapping(PINTURA_TIPOVEHICULO_PUT)
-    public Object nPTipoVehiculo(@PathVariable("idTipoVehiculo") Long id, @RequestBody Object value);
+    public Object nPTipoVehiculo(@PathVariable("idTipoVehiculo") Object id, @RequestBody Object value);
     /**
      * Obtener todos los tipos de pintura disponibles
      * @return objeto json
@@ -112,7 +112,7 @@ public interface PinturaClient {
      * @return objeto web
      */
     @PutMapping(PINTURA_TIPOPINTURA_PUT)
-    public Object nPTipoPintura(@PathVariable("idTipoPintura") Long id, @RequestBody Object value);
+    public Object nPTipoPintura(@PathVariable("idTipoPintura") Object id, @RequestBody Object value);
     /**
      * Obtener todos los inventarios
      * @return objeto web
@@ -133,7 +133,7 @@ public interface PinturaClient {
      * @return objeto web
      */
     @PutMapping(PINTURA_INVENTARIO_PUT)
-    public Object nPInventario(@PathVariable("idInventario") Long id, @RequestBody Object value);
+    public Object nPInventario(@PathVariable("idInventario") Object id, @RequestBody Object value);
     /**
      * Obtener todos los movimientos de inventario
      * @return objeto web
@@ -174,14 +174,14 @@ public interface PinturaClient {
      * @return objeto web
      */
     @PutMapping(PINTURA_VENTAS_PUT)
-    public Object nPVentas(@PathVariable("idVenta") Long id, @RequestBody Object o);
+    public Object nPVentas(@PathVariable("idVenta") Object id, @RequestBody Object o);
     /**
      * Obtener el detalle de una venta específica
      * @param id id|long
      * @return objeto web
      */
     @GetMapping(PINTURA_DETALLE_VENTA_GET)
-    public Object nPDetallVenta(@PathVariable("idVenta") Long id);
+    public Object nPDetallVenta(@PathVariable("idVenta") Object id);
     /**
      * Crear un nuevo detalle de venta
      * @param o objeto web
@@ -196,7 +196,7 @@ public interface PinturaClient {
      * @return objeto web
      */
     @PutMapping(PINTURA_DETALLE_VENTA_PUT)
-    public Object nPDetalleVenta(@PathVariable("idDetalleVenta") Long l, @RequestBody Object o);
+    public Object nPDetalleVenta(@PathVariable("idDetalleVenta") Object l, @RequestBody Object o);
     /**
      * Obtener todas las devoluciones
      * @return objeto web
@@ -252,5 +252,5 @@ public interface PinturaClient {
      * @return objeto web
      */
     @PutMapping(PINTURA_PRECIOS_PUT)
-    public Object nPreciosPut(@PathVariable("id") Long id, @RequestBody Object o);
+    public Object nPreciosPut(@PathVariable("id") Object id, @RequestBody Object o);
 }

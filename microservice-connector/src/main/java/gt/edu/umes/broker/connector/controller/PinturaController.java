@@ -33,7 +33,7 @@ public final class PinturaController {
     }
     /*(non-Javadoc) */
     @PostMapping(PINTURA_SERVICIO_PUT)
-    public Object getPServicio(@PathVariable("idServicio") Long id, @RequestBody Object value) {
+    public Object getPServicio(@PathVariable("idServicio") Object id, @RequestBody Object value) {
         return client.nPServicio(id, value);
     }
     /*(non-Javadoc) */
@@ -43,7 +43,7 @@ public final class PinturaController {
     }
     /*(non-Javadoc) */
     @PostMapping(PINTURA_TIPOSERVICIO_PUT)
-    public Object getPTipoServicio(@PathVariable("idTipoServicio") Long id, @RequestBody Object value) {
+    public Object getPTipoServicio(@PathVariable("idTipoServicio") Object id, @RequestBody Object value) {
         return client.nPTipoServicio(id, value);
     }
     /*(non-Javadoc) */
@@ -63,7 +63,7 @@ public final class PinturaController {
     }
     /*(non-Javadoc) */
     @PostMapping(PINTURA_TIPOVEHICULO_PUT)
-    public Object getPTipoVehiculo(@PathVariable("idTipoVehiculo") Long id, @RequestBody Object value) {
+    public Object getPTipoVehiculo(@PathVariable("idTipoVehiculo") Object id, @RequestBody Object value) {
         return client.nPTipoVehiculo(id, value);
     }
     /*(non-Javadoc) */
@@ -78,7 +78,7 @@ public final class PinturaController {
     }
     /*(non-Javadoc) */
     @PostMapping(PINTURA_TIPOPINTURA_PUT)
-    public Object getPTipoPintura(@PathVariable("idTipoPintura") Long id, @RequestBody Object value) {
+    public Object getPTipoPintura(@PathVariable("idTipoPintura") Object id, @RequestBody Object value) {
         return client.nPTipoPintura(id, value);
     }
     /*(non-Javadoc) */
@@ -93,7 +93,7 @@ public final class PinturaController {
     }
     /*(non-Javadoc) */
     @PostMapping(PINTURA_INVENTARIO_PUT)
-    public Object getPInventario(@PathVariable("idInventario") Long id, @RequestBody Object value) {
+    public Object getPInventario(@PathVariable("idInventario") Object id, @RequestBody Object value) {
         return client.nPInventario(id, value);
     }
     /*(non-Javadoc) */
@@ -123,12 +123,12 @@ public final class PinturaController {
     }
     /*(non-Javadoc) */
     @PostMapping(PINTURA_VENTAS_PUT)
-    public Object getPVentas(@PathVariable("idVenta") Long id, @RequestBody Object o) {
+    public Object getPVentas(@PathVariable("idVenta") Object id, @RequestBody Object o) {
         return client.nPVentas(id, o);
     }
     /*(non-Javadoc) */
     @PostMapping(PINTURA_DETALLE_VENTA_GET)
-    public Object getPDetallVenta(@PathVariable("idVenta") Long id) {
+    public Object getPDetallVenta(@PathVariable("idVenta") Object id) {
         return client.nPDetallVenta(id);
     }
     /*(non-Javadoc) */
@@ -138,7 +138,7 @@ public final class PinturaController {
     }
     /*(non-Javadoc) */
     @PostMapping(PINTURA_DETALLE_VENTA_PUT)
-    public Object getPDetalleVenta(@PathVariable("idDetalleVenta") Long l, @RequestBody Object o) {
+    public Object getPDetalleVenta(@PathVariable("idDetalleVenta") Object l, @RequestBody Object o) {
         return client.nPDetalleVenta(l, o);
     }
     /*(non-Javadoc) */
@@ -178,7 +178,7 @@ public final class PinturaController {
     }    
     /*(non-Javadoc) */
     @PostMapping(PINTURA_PRECIOS_PUT)
-    public Object getPreciosPut(@PathVariable("id") Long id, @RequestBody Object o) {
+    public Object getPreciosPut(@PathVariable("id") Object id, @RequestBody Object o) {
         return client.nPreciosPut(id, o);
     }
 }

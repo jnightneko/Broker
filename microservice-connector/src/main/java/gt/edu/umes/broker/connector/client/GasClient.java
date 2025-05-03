@@ -50,7 +50,7 @@ public interface GasClient {
      * @return objeto web
      */
     @GetMapping(HTTP_BOMB_LIST_BOMBID)
-    public Object nBombListBombId(@PathVariable("bombId") Long id);
+    public Object nBombListBombId(@PathVariable("bombId") Object id);
     /**
      * Crear una bomba de servicio de gasolina
      * @param o id:long
@@ -65,14 +65,14 @@ public interface GasClient {
      * @return objeto web
      */
     @PatchMapping(HTTP_BOMB_UPDATE)
-    public Object nBombUpdate(@PathVariable("bombId") Long id,@RequestBody Object o);
+    public Object nBombUpdate(@PathVariable("bombId") Object id,@RequestBody Object o);
     /**
      * Eliminar una bomba de gasolina
      * @param id id:long
      * @return objeto web
      */
     @PatchMapping(HTTP_BOMB_DELETE)
-    public Object nBombDelete(@PathVariable("bombId") Long id);
+    public Object nBombDelete(@PathVariable("bombId") Object id);
     /**
      * Obtener todos los tipos de gasolina
      * @return objeto web
@@ -85,7 +85,7 @@ public interface GasClient {
      * @return objeto web
      */
     @GetMapping(HTTP_FUEL_TYPE_LIST_ID)
-    public Object nFuelTypeListId(@PathVariable("fuelId") Long id);
+    public Object nFuelTypeListId(@PathVariable("fuelId") Object id);
     /**
      * Crear un tipo de gasolina
      * @param o objeto web
@@ -100,14 +100,14 @@ public interface GasClient {
      * @return objeto web
      */
     @PatchMapping(HTTP_FUEL_TYPE_UPDATE)
-    public Object nFuelTypeUpdate(@PathVariable("fuelId") Long id, @RequestBody Object o);
+    public Object nFuelTypeUpdate(@PathVariable("fuelId") Object id, @RequestBody Object o);
     /**
      * Eliminar un tipo de gasolina
      * @param id id:long
      * @return objeto web
      */
     @PatchMapping(HTTP_FUEL_TYPE_DELETE)
-    public Object nFuelTypeDelete(@PathVariable("fuelId") Long id);
+    public Object nFuelTypeDelete(@PathVariable("fuelId") Object id);
     /**
      * Lista todas las ventas de combustible
      * @return objeto web
@@ -120,7 +120,7 @@ public interface GasClient {
      * @return objeto web
      */
     @GetMapping(HTTP_SALE_LIST_FUEL_SALE_ID)
-    public Object nSaleListFuelSaleId(@PathVariable("fuelSaleId") Long id);
+    public Object nSaleListFuelSaleId(@PathVariable("fuelSaleId") Object id);
     /**
      * Realiza una venta de combustible
      * @param o objeto web
@@ -135,14 +135,14 @@ public interface GasClient {
      * @return objeto web
      */
     @PatchMapping(HTTP_SALE_UPDATE)
-    public Object nSaleUpdate(@PathVariable("fuelSaleId") Long id, @RequestBody Object o);
+    public Object nSaleUpdate(@PathVariable("fuelSaleId") Object id, @RequestBody Object o);
     /**
      * Borra lógicamente una venta de combustible
      * @param id id:long
      * @return objeto web
      */
     @PatchMapping(HTTP_SALE_DELETE)
-    public Object nSaleDelerte(@PathVariable("fuelSaleId") Long id);
+    public Object nSaleDelerte(@PathVariable("fuelSaleId") Object id);
     /**
      * Lista todos los depósitos generales de combustible.
      * @return objeto web
@@ -155,7 +155,7 @@ public interface GasClient {
      * @return objeto web
      */
     @GetMapping(HTTP_GENERAL_DEPOSIT_LIST_ID)
-    public Object nGenaralDepositListId(@PathVariable("generalDepositId") Long id);
+    public Object nGenaralDepositListId(@PathVariable("generalDepositId") Object id);
     /**
      * Guarda un nuevo depósito general de combustible.
      * @param o objeto web
@@ -170,14 +170,14 @@ public interface GasClient {
      * @return objeto web
      */
     @PatchMapping(HTTP_GENERAL_DEPOSIT_UPDATE)
-    public Object nGeneralDepositUpdate(@PathVariable("generalDepositId") Long id, @RequestBody Object o);
+    public Object nGeneralDepositUpdate(@PathVariable("generalDepositId") Object id, @RequestBody Object o);
     /**
      * Borra lógicamente un depósito general de combustible.
      * @param id id:long
      * @return objeto web
      */
     @PatchMapping(HTTP_GENERAL_DEPOSIT_DELETE)
-    public Object nGeneralDepositDelete(@PathVariable("generalDepositId") Long id);
+    public Object nGeneralDepositDelete(@PathVariable("generalDepositId") Object id);
     /**
      * Lista todas las alertas generadas por el microservicio.
      * @return objeto web
@@ -190,7 +190,7 @@ public interface GasClient {
      * @return objeto web
      */
     @GetMapping(HTTP_ALERT_LIST_ID)
-    public Object nAlertListId(@PathVariable("alertId") Long id);
+    public Object nAlertListId(@PathVariable("alertId") Object id);
     /**
      * Guarda una nueva alerta.
      * @param o objeto web
@@ -204,12 +204,12 @@ public interface GasClient {
      * @return objeto web
      */
     @PatchMapping(HTTP_ALERT_UPDATE)
-    public Object nAlretUpdate(@PathVariable("alertId") Long id);
+    public Object nAlretUpdate(@PathVariable("alertId") Object id);
     /**
      * Borra lógicamente una alerta.
      * @param id id:long
      * @return objeto web
      */
     @PatchMapping(HTTP_ALERT_DELETE)
-    public Object nAlertDelete(@PathVariable("alertId") Long id);    
+    public Object nAlertDelete(@PathVariable("alertId") Object id);    
 }

@@ -82,7 +82,7 @@ public interface AdminClient {
      * @return objeto web
      */
     @GetMapping(HTTP_ADMIN_EMPLEAODS_GET_ID)
-    public Object nAdmminEmpleadoGetId(@PathVariable("id") Long id);
+    public Object nAdmminEmpleadoGetId(@PathVariable("id") Object id);
     /**
      * Insertar un registro de empleado
      * @param o objeto web
@@ -97,7 +97,7 @@ public interface AdminClient {
      * @return objeto web
      */
     @PutMapping(HTTP_ADMIN_EMPLEADOS_PUT)
-    public Object nAdmimEmpleadoPut(@PathVariable("id") Long id, @RequestBody Object o);
+    public Object nAdmimEmpleadoPut(@PathVariable("id") Object id, @RequestBody Object o);
     /**
      * Consultar todas las alertas actuales para abastecimiento de pedidos
      * @return objeto web
@@ -110,7 +110,7 @@ public interface AdminClient {
      * @return objeto web
      */
     @GetMapping(HTTP_ADMIN_ALETAS_GET_ID)
-    public Object nAdminAlertasGetId(@PathVariable("id") Long id);
+    public Object nAdminAlertasGetId(@PathVariable("id") Object id);
     /**
      * Alertas: Tienda
      * @param o objeto web
@@ -151,7 +151,7 @@ public interface AdminClient {
      * @return objeto web
      */
     @GetMapping(HTTP_ADMIN_AREAS_GET_ID)
-    public Object nAdminAreasGetId(@PathVariable("id") Long id);
+    public Object nAdminAreasGetId(@PathVariable("id") Object id);
     /**
      * Consultar todos los roles que puede ocupar un empleado dentro de un área
      * @return objeto web
@@ -164,7 +164,7 @@ public interface AdminClient {
      * @return objeto web
      */
     @GetMapping(HTTP_ADMIN_ROLES_GET_ID)
-    public Object nAdminRolesId(@PathVariable("id") Long id);
+    public Object nAdminRolesId(@PathVariable("id") Object id);
     /**
      * insertar un nuevo rol que puede ocupar un empleado dentro de un área.
      * @param o objeto web
@@ -179,7 +179,7 @@ public interface AdminClient {
      * @return objeto web
      */
     @PutMapping(HTTP_ADMIN_ROLES_PUT)
-    public Object nAdminRolesPut(@PathVariable("id") Long id, @RequestBody Object o);
+    public Object nAdminRolesPut(@PathVariable("id") Object id, @RequestBody Object o);
     /**
      * Consultar todas las jornadas laborales.
      * @return objeto web
@@ -192,7 +192,7 @@ public interface AdminClient {
      * @return objeto web
      */
     @GetMapping(HTTP_ADMIN_JORNADAS_GET_ID)
-    public Object nAdminJornadasGetId(@PathVariable("id") Long id);
+    public Object nAdminJornadasGetId(@PathVariable("id") Object id);
     /**
      * Consultar a todos los proveedores.
      * @return objeto web
@@ -205,7 +205,7 @@ public interface AdminClient {
      * @return objeto web
      */
     @GetMapping(HTTP_ADMIN_PROVEEDORES_GET_ID)
-    public Object nAmindProveedoresGetId(@PathVariable("id") Long id);
+    public Object nAmindProveedoresGetId(@PathVariable("id") Object id);
     /**
      * Insertar un nuevo proveedor.
      * @param o objeto web
@@ -220,7 +220,7 @@ public interface AdminClient {
      * @return objeto web
      */
     @PutMapping(HTTP_ADMIN_PROVEEDORES_PUT)
-    public Object nAdminProveedoresPut(@PathVariable("id") Long id, @RequestBody Object o);
+    public Object nAdminProveedoresPut(@PathVariable("id") Object id, @RequestBody Object o);
     /**
      * Consultar la información de todos los servicios.
      * @return objeto web
@@ -233,7 +233,7 @@ public interface AdminClient {
      * @return objeto web
      */
     @GetMapping(HTTP_ADMIN_SERVICIO_GET_ID)
-    public Object nAdminServicioGetId(@PathVariable("id") Long id);
+    public Object nAdminServicioGetId(@PathVariable("id") Object id);
     /**
      * Consultar la información de todos los tipos de movimientos.
      * @return objeto web
@@ -246,7 +246,7 @@ public interface AdminClient {
      * @return objeto web
      */
     @GetMapping(HTTP_ADMIN_MOVIMIENTO_GET_ID)
-    public Object nAdminMovGetId(@PathVariable("id") Long id);
+    public Object nAdminMovGetId(@PathVariable("id") Object id);
     ///**
     // * Devuelve el reporte de todos los movimientos.
     // * @return objeto web
@@ -295,7 +295,7 @@ public interface AdminClient {
      * @return objeto web
      */
     @GetMapping(HTTP_ADMIN_ASISTENCIA_GET)
-    public Object nAdminMovAsistencia(@PathVariable("id") Long id, @RequestBody Object o);
+    public Object nAdminMovAsistencia(@PathVariable("id") Object id, @RequestBody Object o);
     /**
      * Registrar asistencia de un empleado específico
      * @param o objeto web
@@ -309,7 +309,7 @@ public interface AdminClient {
      * @return objeto web
      */
     @PostMapping(HTTP_ADMIN_INASISTENCIA_GET)
-    public Object nAdminInasistenicaGet(@PathVariable("id") Long id);
+    public Object nAdminInasistenicaGet(@PathVariable("id") Object id);
     /**
      * Consultar la información básica de todas las órdenes.
      * @return objeto web
@@ -322,7 +322,7 @@ public interface AdminClient {
      * @return objeto web
      */
     @GetMapping(HTTP_ADMIN_ORDENES_GET_ID)
-    public Object nAdminOrdendeGetId(@PathVariable("id") Long id);
+    public Object nAdminOrdendeGetId(@PathVariable("id") Object id);
     /**
      * Registrar una orden.
      * @param o objeto web
@@ -339,14 +339,14 @@ public interface AdminClient {
      * @return objeto web
      */
     @PutMapping(HTTP_ADMIN_ORDENDES_MODIFICAR_ESTADO)
-    public Object nAdminOrdenesModificarEstado(@PathVariable("id") Long id, @RequestBody Object o);
+    public Object nAdminOrdenesModificarEstado(@PathVariable("id") Object id, @RequestBody Object o);
     /**
      * Ver los productos relacionados a una orden específica.
      * @param id id|long
      * @return objeto web
      */
     @GetMapping(HTTP_ADMIN_ORDENES_DETALLE)
-    public Object nAdminOrdenesDetalle(@PathVariable("id_orden") Long id);
+    public Object nAdminOrdenesDetalle(@PathVariable("id_orden") Object id);
     /**
      * Editar estado de 1 producto de una orden
      * @param id id|long
@@ -354,7 +354,7 @@ public interface AdminClient {
      * @return objeto web
      */
     @PutMapping(HTTP_ADMIN_ORDENES_DETALLE_MODIFICAR)
-    public Object nAdminOrdenesDetalleModificar(@PathVariable("id_detalle_orden") Long id, @RequestBody Object o);
+    public Object nAdminOrdenesDetalleModificar(@PathVariable("id_detalle_orden") Object id, @RequestBody Object o);
     /**
      * Consultar el estado de todas las órdenes.
      * @return objeto web

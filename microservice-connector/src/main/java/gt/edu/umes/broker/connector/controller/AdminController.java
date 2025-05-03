@@ -59,7 +59,7 @@ public class AdminController {
     }
     /* (non-Javadoc) */
     @PostMapping(HTTP_ADMIN_EMPLEAODS_GET_ID)
-    public Object getAdmminEmpleadoGetId(@PathVariable("id") Long id) {
+    public Object getAdmminEmpleadoGetId(@PathVariable("id") Object id) {
         return client.nAdmminEmpleadoGetId(id);
     }
     /* (non-Javadoc) */
@@ -69,7 +69,7 @@ public class AdminController {
     }
     /* (non-Javadoc) */
     @PostMapping(HTTP_ADMIN_EMPLEADOS_PUT)
-    public Object getAdmimEmpleadoPut(@PathVariable("id") Long id, @RequestBody Object o) {
+    public Object getAdmimEmpleadoPut(@PathVariable("id") Object id, @RequestBody Object o) {
         return client.nAdmimEmpleadoPut(id, o);
     }
     /* (non-Javadoc) */
@@ -79,7 +79,7 @@ public class AdminController {
     }
     /* (non-Javadoc) */
     @PostMapping(HTTP_ADMIN_ALETAS_GET_ID)
-    public Object getAdminAlertasGetId(@PathVariable("id") Long id) {
+    public Object getAdminAlertasGetId(@PathVariable("id") Object id) {
         return client.nAdminAlertasGetId(id);
     }
     /* (non-Javadoc) */
@@ -109,7 +109,7 @@ public class AdminController {
     }
     /* (non-Javadoc) */
     @PostMapping(HTTP_ADMIN_AREAS_GET_ID)
-    public Object getAdminAreasGetId(@PathVariable("id") Long id) {
+    public Object getAdminAreasGetId(@PathVariable("id") Object id) {
         return client.nAdminAreasGetId(id);
     }
     /* (non-Javadoc) */
@@ -119,7 +119,7 @@ public class AdminController {
     }
     /* (non-Javadoc) */
     @PostMapping(HTTP_ADMIN_ROLES_GET_ID)
-    public Object getAdminRolesId(@PathVariable("id") Long id) {
+    public Object getAdminRolesId(@PathVariable("id") Object id) {
         return client.nAdminRolesId(id);
     }
     /* (non-Javadoc) */
@@ -129,7 +129,7 @@ public class AdminController {
     }
     /* (non-Javadoc) */
     @PostMapping(HTTP_ADMIN_ROLES_PUT)
-    public Object nAdminRolesPut(@PathVariable("id") Long id, @RequestBody Object o) {
+    public Object nAdminRolesPut(@PathVariable("id") Object id, @RequestBody Object o) {
         return client.nAdminRolesPut(id, o);
     }
     /* (non-Javadoc) */
@@ -139,7 +139,7 @@ public class AdminController {
     }
     /* (non-Javadoc) */
     @PostMapping(HTTP_ADMIN_JORNADAS_GET_ID)
-    public Object getAdminJornadasGetId(@PathVariable("id") Long id) {
+    public Object getAdminJornadasGetId(@PathVariable("id") Object id) {
         return client.nAdminJornadasGetId(id);
     }
     /* (non-Javadoc) */
@@ -149,7 +149,7 @@ public class AdminController {
     }
     /* (non-Javadoc) */
     @PostMapping(HTTP_ADMIN_PROVEEDORES_GET_ID)
-    public Object getAmindProveedoresGetId(@PathVariable("id") Long id) {
+    public Object getAmindProveedoresGetId(@PathVariable("id") Object id) {
         return client.nAmindProveedoresGetId(id);
     }
     /* (non-Javadoc) */
@@ -159,7 +159,7 @@ public class AdminController {
     }
     /* (non-Javadoc) */
     @PostMapping(HTTP_ADMIN_PROVEEDORES_PUT)
-    public Object getAdminProveedoresPut(@PathVariable("id") Long id, @RequestBody Object o) {
+    public Object getAdminProveedoresPut(@PathVariable("id") Object id, @RequestBody Object o) {
         return client.nAdminProveedoresPut(id, o);
     }
     /* (non-Javadoc) */
@@ -169,7 +169,7 @@ public class AdminController {
     }
     /* (non-Javadoc) */
     @PostMapping(HTTP_ADMIN_SERVICIO_GET_ID)
-    public Object getAdminServicioGetId(@PathVariable("id") Long id) {
+    public Object getAdminServicioGetId(@PathVariable("id") Object id) {
         return client.nAdminServicioGetId(id);
     }
     /* (non-Javadoc) */
@@ -179,7 +179,7 @@ public class AdminController {
     }
     /* (non-Javadoc) */
     @PostMapping(HTTP_ADMIN_MOVIMIENTO_GET_ID)
-    public Object nAdminMovGetId(@PathVariable("id") Long id) {
+    public Object nAdminMovGetId(@PathVariable("id") Object id) {
         return client.nAdminMovGetId(id);
     }
     //* (non-Javadoc) */
@@ -214,7 +214,7 @@ public class AdminController {
     }
     /* (non-Javadoc) */
     @PostMapping(HTTP_ADMIN_ASISTENCIA_GET)
-    public Object getAdminMovAsistencia(@PathVariable("id") Long id, @RequestBody Object o) {
+    public Object getAdminMovAsistencia(@PathVariable("id") Object id, @RequestBody Object o) {
         return client.nAdminMovAsistencia(id, o);
     }
     /* (non-Javadoc) */
@@ -224,7 +224,7 @@ public class AdminController {
     }
     /* (non-Javadoc) */
     @PostMapping(HTTP_ADMIN_INASISTENCIA_GET)
-    public Object getAdminInasistenicaGet(@PathVariable("id") Long id) {
+    public Object getAdminInasistenicaGet(@PathVariable("id") Object id) {
         return client.nAdminInasistenicaGet(id);
     }
     /* (non-Javadoc) */
@@ -234,7 +234,7 @@ public class AdminController {
     }
     /* (non-Javadoc) */
     @PostMapping(HTTP_ADMIN_ORDENES_GET_ID)
-    public Object getAdminOrdendeGetId(@PathVariable("id") Long id) {
+    public Object getAdminOrdendeGetId(@PathVariable("id") Object id) {
         return client.nAdminOrdendeGetId(id);
     }
     /* (non-Javadoc) */
@@ -244,17 +244,17 @@ public class AdminController {
     }
     /* (non-Javadoc) */
     @PostMapping(HTTP_ADMIN_ORDENDES_MODIFICAR_ESTADO)
-    public Object getAdminOrdenesModificarEstado(@PathVariable("id") Long id, @RequestBody Object o) {
+    public Object getAdminOrdenesModificarEstado(@PathVariable("id") Object id, @RequestBody Object o) {
         return client.nAdminOrdenesModificarEstado(id, o);
     }
     /* (non-Javadoc) */
     @PostMapping(HTTP_ADMIN_ORDENES_DETALLE)
-    public Object getAdminOrdenesDetalle(@PathVariable("id_orden") Long id) {
+    public Object getAdminOrdenesDetalle(@PathVariable("id_orden") Object id) {
         return client.nAdminOrdenesDetalle(id);
     }
     /* (non-Javadoc) */
     @PostMapping(HTTP_ADMIN_ORDENES_DETALLE_MODIFICAR)
-    public Object getAdminOrdenesDetalleModificar(@PathVariable("id_detalle_orden") Long id, @RequestBody Object o) {
+    public Object getAdminOrdenesDetalleModificar(@PathVariable("id_detalle_orden") Object id, @RequestBody Object o) {
         return client.nAdminOrdenesDetalleModificar(id, o);
     }
     /* (non-Javadoc) */

@@ -29,7 +29,7 @@ public final class PagoController {
     }
     /* (non-Javadoc) */
     @PostMapping(PAGOS_CLIENTE_OBTENER_NIT)
-    public Object getClienteObtener(@PathVariable("nit") Long nit) {
+    public Object getClienteObtener(@PathVariable("nit") Object nit) {
         return client. pClienteObtener(nit);
     }    
     /* (non-Javadoc) */
@@ -44,17 +44,17 @@ public final class PagoController {
     }
     /* (non-Javadoc) */
     @PostMapping(PAGOS_CLIENTE_ELIMINAR)
-    public Object getClienteEliminar(@PathVariable("id_cliente") Long id) {
+    public Object getClienteEliminar(@PathVariable("id_cliente") Object id) {
         return client.pClienteEliminar(id);
     }
     /* (non-Javadoc) */
     @PostMapping(PAGOS_CLIENTE_FIDELIDAD_CREAR)
-    public Object getClienteFidelidadCrear(@PathVariable("id_cliente") Long id) {
+    public Object getClienteFidelidadCrear(@PathVariable("id_cliente") Object id) {
         return client.pClienteFidelidadCrear(id);
     }
     /* (non-Javadoc) */
     @PostMapping(PAGOS_CLIENTE_FIDELIDAD_DESACTIVAR)
-    public Object getClienteFidelidadDesactivar(@PathVariable("id_cliente") Long id) {
+    public Object getClienteFidelidadDesactivar(@PathVariable("id_cliente") Object id) {
         return client.pClienteFidelidadDesactivar(id);
     }
     
@@ -67,7 +67,7 @@ public final class PagoController {
     }
     /* (non-Javadoc) */
     @PostMapping(PAGOS_METODO_OBTENER_ID)
-    public Object nMetodoObtenerId(@PathVariable("idMetodo") Long id) {
+    public Object nMetodoObtenerId(@PathVariable("idMetodo") Object id) {
         return client.pMetodoObtenerId(id);
     }
     /* (non-Javadoc) */
@@ -77,7 +77,7 @@ public final class PagoController {
     }
     /* (non-Javadoc) */
     @PostMapping(PAGOS_METODO_ELIMINAR)
-    public Object getMetodoEliminar(@PathVariable("id_metodo") Long id) {
+    public Object getMetodoEliminar(@PathVariable("id_metodo") Object id) {
         return client.pMetodoEliminar(id);
     }
     
@@ -91,12 +91,12 @@ public final class PagoController {
     }
     /* (non-Javadoc) */
     @PostMapping(PAGOS_TRANSACCION_OBTENER_PARAM)
-    public Object getTransaccionObtener(@PathVariable("noTransaccion") Long id) {
-        return client.pTransaccionObtener(id);
+    public Object getTransaccionObtenerId(@PathVariable("noTransaccion") Object id) {
+        return client.pTransaccionObtenerId(id);
     }
     /* (non-Javadoc) */
     @PostMapping(PAGOS_TRANSACCION_OBTENER_POR_SERVICIO)
-    public Object getTransaccionPorServicio(@PathVariable("idServicio") Long id) {
+    public Object getTransaccionPorServicio(@PathVariable("idServicio") Object id) {
         return client.pTransaccionPorServicio(id);
     }
     /* (non-Javadoc) */
@@ -106,7 +106,7 @@ public final class PagoController {
     }
     /* (non-Javadoc) */
     @PostMapping(PAGOS_TRANSACCION_ANULAR)
-    public Object getTransaccionAnular(@PathVariable("noTransaccion") Long id) {
+    public Object getTransaccionAnular(@PathVariable("noTransaccion") Object id) {
         return client.pTransaccionAnular(id);
     }
     
@@ -119,8 +119,8 @@ public final class PagoController {
     }
     /* (non-Javadoc) */
     @PostMapping(PAGOS_DEVOLUCION_OBTENER_PARAM)
-    public Object getDevolucionObtener(@PathVariable("noDevolucion") Long id) {
-        return client.pDevolucionObtener(id);
+    public Object getDevolucionObtenerId(@PathVariable("noDevolucion") Object id) {
+        return client.pDevolucionObtenerId(id);
     }
     /* (non-Javadoc) */
     @PostMapping(PAGOS_DEVOLUCION_CREAR)
@@ -138,7 +138,7 @@ public final class PagoController {
     }
     /* (non-Javadoc) */
     @PostMapping(PAGOS_BANCO_OBTENER_PARAM)
-    public Object getBancosObtener(@PathVariable("id") Long id) {
+    public Object getBancosObtener(@PathVariable("id") Object id) {
         return client.pBancosObtener(id);
     }
     /* (non-Javadoc) */
@@ -148,7 +148,7 @@ public final class PagoController {
     }
     /* (non-Javadoc) */
     @PostMapping(PAGOS_BANCO_ELIMINAR)
-    public Object getBancoEliminar(@PathVariable("id") Long id) {
+    public Object getBancoEliminar(@PathVariable("id") Object id) {
         return client.pBancoEliminar(id);
     }
     
@@ -157,12 +157,12 @@ public final class PagoController {
     // >>                                        MÓDULO FACTURAS                                       <<
     /* (non-Javadoc) */
     @PostMapping(PAGOS_FACTURA_OBTENER)
-    public Object getFacturaObtener(@PathVariable("noFactura") Long id) {
+    public Object getFacturaObtener(@PathVariable("noFactura") Object id) {
         return client.pFacturaObtener(id);
     }
     /* (non-Javadoc) */
     @PostMapping(PAGOS_FACTURA_ANULAR)
-    public Object getFacturaAnular(@PathVariable("noFactura") Long id) {
+    public Object getFacturaAnular(@PathVariable("noFactura") Object id) {
         return client.pFacturaAnular(id);
     }
     

@@ -34,7 +34,7 @@ public interface PagosClient {
      * @return objeto json
      */
     @GetMapping(PAGOS_CLIENTE_OBTENER_NIT)
-    public Object pClienteObtener(@PathVariable("nit") Long nit);
+    public Object pClienteObtener(@PathVariable("nit") Object nit);
     /**
      * Método encargado de enlazar la ruta (endpoint) del microservicio 'Pagos'.
      * @param value parámetro (body)
@@ -55,21 +55,21 @@ public interface PagosClient {
      * @return objeto json
      */
     @PutMapping(PAGOS_CLIENTE_ELIMINAR)
-    public Object pClienteEliminar(@PathVariable("id_cliente") Long id);
+    public Object pClienteEliminar(@PathVariable("id_cliente") Object id);
     /**
      * Método encargado de enlazar la ruta (endpoint) del microservicio 'Pagos'.
      * @param id parámetro (body)
      * @return objeto json
      */
     @PutMapping(PAGOS_CLIENTE_FIDELIDAD_CREAR)
-    public Object pClienteFidelidadCrear(@PathVariable("id_cliente") Long id);
+    public Object pClienteFidelidadCrear(@PathVariable("id_cliente") Object id);
     /**
      * Método encargado de enlazar la ruta (endpoint) del microservicio 'Pagos'.
      * @param id parámetro (body)
      * @return objeto json
      */
     @PutMapping(PAGOS_CLIENTE_FIDELIDAD_DESACTIVAR)
-    public Object pClienteFidelidadDesactivar(@PathVariable("id_cliente") Long id);
+    public Object pClienteFidelidadDesactivar(@PathVariable("id_cliente") Object id);
     
     //***************************************************************************************************
     // >>                                        MÓDULO PAGOS                                          <<
@@ -85,7 +85,7 @@ public interface PagosClient {
      * @return objeto web
      */
     @GetMapping(PAGOS_METODO_OBTENER_ID)
-    public Object pMetodoObtenerId(@PathVariable("idMetodo") Long id);
+    public Object pMetodoObtenerId(@PathVariable("idMetodo") Object id);
     
     /**
      * Método encargado de enlazar la ruta (endpoint) del microservicio 'Pagos'.
@@ -100,7 +100,7 @@ public interface PagosClient {
      * @return objeto json
      */
     @PutMapping(PAGOS_METODO_ELIMINAR)
-    public Object pMetodoEliminar(@PathVariable("id_metodo") Long id);
+    public Object pMetodoEliminar(@PathVariable("id_metodo") Object id);
     
     //***************************************************************************************************
     // >>                                   MÓDULO TRANSACCIONES                                       <<
@@ -117,14 +117,14 @@ public interface PagosClient {
      * @return objeto json
      */
     @GetMapping(PAGOS_TRANSACCION_OBTENER_PARAM)
-    public Object pTransaccionObtener(@PathVariable("noTransaccion") Long id);
+    public Object pTransaccionObtenerId(@PathVariable("noTransaccion") Object id);
     /**
      * Lista las transacciones hechas filtradas por servicio
      * @param id parámetro (body)
      * @return objeto json
      */
     @GetMapping(PAGOS_TRANSACCION_OBTENER_POR_SERVICIO)
-    public Object pTransaccionPorServicio(@PathVariable("idServicio") Long id);
+    public Object pTransaccionPorServicio(@PathVariable("idServicio") Object id);
     /**
      * Solicita datos necesarios para crear una transacción
      * @param value parámetro (body)
@@ -138,7 +138,7 @@ public interface PagosClient {
      * @return objeto json
      */
     @PutMapping(PAGOS_TRANSACCION_ANULAR)
-    public Object pTransaccionAnular(@PathVariable("noTransaccion") Long id);
+    public Object pTransaccionAnular(@PathVariable("noTransaccion") Object id);
         
     //***************************************************************************************************
     // >>                                    MÓDULO DEVOLUCIONES                                       <<
@@ -158,7 +158,7 @@ public interface PagosClient {
      * @return objeto json
      */
     @GetMapping(PAGOS_DEVOLUCION_OBTENER_PARAM)
-    public Object pDevolucionObtener(@PathVariable("noDevolucion") Long id);
+    public Object pDevolucionObtenerId(@PathVariable("noDevolucion") Object id);
     /**
      * Hacer una devolución
      * @param value parámetro (body)
@@ -181,7 +181,7 @@ public interface PagosClient {
      * @return objeto json
      */
     @GetMapping(PAGOS_BANCO_OBTENER_PARAM)
-    public Object pBancosObtener(@PathVariable("id") Long id);
+    public Object pBancosObtener(@PathVariable("id") Object id);
     /**
      * Crea un nuevo banco
      * @param value parámetro (body)
@@ -195,7 +195,7 @@ public interface PagosClient {
      * @return objeto json
      */
     @PutMapping(PAGOS_BANCO_ELIMINAR)
-    public Object pBancoEliminar(@PathVariable("id") Long id);
+    public Object pBancoEliminar(@PathVariable("id") Object id);
     
     //***************************************************************************************************
     // >>                                        MÓDULO FACTURAS                                       <<
@@ -205,14 +205,14 @@ public interface PagosClient {
      * @return objeto json
      */
     @GetMapping(PAGOS_FACTURA_OBTENER)
-    public Object pFacturaObtener(@PathVariable("noFactura") Long id);
+    public Object pFacturaObtener(@PathVariable("noFactura") Object id);
     /**
      * Anula una factura
      * @param id parámetro (body)
      * @return objeto json
      */
     @PutMapping(PAGOS_FACTURA_ANULAR)
-    public Object pFacturaAnular(@PathVariable("noFactura") Long id);
+    public Object pFacturaAnular(@PathVariable("noFactura") Object id);
     
     //***************************************************************************************************
     // >>                                        CIERRE DE CAJAS                                        <<

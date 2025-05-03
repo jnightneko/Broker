@@ -40,7 +40,7 @@ public interface RepuestosClient {
      * @return objeto web
      */
     @PutMapping(HTTP_CLIENTES_PUT)
-    public Object nClientesPut(@PathVariable("id") Long id, @RequestBody Object o);
+    public Object nClientesPut(@PathVariable("id") Object id, @RequestBody Object o);
     /**
      * Enalce al end-pointe
      * @return objeto web
@@ -61,7 +61,7 @@ public interface RepuestosClient {
      * @return objeto web
      */
     @PutMapping(HTTP_PRODUCTOS_PUT)
-    public Object nProductosPut(@PathVariable("id") Long id, @RequestBody Object o);
+    public Object nProductosPut(@PathVariable("id") Object id, @RequestBody Object o);
     /**
      * Enalce al end-pointe
      * @return objeto web
@@ -82,7 +82,7 @@ public interface RepuestosClient {
      * @return objeto web
      */
     @PutMapping(HTTP_VEHICULOS_PUT)
-    public Object nVehiculosPut(@PathVariable("id") Long id, @RequestBody Object o);
+    public Object nVehiculosPut(@PathVariable("id") Object id, @RequestBody Object o);
     /**
      * Enalce al end-pointe
      * @return objeto web
@@ -122,5 +122,5 @@ public interface RepuestosClient {
      * @return objeto web
      */
     @PutMapping(HTTP_VENTAS_PUT)
-    public Object nVentasPut(@PathVariable("id") Long id, @RequestBody Object o);     
+    public Object nVentasPut(@PathVariable("id") Object id, @RequestBody Object o);     
 }

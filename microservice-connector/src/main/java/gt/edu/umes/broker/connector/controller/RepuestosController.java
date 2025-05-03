@@ -33,7 +33,7 @@ public final class RepuestosController {
     }
     /* (non-Javadoc) */
     @PostMapping(HTTP_CLIENTES_PUT)
-    public Object getClientesPut(@PathVariable("id") Long id, @RequestBody Object o) {
+    public Object getClientesPut(@PathVariable("id") Object id, @RequestBody Object o) {
         return client.nClientesPut(id, o);
     }
     /* (non-Javadoc) */
@@ -48,7 +48,7 @@ public final class RepuestosController {
     }
     /* (non-Javadoc) */
     @PostMapping(HTTP_PRODUCTOS_PUT)
-    public Object getProductosPut(@PathVariable("id") Long id, @RequestBody Object o) {
+    public Object getProductosPut(@PathVariable("id") Object id, @RequestBody Object o) {
         return client.nProductosPut(id, o);
     }
     /* (non-Javadoc) */
@@ -63,7 +63,7 @@ public final class RepuestosController {
     }
     /* (non-Javadoc) */
     @PostMapping(HTTP_VEHICULOS_PUT)
-    public Object getVehiculosPut(@PathVariable("id") Long id, @RequestBody Object o) {
+    public Object getVehiculosPut(@PathVariable("id") Object id, @RequestBody Object o) {
         return client.nVehiculosPut(id, o);
     }
     /* (non-Javadoc) */
@@ -93,7 +93,7 @@ public final class RepuestosController {
     }
     /* (non-Javadoc) */
     @PostMapping(HTTP_VENTAS_PUT)
-    public Object getVentasPut(@PathVariable("id") Long id, @RequestBody Object o) {
+    public Object getVentasPut(@PathVariable("id") Object id, @RequestBody Object o) {
         return client.nVentasPut(id, o);
     }
 }

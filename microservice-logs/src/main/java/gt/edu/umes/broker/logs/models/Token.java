@@ -18,6 +18,9 @@ public class Token {
     private Date fechaExpiracion;
     private String idU; // _id del usuario
 
+    /*nuevo campo para guardar el estado de sesion*/
+    private boolean loggedOut;
+
     @CreatedDate
     private Date createdAt;
 
@@ -26,11 +29,15 @@ public class Token {
 
     public Token() {}
 
-    public Token(String token, String idU, Date fechaInicio, Date fechaExpiracion) {
+    public Token(String id, String token, Date fechaInicio, Date fechaExpiracion, String idU, boolean loggedOut, Date createdAt, Date updatedAt) {
+        this.id = id;
         this.token = token;
-        this.idU = idU;
         this.fechaInicio = fechaInicio;
         this.fechaExpiracion = fechaExpiracion;
+        this.idU = idU;
+        this.loggedOut = loggedOut;
+        this.createdAt = createdAt;
+        this.updatedAt = updatedAt;
     }
 
     // Getters y setters
@@ -42,6 +49,14 @@ public class Token {
 
     public String getIdU() { return idU; }
     public void setIdU(String idU) { this.idU = idU; }
+
+    public boolean isLoggedOut() {
+        return loggedOut;
+    }
+
+    public void setLoggedOut(boolean loggedOut) {
+        this.loggedOut = loggedOut;
+    }
 
     public Date getFechaInicio() { return fechaInicio; }
     public void setFechaInicio(Date fechaInicio) { this.fechaInicio = fechaInicio; }

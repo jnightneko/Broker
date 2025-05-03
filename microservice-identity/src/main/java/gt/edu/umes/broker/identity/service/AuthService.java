@@ -7,14 +7,19 @@ import gt.edu.umes.broker.core.model.MetaData;
 import gt.edu.umes.broker.core.model.Response;
 import gt.edu.umes.broker.core.system.SFPBSystem;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.http.HttpStatus;
 
 import java.util.*;
+import java.util.function.Function;
+import java.util.stream.Collectors;
 
 @Service
 public class AuthService {
+    private static final Logger log = LoggerFactory.getLogger(AuthService.class);
     @Autowired
     private JwtService jwtService;
     @Autowired
@@ -60,7 +65,20 @@ public class AuthService {
         response.setData(responseData);
         response.setMessage("Acceso autorizado...");
         response.setStatus(HttpStatus.OK.value());
-        
+
+        /*verificacion de tokens por usuario*/
+        Object tokenResponse = logService.obtenerTokenUsuario(empleados.getString("userId"));
+        List<Map<String, Object>> validTokenListByUser = convertTokensReponse(tokenResponse);
+
+        if(!validTokenListByUser.isEmpty()){
+            validTokenListByUser.forEach(t -> {
+                t.put("loggedOut", true);
+            });
+        }
+
+        /*invalidar tokens previos de ser necesario*/
+        invalidatePreviousTokens(validTokenListByUser);
+
         guardarToken(token, empleados.getLong("userId"));
         return new BKResponseModel(new MetaData(), response);
     }
@@ -70,7 +88,8 @@ public class AuthService {
                                     .set("token", token.getToke())
                                     .set("fechaInicio", token.getIssuedAt())
                                     .set("fechaExpiracion", token.getExpirarion())
-                                    .set("idU", userId);
+                                    .set("idU", userId)
+                                    .set("loggedOut", false);
         
         JsonArrayX sesiones = logService.obtenerSesionPorUsuario(userId);
         JsonObjectX sesionAbierta;
@@ -86,7 +105,7 @@ public class AuthService {
         
         logService.saveToken(obj, null);
     }
-    
+
     public void cerrarSesion(String token) {
         String id = SFPBSystem.extractUsername(SFPBSystem.extractBearerToken(token), (e) -> {
             System.out.println("[ERROR][TOKEN] :" + e.getMessage());
@@ -121,6 +140,7 @@ public class AuthService {
         }
     }
 
+    /*metodos auxiliares*/
     private List<String> obtenerRol(JsonObjectX empleado) {
         if(empleado.toMap().containsKey("Rol")) {
             Object roles = empleado.toMap().get("Rol");
@@ -131,5 +151,39 @@ public class AuthService {
         }
 
         return Collections.singletonList("Usuario");
+    }
+
+    private List<Map<String, Object>> convertTokensReponse(Object response) {
+        try {
+            if( response instanceof List) {
+                return ((List<?>) response).stream()
+                        .filter(item -> item instanceof  Map)
+                        .map(item -> (Map<String, Object>) item)
+                        .filter(tokenMap -> Boolean.FALSE.equals(tokenMap.get("loggedOut")))
+                        .collect(Collectors.toList());
+            }
+            return Collections.emptyList();
+        } catch (Exception e) {
+            log.error("Error convirtiendo token response", e);
+            return Collections.emptyList();
+        }
+    }
+
+    private void invalidatePreviousTokens(List<Map<String, Object>> tokens){
+        if(tokens.isEmpty()) return;
+
+        tokens.forEach(token -> {
+            try {
+                JwtService.JwtToken jwtToken = new JwtService.JwtToken(
+                        (String) token.get("token"),
+                        (Date) token.get("fechaInicio"),
+                        (Date) token.get("fechaExpiracion")
+                );
+
+                guardarToken(jwtToken, ((Long) token.get("idU")));
+            } catch (Exception e) {
+                log.error("Error invalidando token", e);
+            }
+        });
     }
 }

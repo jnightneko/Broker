@@ -69,7 +69,7 @@ servicios internos
 
 3. **microservice-**** 
 
-Levantar el resto de los servicios (en esta etapa no importa el roden ya que son independientes 
+Levantar el resto de los servicios (en esta etapa no importa el orden ya que son independientes 
 entre sí)
 
 ## Pruebas

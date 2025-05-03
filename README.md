@@ -39,8 +39,11 @@ Tabla de microservicios que conforma los procesos del funcionamiento del servici
 | LOGS          | Microservicio encargado de generar los logs así como la administración de la DB                               | 8095     |
 | VALIDATION    | Microservicio encargado de las validaciones de las peticiones por parte del cliente (especialmente los pagos) | 9090     |
 
-4. **Módulos**: Módulos compartidos entre servicios (bibliotecas internas)
-    * core
+4. **Módulos**: 
+
+Módulos compartidos entre servicios (bibliotecas internas)
+
+* [core](./core/src/main/java)
 
 ## Iniciar Proyecto
 
@@ -55,6 +58,8 @@ siguientes módulos de la siguiente manera:
 2. EUREKA
 3. GATEWAY
 4. MY_SERVICE (Otros servicios)
+
+[Ir a la guía ](./assets/docs/ARRANQUE.md)
 
 Ya iniciado los servicios, podemos empezar a utilizar el broker: http://localhost:3761/
 

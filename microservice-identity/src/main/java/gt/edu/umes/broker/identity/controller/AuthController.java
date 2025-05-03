@@ -45,7 +45,7 @@ public class AuthController {
                                  .body(new BKErrorResponseModel("Credencias inválidas o usuario inactivo", 402));
         }
         
-        logsService.checkUser(webObject, authRequest.getMetaData());
+        logsService.checkUser(webObject);
         BKResponseModel response = authService.authenticationUser(webObject);
         return ResponseEntity.ok(response);
     }

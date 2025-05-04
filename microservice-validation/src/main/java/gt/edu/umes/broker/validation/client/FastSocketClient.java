@@ -13,7 +13,7 @@ public class FastSocketClient extends WebSocketClient {
 
     @Override
     public void onOpen(ServerHandshake handshake) {
-        System.out.println("🟢 Conectado al servidor WebSocket");
+        System.out.println("Conectado al servidor WebSocket");
     }
 
     @Override
@@ -23,11 +23,11 @@ public class FastSocketClient extends WebSocketClient {
 
     @Override
     public void onClose(int code, String reason, boolean remote) {
-        System.out.println("🔴 Desconectado del servidor WebSocket");
+        System.out.println("Desconectado del servidor WebSocket");
     }
 
     @Override
     public void onError(Exception ex) {
-        System.err.println("❌ Error en WebSocket: " + ex.getMessage());
+        System.err.println("Error en WebSocket: " + ex.getMessage());
     }
 }

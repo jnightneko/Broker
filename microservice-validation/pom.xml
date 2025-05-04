@@ -65,6 +65,15 @@
             <artifactId>spring-boot-starter-webflux</artifactId>
         </dependency>
 
+        <!-- Dependencias: WebSockets -->
+        <dependency>
+            <groupId>org.java-websocket</groupId>
+            <artifactId>java-websocket</artifactId>
+            <version>1.5.2</version>
+        </dependency>
+
+
+
         <!-- Dependencias: JWT -->
         <dependency>
             <groupId>io.jsonwebtoken</groupId>

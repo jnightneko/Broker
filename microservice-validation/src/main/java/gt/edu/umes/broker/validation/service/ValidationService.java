@@ -36,7 +36,11 @@ public class ValidationService {
     /** Microservicio de conexión (redireccionamiento)*/
     @Autowired
     private ConnectorService connectorService;
-    
+
+    @Autowired
+    private ArduinoSocketSender arduinoSocketSender;
+
+
     /**
      * Método encargado de validar el cuerpo de la petición, esta validación depende
      * a que servicios este destinado.
@@ -48,6 +52,7 @@ public class ValidationService {
     public boolean isValid(AbstractBKModel<Object> model, LogListener<AbstractBKModel<Object>, Object> logs) {
         if (model == null || model.getMetaData() == null) {
             logs.log(logService, model, "Error al procesar los datos, verifique el protocolo de comunicación con SFPB", EstadoPeticion.Rechazada);
+            arduinoSocketSender.notificar("RECHAZADA");
             return false;
         }
         
@@ -56,6 +61,7 @@ public class ValidationService {
                     + model.getMetaData().getEndPoint() 
                     + "], verifique el protocolo de comunicación con SFPB "
                     + ">> https://github.com/jnightneko/Broker/blob/master/assets/docs/PROTOCOLO.md ", EstadoPeticion.Rechazada);
+            arduinoSocketSender.notificar("RECHAZADA");
             return false;
         }
         
@@ -82,12 +88,14 @@ public class ValidationService {
 
                 if (metodoNoValido) {
                     logs.log(logService, model, "Métodos de pagos inválidos: " + model.getMetaData().getEndPoint() + ":" + metosPagos, EstadoPeticion.Rechazada);
+                    arduinoSocketSender.notificar("RECHAZADA");
                     return false;
                 }
             }
         }
         
         logs.log(logService, model, "Petición solicitada: " + model.getMetaData().getEndPoint(), EstadoPeticion.Aprobada);
+        arduinoSocketSender.notificar("VALIDA");
         return true;
     }
     

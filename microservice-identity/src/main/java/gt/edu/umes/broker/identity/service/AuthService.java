@@ -33,30 +33,54 @@ public class AuthService {
             response.setMessage("Credenciales invalidas");
             response.setStatus(HttpStatus.UNAUTHORIZED.value());
 
-            /*return new BKErrorResponseModel("No se puede procesar el usuario|empleado", HttpStatus.PROCESSING.value());*/
             return new BKResponseModel(new MetaData(), response);
         }
 
+        String userId = empleados.getString("userId");
+        if (userId == null || userId.isEmpty()) {
+            Map<String, Object> responseData = new HashMap<>();
+            responseData.put("message", "ID de usuario no proporcionado");
+            responseData.put("success", false);
+
+            Response response = new Response();
+            response.setData(responseData);
+            response.setMessage("ID de usuario no proporcionado");
+            response.setStatus(HttpStatus.BAD_REQUEST.value());
+
+            return new BKResponseModel(new MetaData(), response);
+        }
+
+        // Lógica para invalidar tokens previos
+        JsonArrayX tokensActivos = logService.obtenerTokenUsuario(userId);
+        if (tokensActivos != null && tokensActivos.length() > 0) {
+            for (int i = 0; i < tokensActivos.length(); i++) {
+                JsonObjectX token = tokensActivos.getObject(i);
+                if (token != null) {
+                    Boolean loggedOut = token.getBoolean("loggedOut");
+                    if (loggedOut == null || !loggedOut) {
+                        token.set("loggedOut", true);
+                        token.set("updatedAt", new Date());
+                        logService.saveToken(token, null);
+                    }
+                }
+            }
+        }
+
         Map<String, Object> userData = new HashMap<>();
-        userData.put("userId", empleados.getLong("userId"));
+        userData.put("userId", userId);
         userData.put("nombre", empleados.getString("nombre"));
         userData.put("usuario", empleados.getString("usuario"));
         userData.put("Rol", Collections.singletonList(obtenerRol(empleados)));
 
-
-        /*Para incluir los datos en data*/
         Map<String, Object> responseData = new HashMap<>();
         responseData.put("success", true);
         responseData.put("message", "Inicio de sesión exitoso");
         responseData.put("userData", userData);
 
-        JwtService.JwtToken token = jwtService.generateToken(
-                empleados.getString("userId")
-        );
+        JwtService.JwtToken token = jwtService.generateToken(userId);
 
         Response response = new Response();
         response.setToken(token.getToke());
-
         response.setData(responseData);
         response.setMessage("Acceso autorizado...");
         response.setStatus(HttpStatus.OK.value());
@@ -70,7 +94,8 @@ public class AuthService {
                                     .set("token", token.getToke())
                                     .set("fechaInicio", token.getIssuedAt())
                                     .set("fechaExpiracion", token.getExpirarion())
-                                    .set("idU", userId);
+                                    .set("idU", userId)
+                                    .set("loggedOut", false);
         
         JsonArrayX sesiones = logService.obtenerSesionPorUsuario(userId);
         JsonObjectX sesionAbierta;

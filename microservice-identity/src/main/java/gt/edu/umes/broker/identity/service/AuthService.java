@@ -111,39 +111,44 @@ public class AuthService {
         
         logService.saveToken(obj, null);
     }
-    
+
     public void cerrarSesion(String token) {
         String id = SFPBSystem.extractUsername(SFPBSystem.extractBearerToken(token), (e) -> {
-            System.out.println("[ERROR][TOKEN] :" + e.getMessage());
+            System.out.println("[ERROR][TOKEN]: " + e.getMessage());
         });
-        if (id == null) {
+
+        if(id == null){
             return;
         }
-        
+
         JsonArrayX tokens = logService.obtenerTokenUsuario(id);
-        if (token == null || tokens.isEmpty()) {
+        if(token == null || tokens.isEmpty()){
             System.out.println("[DEBUG] :NO HAY TOKEN GUARDADO");
             return;
         }
-        
-        for (int i = 0; i < tokens.length(); i++) {
+
+        for (int i = 0; i < tokens.length(); i++){
             JsonObjectX tk = tokens.getObject(i);
-                        
-            if (tk.getString("token").equals(SFPBSystem.extractBearerToken(token))) {
-                tk.set("fechaExpiracion", tk.getDate("fechaInicio"));
-                
+
+            if(tk.getString("token").equals(SFPBSystem.extractBearerToken(token))){
+                tk.set("fechaExpiracion", tk.getDate("fechaInicio"))
+                        .set("loggedOut", true);
+
+                logService.saveToken(tk, tk.getString("id"));
+
                 JsonArrayX sesiones = logService.obtenerSesionPorUsuario(tk.getLong("idU"));
-                for (int l = 0; l < sesiones.length(); l++) {
+                for (int l = 0; l < sesiones.length(); i++){
                     JsonObjectX item = sesiones.getObject(l);
-                    
-                    if (item.getBoolean("estadoSesion")) {
+
+                    if(item.getBoolean("estadoSesion")) {
                         logService.actualizarEstadoSesion(item.getString("id"), false);
                         break;
                     }
+                    break;
                 }
-                break;
             }
         }
+
     }
 
     private List<String> obtenerRol(JsonObjectX empleado) {

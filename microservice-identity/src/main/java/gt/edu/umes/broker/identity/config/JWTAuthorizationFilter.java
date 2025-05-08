@@ -1,75 +1,77 @@
 package gt.edu.umes.broker.identity.config;
 
-import gt.edu.umes.broker.identity.client.AuthAdminClient;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.security.authentication.AuthenticationManager;
-import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
-import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
-import org.springframework.security.config.annotation.web.builders.HttpSecurity;
-import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
-import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
-import org.springframework.security.config.http.SessionCreationPolicy;
+import gt.edu.umes.broker.identity.service.JwtService;
+import jakarta.servlet.FilterChain;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import org.springframework.http.HttpHeaders;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.authentication.WebAuthenticationDetailsSource;
+import org.springframework.stereotype.Component;
+import org.springframework.util.StringUtils;
+import org.springframework.web.filter.OncePerRequestFilter;
+import reactor.util.annotation.NonNull;
 
-@Configuration
-@EnableWebSecurity
-public class JWTAuthorizationFilter {
+import java.io.IOException;
 
-    private final AuthAdminClient authAdminClient;
+@Component
+public class JWTAuthorizationFilter extends OncePerRequestFilter {
 
-    @Autowired
-    public JWTAuthorizationFilter(AuthAdminClient authAdminClient) {
-        this.authAdminClient = authAdminClient;
+
+    private final JwtService jwtService;
+    private final CustomUserDetailsService customUserDetailsService;
+
+
+
+    public JWTAuthorizationFilter(JwtService jwtService, CustomUserDetailsService customUserDetailsService){
+        this.jwtService = jwtService;
+        this.customUserDetailsService = customUserDetailsService;
     }
 
-    @Bean
-    public CustomUserDetailsService customUserDetailsService() {
-        return new CustomUserDetailsService(authAdminClient, passwordEncoder());
+    @Override
+    protected void doFilterInternal(@NonNull HttpServletRequest request, @NonNull HttpServletResponse response, @NonNull FilterChain filterChain) throws ServletException, IOException {
+        System.out.println("Se esta usando esta verificacion");
+
+        final String token = getTokenFromRequest(request);
+
+        if(token == null){
+            filterChain.doFilter(request, response);
+            return;
+        }
+
+        try {
+            String username = jwtService.extractUsername(token);
+
+            if(username != null && SecurityContextHolder.getContext().getAuthentication() == null){
+                UserDetails userDetails = customUserDetailsService.loadUserByUsername(username);
+
+                if(jwtService.isValid(token, userDetails)){
+                    UsernamePasswordAuthenticationToken authToken = new UsernamePasswordAuthenticationToken(
+                            userDetails, null, userDetails.getAuthorities());
+                    authToken.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
+                    SecurityContextHolder.getContext().setAuthentication(authToken);
+
+                }
+            }
+        } catch (Exception e){
+            SecurityContextHolder.clearContext();
+            response.sendError(HttpServletResponse.SC_UNAUTHORIZED, "Token invalido o expirado");
+            return;
+        }
+
+        filterChain.doFilter(request, response);
     }
 
-    @Bean
-    public UserDetailsService userDetailsService() {
-        return new CustomUserDetailsService(authAdminClient, passwordEncoder());
-    }
+    private String getTokenFromRequest(HttpServletRequest request){
+        final String authHeader = request.getHeader(HttpHeaders.AUTHORIZATION);
 
-    @Bean
-    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-        return http
-                .csrf(AbstractHttpConfigurer::disable)
-                .authorizeHttpRequests(auth -> auth
-                .requestMatchers(
-                        "/broker/POST/registrar",
-                        "/broker/POST/autenticacion",
-                        "/broker/POST/salir"
-                ).permitAll()
-                .anyRequest().authenticated()
-                )
-                .sessionManagement(session -> session
-                .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
-                ).authenticationProvider(authenticationProvider())
-                .build();
-    }
-
-    @Bean
-    public PasswordEncoder passwordEncoder() {
-        return new BCryptPasswordEncoder();
-    }
-
-    @Bean
-    public DaoAuthenticationProvider authenticationProvider() {
-        DaoAuthenticationProvider authProvider = new DaoAuthenticationProvider();
-        authProvider.setUserDetailsService(userDetailsService());
-        authProvider.setPasswordEncoder(passwordEncoder());
-        return authProvider;
-    }
-
-    @Bean
-    public AuthenticationManager authenticationManager(AuthenticationConfiguration config) throws Exception {
-        return config.getAuthenticationManager();
+        if(StringUtils.hasText(authHeader) && authHeader.startsWith("Bearer ")){
+            return authHeader.substring(7);
+        }
+        return null;
     }
 }

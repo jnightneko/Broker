@@ -99,4 +99,13 @@ public class LogService {
                       .append('[').append(methdo).append("] :")
                       .append(" <").append(type).append("> ").append(msg));
     }
+
+    public boolean isTokenLoggedOut(String token){
+        try {
+            return clientLogs.isTokenLoggedOut(token);
+        } catch (Exception e){
+            System.err.println("Error al verificar token: " + e.getMessage());
+            return true;
+        }
+    }
 }

@@ -48,4 +48,20 @@ public class TokenService {
         }
         return false;
     }
+
+    public boolean isTokenLoggedOut(String token){
+        return tokenRepository.findByToken(token)
+                .map(Token::isLoggedOut)
+                .orElse(true);
+    }
+
+    public Token actualizarToken(String token, boolean loggedOut){
+        return tokenRepository.findByToken(token)
+                .map(existingToken -> {
+                    existingToken.setLoggedOut(loggedOut);
+                    existingToken.setUpdatedAt(new Date());
+                    return tokenRepository.save(existingToken);
+                })
+                .orElse(null);
+    }
 }

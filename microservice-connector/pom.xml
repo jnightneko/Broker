@@ -30,6 +30,7 @@
         <spring-cloud.version>2024.0.1</spring-cloud.version>
     </properties>
     <dependencies>
+
         <!-- Dependencias locales -->
         <dependency>
             <groupId>gt.edu.umes.broker.core</groupId>

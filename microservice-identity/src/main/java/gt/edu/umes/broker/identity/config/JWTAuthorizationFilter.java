@@ -42,15 +42,15 @@ public class JWTAuthorizationFilter {
         return http
                 .csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(auth -> auth
-                .requestMatchers(
-                        "/broker/POST/registrar",
-                        "/broker/POST/autenticacion",
-                        "/broker/POST/salir"
-                ).permitAll()
-                .anyRequest().authenticated()
+                        .requestMatchers(
+                                "/broker/POST/registrar",
+                                "/broker/POST/autenticacion",
+                                "/broker/POST/salir"
+                        ).permitAll()
+                        .anyRequest().authenticated()
                 )
                 .sessionManagement(session -> session
-                .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
+                        .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 ).authenticationProvider(authenticationProvider())
                 .build();
     }

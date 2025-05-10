@@ -5,6 +5,7 @@ import gt.edu.umes.broker.core.model.JsonArrayX;
 import gt.edu.umes.broker.core.model.JsonObjectX;
 import gt.edu.umes.broker.core.model.MetaData;
 import gt.edu.umes.broker.core.model.Response;
+import gt.edu.umes.broker.core.system.RSACipher;
 import gt.edu.umes.broker.core.system.SFPBSystem;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,7 +20,6 @@ public class AuthService {
     private JwtService jwtService;
     @Autowired
     private LogsService logService;
-
 
     public BKResponseModel authenticationUser(JsonObjectX authRequest) {
         JsonObjectX empleados = authRequest.getObject("userData");
@@ -90,26 +90,30 @@ public class AuthService {
     }
     
     private void guardarToken(JwtService.JwtToken token, Long userId) {
-        JsonObjectX obj = JsonObjectX.wrap()
-                                    .set("token", token.getToke())
-                                    .set("fechaInicio", token.getIssuedAt())
-                                    .set("fechaExpiracion", token.getExpirarion())
-                                    .set("idU", userId)
-                                    .set("loggedOut", false);
-        
-        JsonArrayX sesiones = logService.obtenerSesionPorUsuario(userId);
-        JsonObjectX sesionAbierta;
-        if (sesiones != null && sesiones.length() > 0) {
-            sesionAbierta = sesiones.getObject(0);
-            logService.actualizarEstadoSesion(sesionAbierta.getString("id"), true);
-        } else {
-            sesionAbierta = JsonObjectX.wrap()
-                                        .set("estadoSesion", true)
-                                        .set("idU", userId);
-            logService.crearSesion(sesionAbierta);
+        try {
+            JsonObjectX obj = JsonObjectX.wrap()
+                    .set("token", token.getToke())
+                    .set("fechaInicio", token.getIssuedAt())
+                    .set("fechaExpiracion", token.getExpirarion())
+                    .set("idU", userId)
+                    .set("loggedOut", false);
+
+            JsonArrayX sesiones = logService.obtenerSesionPorUsuario(userId);
+            JsonObjectX sesionAbierta;
+            if (sesiones != null && sesiones.length() > 0) {
+                sesionAbierta = sesiones.getObject(0);
+                logService.actualizarEstadoSesion(sesionAbierta.getString("id"), true);
+            } else {
+                sesionAbierta = JsonObjectX.wrap()
+                        .set("estadoSesion", true)
+                        .set("idU", userId);
+                logService.crearSesion(sesionAbierta);
+            }
+
+            logService.saveToken(obj, null);
+        } catch (Exception e){
+            throw new RuntimeException("Error al encriptar el token", e);
         }
-        
-        logService.saveToken(obj, null);
     }
 
     public void cerrarSesion(String token) {

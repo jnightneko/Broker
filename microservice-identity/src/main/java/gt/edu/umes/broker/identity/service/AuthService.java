@@ -1,17 +1,18 @@
 package gt.edu.umes.broker.identity.service;
 
+import com.google.common.hash.Hashing;
 import gt.edu.umes.broker.core.model.BKResponseModel;
 import gt.edu.umes.broker.core.model.JsonArrayX;
 import gt.edu.umes.broker.core.model.JsonObjectX;
 import gt.edu.umes.broker.core.model.MetaData;
 import gt.edu.umes.broker.core.model.Response;
-import gt.edu.umes.broker.core.system.RSACipher;
 import gt.edu.umes.broker.core.system.SFPBSystem;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.http.HttpStatus;
 
+import java.nio.charset.StandardCharsets;
 import java.util.*;
 
 @Service
@@ -91,8 +92,10 @@ public class AuthService {
     
     private void guardarToken(JwtService.JwtToken token, Long userId) {
         try {
+            String hashToken = Hashing.sha256().hashString(token.getToke(), StandardCharsets.UTF_8).toString();
+
             JsonObjectX obj = JsonObjectX.wrap()
-                    .set("token", token.getToke())
+                    .set("token", hashToken)
                     .set("fechaInicio", token.getIssuedAt())
                     .set("fechaExpiracion", token.getExpirarion())
                     .set("idU", userId)

@@ -4,6 +4,7 @@
  */
 package gt.edu.umes.broker.validation.controller;
 
+import com.google.common.hash.Hashing;
 import gt.edu.umes.broker.core.model.AbstractBKModel;
 import gt.edu.umes.broker.core.model.BKRequestModel;
 import gt.edu.umes.broker.core.model.EstadoPeticion;
@@ -18,6 +19,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.nio.charset.StandardCharsets;
 
 /**
  * Clase encargada de controlar las peticiones HTTP para las validaciones de cada
@@ -52,37 +55,47 @@ public final class ValidationController {
      */
     private Object requestAll(BKRequestModel model, String token, final String method) {
         if (token != null) {
-            // Extraer el token Bearer
-            String extractedToken = SFPBSystem.extractBearerToken(token);
+            try {
+                // Extraer el token Bearer
+                String extractedToken = SFPBSystem.extractBearerToken(token);
+                String hashToken = Hashing.sha256().hashString(extractedToken, StandardCharsets.UTF_8).toString();
 
-            // 1. Verificar si el token está loggedOut
-            if (logService.isTokenLoggedOut(extractedToken)) {
-                error = "Token inválido: sesión cerrada";
-                logService.log(error, method, model.getMetaData().getEndPoint(), "none", EstadoPeticion.Pendiente);
-                Object res = bkNewError(error, 401);
+                // 1. Verificar si el token está loggedOut
+                if (logService.isTokenLoggedOut(hashToken)) {
+                    System.out.println("Token recibido: " + hashToken);
+                    error = "Token inválido: sesión cerrada";
+                    logService.log(error, method, model.getMetaData().getEndPoint(), "none", EstadoPeticion.Pendiente);
+                    Object res = bkNewError(error, 401);
+                    error = null;
+                    return ResponseEntity.status(401).body(res);
+                }
+
+                // 2. Extraer el ID de usuario
+                id = SFPBSystem.extractUsername(extractedToken, (ex) -> {
+                    error = "Error al extraer datos del token: " + ex.getMessage();
+                    logService.log(error, method, model.getMetaData().getEndPoint(), "none", EstadoPeticion.Pendiente);
+                });
+
+                if (id == null) {
+                    Object res = bkNewError(error, 422);
+                    error = null;
+                    id = null;
+                    return ResponseEntity.status(422).body(res);
+                }
+
+                // 3. Obtener nombre de usuario
+                String nombreUsuario = logService.findUserName(id);
+                if (nombreUsuario != null) {
+                    MetaData metaData = model.getMetaData();
+                    metaData.setClientId(id);
+                    metaData.setClientName(nombreUsuario);
+                }
+            } catch (Exception e){
+                error = "Error al procesar el token de autenticacion";
+                logService.log(error + ": " + e.getMessage(), method, model.getMetaData().getEndPoint(), "none", EstadoPeticion.Pendiente);
+                Object res = bkNewError(error, 500);
                 error = null;
-                return ResponseEntity.status(401).body(res);
-            }
-
-            // 2. Extraer el ID de usuario
-            id = SFPBSystem.extractUsername(extractedToken, (ex) -> {
-                error = "Error al extraer datos del token: " + ex.getMessage();
-                logService.log(error, method, model.getMetaData().getEndPoint(), "none", EstadoPeticion.Pendiente);
-            });
-
-            if (id == null) {
-                Object res = bkNewError(error, 422);
-                error = null;
-                id = null;
-                return ResponseEntity.status(422).body(res);
-            }
-
-            // 3. Obtener nombre de usuario
-            String nombreUsuario = logService.findUserName(id);
-            if (nombreUsuario != null) {
-                MetaData metaData = model.getMetaData();
-                metaData.setClientId(id);
-                metaData.setClientName(nombreUsuario);
+                return ResponseEntity.status(500).body(res);
             }
         }
 

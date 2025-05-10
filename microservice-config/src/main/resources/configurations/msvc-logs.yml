@@ -5,7 +5,7 @@ server:
 spring:
   data:
     mongodb:
-      uri: mongodb+srv://luiz7:HZ1l6SqKR4jJsLQn@cluster0.jyukdpg.mongodb.net/
+      uri: mongodb+srv://<user>:<password>@cluster0.jyukdpg.mongodb.net/
       database: DB
 
 # mongodb de forma local

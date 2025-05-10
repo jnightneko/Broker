@@ -120,6 +120,10 @@ public class AuthService {
     }
 
     public void cerrarSesion(String token) {
+        String extracToken = SFPBSystem.extractBearerToken(token);
+
+        String hashToken = Hashing.sha256().hashString(extracToken, StandardCharsets.UTF_8).toString();
+
         String id = SFPBSystem.extractUsername(SFPBSystem.extractBearerToken(token), (e) -> {
             System.out.println("[ERROR][TOKEN]: " + e.getMessage());
         });
@@ -129,7 +133,7 @@ public class AuthService {
         }
 
         JsonArrayX tokens = logService.obtenerTokenUsuario(id);
-        if(token == null || tokens.isEmpty()){
+        if(tokens == null || tokens.isEmpty()){
             System.out.println("[DEBUG] :NO HAY TOKEN GUARDADO");
             return;
         }
@@ -137,7 +141,7 @@ public class AuthService {
         for (int i = 0; i < tokens.length(); i++){
             JsonObjectX tk = tokens.getObject(i);
 
-            if(tk.getString("token").equals(SFPBSystem.extractBearerToken(token))){
+            if(tk.getString("token").equals(hashToken)){
                 tk.set("fechaExpiracion", tk.getDate("fechaInicio"))
                         .set("loggedOut", true);
 

@@ -77,51 +77,6 @@ public class LogsService {
         return JsonArrayX.wrap(clientLogs.obtenerTokenPorUsuario(id));
     }
 
-    public JsonObjectX buscarTokenPorValor(String tokenValue) {
-        if (tokenValue == null || tokenValue.isEmpty()) {
-            logger.warn("Token value is null or empty");
-            return null;
-        }
-
-        // Normalizar el token (remover 'Bearer ' si existe)
-        String pureToken = tokenValue.replaceFirst("^Bearer\\s+", "");
-
-        try {
-            // 1. Extraer userId del token sin verificación completa (más eficiente)
-            String userId = extractUserIdFromToken(pureToken);
-            if (userId == null) {
-                logger.warn("No se pudo extraer userId del token");
-                return null;
-            }
-
-            // 2. Obtener todos los tokens del usuario (usando ClientLogs)
-            JsonArrayX userTokens = JsonArrayX.wrap(clientLogs.obtenerTokenPorUsuario(userId));
-            if (userTokens == null || userTokens.length() == 0) {
-                logger.debug("Usuario {} no tiene tokens registrados", userId);
-                return null;
-            }
-
-            // 3. Buscar coincidencia exacta del token
-            for (int i = 0; i < userTokens.length(); i++) {
-                JsonObjectX tokenRecord = userTokens.getObject(i);
-                if (tokenRecord != null) {
-                    String storedToken = tokenRecord.getString("token");
-                    if (pureToken.equals(storedToken)) {
-                        logger.debug("Token encontrado para usuario {}", userId);
-                        return tokenRecord;
-                    }
-                }
-            }
-
-            logger.debug("Token no encontrado en los registros del usuario {}", userId);
-            return null;
-
-        } catch (Exception e) {
-            logger.error("Error buscando token", e);
-            return null;
-        }
-    }
-
     private String extractUserIdFromToken(String token) {
         if (token == null || token.isEmpty()) {
             return null;

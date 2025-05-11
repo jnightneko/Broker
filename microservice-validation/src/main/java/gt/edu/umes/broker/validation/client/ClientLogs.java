@@ -29,4 +29,7 @@ public interface ClientLogs {
      */
     @GetMapping(BK_USUARIO_OBTENER_POR_ID)
     public Object obtenerPorId(@PathVariable("id") String id);
+
+    @GetMapping("/broker/tokens/logged-out/{token}")
+    boolean isTokenLoggedOut(@PathVariable("token") String token);
 }

@@ -62,9 +62,9 @@ public final class ValidationController {
 
                 // 1. Verificar si el token está loggedOut
                 if (logService.isTokenLoggedOut(hashToken)) {
-                    System.out.println("Token recibido: " + hashToken);
                     error = "Token inválido: sesión cerrada";
                     logService.log(error, method, model.getMetaData().getEndPoint(), "none", EstadoPeticion.Pendiente);
+                    
                     Object res = bkNewError(error, 401);
                     error = null;
                     return ResponseEntity.status(401).body(res);

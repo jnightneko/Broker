@@ -19,7 +19,21 @@ import org.springframework.web.bind.annotation.*;
  * @since 1.0.0
  */
 @FeignClient(value = "MCSV-Administracion", url = Microservice.MICROSERVICE_ADMIN)
-public interface AdminClient {
+public interface AdminClient {    
+    /**
+     * Registra el pago de salarios como movimiento
+     * @param o objeto web
+     * @return objeto web
+     */
+    @PostMapping(HTTP_ADMIN_PAGAR_SALARIO_POST )
+    public Object nPagoSalario(@RequestBody(required = false) Object o);
+    /**
+     * Registra un reembolso como movimiento asociado a un servicio.
+     * @param o objeto web
+     * @return objeto web
+     */
+    @PostMapping(HTTP_ADMIN_REMBOLSOS_POST)
+    public Object nRembolose(@RequestBody Object o);
     /**
      * Enalces de prueba para el login.
      * @param o objeto web

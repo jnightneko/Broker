@@ -22,6 +22,16 @@ public class AdminController {
     @Autowired
     private AdminClient client;
     /* (non-Javadoc) */
+    @PostMapping(HTTP_ADMIN_PAGAR_SALARIO_POST )
+    public Object getPagoSalario(@RequestBody(required = false) Object o) {
+        return client.nPagoSalario(o);
+    }
+    /* (non-Javadoc) */
+    @PostMapping(HTTP_ADMIN_REMBOLSOS_POST)
+    public Object getRembolose(@RequestBody Object o) {
+        return client.nRembolose(o);
+    }
+    /* (non-Javadoc) */
     @PostMapping(HTTP_ADMIN_USUARIO_LOGIN)
     public Object getUsuariosLogin(@RequestBody Object o) {
         return client.nUsuariosLogin(o);

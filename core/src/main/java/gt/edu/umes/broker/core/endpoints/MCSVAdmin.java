@@ -62,6 +62,8 @@ public final class MCSVAdmin {
     public static final String HTTP_ADMIN_USUARIO_LOGIN              = "/administracion/POST/login";
     public static final String HTTP_ADMIN_USUARIO_CAMBIO_PASS        = "/administracion/POST/cambiar-password";
     public static final String HTTP_ADMIN_USUARIO_RESET_PASS         = "/administracion/POST/restablecer-password";
+    public static final String HTTP_ADMIN_REMBOLSOS_POST             = "/administracion/POST/reembolsos";
+    public static final String HTTP_ADMIN_PAGAR_SALARIO_POST         = "/administracion/POST/pagar-salarios";
     /** Constructor privadoo. */
     private MCSVAdmin() {}
 }

@@ -1,0 +1,109 @@
+version: '1'
+services:
+  # << Microservice - Condig >>
+  microservice-config:
+    container_name: mcsv-config
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        MICROSERVICE: microservice-config
+    ports:
+      - 8888:8888
+    networks:
+      - spring-cloud-network
+
+  # << Microservice - Eureka >>
+  microservice-eureka:
+    container_name: mcsv-eureka
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        MICROSERVICE: microservice-eureka
+    ports:
+      - 8761:8761
+    depends_on:
+      - microservice-config
+    networks:
+      - spring-cloud-network
+
+  # << Microservice - Otros >>
+  microservice-connector:
+    container_name: mcsv-connector
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        MICROSERVICE: microservice-connector
+    ports:
+      - 8090:8090
+    depends_on:
+      - microservice-config
+      - microservice-eureka
+    networks:
+      - spring-cloud-network
+
+  microservice-gateway:
+    container_name: mcsv-gateway
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        MICROSERVICE: microservice-gateway
+    ports:
+      - 3761:3761
+    depends_on:
+      - microservice-config
+      - microservice-eureka
+    networks:
+      - spring-cloud-network
+
+  microservice-identity:
+    container_name: mcsv-identity
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        MICROSERVICE: microservice-identity
+    ports:
+      - 8091:8091
+    depends_on:
+      - microservice-config
+      - microservice-eureka
+    networks:
+      - spring-cloud-network
+
+  microservice-logs:
+    container_name: mcsv-logs
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        MICROSERVICE: microservice-logs
+    ports:
+      - 8095:8095
+    depends_on:
+      - microservice-config
+      - microservice-eureka
+    networks:
+      - spring-cloud-network
+
+  microservice-validation:
+    container_name: mcsv-validation
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        MICROSERVICE: microservice-validation
+    ports:
+      - 9090:9090
+    depends_on:
+      - microservice-config
+      - microservice-eureka
+    networks:
+      - spring-cloud-network
+
+networks:
+  spring-cloud-network:
+    driver: bridge

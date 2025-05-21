@@ -1,35 +1,5 @@
 # Compilar e Iniciar
 
-## Compilar
-
-Broker no está ligado a un IDE o editor en específico, por lo que puede utilizar culturizar 
-entorno de escritorio, si ere un novato se sugiere Intellij IDE, ya que facilita la compilación 
-e inicialización de los microservicios
-
-### Maven
-
-Compilación del proyecto para poder empaquetarlo (binario/bytecode).
-
-1. Limpiar el proyecto para tener una empaquetado limpio
-
-```shell
-mvn clean
-```
-
-2. Empaquetar todo los microservicios en fichero _**JAR**_ ignorando las pruebas unitarios de _**JUnit**_
-para evitar problemas en la compilación
-
-```shell
-mvn -Dmaven.test.skip=true package
-```
-
-### Docker
-
-```shell
-docker-composer up -d --build
-```
-
-
 ## Configuraciones
 
 Antes de iniciar, primero se tiene que configurar algunas cosas, especialmente la base de datos.
@@ -75,6 +45,34 @@ mongorestore --db DB /MY_PATH/broker/assets/mongodb/DB
 
 En caso de una conexión con atlas o remoto, se tiene que acceder a su servidor e importarlo de forma manual
 
+## Compilar
+
+Broker no está ligado a un IDE o editor en específico, por lo que puede utilizar culturizar
+entorno de escritorio, si ere un novato se sugiere Intellij IDE, ya que facilita la compilación
+e inicialización de los microservicios
+
+### Maven
+
+Compilación del proyecto para poder empaquetarlo (binario/bytecode).
+
+1. Limpiar el proyecto para tener una empaquetado limpio
+
+```shell
+mvn clean
+```
+
+2. Empaquetar todo los microservicios en fichero _**JAR**_ ignorando las pruebas unitarios de _**JUnit**_
+   para evitar problemas en la compilación
+
+```shell
+mvn -Dmaven.test.skip=true package
+```
+
+### Docker
+
+```shell
+docker-composer up -d --build
+```
 
 ## Arrancar
 

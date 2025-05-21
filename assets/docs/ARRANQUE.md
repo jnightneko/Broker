@@ -6,6 +6,13 @@ Broker no está ligado a un IDE o editor en específico, por lo que puede utiliz
 entorno de escritorio, si ere un novato se sugiere Intellij IDE, ya que facilita la compilación 
 e inicialización de los microservicios
 
+### Docker
+
+```shell
+docker-composer up -d --build
+```
+
+
 ## Configuraciones
 
 Antes de iniciar, primero se tiene que configurar algunas cosas, especialmente la base de datos.

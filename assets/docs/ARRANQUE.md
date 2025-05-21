@@ -6,6 +6,23 @@ Broker no está ligado a un IDE o editor en específico, por lo que puede utiliz
 entorno de escritorio, si ere un novato se sugiere Intellij IDE, ya que facilita la compilación 
 e inicialización de los microservicios
 
+### Maven
+
+Compilación del proyecto para poder empaquetarlo (binario/bytecode).
+
+1. Limpiar el proyecto para tener una empaquetado limpio
+
+```shell
+mvn clean
+```
+
+2. Empaquetar todo los microservicios en fichero _**JAR**_ ignorando las pruebas unitarios de _**JUnit**_
+para evitar problemas en la compilación
+
+```shell
+mvn -Dmaven.test.skip=true package
+```
+
 ### Docker
 
 ```shell

@@ -71,7 +71,7 @@ mvn -Dmaven.test.skip=true package
 ### Docker
 
 ```shell
-docker-composer up -d --build
+docker-compose up -d --build
 ```
 
 ## Arrancar

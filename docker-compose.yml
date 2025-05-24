@@ -7,6 +7,8 @@ services:
       dockerfile: Dockerfile
       args:
         MICROSERVICE: microservice-config
+    expose:
+      - 8888
     ports:
       - 8888:8888
     networks:
@@ -20,8 +22,12 @@ services:
       dockerfile: Dockerfile
       args:
         MICROSERVICE: microservice-eureka
+    expose:
+      - 8761
     ports:
       - 8761:8761
+    links:
+      - microservice-config
     depends_on:
       - microservice-config
     networks:
@@ -35,8 +41,17 @@ services:
       dockerfile: Dockerfile
       args:
         MICROSERVICE: microservice-connector
+    expose:
+      - 8090
     ports:
       - 8090:8090
+    links:
+      - microservice-config
+      - microservice-eureka
+      - microservice-gateway
+      - microservice-identity
+      - microservice-logs
+      - microservice-validation
     depends_on:
       - microservice-config
       - microservice-eureka
@@ -50,8 +65,17 @@ services:
       dockerfile: Dockerfile
       args:
         MICROSERVICE: microservice-gateway
+    expose:
+      - 3761
     ports:
       - 3761:3761
+    links:
+      - microservice-config
+      - microservice-eureka
+      - microservice-connector
+      - microservice-identity
+      - microservice-logs
+      - microservice-validation
     depends_on:
       - microservice-config
       - microservice-eureka
@@ -65,8 +89,17 @@ services:
       dockerfile: Dockerfile
       args:
         MICROSERVICE: microservice-identity
+    expose:
+      - 8091
     ports:
       - 8091:8091
+    links:
+      - microservice-config
+      - microservice-eureka
+      - microservice-connector
+      - microservice-gateway
+      - microservice-logs
+      - microservice-validation
     depends_on:
       - microservice-config
       - microservice-eureka
@@ -80,8 +113,20 @@ services:
       dockerfile: Dockerfile
       args:
         MICROSERVICE: microservice-logs
+    expose:
+      - 8095
     ports:
       - 8095:8095
+    environment:
+      MONGODB_USER: <myUser>
+      MONGODB_PASSWORD: <myPass>
+    links:
+      - microservice-config
+      - microservice-eureka
+      - microservice-connector
+      - microservice-gateway
+      - microservice-identity
+      - microservice-validation
     depends_on:
       - microservice-config
       - microservice-eureka
@@ -95,8 +140,17 @@ services:
       dockerfile: Dockerfile
       args:
         MICROSERVICE: microservice-validation
+    expose:
+      - 9090
     ports:
       - 9090:9090
+    links:
+      - microservice-config
+      - microservice-eureka
+      - microservice-connector
+      - microservice-gateway
+      - microservice-identity
+      - microservice-logs
     depends_on:
       - microservice-config
       - microservice-eureka

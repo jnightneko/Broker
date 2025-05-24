@@ -26,8 +26,6 @@ services:
       - 8761
     ports:
       - 8761:8761
-    links:
-      - microservice-config
     depends_on:
       - microservice-config
     networks:
@@ -45,13 +43,6 @@ services:
       - 8090
     ports:
       - 8090:8090
-    links:
-      - microservice-config
-      - microservice-eureka
-      - microservice-gateway
-      - microservice-identity
-      - microservice-logs
-      - microservice-validation
     depends_on:
       - microservice-config
       - microservice-eureka
@@ -69,13 +60,6 @@ services:
       - 3761
     ports:
       - 3761:3761
-    links:
-      - microservice-config
-      - microservice-eureka
-      - microservice-connector
-      - microservice-identity
-      - microservice-logs
-      - microservice-validation
     depends_on:
       - microservice-config
       - microservice-eureka
@@ -93,13 +77,6 @@ services:
       - 8091
     ports:
       - 8091:8091
-    links:
-      - microservice-config
-      - microservice-eureka
-      - microservice-connector
-      - microservice-gateway
-      - microservice-logs
-      - microservice-validation
     depends_on:
       - microservice-config
       - microservice-eureka
@@ -120,13 +97,6 @@ services:
     environment:
       MONGODB_USER: <myUser>
       MONGODB_PASSWORD: <myPass>
-    links:
-      - microservice-config
-      - microservice-eureka
-      - microservice-connector
-      - microservice-gateway
-      - microservice-identity
-      - microservice-validation
     depends_on:
       - microservice-config
       - microservice-eureka
@@ -144,13 +114,6 @@ services:
       - 9090
     ports:
       - 9090:9090
-    links:
-      - microservice-config
-      - microservice-eureka
-      - microservice-connector
-      - microservice-gateway
-      - microservice-identity
-      - microservice-logs
     depends_on:
       - microservice-config
       - microservice-eureka

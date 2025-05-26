@@ -70,9 +70,9 @@ public final class MCSVRepuestos {
     public static final String HTTP_PRECIO_HISTORIAL_PUT = "/tallerrepuestos/PUT/preciohistorial/{id}";
     public static final String HTTP_PRECIO_HISTORIAL_DELETE = "/tallerrepuestos/DELETE/preciohistorial/{id}";
     //** DEVOLUCION
-    public static final String HTTP_DEVOLUCION_GET = "/tallerrepuestos/devolucion";
-    public static final String HTTP_DEVOLUCION_GET_ID = "/tallerrepuestos/devolucion/{id}";
-    public static final String HTTP_DEVOLUCION_POST = "/tallerrepuestos/devolucion";
+    public static final String HTTP_DEVOLUCION_GET = "/tallerrepuestos/GET/devolucion";
+    public static final String HTTP_DEVOLUCION_GET_ID = "/tallerrepuestos/GET/devolucion/{id}";
+    public static final String HTTP_DEVOLUCION_POST = "/tallerrepuestos/POST/devolucion";
 
 
     /** Constructor privadoo. */

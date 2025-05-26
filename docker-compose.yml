@@ -11,9 +11,8 @@ services:
       - 8888
     ports:
       - 8888:8888
-    network_mode: bridge
-    extra_hosts:
-      - "host.docker.internal:host-gateway"
+    networks:
+      - spring-cloud-network
 
   # << Microservice - Eureka >>
   microservice-eureka:
@@ -29,9 +28,8 @@ services:
       - 8761:8761
     depends_on:
       - microservice-config
-    network_mode: bridge
-    extra_hosts:
-      - "host.docker.internal:host-gateway"
+    networks:
+      - spring-cloud-network
 
   # << Microservice - Otros >>
   microservice-connector:
@@ -48,9 +46,8 @@ services:
     depends_on:
       - microservice-config
       - microservice-eureka
-    network_mode: bridge
-    extra_hosts:
-      - "host.docker.internal:host-gateway"
+    networks:
+      - spring-cloud-network
 
   microservice-gateway:
     container_name: mcsv-gateway
@@ -66,9 +63,8 @@ services:
     depends_on:
       - microservice-config
       - microservice-eureka
-    network_mode: bridge
-    extra_hosts:
-      - "host.docker.internal:host-gateway"
+    networks:
+      - spring-cloud-network
 
   microservice-identity:
     container_name: mcsv-identity
@@ -84,9 +80,8 @@ services:
     depends_on:
       - microservice-config
       - microservice-eureka
-    network_mode: bridge
-    extra_hosts:
-      - "host.docker.internal:host-gateway"
+    networks:
+      - spring-cloud-network
 
   microservice-logs:
     container_name: mcsv-logs
@@ -105,9 +100,8 @@ services:
     depends_on:
       - microservice-config
       - microservice-eureka
-    network_mode: bridge
-    extra_hosts:
-      - "host.docker.internal:host-gateway"
+    networks:
+      - spring-cloud-network
 
   microservice-validation:
     container_name: mcsv-validation
@@ -123,10 +117,9 @@ services:
     depends_on:
       - microservice-config
       - microservice-eureka
-    network_mode: bridge
-    extra_hosts:
-      - "host.docker.internal:host-gateway"
+    networks:
+      - spring-cloud-network
 
-#networks:
-#  spring-cloud-network:
-#    driver: bridge
+networks:
+  spring-cloud-network:
+    driver: bridge

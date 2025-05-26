@@ -18,4 +18,4 @@ ARG JAR_FILE=${MICROSERVICE}/target/*.jar
 COPY ${JAR_FILE} /app/microservice.jar
 
 # Dispara los bytecode del servicio
-ENTRYPOINT ["java","-jar","microservice.jar"]
+ENTRYPOINT ["java","-jar","/microservice.jar"]

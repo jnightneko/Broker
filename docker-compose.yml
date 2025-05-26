@@ -9,6 +9,14 @@ services:
         MICROSERVICE: microservice-config
     expose:
       - 8888
+    environment:
+      HOST_EUREKA: microservice-eureka
+      HOST_CONFIG: microservice-config
+      HOST_NAME_CONNECTOR: microservice-connector
+      HOST_NAME_IDENTITY: microservice-identity
+      HOST_NAME_LOGS: microservice-logs
+      HOST_NAME_VALIDATION: microservice-validation
+
     ports:
       - 8888:8888
     networks:
@@ -22,6 +30,13 @@ services:
       dockerfile: Dockerfile
       args:
         MICROSERVICE: microservice-eureka
+    environment:
+      HOST_EUREKA: microservice-eureka
+      HOST_CONFIG: microservice-config
+      HOST_NAME_CONNECTOR: microservice-connector
+      HOST_NAME_IDENTITY: microservice-identity
+      HOST_NAME_LOGS: microservice-logs
+      HOST_NAME_VALIDATION: microservice-validation
     expose:
       - 8761
     ports:
@@ -39,6 +54,13 @@ services:
       dockerfile: Dockerfile
       args:
         MICROSERVICE: microservice-connector
+    environment:
+      HOST_EUREKA: microservice-eureka
+      HOST_CONFIG: microservice-config
+      HOST_NAME_CONNECTOR: microservice-connector
+      HOST_NAME_IDENTITY: microservice-identity
+      HOST_NAME_LOGS: microservice-logs
+      HOST_NAME_VALIDATION: microservice-validation
     expose:
       - 8090
     ports:
@@ -56,6 +78,13 @@ services:
       dockerfile: Dockerfile
       args:
         MICROSERVICE: microservice-gateway
+    environment:
+      HOST_EUREKA: microservice-eureka
+      HOST_CONFIG: microservice-config
+      HOST_NAME_CONNECTOR: microservice-connector
+      HOST_NAME_IDENTITY: microservice-identity
+      HOST_NAME_LOGS: microservice-logs
+      HOST_NAME_VALIDATION: microservice-validation
     expose:
       - 3761
     ports:
@@ -73,6 +102,13 @@ services:
       dockerfile: Dockerfile
       args:
         MICROSERVICE: microservice-identity
+    environment:
+      HOST_EUREKA: microservice-eureka
+      HOST_CONFIG: microservice-config
+      HOST_NAME_CONNECTOR: microservice-connector
+      HOST_NAME_IDENTITY: microservice-identity
+      HOST_NAME_LOGS: microservice-logs
+      HOST_NAME_VALIDATION: microservice-validation
     expose:
       - 8091
     ports:
@@ -95,6 +131,12 @@ services:
     ports:
       - 8095:8095
     environment:
+      HOST_EUREKA: microservice-eureka
+      HOST_CONFIG: microservice-config
+      HOST_NAME_CONNECTOR: microservice-connector
+      HOST_NAME_IDENTITY: microservice-identity
+      HOST_NAME_LOGS: microservice-logs
+      HOST_NAME_VALIDATION: microservice-validation
       MONGODB_USER: <myUser>
       MONGODB_PASSWORD: <myPass>
     depends_on:
@@ -110,6 +152,13 @@ services:
       dockerfile: Dockerfile
       args:
         MICROSERVICE: microservice-validation
+    environment:
+      HOST_EUREKA: microservice-eureka
+      HOST_CONFIG: microservice-config
+      HOST_NAME_CONNECTOR: microservice-connector
+      HOST_NAME_IDENTITY: microservice-identity
+      HOST_NAME_LOGS: microservice-logs
+      HOST_NAME_VALIDATION: microservice-validation
     expose:
       - 9090
     ports:

@@ -1,22 +1,22 @@
+## Copyright Broker (SFPB). All rights reserved,
+## Licence terms: https://github.com/jnightneko/Broker?tab=BSD-3-Clause-1-ov-file
 services:
   # << Microservice - Condig >>
   microservice-config:
-    container_name: mcsv-config
     build:
       context: .
       dockerfile: Dockerfile
       args:
         MICROSERVICE: microservice-config
-    expose:
-      - 8888
+    env_file:
+      - .env
     environment:
-      HOST_EUREKA: microservice-eureka
-      HOST_CONFIG: microservice-config
-      HOST_NAME_CONNECTOR: microservice-connector
-      HOST_NAME_IDENTITY: microservice-identity
-      HOST_NAME_LOGS: microservice-logs
-      HOST_NAME_VALIDATION: microservice-validation
-
+      HOST_EUREKA: ${HOST_EUREKA}
+      HOST_CONFIG: ${HOST_CONFIG}
+      HOST_NAME_CONNECTOR: ${HOST_NAME_CONNECTOR}
+      HOST_NAME_IDENTITY: ${HOST_NAME_IDENTITY}
+      HOST_NAME_LOGS: ${HOST_NAME_LOGS}
+      HOST_NAME_VALIDATION: ${HOST_NAME_VALIDATION}
     ports:
       - 8888:8888
     networks:
@@ -24,21 +24,20 @@ services:
 
   # << Microservice - Eureka >>
   microservice-eureka:
-    container_name: mcsv-eureka
     build:
       context: .
       dockerfile: Dockerfile
       args:
         MICROSERVICE: microservice-eureka
+    env_file:
+      - .env
     environment:
-      HOST_EUREKA: microservice-eureka
-      HOST_CONFIG: microservice-config
-      HOST_NAME_CONNECTOR: microservice-connector
-      HOST_NAME_IDENTITY: microservice-identity
-      HOST_NAME_LOGS: microservice-logs
-      HOST_NAME_VALIDATION: microservice-validation
-    expose:
-      - 8761
+      HOST_EUREKA: ${HOST_EUREKA}
+      HOST_CONFIG: ${HOST_CONFIG}
+      HOST_NAME_CONNECTOR: ${HOST_NAME_CONNECTOR}
+      HOST_NAME_IDENTITY: ${HOST_NAME_IDENTITY}
+      HOST_NAME_LOGS: ${HOST_NAME_LOGS}
+      HOST_NAME_VALIDATION: ${HOST_NAME_VALIDATION}
     ports:
       - 8761:8761
     depends_on:
@@ -48,21 +47,20 @@ services:
 
   # << Microservice - Otros >>
   microservice-connector:
-    container_name: mcsv-connector
     build:
       context: .
       dockerfile: Dockerfile
       args:
         MICROSERVICE: microservice-connector
+    env_file:
+      - .env
     environment:
-      HOST_EUREKA: microservice-eureka
-      HOST_CONFIG: microservice-config
-      HOST_NAME_CONNECTOR: microservice-connector
-      HOST_NAME_IDENTITY: microservice-identity
-      HOST_NAME_LOGS: microservice-logs
-      HOST_NAME_VALIDATION: microservice-validation
-    expose:
-      - 8090
+      HOST_EUREKA: ${HOST_EUREKA}
+      HOST_CONFIG: ${HOST_CONFIG}
+      HOST_NAME_CONNECTOR: ${HOST_NAME_CONNECTOR}
+      HOST_NAME_IDENTITY: ${HOST_NAME_IDENTITY}
+      HOST_NAME_LOGS: ${HOST_NAME_LOGS}
+      HOST_NAME_VALIDATION: ${HOST_NAME_VALIDATION}
     ports:
       - 8090:8090
     depends_on:
@@ -72,21 +70,20 @@ services:
       - spring-cloud-network
 
   microservice-gateway:
-    container_name: mcsv-gateway
     build:
       context: .
       dockerfile: Dockerfile
       args:
         MICROSERVICE: microservice-gateway
+    env_file:
+      - .env
     environment:
-      HOST_EUREKA: microservice-eureka
-      HOST_CONFIG: microservice-config
-      HOST_NAME_CONNECTOR: microservice-connector
-      HOST_NAME_IDENTITY: microservice-identity
-      HOST_NAME_LOGS: microservice-logs
-      HOST_NAME_VALIDATION: microservice-validation
-    expose:
-      - 3761
+      HOST_EUREKA: ${HOST_EUREKA}
+      HOST_CONFIG: ${HOST_CONFIG}
+      HOST_NAME_CONNECTOR: ${HOST_NAME_CONNECTOR}
+      HOST_NAME_IDENTITY: ${HOST_NAME_IDENTITY}
+      HOST_NAME_LOGS: ${HOST_NAME_LOGS}
+      HOST_NAME_VALIDATION: ${HOST_NAME_VALIDATION}
     ports:
       - 3761:3761
     depends_on:
@@ -96,21 +93,20 @@ services:
       - spring-cloud-network
 
   microservice-identity:
-    container_name: mcsv-identity
     build:
       context: .
       dockerfile: Dockerfile
       args:
         MICROSERVICE: microservice-identity
+    env_file:
+      - .env
     environment:
-      HOST_EUREKA: microservice-eureka
-      HOST_CONFIG: microservice-config
-      HOST_NAME_CONNECTOR: microservice-connector
-      HOST_NAME_IDENTITY: microservice-identity
-      HOST_NAME_LOGS: microservice-logs
-      HOST_NAME_VALIDATION: microservice-validation
-    expose:
-      - 8091
+      HOST_EUREKA: ${HOST_EUREKA}
+      HOST_CONFIG: ${HOST_CONFIG}
+      HOST_NAME_CONNECTOR: ${HOST_NAME_CONNECTOR}
+      HOST_NAME_IDENTITY: ${HOST_NAME_IDENTITY}
+      HOST_NAME_LOGS: ${HOST_NAME_LOGS}
+      HOST_NAME_VALIDATION: ${HOST_NAME_VALIDATION}
     ports:
       - 8091:8091
     depends_on:
@@ -120,25 +116,24 @@ services:
       - spring-cloud-network
 
   microservice-logs:
-    container_name: mcsv-logs
     build:
       context: .
       dockerfile: Dockerfile
       args:
         MICROSERVICE: microservice-logs
-    expose:
-      - 8095
     ports:
       - 8095:8095
+    env_file:
+      - .env
     environment:
-      HOST_EUREKA: microservice-eureka
-      HOST_CONFIG: microservice-config
-      HOST_NAME_CONNECTOR: microservice-connector
-      HOST_NAME_IDENTITY: microservice-identity
-      HOST_NAME_LOGS: microservice-logs
-      HOST_NAME_VALIDATION: microservice-validation
-      MONGODB_USER: <myUser>
-      MONGODB_PASSWORD: <myPass>
+      HOST_EUREKA: ${HOST_EUREKA}
+      HOST_CONFIG: ${HOST_CONFIG}
+      HOST_NAME_CONNECTOR: ${HOST_NAME_CONNECTOR}
+      HOST_NAME_IDENTITY: ${HOST_NAME_IDENTITY}
+      HOST_NAME_LOGS: ${HOST_NAME_LOGS}
+      HOST_NAME_VALIDATION: ${HOST_NAME_VALIDATION}
+      MONGODB_USER: ${MONGODB_USER}
+      MONGODB_PASSWORD: ${MONGODB_PASSWORD}
     depends_on:
       - microservice-config
       - microservice-eureka
@@ -146,21 +141,20 @@ services:
       - spring-cloud-network
 
   microservice-validation:
-    container_name: mcsv-validation
     build:
       context: .
       dockerfile: Dockerfile
       args:
         MICROSERVICE: microservice-validation
+    env_file:
+      - .env
     environment:
-      HOST_EUREKA: microservice-eureka
-      HOST_CONFIG: microservice-config
-      HOST_NAME_CONNECTOR: microservice-connector
-      HOST_NAME_IDENTITY: microservice-identity
-      HOST_NAME_LOGS: microservice-logs
-      HOST_NAME_VALIDATION: microservice-validation
-    expose:
-      - 9090
+      HOST_EUREKA: ${HOST_EUREKA}
+      HOST_CONFIG: ${HOST_CONFIG}
+      HOST_NAME_CONNECTOR: ${HOST_NAME_CONNECTOR}
+      HOST_NAME_IDENTITY: ${HOST_NAME_IDENTITY}
+      HOST_NAME_LOGS: ${HOST_NAME_LOGS}
+      HOST_NAME_VALIDATION: ${HOST_NAME_VALIDATION}
     ports:
       - 9090:9090
     depends_on:

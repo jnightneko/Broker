@@ -5,14 +5,14 @@ server:
 spring:
   data:
     mongodb:
-      uri: mongodb+srv://${MONGODB_USER}:${MONGODB_PASSWORD}@cluster0.jyukdpg.mongodb.net/
+      uri: mongodb+srv://${MONGODB_USER}:${MONGODB_PASSWORD}@cluster0.5gauqjk.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
       database: DB
 
 # mongodb de forma local
 #spring:
- # data:
-  #  mongodb:
-   #   uri: mongodb://localhost:27017/DB
+#  data:
+#    mongodb:
+#      uri: mongodb://localhost:27017/DB
 
 eureka:
   instance:

@@ -65,9 +65,9 @@ public final class Microservice {
     public static boolean bkAllowAddress(String address) {
         Server[] servers = Server.values();
         for (Server host : servers) {
-            if (host == Server.Null) {
-                continue;
-            }
+            //if (host == Server.Null) {
+            //    continue;
+            //}
             if (host.getAddress().equals(address)) {
                 return true;
             }

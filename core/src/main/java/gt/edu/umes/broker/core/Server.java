@@ -26,7 +26,7 @@ public enum Server {
     /** Pintura */
     Pintura(Microservice.MICROSERVICE_PINTURA),
     /** Valor predeterminado. */
-    Null(null);
+    Null("http://localhost:8080/");
     
     /** La ip del servicios. */
     private final String address;

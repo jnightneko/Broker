@@ -6,7 +6,6 @@ package gt.edu.umes.broker.validation;
 
 import gt.edu.umes.broker.core.Microservice;
 
-import gt.edu.umes.broker.core.system.Configuration;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
@@ -14,7 +13,6 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.core.env.ConfigurableEnvironment;
 
-import static java.lang.System.out;
 import static java.lang.System.setProperty;
 
 /**
@@ -44,6 +42,7 @@ public class MicroserviceValidationApplication {
         ConfigurableEnvironment env = context.getEnvironment();
 
         /* SETTERS */
+        setProperty("msvc.connector.host", "http://" + env.getProperty("HOST_NAME_CONNECTOR") + ":8090");
         setProperty("broker.logs.debug",env.getProperty("broker.logs.debug"));
     }
 }

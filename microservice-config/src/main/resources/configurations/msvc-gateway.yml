@@ -28,10 +28,10 @@ spring:
         cors-configurations:
           '[/**]':
             allowedOrigins:
-              - "http://192.168.56.1:4002"
+              - "*"
             allowedMethods: "GET, POST, PUT, DELETE, OPTIONS"
-            allowedHeaders: "Authorization, Content-Type"
-            exposedHeaders: "Authorization"
+            allowedHeaders: "*"
+            exposedHeaders: "*"
             allowedCredentials: true
             maxAge: 3600
 

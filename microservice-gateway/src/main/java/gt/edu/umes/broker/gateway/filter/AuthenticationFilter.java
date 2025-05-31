@@ -36,7 +36,7 @@ public class AuthenticationFilter extends AbstractGatewayFilterFactory<Authentic
                     if (!exchange.getRequest().getHeaders().containsKey(HttpHeaders.AUTHORIZATION)){
                         throw new RuntimeException("Falta de autorizacion en el encabezado");
                     }
-
+                    
                     String authHeader = exchange.getRequest().getHeaders().get(org.springframework.http.HttpHeaders.AUTHORIZATION).get(0);
                     if (authHeader != null && authHeader.startsWith("Bearer ")){
                         authHeader=authHeader.substring(7);

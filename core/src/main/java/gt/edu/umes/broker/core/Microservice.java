@@ -19,7 +19,7 @@ public final class Microservice {
     //** SERVICIOS EXTERBOS UTIIZADAS POR LA ORGANIZACIÓN
     //
     /** Direcciones pública del servicios: administración. */
-    public static final String MICROSERVICE_ADMIN       = "http://localhost:3000/";
+    public static final String MICROSERVICE_ADMIN       = "http://64.23.169.22:3000/";
     /** Direcciones pública del servicios: pagos. */
     public static final String MICROSERVICE_PAGOS       = "http://64.23.169.22:3001/";
     /** Direcciones pública del servicios: gasolinera. */

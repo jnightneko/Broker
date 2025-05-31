@@ -86,12 +86,12 @@ public final class ConnectorService {
             return mono.map((res) -> {
                 Response bkResponse = new Response();                
                 if (res.getStatusCode().is2xxSuccessful()) {
-                    bkResponse.setData(res.getBody());
                     bkResponse.setMessage("La solicitud tuvo éxito ;)!");
                 } else {
                     bkResponse.setMessage("El servicio no puede ser prestado en este momento.");
                 }
                 
+                bkResponse.setData(res.getBody());
                 bkResponse.setStatus(res.getStatusCode().value());
                 return new BKResponseModel(metaData, bkResponse);
             }).block();

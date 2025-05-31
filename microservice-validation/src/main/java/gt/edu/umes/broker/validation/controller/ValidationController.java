@@ -7,6 +7,7 @@ package gt.edu.umes.broker.validation.controller;
 import com.google.common.hash.Hashing;
 import gt.edu.umes.broker.core.model.AbstractBKModel;
 import gt.edu.umes.broker.core.model.BKRequestModel;
+import gt.edu.umes.broker.core.model.BKResponseModel;
 import gt.edu.umes.broker.core.model.EstadoPeticion;
 import gt.edu.umes.broker.core.model.MetaData;
 import gt.edu.umes.broker.core.system.SFPBSystem;
@@ -107,7 +108,11 @@ public final class ValidationController {
             logs.log(msg, method, model.getMetaData().getEndPoint(), id, type);
         })) {
             id = null;
-            return service.send(model);
+            Object o = service.send(model);
+            if (o instanceof BKResponseModel bKResponseModel) {
+                return ResponseEntity.status(bKResponseModel.getBody().getStatus()).body(o);
+            }
+            return o;
         }
 
         // Manejo de error final

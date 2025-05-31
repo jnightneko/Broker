@@ -5,7 +5,9 @@
 package gt.edu.umes.broker.connector.config;
 
 import feign.FeignException;
+
 import jakarta.servlet.http.HttpServletResponse;
+
 import java.io.BufferedReader;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
@@ -13,6 +15,7 @@ import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.nio.ByteBuffer;
 import java.util.Optional;
+
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
@@ -29,8 +32,10 @@ public class GlobalExceptionHandler {
     
     @ExceptionHandler(FeignException.class)
     public void handleFeignStatusException(FeignException e, HttpServletResponse response) {
-        response.setStatus(e.status());
-        if (e.hasRequest()) {
+        int status = e.status();
+        response.setStatus(status == -1 ? 404 : status);
+        
+        if (e.hasRequest() && status != -1) {
             try (PrintWriter writer = response.getWriter()) {
                 response.setContentType("application/json");
                 response.setCharacterEncoding("UTF-8");

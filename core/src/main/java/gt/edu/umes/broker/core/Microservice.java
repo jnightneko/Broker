@@ -21,7 +21,7 @@ public final class Microservice {
     /** Direcciones pública del servicios: administración. */
     public static final String MICROSERVICE_ADMIN       = "http://64.23.169.22:3000/";
     /** Direcciones pública del servicios: pagos. */
-    public static final String MICROSERVICE_PAGOS       = "http://64.23.169.22:3001/";
+    public static final String MICROSERVICE_PAGOS       = "http://localhost:3001/";
     /** Direcciones pública del servicios: gasolinera. */
     public static final String MICROSERVICE_GAS         = "http://64.23.169.22:3002/";
     /** Direcciones pública del servicios: tineda de conveniencia. */

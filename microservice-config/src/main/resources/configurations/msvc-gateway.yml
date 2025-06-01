@@ -29,11 +29,27 @@ spring:
           '[/**]':
             allowedOrigins:
               - "*"
-            allowedMethods: "GET, POST, PUT, DELETE, OPTIONS"
-            allowedHeaders: "*"
-            exposedHeaders: "*"
-            allowedCredentials: true
+            allowedMethods:
+              - GET
+              - POST
+              - PUT
+              - DELETE
+              - OPTIONS
+              - PATCH
+            allowedHeaders:
+              - Authorization
+              - Content-Type
+            exposedHeaders:
+              - Authorization
+            allowedCredentials: false
             maxAge: 3600
+
+      default-filters:
+          - DedupeResponseHeader=Access-Control-Allow-Origin Access-Control-Allow-Credentials
+
+      logging:
+          level:
+            org.springframework.web.cors: DEBUG
 
 eureka:
   client:

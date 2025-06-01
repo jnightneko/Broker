@@ -21,6 +21,10 @@ import static gt.edu.umes.broker.core.endpoints.MCSVAdmin.*;
 public class AdminController {
     @Autowired
     private AdminClient client;
+    @PostMapping(HTTP_ADMIN_ALERTAS_PUT)
+    public Object getAdminAlertasPut(@PathVariable("id") Object id, @RequestAttribute Object value) {
+        return client.nAdminAlertasPut(id, value);
+    }
     /* (non-Javadoc) */
     @PostMapping(HTTP_ADMIN_PAGAR_SALARIO_POST )
     public Object getPagoSalario(@RequestBody(required = false) Object o) {

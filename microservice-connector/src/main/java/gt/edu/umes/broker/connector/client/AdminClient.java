@@ -124,7 +124,7 @@ public interface AdminClient {
      * @param value objeto web
      * @return objeto web
      */
-    @GetMapping(HTTP_ADMIN_ALERTAS_PUT)
+    @PutMapping(HTTP_ADMIN_ALERTAS_PUT)
     public Object nAdminAlertasPut(@PathVariable("id") Object id, @RequestAttribute Object value);
     /**
      * Consultar una alerta específica para abastecimiento de pedidos

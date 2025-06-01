@@ -200,6 +200,12 @@ public interface PagosClient {
     //***************************************************************************************************
     // >>                                        MÓDULO FACTURAS                                       <<
     /**
+     * Devuelve todas las facturas del sistema
+     * @return objeto json
+     */
+    @GetMapping(PAGOS_FACTURA_OBTENER_TODO)
+    public Object pFacturaObtenerTodo();
+    /**
      * Devuelve la factura que coincida con el numero ingresado si existe
      * @param id parámetro (body)
      * @return objeto json

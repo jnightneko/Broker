@@ -155,6 +155,12 @@ public final class PagoController {
     
     //***************************************************************************************************
     // >>                                        MÓDULO FACTURAS                                       <<
+
+    /* (non-Javadoc) */
+    @PostMapping(PAGOS_FACTURA_OBTENER_TODO)
+    public Object getFacturaObtenerTodo() {
+        return client.getFacturaObtenerTodo();
+    }
     /* (non-Javadoc) */
     @PostMapping(PAGOS_FACTURA_OBTENER)
     public Object getFacturaObtener(@PathVariable("noFactura") Object id) {

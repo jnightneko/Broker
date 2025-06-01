@@ -22,7 +22,11 @@ import org.springframework.web.bind.annotation.*;
 public interface TiendaClient {
     
     @GetMapping(HTTP_PRODUCTOS_GET)
-    Object func1();
+    Object func1(
+        @RequestParam(name = "tipo", required = false) Object o1,
+        @RequestParam(name = "id_categoria", required = false) Object o2,
+        @RequestParam(name = "es_materia_prima", required = false) Object o3
+    );
     
     @PostMapping(HTTP_PRODUCTOS_POST)
     Object f2(@RequestBody Object o);

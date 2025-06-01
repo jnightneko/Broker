@@ -36,7 +36,7 @@ public final class MCSVPagos {
     public static final String PAGOS_BANCO_OBTENER_PARAM                = "/pagos/bancos/obtener/{id}";
     public static final String PAGOS_BANCO_CREAR                        = "/pagos/bancos/crear";
     public static final String PAGOS_BANCO_ELIMINAR                     = "/pagos/bancos/eliminar/{id}";
-    public static final String PAGOS_FACTURA_OBTENER_TODO               = "/pagos/facturas/obtener"
+    public static final String PAGOS_FACTURA_OBTENER_TODO               = "/pagos/facturas/obtener";
     public static final String PAGOS_FACTURA_OBTENER                    = "/pagos/facturas/obtener/{noFactura}";
     public static final String PAGOS_FACTURA_ANULAR                     = "/pagos/facturas/anular/{noFactura}";
     public static final String PAGOS_CIERRE_OBTENER                     = "/pagos/cierre/obtener";

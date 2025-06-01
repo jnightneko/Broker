@@ -24,8 +24,12 @@ public class TiendaController {
     
     
     @PostMapping(HTTP_PRODUCTOS_GET)
-    public Object func1() {
-        return client.func1();
+    public Object func1(
+        @RequestParam(name = "tipo", required = false) Object o1,
+        @RequestParam(name = "id_categoria", required = false) Object o2,
+        @RequestParam(name = "es_materia_prima", required = false) Object o3
+    ) {
+        return client.func1(o1, o2, o3);
     }
     
     @PostMapping(HTTP_PRODUCTOS_POST)

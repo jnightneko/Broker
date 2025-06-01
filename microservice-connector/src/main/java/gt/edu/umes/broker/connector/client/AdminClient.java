@@ -119,6 +119,14 @@ public interface AdminClient {
     @GetMapping(HTTP_ADMIN_ALERTAS_GET)
     public Object nAdminAlertasGet();
     /**
+     * Editar un área de trabajo o sección específica dentro de un servicio.
+     * @param id objeto web
+     * @param value objeto web
+     * @return objeto web
+     */
+    @GetMapping(HTTP_ADMIN_ALERTAS_PUT)
+    public Object nAdminAlertasPut(@PathVariable("id") Object id, @RequestAttribute Object value);
+    /**
      * Consultar una alerta específica para abastecimiento de pedidos
      * @param id id|long
      * @return objeto web

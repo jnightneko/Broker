@@ -159,7 +159,7 @@ public final class PagoController {
     /* (non-Javadoc) */
     @PostMapping(PAGOS_FACTURA_OBTENER_TODO)
     public Object getFacturaObtenerTodo() {
-        return client.getFacturaObtenerTodo();
+        return client.pFacturaObtenerTodo();
     }
     /* (non-Javadoc) */
     @PostMapping(PAGOS_FACTURA_OBTENER)

@@ -108,8 +108,8 @@ public final class PinturaController {
     }
     /*(non-Javadoc) */
     @PostMapping(PINTURA_MOVIMINEOT_PUT)
-    public Object getPMovimientoPut(@RequestBody Object o) {
-        return client.nPMovimientoPut(o);
+    public Object nPMovimientoPut(@PathVariable("idMovimiento") Object id, @RequestBody Object o) {
+        return client.nPMovimientoPut(id, o);
     }
     /*(non-Javadoc) */
     @PostMapping(PINTURA_VENTAS_POST)

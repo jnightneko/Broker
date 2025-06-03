@@ -149,11 +149,12 @@ public interface PinturaClient {
     public Object nPMovimiento(@RequestBody Object o);
     /**
      * Actualizar un movimiento de inventario
+     * @param id objeto web
      * @param o objeto web
      * @return objeto web
      */
     @PutMapping(PINTURA_MOVIMINEOT_PUT)
-    public Object nPMovimientoPut(@RequestBody Object o);
+    public Object nPMovimientoPut(@PathVariable("idMovimiento") Object id, @RequestBody Object o);
     /**
      * Crear una nueva venta
      * @param o objeto web

@@ -19,7 +19,14 @@ import org.springframework.web.bind.annotation.*;
  * @since 1.0.0
  */
 @FeignClient(value = "MCSV-Administracion", url = Microservice.MICROSERVICE_ADMIN)
-public interface AdminClient {    
+public interface AdminClient {
+    /**
+     * Eliminar a un empleado de manera lógica.
+     * @param o objeto web
+     * @return objeto web
+     */
+    @PatchMapping(HTTP_ADMIN_EMPLEADOS_PATCH)
+    public Object nEmpleadoPatch(@PathVariable("id") Object o);
     /**
      * Registra el pago de salarios como movimiento
      * @param o objeto web

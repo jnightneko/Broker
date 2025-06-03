@@ -30,10 +30,10 @@ public final class MCSVPintura {
     public static final String PINTURA_INVENTARIO_PUT           = "pintura/PUT/inventarios/{idInventario}";
     public static final String PINTURA_MOVIMIENTO_GET           = "pintura/GET/movimiento";
     public static final String PINTURA_MOVIMIENTO_POST          = "pintura/POST/movimientos";
-    public static final String PINTURA_MOVIMINEOT_PUT           = "/pintura/PUT/movimiento/{idMovimiento}";
+    public static final String PINTURA_MOVIMINEOT_PUT           = "/pintura/PUT/movimiento/{movimiento_id}";
     public static final String PINTURA_VENTAS_POST              = "pintura/POST/venta";
     public static final String PINTURA_VENTAS_GET               = "pintura/GET/venta";
-    public static final String PINTURA_VENTAS_PUT               = "pintura/PUT/venta/{idVenta}";
+    public static final String PINTURA_VENTAS_PUT               = "pintura/PUT/venta/{venta_id}";
     public static final String PINTURA_DETALLE_VENTA_GET        = "pintura/GET/detalleventas/{idVenta}";
     public static final String PINTURA_DETALLE_VENTA_POST       = "pintura/POST/detalleventas";
     public static final String PINTURA_DETALLE_VENTA_PUT        = "pintura/PUT/detalleventas/{idDetalleVenta}";

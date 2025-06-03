@@ -154,7 +154,7 @@ public interface PinturaClient {
      * @return objeto web
      */
     @PutMapping(PINTURA_MOVIMINEOT_PUT)
-    public Object nPMovimientoPut(@PathVariable("idMovimiento") Object id, @RequestBody Object o);
+    public Object nPMovimientoPut(@PathVariable("movimiento_id") Object id, @RequestBody Object o);
     /**
      * Crear una nueva venta
      * @param o objeto web
@@ -175,7 +175,7 @@ public interface PinturaClient {
      * @return objeto web
      */
     @PutMapping(PINTURA_VENTAS_PUT)
-    public Object nPVentas(@PathVariable("idVenta") Object id, @RequestBody Object o);
+    public Object nPVentas(@PathVariable("venta_id") Object id, @RequestBody Object o);
     /**
      * Obtener el detalle de una venta específica
      * @param id id|long

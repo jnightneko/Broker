@@ -17,6 +17,7 @@ public final class MCSVAdmin {
     public static final String HTTP_ADMIN_EMPLEAODS_GET_ID           = "/administracion/GET/empleados/{id}";
     public static final String HTTP_ADMIN_EMPLEADOS_POST             = "/administracion/POST/empleados";
     public static final String HTTP_ADMIN_EMPLEADOS_PUT              = "/administracion/PUT/empleados/{id}";
+    public static final String HTTP_ADMIN_EMPLEADOS_PATCH            = "/administracion/PATCH/empleados/{id}";
     public static final String HTTP_ADMIN_ALERTAS_GET                = "/administracion/GET/alertas";
     public static final String HTTP_ADMIN_ALETAS_GET_ID              = "/administracion/GET/alertas/{id}";
     public static final String HTTP_ADMIN_ALERTAS_TINDA_CONVENIENCIA = "/administracion/POST/alertas/tienda_de_conveniencia";

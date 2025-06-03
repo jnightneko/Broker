@@ -39,7 +39,7 @@ public final class PagoController {
     }    
     /* (non-Javadoc) */
     @PostMapping(PAGOS_CLIENTE_ACTUALIZAR)
-    public Object getClienteActualizar(@RequestBody Object value) {
+    public Object getClienteActualizar(@RequestBody Object value, @PathVariable("id_cliente") Object id) {
         return client.pClienteActualizar(value);
     }
     /* (non-Javadoc) */
@@ -96,7 +96,7 @@ public final class PagoController {
     }
     /* (non-Javadoc) */
     @PostMapping(PAGOS_TRANSACCION_OBTENER_POR_SERVICIO)
-    public Object getTransaccionPorServicio(@PathVariable("idServicio") Object id) {
+    public Object getTransaccionPorServicio(@PathVariable("idServicio") Object id, @RequestBody Object value) {
         return client.pTransaccionPorServicio(id);
     }
     /* (non-Javadoc) */

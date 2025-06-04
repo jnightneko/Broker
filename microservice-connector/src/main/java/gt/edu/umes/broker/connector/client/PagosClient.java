@@ -45,6 +45,7 @@ public interface PagosClient {
     /**
      * Método encargado de enlazar la ruta (endpoint) del microservicio 'Pagos'.
      * @param value parámetro (body)
+     * @param id objeto web
      * @return objeto json
      */
     @PutMapping(PAGOS_CLIENTE_ACTUALIZAR)
@@ -121,6 +122,7 @@ public interface PagosClient {
     /**
      * Lista las transacciones hechas filtradas por servicio
      * @param id parámetro (body)
+     * @param value objeto web
      * @return objeto json
      */
     @PostMapping(PAGOS_TRANSACCION_OBTENER_POR_SERVICIO)

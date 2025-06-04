@@ -17,7 +17,8 @@ public class Token {
     private Date fechaInicio;
     private Date fechaExpiracion;
     private String idU; // _id del usuario
-
+    private String rolU; // rol del usuario
+    
     @CreatedDate
     private Date createdAt;
 
@@ -60,6 +61,14 @@ public class Token {
 
     public Date getUpdatedAt() { return updatedAt; }
     public void setUpdatedAt(Date updatedAt) { this.updatedAt = updatedAt; }
+
+    public String getRolU() {
+        return rolU;
+    }
+
+    public void setRolU(String rolU) {
+        this.rolU = rolU;
+    }
 
     public boolean isLoggedOut() {
         return loggedOut;

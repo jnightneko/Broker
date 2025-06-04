@@ -1,6 +1,7 @@
 package gt.edu.umes.broker.identity.service;
 
 import com.google.common.hash.Hashing;
+import gt.edu.umes.broker.core.model.BKErrorResponseModel;
 import gt.edu.umes.broker.core.model.BKResponseModel;
 import gt.edu.umes.broker.core.model.JsonArrayX;
 import gt.edu.umes.broker.core.model.JsonObjectX;
@@ -67,17 +68,45 @@ public class AuthService {
             }
         }
 
+        JsonArrayX roles = JsonArrayX.wrap(obtenerRol(empleados));
+        
         Map<String, Object> userData = new HashMap<>();
         userData.put("userId", userId);
         userData.put("nombre", empleados.getString("nombre"));
         userData.put("usuario", empleados.getString("usuario"));
-        userData.put("Rol", Collections.singletonList(obtenerRol(empleados)));
+        userData.put("Rol", roles);
 
         Map<String, Object> responseData = new HashMap<>();
         responseData.put("success", true);
         responseData.put("message", "Inicio de sesión exitoso");
         responseData.put("userData", userData);
 
+        // Limitar los usuarios a 3 logueados, especialmente a los usuarios de
+        // tienda o vehiculos
+        boolean limitar = false;
+        String miRol = null;
+        if (roles != null) {
+            for (Object e : roles) {
+                JsonObjectX element = JsonObjectX.wrap(e);
+                String idRol = String.valueOf(element.get("id_rol"));
+                
+                JsonArrayX activosRol = logService.obtenerTokenActivoPorRol(idRol);
+                
+                if (activosRol != null && activosRol.length() > 3 && esRolTiendaVehiculo(activosRol)) {
+                    limitar = true;
+                    break;
+                }
+            }
+            
+            if (! roles.isEmpty()) {
+                miRol = String.valueOf(roles.getObject(0).get("id_rol"));
+            }
+        }
+        
+        if (limitar) {
+            return new BKErrorResponseModel("No puede haber más de 3 usuarios logueados con el mismo rol", HttpStatus.UNAUTHORIZED.value());
+        }
+        
         JwtService.JwtToken token = jwtService.generateToken(userId);
 
         Response response = new Response();
@@ -86,11 +115,29 @@ public class AuthService {
         response.setMessage("Acceso autorizado...");
         response.setStatus(HttpStatus.OK.value());
         
-        guardarToken(token, empleados.getLong("userId"));
+        
+        guardarToken(token, empleados.getLong("userId"), miRol);
         return new BKResponseModel(new MetaData(), response);
     }
     
-    private void guardarToken(JwtService.JwtToken token, Long userId) {
+    private boolean esRolTiendaVehiculo(JsonArrayX o) {
+        if (o == null) {
+            return false;
+        }
+        for (int i = 0; i < o.length(); i++) {
+            JsonObjectX or = o.getObject(i);
+            if (or == null) 
+                continue;
+            
+            String rol = String.valueOf(or.getString("rol")).toLowerCase();
+            if (rol.contains("tienda") || rol.contains("vehiculo")) {
+                return true;
+            }
+        }
+        return false;
+    }
+    
+    private void guardarToken(JwtService.JwtToken token, Long userId, String rol) {
         try {
             String hashToken = Hashing.sha256().hashString(token.getToke(), StandardCharsets.UTF_8).toString();
 
@@ -99,7 +146,8 @@ public class AuthService {
                     .set("fechaInicio", token.getIssuedAt())
                     .set("fechaExpiracion", token.getExpirarion())
                     .set("idU", userId)
-                    .set("loggedOut", false);
+                    .set("loggedOut", false)
+                    .set("rolU", rol);
 
             JsonArrayX sesiones = logService.obtenerSesionPorUsuario(userId);
             JsonObjectX sesionAbierta;
@@ -162,12 +210,12 @@ public class AuthService {
 
     }
 
-    private List<String> obtenerRol(JsonObjectX empleado) {
+    private List<Object> obtenerRol(JsonObjectX empleado) {
         if(empleado.toMap().containsKey("Rol")) {
             Object roles = empleado.toMap().get("Rol");
 
             if(roles instanceof List) {
-                return (List<String>) roles;
+                return (List<Object>) roles;
             }
         }
 

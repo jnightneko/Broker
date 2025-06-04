@@ -36,6 +36,10 @@ public interface ClientLogs {
      */
     @GetMapping(BK_TOKEN_OBTENER_POR_USUARIO)
     public Object obtenerTokenPorUsuario(@PathVariable String idU);
+    /*(non-Javadoc)
+     */
+    @GetMapping(BK_TOKEN_ACTIVOS_ROLES )
+    public Object obtenerTokenActivoPorRol(@PathVariable String rol);
     
     //************************************************************************************************
     //***   SESSIONS

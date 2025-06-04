@@ -36,6 +36,11 @@ public class TokenController {
         return tokenService.obtenerPorToken(token);
     }
 
+    @GetMapping("/activos/{rol}")
+    public List<Token> obtenerActivoPorRol(@PathVariable String rol) {
+        return tokenService.obtenerActivoPorRol(rol);
+    }
+    
     @PostMapping
     public Token guardarToken(@RequestBody Token token) {
         return tokenService.guardarToken(token);

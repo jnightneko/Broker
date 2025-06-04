@@ -71,10 +71,11 @@ public interface AdminClient {
     
     /**
      * Desactivar una alerta de manera lógica.
+     * @param id objeto web
      * @return objeto web
      */
     @PatchMapping(HTTP_ADMIN_ALERTAS_PATCH)
-    public Object nAlertasPatch();
+    public Object nAlertasPatch(@PathVariable("id") Object id);
     
     /**
      * Eliminar un rol de manera lógica.
@@ -140,6 +141,14 @@ public interface AdminClient {
      */
     @GetMapping(HTTP_ADMIN_ALETAS_GET_ID)
     public Object nAdminAlertasGetId(@PathVariable("id") Object id);
+    
+    /**
+     * Agregar un área de trabajo o sección específica dentro de un servicio.
+     * @param o objeto web
+     * @return objeto web
+     */
+    @PostMapping(HTTP_ADMIN_AREAS_POST)
+    public Object nAdminAlertasPost(@RequestBody Object o);
     /**
      * Alertas: Tienda
      * @param o objeto web
@@ -228,6 +237,14 @@ public interface AdminClient {
      */
     @GetMapping(HTTP_ADMIN_PROVEEDORES_GET)
     public Object nAdminProveedoresGet();
+    
+    /**
+     * Consultar a todos los proveedores.
+     * @param id objeto web
+     * @return objeto web
+     */
+    @PatchMapping(HTTP_ADMIN_PROVEEDORES_PATCH)
+    public Object nAdminProveedoresPatch(@PathVariable("id") Object id);
     /**
      * Consultar un proveedor en específico.
      * @param id id|long

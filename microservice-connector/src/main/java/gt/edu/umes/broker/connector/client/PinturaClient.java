@@ -230,7 +230,7 @@ public interface PinturaClient {
      * @return objeto web
      */
     @PutMapping(PINTURA_VEHICULO_INVENTARIO_PUT)
-    public Object nPVehiculoInventarioPut(@RequestBody Object o);
+    public Object nPVehiculoInventarioPut(@PathVariable("idVehiculoInventario") Object id,@RequestBody Object o);
     
     /**
      * Obtiene precios de servicios

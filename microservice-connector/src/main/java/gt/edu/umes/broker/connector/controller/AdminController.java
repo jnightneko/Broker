@@ -58,8 +58,13 @@ public class AdminController {
     }
     /* (non-Javadoc) */
     @PostMapping(HTTP_ADMIN_ALERTAS_PATCH)
-    public Object getAlertasPatch() {
-        return client.nAlertasPatch();
+    public Object getAlertasPatch(@PathVariable("id") Object id) {
+        return client.nAlertasPatch(id);
+    }
+    /* (non-Javadoc) */
+    @PostMapping(HTTP_ADMIN_AREAS_POST)
+    public Object getAdminAlertasPost(@RequestBody Object o) {
+        return client.nAdminAlertasPost(o);
     }
     /* (non-Javadoc) */
     @PostMapping(HTTP_ADMIN_ROLES_PATCH)
@@ -166,6 +171,11 @@ public class AdminController {
     @PostMapping(HTTP_ADMIN_PROVEEDORES_GET)
     public Object getAdminProveedoresGet() {
         return client.nAdminProveedoresGet();
+    }
+    /* (non-Javadoc) */
+    @PostMapping(HTTP_ADMIN_PROVEEDORES_PATCH)
+    public Object nAdminProveedoresPatch(@PathVariable("id") Object id) {
+        return client.nAdminProveedoresPatch(id);
     }
     /* (non-Javadoc) */
     @PostMapping(HTTP_ADMIN_PROVEEDORES_GET_ID)

@@ -49,6 +49,11 @@ public final class GasController {
         return client.nBombListBombId(bombId);
     }
     /* (non-Javadoc) */
+    @PostMapping(HTTP_BOMB_LIST_EMPLOYEE_EMPLOYEEID)
+    public Object getBombListBombId(@PathVariable("employeeId") Object employeeId) {
+        return client.nBombListBombId(employeeId);
+    }
+    /* (non-Javadoc) */
     @PostMapping(HTTP_BOMB_CREATE)
     public Object getBombCreate(@RequestBody Object o) {
         return client.nBombCreate(o);

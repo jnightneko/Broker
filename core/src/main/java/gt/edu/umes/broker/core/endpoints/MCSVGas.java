@@ -14,7 +14,7 @@ public class MCSVGas {
     //******************************************************************************************************************
     //**    RUTA DE ELNLACES
     public static final String HTTP_BOMB_LIST                = "bomb/list";
-    public static final String HTTP_BOMB_LIST                = "bomb/list/employee/{employeeId}";
+    public static final String HTTP_BOMB_LIST_EMPLOYEE_EMPLOYEEID                = "bomb/list/employee/{employeeId}";
     public static final String HTTP_BOMB_LIST_ACTIVE         = "bomb/list/active";
     public static final String HTTP_BOMB_LIST_INACTIVE       = "bomb/list/inactive";
     public static final String HTTP_BOMB_LIST_MAINTEANCE     = "bomb/list/mainteance";

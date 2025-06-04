@@ -2,6 +2,8 @@ package gt.edu.umes.broker.gateway.filter;
 
 import gt.edu.umes.broker.gateway.util.JwtUtil;
 import static gt.edu.umes.broker.core.Microservice.*;
+import gt.edu.umes.broker.gateway.util.TokenException;
+import io.jsonwebtoken.JwtException;
 
 import org.apache.http.HttpHeaders;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -43,8 +45,12 @@ public class AuthenticationFilter extends AbstractGatewayFilterFactory<Authentic
                     }
 
                     //restTemplate.getForObject("http://IDENTITY-SERVICE//validate?token" + authHeader, String.class);
-                    if (!jwtUtil.isTokenValid(authHeader)) {
-                        throw new RuntimeException("Acceso invalido a la aplicacion");
+                    try {
+                        if (!jwtUtil.isTokenValid(authHeader)) {
+                            throw new TokenException("Acceso invalido a la aplicacion");
+                        }
+                    } catch (JwtException | IllegalArgumentException e) {
+                        throw new TokenException("El token ha expirado, por favor vuelva a iniciar sesión");
                     }
                 } catch (RuntimeException e) {
                     throw new RuntimeException(e.getMessage());

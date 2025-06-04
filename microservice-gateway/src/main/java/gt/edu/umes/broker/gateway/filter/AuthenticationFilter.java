@@ -32,7 +32,7 @@ public class AuthenticationFilter extends AbstractGatewayFilterFactory<Authentic
                                                      .getRemoteAddress();
             
             if (routeValidator.isSecured.test(exchange.getRequest()) 
-                   && !bkAllowAddress(clienAddress)) {                
+                    && !bkAllowAddress(clienAddress)) {                
                 try {
                     //verificar si el token esta en el encabezado
                     if (!exchange.getRequest().getHeaders().containsKey(HttpHeaders.AUTHORIZATION)){

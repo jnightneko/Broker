@@ -24,6 +24,8 @@ public final class MCSVBroker {
     public static final String BK_SESIONES_CREAR             = "/broker/sesiones";
     public static final String BK_SESIONES_ACTUALIZAR_ESTADO = "/broker/sesiones/{id}";
     
+    public static final String BK_TOKEN_ACTIVOS_ROLES        = "/broker/tokens/activos/{rol}";
+    
     /** Constructor privado */
     private MCSVBroker() {}
 }

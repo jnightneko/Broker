@@ -76,6 +76,10 @@ public class LogsService {
     public JsonArrayX obtenerTokenUsuario(String id) {
         return JsonArrayX.wrap(clientLogs.obtenerTokenPorUsuario(id));
     }
+    
+    public JsonArrayX obtenerTokenActivoPorRol(String rol) {
+        return JsonArrayX.wrap(clientLogs.obtenerTokenActivoPorRol(rol));
+    }
 
     private String extractUserIdFromToken(String token) {
         if (token == null || token.isEmpty()) {

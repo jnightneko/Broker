@@ -22,6 +22,10 @@ public class TokenService {
     public Optional<Token> obtenerPorId(String id) {
         return tokenRepository.findById(id);
     }
+    
+    public List<Token> obtenerActivoPorRol(String rol) {
+        return tokenRepository.findByRolToken(rol);
+    }
 
     public Optional<Token> obtenerPorToken(String token) {
         return tokenRepository.findByToken(token);

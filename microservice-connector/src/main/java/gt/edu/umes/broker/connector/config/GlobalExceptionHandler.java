@@ -14,6 +14,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.nio.ByteBuffer;
+import java.text.Normalizer;
 import java.util.Optional;
 
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -49,9 +50,9 @@ public class GlobalExceptionHandler {
                         while ((read = reader.readLine()) != null) {
                             buffer.append(read);
                         }
-                        writer.print(String.valueOf(buffer));
+                        String out = String.valueOf(buffer);                        
+                        writer.print(Normalizer.normalize(out, Normalizer.Form.NFD).replaceAll("[^\\p{ASCII}]", ""));
                     }
-
                 } else {
                     writer.print("{}");
                 }

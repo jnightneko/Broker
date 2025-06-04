@@ -50,8 +50,8 @@ public final class GasController {
     }
     /* (non-Javadoc) */
     @PostMapping(HTTP_BOMB_LIST_EMPLOYEE_EMPLOYEEID)
-    public Object getBombListBombId(@PathVariable("employeeId") Object employeeId) {
-        return client.nBombListBombId(employeeId);
+    public Object getBomListEmployeeEmployeeId(@PathVariable("employeeId") Object employeeId) {
+        return client.nBombListEmployeeEmployeeId(employeeId);
     }
     /* (non-Javadoc) */
     @PostMapping(HTTP_BOMB_CREATE)

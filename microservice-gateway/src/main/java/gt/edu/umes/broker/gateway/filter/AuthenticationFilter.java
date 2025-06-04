@@ -50,7 +50,7 @@ public class AuthenticationFilter extends AbstractGatewayFilterFactory<Authentic
                             throw new TokenException("Acceso invalido a la aplicacion");
                         }
                     } catch (JwtException | IllegalArgumentException e) {
-                        throw new TokenException("El token ha expirdado, por favor vuelva a iniciar sesión");
+                        throw new TokenException("El token ha expirado, por favor vuelva a iniciar sesión");
                     }
                 } catch (RuntimeException e) {
                     throw new RuntimeException(e.getMessage());

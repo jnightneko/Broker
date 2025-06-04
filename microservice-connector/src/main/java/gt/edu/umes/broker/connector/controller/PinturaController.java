@@ -163,8 +163,8 @@ public final class PinturaController {
     }
     /*(non-Javadoc) */
     @PostMapping(PINTURA_VEHICULO_INVENTARIO_PUT)
-    public Object getPVehiculoInventarioPut(@RequestBody Object o) {
-        return client.nPVehiculoInventarioPut(o);
+    public Object getPVehiculoInventarioPut(@PathVariable("idVehiculoInventario") Object id,@RequestBody Object o) {
+        return client.nPVehiculoInventarioPut(id, o);
     }
     /*(non-Javadoc) */
     @PostMapping(PINTURA_PRECIOS_GET)

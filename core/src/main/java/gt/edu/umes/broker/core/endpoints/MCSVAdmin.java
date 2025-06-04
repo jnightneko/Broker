@@ -26,6 +26,7 @@ public final class MCSVAdmin {
     public static final String HTTP_ADMIN_ALERTAS_PINTURA            = "/administracion/POST/alertas/pintura";
     public static final String HTTP_ADMIN_ALERTAS_PATCH              = "/administracion/PATCH/alertas/{id}";
     public static final String HTTP_ADMIN_ALERTAS_PUT                = "/administracion/PUT/areas/{id}";
+    public static final String HTTP_ADMIN_AREAS_POST                 = "/administracion/POST/areas";
     public static final String HTTP_ADMIN_AREAS_GET                  = "/administracion/GET/areas";
     public static final String HTTP_ADMIN_AREAS_GET_ID               = "/administracion/GET/areas/{id}";
     public static final String HTTP_ADMIN_ROLES_GET                  = "/administracion/GET/roles";
@@ -39,6 +40,7 @@ public final class MCSVAdmin {
     public static final String HTTP_ADMIN_PROVEEDORES_GET_ID         = "/administracion/GET/proveedores/{id}";
     public static final String HTTP_ADMIN_PROVEEDORES_POST           = "/administracion/POST/proveedores";
     public static final String HTTP_ADMIN_PROVEEDORES_PUT            = "/administracion/PUT/proveedores/{id}";
+    public static final String HTTP_ADMIN_PROVEEDORES_PATCH          = "/administracion/PATCH/proveedores/{id}";
     public static final String HTTP_ADMIN_SERVICIO_GET               = "/administracion/GET/servicios";
     public static final String HTTP_ADMIN_SERVICIO_GET_ID            = "/administracion/GET/servicios/{id}";
     public static final String HTTP_ADMIN_MOVIMIENTO_GET             = "/administracion/GET/movimientos";

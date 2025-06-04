@@ -23,7 +23,7 @@ public final class MCSVPintura {
     public static final String PINTURA_TIPOVEHICULO_POST        = "pintura/POST/tipovehiculos";
     public static final String PINTURA_TIPOVEHICULO_PUT         = "pintura/PUT/tipovehiculos/{idTipoVehiculo}";
     public static final String PINTURA_TIPOPINTURA_GET          = "pintura/GET/tipopinturas";
-    public static final String PINTURA_TIPOPINTURA_POST         = "pintura/POST/tipopintura";
+    public static final String PINTURA_TIPOPINTURA_POST         = "pintura/POST/tipopinturas";
     public static final String PINTURA_TIPOPINTURA_PUT          = "pintura/PUT/tipopinturas/{idTipoPintura}";
     public static final String PINTURA_INVENTARIO_GET           = "pintura/GET/inventarios";
     public static final String PINTURA_INVENTARIO_POST          = "pintura/POST/inventarios";
@@ -41,7 +41,7 @@ public final class MCSVPintura {
     public static final String PINTURA_DEVOLUCION_POST          = "pintura/POST/devolucion";
     public static final String PINTURA_VEHICULO_INVENTARIO_GET  = "pintura/GET/vehiculoinventarios";
     public static final String PINTURA_VEHICULO_INVENTARIO_POST = "pintura/POST/vehiculoinventarios";
-    public static final String PINTURA_VEHICULO_INVENTARIO_PUT  = "pintura/PUT/vehiculoinventarios";
+    public static final String PINTURA_VEHICULO_INVENTARIO_PUT  = "pintura/PUT/vehiculoinventarios/{idVehiculoInventario}";
     public static final String PINTURA_PRECIOS_GET              = "pintura/GET/precioservicio";
     public static final String PINTURA_PRECIOS_POST             = "pintura/POST/precioservicio";
     public static final String PINTURA_PRECIOS_PUT              = "pintura/PUT/precioservicio/{id}";

@@ -269,4 +269,59 @@ public final class RepuestosController {
         return client.nDevolucionPost(o);
     }
 
+    @PostMapping(HTTP_BANCOS_GET)
+    public Object getBancosGet() {
+        return client.nBancosGet();
+    }
+
+    @PostMapping(HTTP_METODOS_PAGO_GET)
+    public Object getMetodosPagoGet() {
+        return client.nMetodosPagoGet();
+    }
+
+    @PostMapping(HTTP_SERVICIOS_TRANSACCION_GET)
+    public Object getServiciosTransaccionGet() {
+        return client.nServiciosTransaccionGet();
+    }
+
+    @PostMapping(HTTP_CLIENTES_PAGO_GET)
+    public Object getClientesPagoGet() {
+        return client.nClientesPagoGet();
+    }
+
+    @PostMapping(HTTP_VERIFICAR_CLIENTE_GET)
+    public Object getVerificarClienteGet(@PathVariable("nit") Object nit) {
+        return client.nVerificarClienteGet(nit);
+    }
+
+    @PostMapping(HTTP_PROCESAR_VENTA_PAGO_POST)
+    public Object getProcesarVentaPagoPost(@RequestBody Object o) {
+        return client.nProcesarVentaPagoPost(o);
+    }
+
+    @PostMapping(HTTP_PROCESAR_VENTA_INVENTARIO_POST)
+    public Object getProcesarVentaInventarioPost(@RequestBody Object o) {
+        return client.nProcesarVentaInventarioPost(o);
+    }
+
+    @PostMapping(HTTP_PROCESAR_PAGO_POST)
+    public Object getProcesarPagoPost(@PathVariable("idVenta") Object idVenta, @RequestBody Object o) {
+        return client.nProcesarPagoPost(idVenta, o);
+    }
+
+    @PostMapping(HTTP_TRANSACCION_GET)
+    public Object getTransaccionGet(@PathVariable("noTransaccion") Object noTransaccion) {
+        return client.nTransaccionGet(noTransaccion);
+    }
+
+    @PostMapping(HTTP_ANULAR_TRANSACCION_PUT)
+    public Object getAnularTransaccionPut(@PathVariable("noTransaccion") Object noTransaccion, @RequestBody Object o) {
+        return client.nAnularTransaccionPut(noTransaccion, o);
+    }
+
+    @PostMapping(HTTP_PRODUCTOS_ABASTECER_POST)
+    public Object getProductosAbastecerPost(@RequestBody Object o) {
+        return client.nProductosAbastecerPost(o);
+    }
+
 }

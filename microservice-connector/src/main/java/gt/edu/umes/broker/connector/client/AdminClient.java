@@ -21,6 +21,27 @@ import org.springframework.web.bind.annotation.*;
 @FeignClient(value = "MCSV-Administracion", url = Microservice.MICROSERVICE_ADMIN)
 public interface AdminClient {
     /**
+     * Eliminar a un empleado de manera lógica.
+     * @param o objeto web
+     * @return objeto web
+     */
+    @PatchMapping(HTTP_ADMIN_EMPLEADOS_PATCH)
+    public Object nEmpleadoPatch(@PathVariable("id") Object o);
+    /**
+     * Registra el pago de salarios como movimiento
+     * @param o objeto web
+     * @return objeto web
+     */
+    @PostMapping(HTTP_ADMIN_PAGAR_SALARIO_POST )
+    public Object nPagoSalario(@RequestBody(required = false) Object o);
+    /**
+     * Registra un reembolso como movimiento asociado a un servicio.
+     * @param o objeto web
+     * @return objeto web
+     */
+    @PostMapping(HTTP_ADMIN_REMBOLSOS_POST)
+    public Object nRembolose(@RequestBody Object o);
+    /**
      * Enalces de prueba para el login.
      * @param o objeto web
      * @return objeto web
@@ -50,17 +71,27 @@ public interface AdminClient {
     
     /**
      * Desactivar una alerta de manera lógica.
+     * @param id objeto web
      * @return objeto web
      */
     @PatchMapping(HTTP_ADMIN_ALERTAS_PATCH)
-    public Object nAlertasPatch();
+    public Object nAlertasPatch(@PathVariable("id") Object id);
     
     /**
      * Eliminar un rol de manera lógica.
+     * @param id obj
      * @return objeto web
      */
     @PatchMapping(HTTP_ADMIN_ROLES_PATCH)
-    public Object nRolesPatch();
+    public Object nRolesPatch(@PathVariable("id") Object id);
+    
+    /**
+     * Consultar la información de todos los empleados que trabajaron previamente 
+     * en la gasolinera (empleados inactivos).
+     * @return  obj
+     */
+    @GetMapping(HTTP_ADMIN_EMPLEADOS_BAJAS_GET)
+    public Object nAdminEmpleadosBajasGet();
     
     /**
      * Registrar asistencia de un empleado específico (salida).
@@ -105,12 +136,28 @@ public interface AdminClient {
     @GetMapping(HTTP_ADMIN_ALERTAS_GET)
     public Object nAdminAlertasGet();
     /**
+     * Editar un área de trabajo o sección específica dentro de un servicio.
+     * @param id objeto web
+     * @param value objeto web
+     * @return objeto web
+     */
+    @PutMapping(HTTP_ADMIN_ALERTAS_PUT)
+    public Object nAdminAlertasPut(@PathVariable("id") Object id, @RequestBody Object value);
+    /**
      * Consultar una alerta específica para abastecimiento de pedidos
      * @param id id|long
      * @return objeto web
      */
     @GetMapping(HTTP_ADMIN_ALETAS_GET_ID)
     public Object nAdminAlertasGetId(@PathVariable("id") Object id);
+    
+    /**
+     * Agregar un área de trabajo o sección específica dentro de un servicio.
+     * @param o objeto web
+     * @return objeto web
+     */
+    @PostMapping(HTTP_ADMIN_AREAS_POST)
+    public Object nAdminAlertasPost(@RequestBody Object o);
     /**
      * Alertas: Tienda
      * @param o objeto web
@@ -199,6 +246,14 @@ public interface AdminClient {
      */
     @GetMapping(HTTP_ADMIN_PROVEEDORES_GET)
     public Object nAdminProveedoresGet();
+    
+    /**
+     * Consultar a todos los proveedores.
+     * @param id objeto web
+     * @return objeto web
+     */
+    @PatchMapping(HTTP_ADMIN_PROVEEDORES_PATCH)
+    public Object nAdminProveedoresPatch(@PathVariable("id") Object id);
     /**
      * Consultar un proveedor en específico.
      * @param id id|long

@@ -17,20 +17,27 @@ public class Token {
     private Date fechaInicio;
     private Date fechaExpiracion;
     private String idU; // _id del usuario
-
+    private String rolU; // rol del usuario
+    
     @CreatedDate
     private Date createdAt;
 
     @LastModifiedDate
     private Date updatedAt;
 
+    private boolean loggedOut;
+
     public Token() {}
 
-    public Token(String token, String idU, Date fechaInicio, Date fechaExpiracion) {
+    public Token(String id, String token, Date fechaInicio, Date fechaExpiracion, String idU, Date createdAt, Date updatedAt, boolean loggedOut) {
+        this.id = id;
         this.token = token;
-        this.idU = idU;
         this.fechaInicio = fechaInicio;
         this.fechaExpiracion = fechaExpiracion;
+        this.idU = idU;
+        this.createdAt = createdAt;
+        this.updatedAt = updatedAt;
+        this.loggedOut = loggedOut;
     }
 
     // Getters y setters
@@ -54,4 +61,20 @@ public class Token {
 
     public Date getUpdatedAt() { return updatedAt; }
     public void setUpdatedAt(Date updatedAt) { this.updatedAt = updatedAt; }
+
+    public String getRolU() {
+        return rolU;
+    }
+
+    public void setRolU(String rolU) {
+        this.rolU = rolU;
+    }
+
+    public boolean isLoggedOut() {
+        return loggedOut;
+    }
+
+    public void setLoggedOut(boolean loggedOut) {
+        this.loggedOut = loggedOut;
+    }
 }

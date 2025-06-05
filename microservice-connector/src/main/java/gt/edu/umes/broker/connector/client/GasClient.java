@@ -56,6 +56,13 @@ public interface GasClient {
      * @param o id:long
      * @return objeto web
      */
+    @GetMapping(HTTP_BOMB_LIST_EMPLOYEE_EMPLOYEEID)
+    public Object nBombListEmployeeEmployeeId(@PathVariable("employeeId") Object id);
+    /**
+     * Crear una bomba de servicio de gasolina
+     * @param o id:long
+     * @return objeto web
+     */
     @PostMapping(HTTP_BOMB_CREATE)
     public Object nBombCreate(@RequestBody Object o);
     /**

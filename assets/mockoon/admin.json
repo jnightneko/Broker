@@ -1526,6 +1526,68 @@
       "responseMode": null,
       "streamingMode": null,
       "streamingInterval": 0
+    },
+    {
+      "uuid": "a08b63e2-e4ef-4103-86d0-0dae5cb2cf62",
+      "type": "http",
+      "documentation": "",
+      "method": "post",
+      "endpoint": "administracion/POST/reembolsos",
+      "responses": [
+        {
+          "uuid": "ca068c5e-cf4d-4872-ad86-5ff548fedeb0",
+          "body": "{\n  \"msg\": \"Reembolso registrado con éxito\"\n}\n",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "2aae75db-8a30-4329-b27b-362b34bd7f02",
+      "type": "http",
+      "documentation": "",
+      "method": "post",
+      "endpoint": "administracion/POST/pagar-salarios",
+      "responses": [
+        {
+          "uuid": "41f7e572-ca3c-4d31-bc61-d7e95db3fa52",
+          "body": "{\n    \"message\": \"Salarios pagados e insertados como movimientos\",\n    \"salarios\": [\n        {\n            \"id\": 18,\n            \"id_tipo_movimiento\": 1,\n            \"id_servicio\": 1,\n            \"concepto\": \"Pago de salario para rol Encargado general\",\n            \"cantidad\": \"3500.00\",\n            \"fecha_movimiento\": \"2025-05-01\",\n            \"estado\": true,\n            \"id_producto\": null,\n            \"nombre_producto\": null,\n            \"nombre_empleado\": null\n        }\n    ]\n}\n",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
     }
   ],
   "rootChildren": [
@@ -1724,6 +1786,14 @@
     {
       "type": "route",
       "uuid": "7e750985-9645-4263-85c2-d413d6c3d7b3"
+    },
+    {
+      "type": "route",
+      "uuid": "a08b63e2-e4ef-4103-86d0-0dae5cb2cf62"
+    },
+    {
+      "type": "route",
+      "uuid": "2aae75db-8a30-4329-b27b-362b34bd7f02"
     }
   ],
   "proxyMode": false,

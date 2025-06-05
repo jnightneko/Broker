@@ -15,8 +15,10 @@ public final class MCSVAdmin {
     //**    RUTA DE ELNLACES
     public static final String HTTP_ADMIN_EMPLEADOS_GET              = "/administracion/GET/empleados";
     public static final String HTTP_ADMIN_EMPLEAODS_GET_ID           = "/administracion/GET/empleados/{id}";
+    public static final String HTTP_ADMIN_EMPLEADOS_BAJAS_GET        = "/administracion/GET/empleados/bajas";
     public static final String HTTP_ADMIN_EMPLEADOS_POST             = "/administracion/POST/empleados";
     public static final String HTTP_ADMIN_EMPLEADOS_PUT              = "/administracion/PUT/empleados/{id}";
+    public static final String HTTP_ADMIN_EMPLEADOS_PATCH            = "/administracion/PATCH/empleados/{id}";
     public static final String HTTP_ADMIN_ALERTAS_GET                = "/administracion/GET/alertas";
     public static final String HTTP_ADMIN_ALETAS_GET_ID              = "/administracion/GET/alertas/{id}";
     public static final String HTTP_ADMIN_ALERTAS_TINDA_CONVENIENCIA = "/administracion/POST/alertas/tienda_de_conveniencia";
@@ -24,6 +26,8 @@ public final class MCSVAdmin {
     public static final String HTTP_ADMIN_ALERTAS_REPUESTO           = "/administracion/POST/alertas/repuestos";
     public static final String HTTP_ADMIN_ALERTAS_PINTURA            = "/administracion/POST/alertas/pintura";
     public static final String HTTP_ADMIN_ALERTAS_PATCH              = "/administracion/PATCH/alertas/{id}";
+    public static final String HTTP_ADMIN_ALERTAS_PUT                = "/administracion/PUT/areas/{id}";
+    public static final String HTTP_ADMIN_AREAS_POST                 = "/administracion/POST/areas";
     public static final String HTTP_ADMIN_AREAS_GET                  = "/administracion/GET/areas";
     public static final String HTTP_ADMIN_AREAS_GET_ID               = "/administracion/GET/areas/{id}";
     public static final String HTTP_ADMIN_ROLES_GET                  = "/administracion/GET/roles";
@@ -37,6 +41,7 @@ public final class MCSVAdmin {
     public static final String HTTP_ADMIN_PROVEEDORES_GET_ID         = "/administracion/GET/proveedores/{id}";
     public static final String HTTP_ADMIN_PROVEEDORES_POST           = "/administracion/POST/proveedores";
     public static final String HTTP_ADMIN_PROVEEDORES_PUT            = "/administracion/PUT/proveedores/{id}";
+    public static final String HTTP_ADMIN_PROVEEDORES_PATCH          = "/administracion/PATCH/proveedores/{id}";
     public static final String HTTP_ADMIN_SERVICIO_GET               = "/administracion/GET/servicios";
     public static final String HTTP_ADMIN_SERVICIO_GET_ID            = "/administracion/GET/servicios/{id}";
     public static final String HTTP_ADMIN_MOVIMIENTO_GET             = "/administracion/GET/movimientos";
@@ -62,6 +67,8 @@ public final class MCSVAdmin {
     public static final String HTTP_ADMIN_USUARIO_LOGIN              = "/administracion/POST/login";
     public static final String HTTP_ADMIN_USUARIO_CAMBIO_PASS        = "/administracion/POST/cambiar-password";
     public static final String HTTP_ADMIN_USUARIO_RESET_PASS         = "/administracion/POST/restablecer-password";
+    public static final String HTTP_ADMIN_REMBOLSOS_POST             = "/administracion/POST/reembolsos";
+    public static final String HTTP_ADMIN_PAGAR_SALARIO_POST         = "/administracion/POST/pagar-salarios";
     /** Constructor privadoo. */
     private MCSVAdmin() {}
 }

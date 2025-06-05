@@ -4,8 +4,10 @@
  */
 package gt.edu.umes.broker.validation.controller;
 
+import com.google.common.hash.Hashing;
 import gt.edu.umes.broker.core.model.AbstractBKModel;
 import gt.edu.umes.broker.core.model.BKRequestModel;
+import gt.edu.umes.broker.core.model.BKResponseModel;
 import gt.edu.umes.broker.core.model.EstadoPeticion;
 import gt.edu.umes.broker.core.model.MetaData;
 import gt.edu.umes.broker.core.system.SFPBSystem;
@@ -19,10 +21,12 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.nio.charset.StandardCharsets;
+
 /**
  * Clase encargada de controlar las peticiones HTTP para las validaciones de cada
  * petición hacia los servicios externos de la organización.
- * 
+ *
  * @author wil
  * @version 1.0.0
  * @since 1.0.0
@@ -36,41 +40,67 @@ public final class ValidationController {
     @Autowired private ValidationService valService;
     /** Servicio de los logs.  */
     @Autowired private LogService logService;
-    
+
     /** Un mensaje de error. */
     private String error = null;
     /** Id temporal|global*/
     private String id;
-    
+
     /**
      * Método encargado de redireccionar una petición a cualquier servicio externo.
-     * 
+     *
      * @param model modelo|body de la petición
      * @param token toket de autorización
      * @param method método
      * @return objeto respueta
      */
     private Object requestAll(BKRequestModel model, String token, final String method) {
-        if (token != null) {            
-            id = SFPBSystem.extractUsername(SFPBSystem.extractBearerToken(token), (ex) -> {
-                error = "Error a extrare los datos del token: " + ex.getMessage();
-                logService.log(error, method, model.getMetaData().getEndPoint(), "none", EstadoPeticion.Pendiente);
-            });
-            if (id == null) {
-                Object res = bkNewError(error, 422);
-                error = null;
-                id    = null;
-                return ResponseEntity.status(422).body(res);
-            } else {
+        if (token != null) {
+            try {
+                // Extraer el token Bearer
+                String extractedToken = SFPBSystem.extractBearerToken(token);
+                String hashToken = Hashing.sha256().hashString(extractedToken, StandardCharsets.UTF_8).toString();
+
+                // 1. Verificar si el token está loggedOut
+                if (logService.isTokenLoggedOut(hashToken)) {
+                    error = "Token inválido: sesión cerrada";
+                    logService.log(error, method, model.getMetaData().getEndPoint(), "none", EstadoPeticion.Pendiente);
+                    
+                    Object res = bkNewError(error, 401);
+                    error = null;
+                    return ResponseEntity.status(401).body(res);
+                }
+
+                // 2. Extraer el ID de usuario
+                id = SFPBSystem.extractUsername(extractedToken, (ex) -> {
+                    error = "Error al extraer datos del token: " + ex.getMessage();
+                    logService.log(error, method, model.getMetaData().getEndPoint(), "none", EstadoPeticion.Pendiente);
+                });
+
+                if (id == null) {
+                    Object res = bkNewError(error, 422);
+                    error = null;
+                    id = null;
+                    return ResponseEntity.status(422).body(res);
+                }
+
+                // 3. Obtener nombre de usuario
                 String nombreUsuario = logService.findUserName(id);
                 if (nombreUsuario != null) {
                     MetaData metaData = model.getMetaData();
                     metaData.setClientId(id);
                     metaData.setClientName(nombreUsuario);
                 }
+            } catch (Exception e){
+                error = "Error al procesar el token de autenticacion";
+                logService.log(error + ": " + e.getMessage(), method, model.getMetaData().getEndPoint(), "none", EstadoPeticion.Pendiente);
+                Object res = bkNewError(error, 500);
+                error = null;
+                return ResponseEntity.status(500).body(res);
             }
         }
-        
+
+        // Validación del modelo/servicio
         if (valService.isValid(model, (LogService logs, AbstractBKModel<Object> request, String msg, EstadoPeticion type) -> {
             if (type != EstadoPeticion.Aprobada) {
                 error = "El servicio no puede ser prestado en este momento.";
@@ -78,18 +108,23 @@ public final class ValidationController {
             logs.log(msg, method, model.getMetaData().getEndPoint(), id, type);
         })) {
             id = null;
-            return service.send(model);
+            Object o = service.send(model);
+            if (o instanceof BKResponseModel bKResponseModel) {
+                return ResponseEntity.status(bKResponseModel.getBody().getStatus()).body(o);
+            }
+            return o;
         }
-        
+
+        // Manejo de error final
         Object res = bkNewError(error, 422);
         error = null;
-        id    = null;
+        id = null;
         return ResponseEntity.status(422).body(res);
     }
 
     /**
      * Petición por el método {@code GET} con el formtado estandar.
-     * 
+     *
      * @param token toket de autorización
      * @param object objeto web
      * @return respueta
@@ -104,7 +139,7 @@ public final class ValidationController {
 
     /**
      * Petición por el método {@code POST} con el formtado estandar.
-     * 
+     *
      * @param object objeto web
      * @param token toket de autorización
      * @return respueta
@@ -119,7 +154,7 @@ public final class ValidationController {
 
     /**
      * Petición por el método {@code PUT} con el formtado estandar.
-     * 
+     *
      * @param object objeto web
      * @param token toket de autorización
      * @return respueta
@@ -134,7 +169,7 @@ public final class ValidationController {
 
     /**
      * Petición por el método {@code PATH} con el formtado estandar.
-     * 
+     *
      * @param object objeto web
      * @param token toket de autorización
      * @return respueta
@@ -149,7 +184,7 @@ public final class ValidationController {
 
     /**
      * Petición por el método {@code DELETE} con el formtado estandar.
-     * 
+     *
      * @param object objeto web
      * @param token toket de autorización
      * @return respueta

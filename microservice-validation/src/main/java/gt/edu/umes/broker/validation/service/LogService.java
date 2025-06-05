@@ -29,6 +29,9 @@ public class LogService {
     /** Cliente de los logs. */
     @Autowired
     private ClientLogs clientLogs;
+    /** Servicio externo (hardware )*/
+    @Autowired
+    private ValidationServiceHardware validationServiceHardware;
     
     /**
      * Busca el nombre de usuario en la base de datos del broker
@@ -56,6 +59,15 @@ public class LogService {
      * @param type tipo de log
      */
     public void log(String msg, String method, String endpoint, String id, EstadoPeticion type) {
+        // conexión con el hardware
+        switch (type) {
+            case Rechazada -> validationServiceHardware.enviarComando("RECHAZADA");
+            case Aprobada  -> validationServiceHardware.enviarComando("VALIDA");
+            default -> {
+                /* nada */
+            }
+        }
+        
         // mensaje a guardar en la DB
         String message = LogService.logFormatted(msg, method, type);
         if (Configuration.ENABLE_DEBUGGER_LOGS.get(false)) {
@@ -98,5 +110,14 @@ public class LogService {
                 buffer.append('[').append(myDateObj.format(myFormatObj)).append(']')
                       .append('[').append(methdo).append("] :")
                       .append(" <").append(type).append("> ").append(msg));
+    }
+
+    public boolean isTokenLoggedOut(String token){
+        try {
+            return clientLogs.isTokenLoggedOut(token);
+        } catch (Exception e){
+            System.err.println("Error al verificar token: " + e.getMessage());
+            return true;
+        }
     }
 }

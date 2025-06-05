@@ -45,10 +45,11 @@ public interface PagosClient {
     /**
      * Método encargado de enlazar la ruta (endpoint) del microservicio 'Pagos'.
      * @param value parámetro (body)
+     * @param id objeto web
      * @return objeto json
      */
     @PutMapping(PAGOS_CLIENTE_ACTUALIZAR)
-    public Object pClienteActualizar(@RequestBody Object value);
+    public Object pClienteActualizar(@RequestBody Object value, @PathVariable("id_cliente") Object id);
     /**
      * Método encargado de enlazar la ruta (endpoint) del microservicio 'Pagos'.
      * @param id parámetro (body)
@@ -109,7 +110,7 @@ public interface PagosClient {
      * @param value parámetro (body)
      * @return objeto json
      */
-    @GetMapping(PAGOS_TRANSACCION_OBTENER)
+    @PostMapping(PAGOS_TRANSACCION_OBTENER)
     public Object pTransaccionObtener(@RequestBody Object value);
     /**
      * Lista la transacción solicitada mediante el id
@@ -121,10 +122,11 @@ public interface PagosClient {
     /**
      * Lista las transacciones hechas filtradas por servicio
      * @param id parámetro (body)
+     * @param value objeto web
      * @return objeto json
      */
-    @GetMapping(PAGOS_TRANSACCION_OBTENER_POR_SERVICIO)
-    public Object pTransaccionPorServicio(@PathVariable("idServicio") Object id);
+    @PostMapping(PAGOS_TRANSACCION_OBTENER_POR_SERVICIO)
+    public Object pTransaccionPorServicio(@PathVariable("idServicio") Object id, @RequestBody Object value);
     /**
      * Solicita datos necesarios para crear una transacción
      * @param value parámetro (body)
@@ -150,7 +152,7 @@ public interface PagosClient {
      * 
      * @return objeto json
      */
-    @GetMapping(PAGOS_DEVOLUCION_OBTENER)
+    @PostMapping(PAGOS_DEVOLUCION_OBTENER)
     public Object pDevolucionObtener(@RequestBody Object value);
     /**
      * Busca la devolución por el número dado
@@ -199,6 +201,12 @@ public interface PagosClient {
     
     //***************************************************************************************************
     // >>                                        MÓDULO FACTURAS                                       <<
+    /**
+     * Devuelve todas las facturas del sistema
+     * @return objeto json
+     */
+    @GetMapping(PAGOS_FACTURA_OBTENER_TODO)
+    public Object pFacturaObtenerTodo();
     /**
      * Devuelve la factura que coincida con el numero ingresado si existe
      * @param id parámetro (body)

@@ -22,6 +22,26 @@ public class AdminController {
     @Autowired
     private AdminClient client;
     /* (non-Javadoc) */
+    @PostMapping(HTTP_ADMIN_EMPLEADOS_PATCH)
+    public Object getEmpleadoPatch(@PathVariable("id") Object o) {
+        return client.nEmpleadoPatch(o);
+    }
+    /* (non-Javadoc) */
+    @PostMapping(HTTP_ADMIN_ALERTAS_PUT)
+    public Object getAdminAlertasPut(@PathVariable("id") Object id, @RequestBody Object value) {
+        return client.nAdminAlertasPut(id, value);
+    }
+    /* (non-Javadoc) */
+    @PostMapping(HTTP_ADMIN_PAGAR_SALARIO_POST )
+    public Object getPagoSalario(@RequestBody(required = false) Object o) {
+        return client.nPagoSalario(o);
+    }
+    /* (non-Javadoc) */
+    @PostMapping(HTTP_ADMIN_REMBOLSOS_POST)
+    public Object getRembolose(@RequestBody Object o) {
+        return client.nRembolose(o);
+    }
+    /* (non-Javadoc) */
     @PostMapping(HTTP_ADMIN_USUARIO_LOGIN)
     public Object getUsuariosLogin(@RequestBody Object o) {
         return client.nUsuariosLogin(o);
@@ -38,18 +58,28 @@ public class AdminController {
     }
     /* (non-Javadoc) */
     @PostMapping(HTTP_ADMIN_ALERTAS_PATCH)
-    public Object getAlertasPatch() {
-        return client.nAlertasPatch();
+    public Object getAlertasPatch(@PathVariable("id") Object id) {
+        return client.nAlertasPatch(id);
+    }
+    /* (non-Javadoc) */
+    @PostMapping(HTTP_ADMIN_AREAS_POST)
+    public Object getAdminAlertasPost(@RequestBody Object o) {
+        return client.nAdminAlertasPost(o);
     }
     /* (non-Javadoc) */
     @PostMapping(HTTP_ADMIN_ROLES_PATCH)
-    public Object getRolesPatch() {
-        return client.nRolesPatch();
+    public Object getRolesPatch(@PathVariable("id") Object id) {
+        return client.nRolesPatch(id);
     }
     /* (non-Javadoc) */
     @PostMapping(HTTP_ADMIN_ASISTENCIA_PATCH)
     public Object getAsistenciaPatch(@RequestBody Object o) {
         return client.nAsistenciaPatch(o);
+    }
+    /* (non-Javadoc) */
+    @GetMapping(HTTP_ADMIN_EMPLEADOS_BAJAS_GET)
+    public Object getAdminEmpleadosBajasGet() {
+        return client.nAdminEmpleadosBajasGet();
     }
     
     /* (non-Javadoc) */
@@ -146,6 +176,11 @@ public class AdminController {
     @PostMapping(HTTP_ADMIN_PROVEEDORES_GET)
     public Object getAdminProveedoresGet() {
         return client.nAdminProveedoresGet();
+    }
+    /* (non-Javadoc) */
+    @PostMapping(HTTP_ADMIN_PROVEEDORES_PATCH)
+    public Object nAdminProveedoresPatch(@PathVariable("id") Object id) {
+        return client.nAdminProveedoresPatch(id);
     }
     /* (non-Javadoc) */
     @PostMapping(HTTP_ADMIN_PROVEEDORES_GET_ID)

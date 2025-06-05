@@ -2,21 +2,21 @@ server:
   port: 8095
 
 ## mongodb de forma remota ##
-#spring:
-#  data:
-#    mongodb:
-#      uri: mongodb+srv://<user>:<db_password>@cluster0.5gauqjk.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
-#      database: DB
-
-# mongodb de forma local
 spring:
   data:
     mongodb:
-      uri: mongodb://localhost:27017/DB
+      uri: mongodb+srv://${MONGODB_USER}:${MONGODB_PASSWORD}@cluster0.5gauqjk.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
+      database: DB
+
+# mongodb de forma local
+#spring:
+#  data:
+#    mongodb:
+#      uri: mongodb://localhost:27017/DB
 
 eureka:
   instance:
-    hostname: localhost
+    hostname: ${HOST_NAME_LOGS}
   client:
     serviceUrl:
-      defaultZone: http://localhost:8761/eureka
+      defaultZone: http://${HOST_EUREKA}:8761/eureka

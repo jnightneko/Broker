@@ -10,8 +10,7 @@ import org.springframework.data.mongodb.config.EnableMongoAuditing;
 @EnableDiscoveryClient
 public class MicroserviceLogsApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(MicroserviceLogsApplication.class, args);
-	}
-
+    public static void main(String[] args) {
+        SpringApplication.run(MicroserviceLogsApplication.class, args);
+    }
 }

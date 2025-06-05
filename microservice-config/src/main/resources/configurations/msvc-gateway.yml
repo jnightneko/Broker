@@ -10,39 +10,50 @@ spring:
         locator:
           enabled: true
       routes:
-        - id: example
-          uri: 'http://localhost:8090'
-          predicates:
-            - Path=/api/**
-          filters:
-            - AuthenticationFilter
         - id: validation
-          uri: 'http://localhost:9090'
+          uri: 'http://${HOST_NAME_VALIDATION}:9090'
           predicates:
             - Path=/broker/api/**
           filters:
             - AuthenticationFilter
+
         - id: identity-service
-          uri: 'http://localhost:8091'
+          uri: 'http://${HOST_NAME_IDENTITY}:8091'
           predicates:
             - Path=/broker/**
+          filters:
+            - AuthenticationFilter
 
       globalcors:
         cors-configurations:
           '[/**]':
             allowedOrigins:
-              - "http://192.168.56.1:4002"
-
-            allowedMethods: "GET, POST, PUT, DELETE, OPTIONS"
-            allowedHeaders: "Authorization, Content-Type"
-            exposedHeaders: "Authorization"
-            allowedCredentials: true
+              - "*"
+            allowedMethods:
+              - GET
+              - POST
+              - PUT
+              - DELETE
+              - OPTIONS
+              - PATCH
+            allowedHeaders:
+              - Authorization
+              - Content-Type
+            exposedHeaders:
+              - Authorization
+            allowedCredentials: false
             maxAge: 3600
 
+      default-filters:
+          - DedupeResponseHeader=Access-Control-Allow-Origin Access-Control-Allow-Credentials
+
       logging:
-        level:
-          org.springframework.web.cors: DEBUG
+          level:
+            org.springframework.web.cors: DEBUG
 
 eureka:
   client:
-    register-with-eureka: false
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://${HOST_EUREKA}:8761/eureka/

@@ -3,6 +3,9 @@ target/
 !**/src/main/**/target/
 !**/src/test/**/target/
 
+### ENV ###
+.env
+
 ### IntelliJ IDEA ###
 .idea
 *.iws

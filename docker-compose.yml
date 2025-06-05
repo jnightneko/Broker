@@ -1,0 +1,168 @@
+## Copyright Broker (SFPB). All rights reserved,
+## Licence terms: https://github.com/jnightneko/Broker?tab=BSD-3-Clause-1-ov-file
+services:
+  # << Microservice - Condig >>
+  microservice-config:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        MICROSERVICE: microservice-config
+    env_file:
+      - .env
+    environment:
+      HOST_EUREKA: ${HOST_EUREKA}
+      HOST_CONFIG: ${HOST_CONFIG}
+      HOST_NAME_CONNECTOR: ${HOST_NAME_CONNECTOR}
+      HOST_NAME_IDENTITY: ${HOST_NAME_IDENTITY}
+      HOST_NAME_LOGS: ${HOST_NAME_LOGS}
+      HOST_NAME_VALIDATION: ${HOST_NAME_VALIDATION}
+    ports:
+      - 8888:8888
+    networks:
+      - spring-cloud-network
+
+  # << Microservice - Eureka >>
+  microservice-eureka:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        MICROSERVICE: microservice-eureka
+    env_file:
+      - .env
+    environment:
+      HOST_EUREKA: ${HOST_EUREKA}
+      HOST_CONFIG: ${HOST_CONFIG}
+      HOST_NAME_CONNECTOR: ${HOST_NAME_CONNECTOR}
+      HOST_NAME_IDENTITY: ${HOST_NAME_IDENTITY}
+      HOST_NAME_LOGS: ${HOST_NAME_LOGS}
+      HOST_NAME_VALIDATION: ${HOST_NAME_VALIDATION}
+    ports:
+      - 8761:8761
+    depends_on:
+      - microservice-config
+    networks:
+      - spring-cloud-network
+
+  # << Microservice - Otros >>
+  microservice-connector:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        MICROSERVICE: microservice-connector
+    env_file:
+      - .env
+    environment:
+      HOST_EUREKA: ${HOST_EUREKA}
+      HOST_CONFIG: ${HOST_CONFIG}
+      HOST_NAME_CONNECTOR: ${HOST_NAME_CONNECTOR}
+      HOST_NAME_IDENTITY: ${HOST_NAME_IDENTITY}
+      HOST_NAME_LOGS: ${HOST_NAME_LOGS}
+      HOST_NAME_VALIDATION: ${HOST_NAME_VALIDATION}
+    ports:
+      - 8090:8090
+    depends_on:
+      - microservice-config
+      - microservice-eureka
+    networks:
+      - spring-cloud-network
+
+  microservice-gateway:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        MICROSERVICE: microservice-gateway
+    env_file:
+      - .env
+    environment:
+      HOST_EUREKA: ${HOST_EUREKA}
+      HOST_CONFIG: ${HOST_CONFIG}
+      HOST_NAME_CONNECTOR: ${HOST_NAME_CONNECTOR}
+      HOST_NAME_IDENTITY: ${HOST_NAME_IDENTITY}
+      HOST_NAME_LOGS: ${HOST_NAME_LOGS}
+      HOST_NAME_VALIDATION: ${HOST_NAME_VALIDATION}
+    ports:
+      - 3761:3761
+    depends_on:
+      - microservice-config
+      - microservice-eureka
+    networks:
+      - spring-cloud-network
+
+  microservice-identity:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        MICROSERVICE: microservice-identity
+    env_file:
+      - .env
+    environment:
+      HOST_EUREKA: ${HOST_EUREKA}
+      HOST_CONFIG: ${HOST_CONFIG}
+      HOST_NAME_CONNECTOR: ${HOST_NAME_CONNECTOR}
+      HOST_NAME_IDENTITY: ${HOST_NAME_IDENTITY}
+      HOST_NAME_LOGS: ${HOST_NAME_LOGS}
+      HOST_NAME_VALIDATION: ${HOST_NAME_VALIDATION}
+    ports:
+      - 8091:8091
+    depends_on:
+      - microservice-config
+      - microservice-eureka
+    networks:
+      - spring-cloud-network
+
+  microservice-logs:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        MICROSERVICE: microservice-logs
+    ports:
+      - 8095:8095
+    env_file:
+      - .env
+    environment:
+      HOST_EUREKA: ${HOST_EUREKA}
+      HOST_CONFIG: ${HOST_CONFIG}
+      HOST_NAME_CONNECTOR: ${HOST_NAME_CONNECTOR}
+      HOST_NAME_IDENTITY: ${HOST_NAME_IDENTITY}
+      HOST_NAME_LOGS: ${HOST_NAME_LOGS}
+      HOST_NAME_VALIDATION: ${HOST_NAME_VALIDATION}
+      MONGODB_USER: ${MONGODB_USER}
+      MONGODB_PASSWORD: ${MONGODB_PASSWORD}
+    depends_on:
+      - microservice-config
+      - microservice-eureka
+    networks:
+      - spring-cloud-network
+
+  microservice-validation:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        MICROSERVICE: microservice-validation
+    env_file:
+      - .env
+    environment:
+      HOST_EUREKA: ${HOST_EUREKA}
+      HOST_CONFIG: ${HOST_CONFIG}
+      HOST_NAME_CONNECTOR: ${HOST_NAME_CONNECTOR}
+      HOST_NAME_IDENTITY: ${HOST_NAME_IDENTITY}
+      HOST_NAME_LOGS: ${HOST_NAME_LOGS}
+      HOST_NAME_VALIDATION: ${HOST_NAME_VALIDATION}
+    ports:
+      - 9090:9090
+    depends_on:
+      - microservice-config
+      - microservice-eureka
+    networks:
+      - spring-cloud-network
+
+networks:
+  spring-cloud-network:
+    driver: bridge

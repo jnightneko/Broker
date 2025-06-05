@@ -6,8 +6,6 @@ package gt.edu.umes.broker.core.model;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.time.Instant;
-import java.time.LocalTime;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -79,6 +77,10 @@ public class JsonObjectX {
     
     public Boolean getBoolean(String key) {
         return Boolean.valueOf(getString(key));
+    }
+    
+    public Object get(String key) {
+        return map.get(key);
     }
     
     public Date getDate(String key) {

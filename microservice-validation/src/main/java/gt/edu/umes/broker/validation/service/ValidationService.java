@@ -36,7 +36,7 @@ public class ValidationService {
     /** Microservicio de conexión (redireccionamiento)*/
     @Autowired
     private ConnectorService connectorService;
-    
+
     /**
      * Método encargado de validar el cuerpo de la petición, esta validación depende
      * a que servicios este destinado.

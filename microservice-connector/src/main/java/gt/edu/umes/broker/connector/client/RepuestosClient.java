@@ -345,4 +345,37 @@ public interface RepuestosClient {
      */
     @PostMapping(HTTP_DEVOLUCION_POST)
     Object nDevolucionPost(@RequestBody Object o);
+
+    @GetMapping(HTTP_BANCOS_GET)
+    Object nBancosGet();
+
+    @GetMapping(HTTP_METODOS_PAGO_GET)
+    Object nMetodosPagoGet();
+
+    @GetMapping(HTTP_SERVICIOS_TRANSACCION_GET)
+    Object nServiciosTransaccionGet();
+
+    @GetMapping(HTTP_CLIENTES_PAGO_GET)
+    Object nClientesPagoGet();
+
+    @GetMapping(HTTP_VERIFICAR_CLIENTE_GET)
+    Object nVerificarClienteGet(@PathVariable("nit") Object nit);
+
+    @PostMapping(HTTP_PROCESAR_VENTA_PAGO_POST)
+    Object nProcesarVentaPagoPost(@RequestBody Object o);
+
+    @PostMapping(HTTP_PROCESAR_VENTA_INVENTARIO_POST)
+    Object nProcesarVentaInventarioPost(@RequestBody Object o);
+
+    @PostMapping(HTTP_PROCESAR_PAGO_POST)
+    Object nProcesarPagoPost(@PathVariable("idVenta") Object idVenta, @RequestBody Object o);
+
+    @GetMapping(HTTP_TRANSACCION_GET)
+    Object nTransaccionGet(@PathVariable("noTransaccion") Object noTransaccion);
+
+    @PutMapping(HTTP_ANULAR_TRANSACCION_PUT)
+    Object nAnularTransaccionPut(@PathVariable("noTransaccion") Object noTransaccion, @RequestBody Object o);
+
+    @PostMapping(HTTP_PRODUCTOS_ABASTECER_POST)
+    Object nProductosAbastecerPost(@RequestBody Object o);
 }

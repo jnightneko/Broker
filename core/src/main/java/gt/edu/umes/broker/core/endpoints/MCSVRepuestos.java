@@ -73,6 +73,19 @@ public final class MCSVRepuestos {
     public static final String HTTP_DEVOLUCION_GET = "/tallerrepuestos/GET/devolucion";
     public static final String HTTP_DEVOLUCION_GET_ID = "/tallerrepuestos/GET/devolucion/{id}";
     public static final String HTTP_DEVOLUCION_POST = "/tallerrepuestos/POST/devolucion";
+    //** PAGOS (COMUNICACION)
+    public static final String HTTP_BANCOS_GET = "/tallerrepuestos/GET/pago/bancos";
+    public static final String HTTP_METODOS_PAGO_GET = "/tallerrepuestos/GET/pago/metodos-pago";
+    public static final String HTTP_SERVICIOS_TRANSACCION_GET = "/tallerrepuestos/GET/pago/servicios-transaccion";
+    public static final String HTTP_CLIENTES_PAGO_GET = "/tallerrepuestos/GET/pago/clientes-pago";
+    public static final String HTTP_VERIFICAR_CLIENTE_GET = "/tallerrepuestos/GET/pago/verificar-cliente/{nit}";
+    public static final String HTTP_PROCESAR_VENTA_PAGO_POST = "/tallerrepuestos/POST/pago/procesar-venta-pago";
+    public static final String HTTP_PROCESAR_VENTA_INVENTARIO_POST = "/tallerrepuestos/POST/pago/procesar-venta-inventario";
+    public static final String HTTP_PROCESAR_PAGO_POST = "/tallerrepuestos/POST/pago/procesar-pago/{idVenta}";
+    public static final String HTTP_TRANSACCION_GET = "/tallerrepuestos/GET/pago/transaccion/{noTransaccion}";
+    public static final String HTTP_ANULAR_TRANSACCION_PUT = "/tallerrepuestos/PUT/pago/anular-transaccion/{noTransaccion}";
+    //** ADMINISTRACION (ABASTECIMIENTO)
+    public static final String HTTP_PRODUCTOS_ABASTECER_POST = "/tallerrepuestos/POST/productos/abastecer";
 
 
     /** Constructor privadoo. */

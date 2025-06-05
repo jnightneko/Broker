@@ -15,6 +15,7 @@ public final class MCSVAdmin {
     //**    RUTA DE ELNLACES
     public static final String HTTP_ADMIN_EMPLEADOS_GET              = "/administracion/GET/empleados";
     public static final String HTTP_ADMIN_EMPLEAODS_GET_ID           = "/administracion/GET/empleados/{id}";
+    public static final String HTTP_ADMIN_EMPLEADOS_BAJAS_GET        = "/administracion/GET/empleados/bajas";
     public static final String HTTP_ADMIN_EMPLEADOS_POST             = "/administracion/POST/empleados";
     public static final String HTTP_ADMIN_EMPLEADOS_PUT              = "/administracion/PUT/empleados/{id}";
     public static final String HTTP_ADMIN_EMPLEADOS_PATCH            = "/administracion/PATCH/empleados/{id}";

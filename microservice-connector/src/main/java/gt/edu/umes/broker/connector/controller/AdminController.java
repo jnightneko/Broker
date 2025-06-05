@@ -28,7 +28,7 @@ public class AdminController {
     }
     /* (non-Javadoc) */
     @PostMapping(HTTP_ADMIN_ALERTAS_PUT)
-    public Object getAdminAlertasPut(@PathVariable("id") Object id, @RequestAttribute Object value) {
+    public Object getAdminAlertasPut(@PathVariable("id") Object id, @RequestBody Object value) {
         return client.nAdminAlertasPut(id, value);
     }
     /* (non-Javadoc) */
@@ -68,13 +68,18 @@ public class AdminController {
     }
     /* (non-Javadoc) */
     @PostMapping(HTTP_ADMIN_ROLES_PATCH)
-    public Object getRolesPatch() {
-        return client.nRolesPatch();
+    public Object getRolesPatch(@PathVariable("id") Object id) {
+        return client.nRolesPatch(id);
     }
     /* (non-Javadoc) */
     @PostMapping(HTTP_ADMIN_ASISTENCIA_PATCH)
     public Object getAsistenciaPatch(@RequestBody Object o) {
         return client.nAsistenciaPatch(o);
+    }
+    /* (non-Javadoc) */
+    @GetMapping(HTTP_ADMIN_EMPLEADOS_BAJAS_GET)
+    public Object getAdminEmpleadosBajasGet() {
+        return client.nAdminEmpleadosBajasGet();
     }
     
     /* (non-Javadoc) */

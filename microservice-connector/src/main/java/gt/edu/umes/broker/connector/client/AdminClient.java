@@ -79,10 +79,19 @@ public interface AdminClient {
     
     /**
      * Eliminar un rol de manera lógica.
+     * @param id obj
      * @return objeto web
      */
     @PatchMapping(HTTP_ADMIN_ROLES_PATCH)
-    public Object nRolesPatch();
+    public Object nRolesPatch(@PathVariable("id") Object id);
+    
+    /**
+     * Consultar la información de todos los empleados que trabajaron previamente 
+     * en la gasolinera (empleados inactivos).
+     * @return  obj
+     */
+    @GetMapping(HTTP_ADMIN_EMPLEADOS_BAJAS_GET)
+    public Object nAdminEmpleadosBajasGet();
     
     /**
      * Registrar asistencia de un empleado específico (salida).
@@ -133,7 +142,7 @@ public interface AdminClient {
      * @return objeto web
      */
     @PutMapping(HTTP_ADMIN_ALERTAS_PUT)
-    public Object nAdminAlertasPut(@PathVariable("id") Object id, @RequestAttribute Object value);
+    public Object nAdminAlertasPut(@PathVariable("id") Object id, @RequestBody Object value);
     /**
      * Consultar una alerta específica para abastecimiento de pedidos
      * @param id id|long
